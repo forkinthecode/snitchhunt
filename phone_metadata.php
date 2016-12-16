@@ -81,8 +81,10 @@ $result = mysqli_query($db, $phone );
 }
 if(isset($_GET['search_all_phone'])  )
  {//1
-  
-$search_all_phone=trim($_GET['search_all_phone']);
+
+$data=trim($_GET['search_all_phone']);
+$search_all_phone= mysqli_real_escape_string ( $db , $data );
+
 $phone = "SELECT * FROM `phone_metadata` WHERE 
 `subscriber_imei`='$search_all_phone' || 
 `subscriber_phone_number`='$search_all_phone'|| 
@@ -97,7 +99,8 @@ if ($num_results <1)
        echo"<p>There are no exact matches for the search criteria <b>$search_all_phone</b>- 
        falling back to inexact matches</p>";
 
-      $search_all_phone=trim($_GET['search_all_phone']);
+     //$data=trim($_GET['search_all_phone']);
+     //$search_all_phone= mysqli_real_escape_string ( $db , $data );
       $phone = "SELECT * FROM `phone_metadata` where 
         `subscriber_imei` LIKE'%$search_all_phone%'  
         `subscriber_phone_number` LIKE'%$search_all_phone%'|| 
@@ -183,7 +186,8 @@ if ($num_results <1)
 if(!isset($_GET['search_all_phone']) && isset($_GET['show_all_phone_data']))
  {//1
   
-$show_all_phone_data=trim($_GET['show_all_phone_data']);
+$data=trim($_GET['search_all_phone_data']);
+$search_all_phone_data= mysqli_real_escape_string ( $db , $data );
 $phone = "SELECT * from phone_metadata where 
    subscriber_phone_number ='$show_all_phone_data' 
 || cell_tower_location ='$show_all_phone_data' 

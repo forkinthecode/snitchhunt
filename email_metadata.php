@@ -95,8 +95,8 @@ if(isset($_GET['search_all_email'])  )
 
 {
 
-$search_all_email= mysqli_real_escape_string ( $db ,trim($_GET['search_all_email']) );
-
+$data=trim($_GET['search_all_email']);
+$search_all_email= mysqli_real_escape_string ( $db , $data );
 $email = "SELECT * FROM `email_metadata` where 
    source_IP_address        ='$search_all_email' 
 || size                     ='$search_all_email' 
@@ -132,7 +132,7 @@ if ($num_results <1)
         {//4
          echo"<p>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
          Maximum results displayed is 300.</p><p> 
-         <a href='email_metadata.php?show_all_email_data=$show_all_email'>Click here</a>
+         <a href='email_metadata.php?show_all_email_data=$search_all_email'>Click here</a>
           to override limit and display all ".number_format($num_results).".</p> ";
          }//4
         elseif ($num_results <300 && $num_results >0) 
@@ -198,8 +198,8 @@ if(isset($_GET['show_all_email_data'])  )
 
 {
 
-$show_all_email_data= mysqli_real_escape_string ( $db ,trim($_GET['search_all_email_data']) );
-
+$data=trim($_GET['search_all_email_data']);
+$search_all_email_data= mysqli_real_escape_string ( $db , $data );
 $email = "SELECT * FROM `email_metadata` where 
    source_IP_address        ='$show_all_email_data' 
 || size                     ='$show_all_email_data' 

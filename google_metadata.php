@@ -92,7 +92,10 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
 if(isset($_GET['search_all_google'])  )
  {//1
   
-  $search_all_google=trim($_GET['search_all_google']);
+$data=trim($_GET['search_all_google']);
+$search_all_google= mysqli_real_escape_string ( $db , $data );
+
+  
 $google = "SELECT * FROM `google_metadata` where 
 IP_address      ='$search_all_google' 
 || user_id      ='$search_all_google' 
@@ -180,14 +183,14 @@ if ($num_results <1)
  {//11
   echo"<p>There are too many exact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
   Maximum results displayed is 300.</p><p> <a href='google_metadata.php?show_all_google_data=$search_all_google'>Click here</a> to override limit and display all ".number_format($num_results).".</p> ";
- }//12
+ }//11
  elseif ($num_results <300 && $num_results >0) 
-        { //13
+        { //12
           echo"<h4>There are $num_results <i>Google search metadata</i> exact matches for <b>$search_all_google</b></h4>
          <div class='expand'>";
  while ($row = $result->fetch_assoc()) 
 
-    {//14
+    {//13
 
     echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
       <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
@@ -204,11 +207,11 @@ if ($num_results <1)
       <tr><td>Date and Time:</td>               <td>".$row['date_time']."     </td></tr>
      </tbody></table><br>";
 
-    }//15 
+    }//13
    echo"</div>Mouse over/scroll for more results.";
 
       
-      }//16
+      }//12
 }mysqli_free_result($result);
 
 ?>
@@ -218,7 +221,9 @@ if(isset($_GET['show_all_google_data'])  && !isset($_GET['search_all_google'])  
 
  {//1
  
-  $show_all_google_data=trim($_GET['show_all_google_data']);
+$data=trim($_GET['show_all_google_data']);
+$show_all_google_data= mysqli_real_escape_string ( $db , $data );
+
 $google = "SELECT * FROM `google_metadata` where 
 IP_address      ='$show_all_google_data' 
 || user_id      ='$show_all_google_data' 
@@ -297,12 +302,8 @@ $result = mysqli_query($db, $google );
   
  elseif ($num_results >300)
  {//11
-  echo"<p>There are too many exact matches (".number_format($num_results).") to display for the search criteria <b>$show_all_google_data</b>. Maximum results displayed is 300.</p><p> <a href='data.php?show_all_google_data=$show_all_google_data'>Click here</a> to override limit and display all ".number_format($num_results).".</p> ";
- }//12
- elseif ($num_results <300 && $num_results >0) 
-        { //13
-          echo"<h4>There are $num_results <i>Google search metadata</i> exact matches for <b>$show_all_google_data</b></h4>
-         <div class='expand'>";
+  echo"<p>There are (".number_format($num_results).") results for <b>$show_all_google_data</b>. </p> ";
+
  while ($row = $result->fetch_assoc()) 
 
     {//14
@@ -325,8 +326,8 @@ $result = mysqli_query($db, $google );
     }//15 
    echo"</div>Mouse over/scroll for more results.";
 
+      }
       
-      }//16
 }mysqli_free_result($result);
 
 ?>

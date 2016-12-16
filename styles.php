@@ -21,7 +21,7 @@ input[type="text"] {
 .short {width:450px; float:left;}
 .right {float:right; width:400px;}
 .left {float:left;width:700px;margin:20px;}
-.page_width {width:1200px; }
+.page_width {max-width:1200px; }
 .clear {clear:both;}
 table.right td{text-align:right;}
 span.highlighted {
