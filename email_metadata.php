@@ -9,7 +9,7 @@
     <meta name="author" content="Rosie Williams">
     <link rel="icon" 
       type="image/png" 
-      href="favico.ico">
+      href="../favicon.ico">
     </head>
     <body>
 

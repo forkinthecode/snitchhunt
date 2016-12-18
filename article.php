@@ -9,7 +9,7 @@
     <meta name="author" content="Rosie Williams">
     <link rel="icon" 
       type="image/png" 
-      href="favico.ico">
+      href="../favicon.ico">
     </head>
     <body>
 
@@ -95,16 +95,16 @@ Twitter: &#64;annaminewatch  </p>
 <p>May I remind you that the mines in Australia are all critical infrastructure, and those leaked docs cannot get into the wrong hands on the black market. <strong>Therefore, we need to identify the person of interest to put him/her under arrest.</strong></p>
 <p>So I need you to dig this guy up for me. As some of you are new hires here, let me reiterate again what is expected from you to do:</p>
 
-<p><strong>#1</strong>. Open up <a href="searches.php">the search page</a>. On the left hand side, select the Google metadata search. This brings up Google's records of what people have searched for. The article should come handy to find the right person.
+<p><strong>#1</strong>. Open up <a href="searches.php">the search page</a>. On the left hand side, select the Google metadata search.
+	 This brings up Google's records of what people have searched for. The article should come handy to find the right person.
 </p>
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). You might need to cross-check this dataset with the results from the previous step, and you might need to use quote marks when searching.</p>
 <p><strong>#3</strong>. You will need to dig into the phone subscriber data to get the name and full address. Don't forget to expand the time range to 5 years in Kibana. </p>
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
 <p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone?</p>
-<p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use our <a href="https://search.snitchhunt.xyz/app/graph" target="_blank">graph tool</a> to do a link analysis on the telephone call logs. If you forgot how to do it, have a look at the Link Analysis section of the <a href="/kibana-cheat-sheet#link-analysis">cheat sheet</a> as a reminder.</p>
-<p>All logs you will need for the investigation should be available on <a href="https://search.snitchhunt.xyz" target="_blank">Kibana</a>. You will need to solve the preceding tasks before moving on to the next. </p>
-<p>Do not forget to have a look on the <a href="/kibana-cheat-sheet" target="_blank">Kibana cheat sheet</a> that Sharon put together last week for us.</p>
-<p>Keep me updated and let me know if you get stuck. I need the info to be <a href="https://ctf.snitchhunt.xyz" target="_blank">submitted here</a> by <strong>no later than 2:30 pm</strong>.</p>
+<p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both the numbers you have</p>
+	
+<p> You will need to solve the challenges in order to find the solutions. </p>
 <p>FINN COBURN<br />
 CHIEF DATA OFFICER<br />
 COMPUTER CRIME SQUAD<br />

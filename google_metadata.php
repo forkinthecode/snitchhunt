@@ -7,9 +7,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Rosie Williams">
-    <link rel="icon" 
-      type="image/png" 
-      href="favico.ico">
+  <link rel="icon" 
+    type="image/png" 
+    href="../favicon.ico">
     </head>
     <body>
 

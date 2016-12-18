@@ -1,6 +1,7 @@
    <style type="text/css">
    body {font-family:Verdana; color:#333; max-width:1500px;}
    .challenge {width:95%;background:#cbdbd8; padding:2%; border-radius:5px;}
+   span.right {text-align:right; display:inline;}
 .h2 { margin:0; padding:0;}
 a { color:#759e34; padding:5px; border-radius:5px; text-decoration:none; }
 
