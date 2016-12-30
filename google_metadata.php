@@ -340,10 +340,12 @@ include'challenges.php';
 ?>
 
 
+
 </div></div>
+<div class='clear'></div>
 
 
-    <?php //include('../scripts/footer.php');?>
+    <?php include'footer.php';?>
 
     </body>
 </html>

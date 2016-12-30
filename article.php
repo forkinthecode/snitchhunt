@@ -1,51 +1,9 @@
- <!--Budget Home-->
- <!DOCTYPE HTML>
-<html lang="en">
-  <head>
-<meta charset="UTF-8">
-    <title>Little Bird</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Rosie Williams">
-    <link rel="icon" 
-      type="image/png" 
-      href="../favicon.ico">
-    </head>
-    <body>
-
 <?php
-
-
-include('login.php');
-//include('../inclusions.php');
-
-include('styles.php');
-
-
- 
-    
-
+	
+require'header.php';
 ?>
 
-  
-        
-                     
- 
-  <div class="jumbotron"> 
-     
-  <?php
-     include'nav.php';
-     ?>
-  
-        </div>
-          
-       
 
-          <div class='clear'></div>
-<div class="page_width">
-
-
-        <div class="left">
 
 
    	<h2 id="whistleblower-reveals-that-minecorps-..."><a class="headeranchor-link" aria-hidden="true" href="#whistleblower-reveals-that-minecorps-..." name="whistleblower-reveals-that-minecorps-..." title="Permanent link: Whistleblower Reveals that Minecorp’s WA Fracking Operation Uses Toxic Chemicals" data-icon="#">Whistleblower Reveals that Minecorp’s WA Fracking Operation Uses Toxic Chemicals</a></h2>
@@ -64,9 +22,11 @@ include('styles.php');
 <p>The whistleblower says it is not surprising that the authorities do not interfere in Minecorp’s illegal usage of BTEX chemicals or its poor wastewater storage and disposal processes and facilities. Minecorp has misled relevant authorities by submitting incorrect information to avoid any environmental impact assessment by EPA. </p>
 <p>Our environment is important to all of us. Unfortunately, powerful and manipulative commercial organisations often make profits at the cost of environment and the health of the local community. Do we want to threaten places in WA into the future with polluting practices by mine giants like Minecorp? Do we want a legacy of toxic chemicals in our home?</p>
 <p>All residents will be eagerly awaiting the responses and actions from EPA and the executives of Minecorp. </p>
-<div class="notices blue">
-<p>MineWatch encourages whistleblowers, and others with access to information they believe should be revealed for the public good, to contact us (see contact details below). You can remain anonymous if you so wish. Please note, we cannot guarantee to respond directly to anything you send here.</p>
-</div>
+
+<p>MineWatch encourages whistleblowers, and others with access to information they 
+	believe should be revealed for the public good, to contact us (see contact details below). 
+	You can remain anonymous if you so wish. Please note, we cannot guarantee to respond directly to anything you send here.</p>
+
 <p><strong>Anna Dupont</strong><br />
 Investigative Journalist at MineWatch<br />
 Email: anna&#64;minewatch.org.au<br />
@@ -80,7 +40,8 @@ Twitter: &#64;annaminewatch  </p>
 
 
 
-</div></div>
+</div>
+<div class='right' style='margin:20px'>
 <h2 id="the-assignment"><a class="headeranchor-link" aria-hidden="true" href="#the-assignment" name="the-assignment" title="Permanent link: The Assignment" data-icon="#">The Assignment</a></h2>
 <p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
 <blockquote>
@@ -95,13 +56,14 @@ Twitter: &#64;annaminewatch  </p>
 <p>May I remind you that the mines in Australia are all critical infrastructure, and those leaked docs cannot get into the wrong hands on the black market. <strong>Therefore, we need to identify the person of interest to put him/her under arrest.</strong></p>
 <p>So I need you to dig this guy up for me. As some of you are new hires here, let me reiterate again what is expected from you to do:</p>
 
-<p><strong>#1</strong>. Open up <a href="searches.php">the search page</a>. On the left hand side, select the Google metadata search.
+<p><strong>#1</strong>. Open up <a href="google_metadata.php">the Google metadata search page</a>. 
+	
 	 This brings up Google's records of what people have searched for. The article should come handy to find the right person.
 </p>
-<p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). You might need to cross-check this dataset with the results from the previous step, and you might need to use quote marks when searching.</p>
-<p><strong>#3</strong>. You will need to dig into the phone subscriber data to get the name and full address. Don't forget to expand the time range to 5 years in Kibana. </p>
+<p><strong>#2</strong>. To get the email address of the whistleblower, switch to the <a href='email_metadata.php'>email metadata logs</a> (yay, we plugged <em>smalllake.com.au</em> in recently!). You might need to cross-check this dataset with the results from the previous step, and you might need to use quote marks when searching.</p>
+<p><strong>#3</strong>. You will need to dig into the <a href='phone_subscriber.php'>phone subscriber data</a> to get the name and full address. Don't forget to expand the time range to 5 years in Kibana. </p>
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
-<p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone?</p>
+<p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the <a href='cross_search.php'>cross search</a> page.</p>
 <p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both the numbers you have</p>
 	
 <p> You will need to solve the challenges in order to find the solutions. </p>
@@ -113,7 +75,11 @@ www.thepolice.com</p>
 </blockquote>
 
 
-    <?php //include('../scripts/footer.php');?>
+</div></div>
+<div class='clear'></div>
+
+
+    <?php include'footer.php';?>
 
     </body>
 </html>

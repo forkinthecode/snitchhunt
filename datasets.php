@@ -1,51 +1,7 @@
-<!--Budget Home-->
- <!DOCTYPE HTML>
-<html lang="en">
-  <head>
-<meta charset="UTF-8">
-    <title>Little Bird</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Rosie Williams">
-    <link rel="icon" 
-      type="image/png" 
-      href="favico.ico">
-    </head>
-    <body>
-
 <?php
-
-
-include('login.php');
-//include('../inclusions.php');
-
-include('styles.php');
-
-
- 
-    
-
+	
+require'header.php';
 ?>
-
-  
-        
-                     
- 
-  <div class="jumbotron"> 
-     <?php
-     include'nav.php';
-     ?>
-  
-  
-        </div>
-          
-       
-
-          <div class='clear'></div>
-<div class="page_width">
-
-
-        <div class="left">
 
 
  
@@ -146,24 +102,90 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
  
 
  </div>
- <p>Click on the links in the top navigation or the magnifying glass to search that dataset</p>
+ <p>Click on the links in the Datasets drop-down navigation or the magnifying glass to search that dataset</p>
  <div class='right'>
-  <div style='background-color:#f29f91'>
- <p>List of organisations reported to have access to email metadata:</p>
-</div>
-  <div style='background-color:#f2d091;'>
- <p>List of organisations reported to have access to phone subscriber metadata:</p>
-</div>
-  <div style='background-color:#e3f291;'>
- <p>List of organisations reported to have access to phone call data:</p>
-</div>
+ 
+ 
+
+  <div class='agencies' style='background-color:#e3f291;'>
+ <div class='expand'>
+  <p><a href='http://www.zdnet.com/article/brandis-rushes-to-release-telco-metadata-for-civil-proceedings/' target='_blank'>Plaintiff's</a> to have access to phone call, subscriber and email metadata:</p>
+  <p>Family law disputes</p>
+  <p>Workplace disputes</p>
+ <p>List of organisations reported to have applied for access to phone call, subscriber and email metadata:</p>
+
+
+<p><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</a></p>
+<p><a href='../govspend/agency.php?Agency=Australian Financial Security Authority' target='_blank'>Australian Financial Security Authority</a></p>
+<p><a href='../govspend/agency.php?Agency=Australian Health Practitioner Regulation Agency' target='_blank'>Australian Health Practitioner Regulation Agency (AHPRA)</a></p>
+<p><a href='../govspend/agency.php?Agency=Australian Postal Corporation' target='_blank'>Australian Postal Corporation</a></p>
+<p><a href='../govspend/agency.php?Agency=Australian Taxation Office' target='_blank'>Australian Taxation Office</a></p>
+<p><a href='../govspend/agency.php?Agency=Australian Transaction Reports and Analysis Centre'>Australian Transaction Reports and Analysis Centre</a></p>
+<p><a href='../govspend/agency.php?Agency=Civil Aviation Safety Authority' target='_blank'>Civil Aviation Safety Authority (CASA)</a></p>
+<p><a href='../govspend/agency.php?Agency=Clean Energy Regulator' target='_blank'>Clean Energy Regulator</a></p>
+<p><a href='../govspend/agency.php?Agency=Department of Agriculture' target='_blank'>Department of Agriculture</a></p>
+<p><a href='../govspend/agency.php?Agency=Department of Defence' target='_blank'>Department of Defence (ADFIS and IGD)</a></p>
+<p> <a href='../govspend/agency.php?Agency=Department of the Environment and Energy' target='_blank'>Department of the Environment and Energy</a></p>
+<p> <a href='../govspend/agency.php?Agency=Department of Foreign Affairs and Trade' target='_blank'>Department of Foreign Affairs and Trade</a></p>
+<p> <a href='../govspend/agency.php?Agency=Department of Health' target='_blank'>Department of Health</a></p>
+<p> <a href='../govspend/agency.php?Agency=Department of Human Services' target='_blank'> Department of Human Services</a></p>
+<p> <a href='../govspend/agency.php?Agency=Department of Social Services' target='_blank'>Department of Social Services</a></p>
+<p> <a href='../govspend/agency.php?Agency=Fair Work Building and Construction' target='_blank'>Fair Work Building and Construction</a></p>
+<p> <a href='../govspend/agency.php?Agency=National Measurement Institute' target='_blank'>National Measurement Institute</a></p>
+<p>ACT Revenue Office, ACT</p>
+<p>Access Canberra (Department of Treasury and Economic Development), ACT</p>
+<p>Bankstown City Council, NSW</p>
+<p>Consumer Affairs, VIC</p>
+<p>Consumer, Building and Occupational Services (Consumer Affairs and Fair Trading – Department of Justice), TAS</p>
+<p>Consumer and Business Services, SA</p>
+<p>Department of Agriculture, Fisheries and Forestry, QLD</p>
+<p>Department of Commerce, WA</p>
+<p>Department of Corrective Services, WA</p>
+<p>Department of Environment and Heritage Protection, QLD</p>
+<p>Department of Economic Development, Jobs, Transport & Resources (Fisheries), VIC</p>
+<p>Department of Environment, Land, Water and Planning, VIC</p>
+<p>Department of Environment Regulation, WA</p>
+<p>Department of Fisheries, WA</p>
+<p>Department of Justice and Regulation (Consumer Affairs), VIC</p>
+<p>Department of Justice and Regulation (Sheriff of Victoria), VIC</p>
+<p>Department of Mines and Petroleum, WA</p>
+<p>Department of Primary Industries (Fisheries), NSW</p>
+<p>Environment Protection Authority, SA</p>
+<p>Greyhound Racing Victoria, VIC</p>
+<p>Harness Racing New South Wales, NSW</p>
+<p>Health Care Complaints Commission, NSW</p>
+<p>Legal Services Board, VIC</p>
+<p>NSW Environment Protection Authority, NSW</p>
+<p>NSW Fair Trading, NSW</p>
+<p>Office of Environment & Heritage, NSW</p>
+<p>Office of Fair Trading (Department of Justice And Attorney-General Office of the Director General), QLD</p>
+<p>Office of State Revenue, NSW</p>
+<p>Office of State Revenue, QLD</p>
+<p>Office of the Racing Integrity Commissioner, VIC</p>
+<p>Primary Industries and Regions South Australia (PIRSA)</p>
+<p>Queensland Building and Construction Commission</p>
+<p>Racing and Wagering Western Australia</p>
+<p>Racing NSW, </p>
+<p>Racing Queensland, QLD</p>
+<p>Roads and Maritime Services NSW, NSW</p>
+<p>Royal Society for the Prevention of Cruelty to Animals (RSPCA)</p>
+<p>State Revenue Office, VIC</p>
+<p>Taxi Services Commission, VIC</p>
+<p>RevenueSA</p>
+<p>Victorian WorkSafe Authority</p>
+
+
+ </div>
+</div><!--
   <div style='background-color:#cbdbd8'>
- <p>List of organisations reported to have access to Google metadata:</p>
-</div>
+ <p>List of organisations reported to have access to Google metadata:</p>-->
+          <br>         
+
 </div></div>
+<div class='clear'></div>
 
 
-    <?php //include('../scripts/footer.php');?>
+    <?php include'footer.php';?>
 
     </body>
 </html>
