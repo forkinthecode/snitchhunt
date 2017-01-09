@@ -73,7 +73,9 @@ COMPUTER CRIME SQUAD<br />
 Tel: 16131<br />
 www.thepolice.com</p>
 </blockquote>
-
+<?php
+include'challenges.php';
+?>
 
 </div></div>
 <div class='clear'></div>

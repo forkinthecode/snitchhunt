@@ -5,8 +5,8 @@ require'header.php';
 
 
  
-
-
+<!--
+<img src='output_QXO6ff.gif'></img>-->
 
 
 <?php
@@ -36,7 +36,8 @@ echo"<table class='basic' border='0' style='background-color:#f29f91'><tbody>
 
   $subscriber = "SELECT * from phone_subscriber where id='2' ";
 $result = mysqli_query($db, $subscriber );
-   echo"<h4>Example <i>phone subscriber</i> metadata <a href='subscriber_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4><p>List of organisations reported to have access to this data:</p>";
+   echo"<h4>Example <i>phone subscriber</i> metadata <a href='phone_subscribers.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>
+";
 
  while ($row = $result->fetch_assoc()) 
     {
@@ -112,7 +113,7 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
   <p><a href='http://www.zdnet.com/article/brandis-rushes-to-release-telco-metadata-for-civil-proceedings/' target='_blank'>Plaintiff's</a> to have access to phone call, subscriber and email metadata:</p>
   <p>Family law disputes</p>
   <p>Workplace disputes</p>
- <p>List of organisations reported to have applied for access to phone call, subscriber and email metadata:</p>
+ <p>List of organisations <a href='https://www.righttoknow.org.au/request/requests_for_access_to_telecommu#incoming-4557'>reported</a> to have applied for access to phone call, subscriber and email metadata. Click on the name for more info.</p>
 
 
 <p><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</a></p>
@@ -175,7 +176,7 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
 <p>Victorian WorkSafe Authority</p>
 
 
- </div>
+ </div>Mouse/Scroll over for more results
 </div><!--
   <div style='background-color:#cbdbd8'>
  <p>List of organisations reported to have access to Google metadata:</p>-->

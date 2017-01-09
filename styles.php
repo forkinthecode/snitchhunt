@@ -10,11 +10,13 @@
      right: 0;
      position: absolute;
      z-index: -1;   }*/
-	   .home {font-size:16px;}
+	   .home {font-size:16px; }
    .challenge {width:95%;background:#cbdbd8; padding:2%; border-radius:5px;}
    span.right {text-align:right; display:inline;}
 .h2 { margin:0; padding:0;}
 a { color:#759e34; padding:5px;  text-decoration:none; }
+.homer {text-align:center; border: solid 1px #dcdcdc; border-radius:5px; margin-top:2%;}
+h3  {width:95%; margin-left:12px;background:#cbdbd8; color:#759e34; padding:5px;}
 
 #submit { height:35px; width:45%; color:#759e34; background:#eee; text-align:center; border: solid 1px #dcdcdc;
 	cursor:pointer;-webkit-border-radius: 5px; border-radius: 5px; }
@@ -25,7 +27,7 @@ input[type="text"] {
   border: solid 1px #dcdcdc;
   transition: box-shadow 0.3s, border 0.3s;
                    }
- .expand {height:600px; overflow:scroll;  border-radius:5px; border: solid 1px #dcdcdc; padding:2%; margin:1%;}
+ .expand {height:600px; overflow:scroll;   padding:2%; margin:1%;}
  .searches {width:95%;  border-radius:5px; padding:1%; margin:1%;}
  textarea.searches{  }
 .wide {width:95%; background:#cbdbd8; border-radius:5px; padding:1%;}
