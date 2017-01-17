@@ -149,7 +149,7 @@ if(!isset($_GET['search_all_phone']) && isset($_GET['show_all_phone_data']) )
   
 $data=trim($_GET['show_all_phone_data']);
 $show_all_phone_data= mysqli_real_escape_string ( $db , $data );
-$phone = "SELECT * from phone_metadata where 
+$phone = "SELECT * from phone_metadata1 where 
    subscriber_phone_number     ='$show_all_phone_data'
 || dialled_number              ='$show_all_phone_data'  
 || cell_tower_location         ='$show_all_phone_data' 

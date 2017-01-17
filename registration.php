@@ -1,5 +1,4 @@
-<!--top level openaus page-->
-<!--Budget Home-->
+
  <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -52,55 +51,65 @@ include('styles.php');
    
 
  <?php
-if ( !isset($_POST['email'] )  )
+if ( !isset($_POST['team_name'] )  )
 {
-  echo"<h4>Enter your email to register your team</h4>
+  echo"<h1>Enter team name</h1>
+  <table class='forms' border='0px'><tr><td>
   <form action='registration.php' method='POST'>
-<input type='hidden' name='email' value='".$_POST['email']."'>
+
 <input type='hidden' name='team' value='".$_POST['team']."'>
-<input type='text'  id='email' name='email' placeholder='Your email' />
-<input type='text'  id='team' name='team' placeholder='Your team name' />
-<input type='submit' class='user' name='submit' value='Login' id='submit' /></form>";
+<input type='text'  id='team' name='team' placeholder='Your team name' /></td><td>
+<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>";
 
 
-/*
 
-$query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS login";
-$result = mysqli_query($db, $query);
-      @$num_results = mysqli_num_rows($result);
-      while ($row = $result->fetch_assoc()) 
-      $login=mysqli_real_escape_string($db, $row['login']); 
-      {
-        echo"<p>You will see your  login below.</p>
-        <p>To return to your answers at a later date 
-        you will need to use that login. </p>";
-
-      }*/
 }mysqli_free_result($result);
 
 ?>
 
+
  <?php
-if ( isset($_POST['email'] )  && isset($_POST['team'] ) )
+if ( isset($_POST['team'] ) )
 {
   
-     $email= mysqli_real_escape_string ( $db ,trim($_POST['email']) );
      $team= mysqli_real_escape_string ( $db ,trim($_POST['team']) );
 
-$testing_team="SELECT team FROM teams WHERE team='$team'";
+$testing_team="SELECT team FROM teams WHERE team ='$team'";
 $result = mysqli_query($db, $testing_team );
 @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
+{
+
+$showing_teams="SELECT team FROM teams WHERE team ='$team'";
+$result = mysqli_query($db, $showing_teams );
+
+{
+   while ($row = $result->fetch_assoc()) 
+
+    
   {
-  echo"<p>The team name $team has already been registered</p>";
+   echo"<br> <table class='forms' border='0px'><tr><td>
+  <h3> Team name  <i>".$team."</i> already registered with SnitchHunt</h3><h3>
+   Click play to continue as team member for ".$team."</h3> <form class='play' action='play.php' method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'></td><td>
+ <input type='submit' name='Play' value='Play' /></form> </td></tr></table>";
   }
+}//echo" <h4>The above team names are already registered. <a href='registration.php'>Click here</a> to try a new team name or click on the name to play in that team. </h4>";
+}
 if ($num_results <1)
   {
-    $query="INSERT INTO teams(`time`, `date`, `team`,`email`  ) 
-     VALUES(CURRENT_TIME, CURDATE(), '".$team."', '".$email."'); ";
+    $query="INSERT INTO teams(`time`, `date`, `team`, `ch1`, `ch2`,`ch3`,`ch4`,`ch5`,`ch6`,`ch7`) 
+     VALUES(CURRENT_TIME, CURDATE(), '".$team."', '0', '0','0','0','0','0','0'); ";
       if ($db->query($query) === TRUE) 
       {
-        echo"<h4>Team name $team has been registered</h4>";
+        echo"<table class='forms' border='0px'><tr><td>
+     <h3>   Team name $team has been registered</h3>
+     <h3>Click Play to play on team <i>$team</i></h3></td><td>
+
+         <form class='play' action='play.php' method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'>
+ <input type='submit' name='Play' value='Play' /></form></td></tr></table>
+        ";
       }
        else 
       {
@@ -108,38 +117,11 @@ if ($num_results <1)
           echo "Error: " . $query . "<br>" . $db->error;
       }
     }
-
-////////////////////
-$testing_email="SELECT email FROM users WHERE email='$email'";
-$result = mysqli_query($db, $testing_email );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-  {
-  echo"<p>The email $email has already been registered</p>";
-  }
-if ($num_results <1)
-    {
-    $query="INSERT INTO users(`time`, `date`, `team`,`email`  ) 
-         VALUES(CURRENT_TIME, CURDATE(), '".$team."', '".$email."'); ";
-          if ($db->query($query) === TRUE) 
-          {
-            echo"<h4>The email $email has been registered</h4>";
-          }
-     else 
-        {
-
-            echo "Error: " . $query . "<br>" . $db->error;
-        }
-    }
-
-
-
-
-
-
 }mysqli_free_result($result);
+    ?>
 
-   ?>
+
+
  
 
 
@@ -153,18 +135,43 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-include'challenges.php';
+$query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DAY ) AND NOW( )
+ order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
+$result = mysqli_query($db, $query );
+@$num_results = mysqli_num_rows($result);
+echo"<hr><br><p>Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
+<th>Ch1</th>
+<th>Ch2</th>
+<th>Ch3</th>
+<th>Ch4</th>
+<th>Ch5</th>
+<th>Ch6</th>
+<th>Ch7</th>
+<th>Score</th>
+</tr>";
+  while ($row = $result->fetch_assoc()) 
+{
+echo"<tr><td>".$row['team']."</td>
+<td>".$row['ch1']."</td>
+<td>".$row['ch2']."</td>
+<td>".$row['ch3']."</td>
+<td>".$row['ch4']."</td>
+<td>".$row['ch5']."</td>
+<td>".$row['ch6']."</td>
+<td>".$row['ch7']."</td>
+<td>".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
+</tr>";
+  }
+echo"</table>";
 ?>
 
 
+
 </div></div>
+<div class='clear'></div>
 
 
-    <?php //include('../scripts/footer.php');?>
+    <?php include'footer.php';?>
 
     </body>
 </html>
-
-
-
-    

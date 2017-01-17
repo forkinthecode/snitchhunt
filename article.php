@@ -61,7 +61,7 @@ Twitter: &#64;annaminewatch  </p>
 	 This brings up Google's records of what people have searched for. The article should come handy to find the right person.
 </p>
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the <a href='email_metadata.php'>email metadata logs</a> (yay, we plugged <em>smalllake.com.au</em> in recently!). You might need to cross-check this dataset with the results from the previous step, and you might need to use quote marks when searching.</p>
-<p><strong>#3</strong>. You will need to dig into the <a href='phone_subscriber.php'>phone subscriber data</a> to get the name and full address. Don't forget to expand the time range to 5 years in Kibana. </p>
+<p><strong>#3</strong>. You will need to dig into the <a href='phone_subscribers.php'>phone subscriber data</a> to get the name and full address. Don't forget to expand the time range to 5 years in Kibana. </p>
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
 <p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the <a href='cross_search.php'>cross search</a> page.</p>
 <p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both the numbers you have</p>

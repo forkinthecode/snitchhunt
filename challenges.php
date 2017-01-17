@@ -1,6 +1,6 @@
 
-<div class='challenge'><span class='right'>25 points</span>
- <h4> Challenge 0 </h4>
+<div class='challenge' ><span class='right'>25 points</span>
+ <h4> Challenge 1 </h4>
 
 
 
@@ -8,7 +8,7 @@
 <p>A.Search the <a href='article.php'>article</a> to find this answer.</p>
 </div><br>
 <div class='challenge'><span class='right'>50 points</span>
-<h4>Challenge 1 </h4>
+<h4>Challenge 2 </h4>
 
 
 
@@ -17,7 +17,7 @@
 
 </div><br>
 <div class='challenge'><span class='right'>100 points</span>
-<h4>Challenge 2</h4>
+<h4>Challenge 3</h4>
 
 
 <p>Q.What the email address is of the whistleblower?</p>
@@ -26,7 +26,7 @@
 </div>
 <br>
 <div class='challenge'><span class='right'>50 points</span>
-<h4>Challenge 3</h4>
+<h4>Challenge 4</h4>
 
 
 <p>Q.What the full address is of the whistleblower? </p>
@@ -35,7 +35,7 @@
 </div><br>
 <div class='challenge'><span class='right'>100 points</span>
 
-<h4>Challenge 4 </h4>
+<h4>Challenge 5</h4>
 
 
 <p>Q.What the last known location of the whistleblower?</p>
@@ -44,7 +44,7 @@
 
 </div><br>
 <div class='challenge'><span class='right'>25 points</span>
-<h4>Challenge 5 </h4>
+<h4>Challenge 6 </h4>
 
 
 <p>How many times did the whistleblower and the journalist talk to each other?</p>
@@ -52,7 +52,7 @@
 
 </div><br>
 <div class='challenge'><span class='right'>150 points</span> 
-<h4>Challenge 6 </h4>
+<h4>Challenge 7 </h4>
 
 
 <p>What's the name of the second whistleblower at Minecorp?</p>

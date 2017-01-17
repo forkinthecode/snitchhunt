@@ -22,8 +22,8 @@
 			  <li class='horizontal'><a href="index.php">Home</a></li>
 			  <li class='horizontal'><a href="article.php">Article</a></li>
 			  <li class='horizontal'><a href="datasets.php">About Metadata</a></li>
-			  <li class='horizontal' style="float:right"><a class="active" href='https://ctf.snitchhunt.xyz/' target='_blank'>Register to Play</a></li>
-			</ul>
-			<!--<hr><a href='index.php'>Home</a> | <a href='datasets.php'>About Metadata</a> | <a href='article.php' >Article</a> | 
-	  <a href='https://ctf.snitchhunt.xyz/' target='_blank'>Register</a>--></h3>
+
+			  <li class='horizontal' style="float:right"><a class="active" href='play.php'>Log out</a></li>
+			  <li class='horizontal' style="float:right"><a class="active" href='registration.php' target='_blank'>Register to Play</a></li>
+			</ul></h3>
 				  

@@ -122,7 +122,7 @@ echo"<h4> You are logged in as ".$_POST['login']."</h4>";
 </div></div>
 
 
-    <?php //include('../scripts/footer.php');?>
+    <?php include('../scripts/footer.php');?>
 
     </body>
 </html>
