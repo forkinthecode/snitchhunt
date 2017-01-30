@@ -112,10 +112,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge2'] ) )
 {
  
-$data = $_POST['challenge2']; 
-$challenge_two=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
+
+$challenge_two=mysqli_real_escape_string ( $db , trim($_POST['challenge2']) );
+
+$team=mysqli_real_escape_string ( $db , trim($_POST['team_name']) );
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_two' && id='2'";
 $result = mysqli_query($db, $query );
@@ -155,10 +155,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge3'] ) )
 {
  
-$data = $_POST['challenge3']; 
-$challenge_three=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
+
+$challenge_three=mysqli_real_escape_string ( $db , $_POST['challenge3'] );
+
+$team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_three' && id='3'";
 $result = mysqli_query($db, $query );
@@ -174,7 +174,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch3='100' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h2>Your solution for Challenge 2 is correct</h2>";
+    echo"<h2>Your solution for Challenge 3 is correct</h2>";
     echo "<h2>100 points added to team $team!</h2>";
    } 
    else {
@@ -197,10 +197,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge4'] ) )
 {
  
- $data = $_POST['challenge4']; 
-$challenge_four=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
+
+$challenge_four=mysqli_real_escape_string ( $db , $_POST['challenge4'] );
+
+$team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_four' && id='4'";
 $result = mysqli_query($db, $query );
@@ -239,10 +239,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge5'] ) )
 {
  
-$data = $_POST['challenge5']; 
-$challenge_five=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
+
+$challenge_five=mysqli_real_escape_string ( $db , $_POST['challenge5'] );
+
+$team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_five' && id='5'";
 $result = mysqli_query($db, $query );
@@ -281,10 +281,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge6'] ) )
 {
  
- $data = $_POST['challenge6']; 
-$challenge_six=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
+
+$challenge_six=mysqli_real_escape_string ( $db , $_POST['challenge6'] );
+
+$team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_six' && id='6'";
 $result = mysqli_query($db, $query );
@@ -323,11 +323,10 @@ if ($num_results ==0)
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge7'] ) )
 {
  
-$data = $_POST['challenge7']; 
-$challenge_seven=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
+$challenge_seven=mysqli_real_escape_string ( $db , $_POST['challenge7'] );
+
+$team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
 
 $query="SELECT * FROM `solutions` WHERE solutions ='$challenge_seven' && id='7'";
@@ -444,13 +443,13 @@ if ($num_results >0)
 {
 
 echo" 
-<div class='answers' style='background-color:#f29f91'><span class='right'>25 points</span>
+<div class='answers' ><span class='right'>25 points</span>
  <h4> Challenge 1 </h4>
 
 
 
 <p>Q.What's the name of the Chief Data Officer?</p>
-<p>Hint: Search the <a href='article.php'>article</a> to find this answer.</p>
+<p>Hint: Search the <a href='article.php' target='_blank'>article</a> to find this answer.</p>
 
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
@@ -482,14 +481,14 @@ if ($num_results >0)
 
 
 echo"<br>
-<div class='answers' style='background-color:#f2d091;'><span class='right'>50 points</span>
+<div class='answers' ><span class='right'>50 points</span>
  <h4> Challenge 2 </h4>
 
 
 
 <p>Q.What the Google 'user ID' of the whistleblower?</p>
 
-<p>Hint: Search the <a href='google_metadata.php'>Google metadata</a> to find this answer.</p>
+<p>Hint: Search the <a href='google_metadata.php' target='_blank'>Google metadata</a> to find this answer.</p>
 
 
 
@@ -520,14 +519,14 @@ if ($num_results >0)
 
 
 echo"<br>
-<div class='answers' style='background-color:#e3f291;'><span class='right'>100 points</span>
+<div class='answers' ><span class='right'>100 points</span>
  <h4> Challenge 3 </h4>
 
 
 
 <p>Q.What the email address is of the whistleblower?</p>
 
-<p>Hint: Search the <a href='email_metadata.php'>email metadata</a> to find this answer.</p>
+<p>Hint: Search the <a href='email_metadata.php' target='_blank'>email metadata</a> to find this answer.</p>
 
 
 <table class='forms' border='0px'><tr><td>
@@ -565,7 +564,7 @@ echo"<br>
 <p>Q.What the full address is of the whistleblower?</p>
 
 
-<p>Hint: You'll need to search <a href='phone_subscribers.php'>phone subscribers</a> for this answer.</p>
+<p>Hint: You'll need to search <a href='phone_subscribers.php' target='_blank'>phone subscribers</a> for this answer.</p>
 
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
@@ -594,7 +593,7 @@ if ($num_results >0)
 
 
 echo"<br>
-<div class='answers' style='background:#aae2f7'><span class='right'>100 points</span>
+<div class='answers' ><span class='right'>100 points</span>
  <h4> Challenge 5 </h4>
 
 
@@ -602,7 +601,7 @@ echo"<br>
 <p>Q.What the last known location of the whistleblower?</p>
 
 
-<p>Hint: For this answer you will need to use <a href='phone_metadata.php'>phone metadata</a> search.</p>
+<p>Hint: For this answer you will need to use <a href='phone_metadata.php' target='_blank'>phone metadata</a> search.</p>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
  <input type='hidden' name='team_name' value='".$team."'>
@@ -630,7 +629,7 @@ if ($num_results >0)
 
 
 echo"<br>
-<div class='answers' style='background:#b09bef'><span class='right'>25 points</span>
+<div class='answers' ><span class='right'>25 points</span>
  <h4> Challenge 6 </h4>
 
 
@@ -638,7 +637,7 @@ echo"<br>
 <p>Q.How many times did the whistleblower and the journalist talk to each other?</p>
 
 
-<p>Hint: You will need the <a href='cross_search.php'>cross search</a> to answer this one.</p>
+<p>Hint: You will need the <a href='cross_search.php' target='_blank'>cross search</a> to answer this one.</p>
 
  <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
@@ -667,14 +666,14 @@ if ($num_results >0)
 
 
 echo"<br>
-<div class='answers' style='background:#f2f26a'><span class='right'>150 points</span>
+<div class='answers'><span class='right'>150 points</span>
  <h4> Challenge 7 </h4>
 
 
 
 <p>What's the name of the second whistleblower at Minecorp?</p>
 
-<p>Hint: You will need the <a href='cross_search.php'>cross search</a> to answer this one.</p>
+<p>Hint: You will need the <a href='cross_search.php' target='_blank'>cross search</a> to answer this one.</p>
 
 
  <table class='forms' border='0px'><tr><td>
@@ -696,6 +695,7 @@ echo"<br>
 
   
 
+
 </div></div>
 <div class='clear'></div>
 
@@ -704,4 +704,6 @@ echo"<br>
 
     </body>
 </html>
+
+
     

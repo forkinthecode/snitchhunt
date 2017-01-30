@@ -6,22 +6,7 @@ require'header.php';
 
  <!--
 <img src='security.jpg' width='700px'></img>-->
-<div class='home' style="background-image:'security.jpg';width='700px">
-  <div class='homer'><h3>News</h3>
-<p>Did you know that ISP's and phone companies have to retain metadata <a href="http://www.news.com.au/technology/online/new-data-retention-laws-begin-today-this-is-what-you-need-to-know/news-story/28ea2dc1b01d15e53f474e21b6d68501" target='_blank'>for two years</a>in case a
-	government agency decides to investigate you under crimial law? </p>
-<p>Now the government wants to make this data <a href='http://www.canberratimes.com.au/federal-politics/political-news/australians-phone-and-email-records-could-be-used-in-civil-lawsuits-20161222-gtgdy6.html' target='_blank'>available to civil law proceedings</a>, opening people to having their metadata used in family law disputes, workplace and business conflicts.</p>
-</div>
 
-<div class='homer'><h3>Learn</h3>
-<p>Check out the <a href='datasets.php'>datasets page</a> to see what data is collected and who has access to it.
-    The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. 
-	Although these individual datasets already reveal a lot of your online presence, the real deal is data correlation. Once an experienced analyst begins correlating the different datasets, 
-    your activities throughout the day can be reconstructed.</p>
-  
-<p>It's easy to ignore that so much information about us is collected and stored. SnitchHunt was created to educate the public about the reality of what metadata retention really means.
-	 Play the game to find out how people can be tracked through their digital breadcrumbs.</p>
-  </div>
   <div class='homer'><h3>Play</h3>
 <p>Snitchhunt puts you in the shoes of a data analyst working for the federal police, using this data to solve the challenges. You will need to dig into, 
   correlate and pivot on the various metadata sets to catch a whistleblower.</p>
@@ -61,21 +46,40 @@ echo"<tr><td>".$row['team']."</td>
 echo"</table>";
 ?>
 
-
+<div class='home' style="background-image:'security.jpg';width='700px">
+  <div class='homer'><h3>News</h3>
+<p>Did you know that ISP's and phone companies have to retain metadata <a href="http://www.news.com.au/technology/online/new-data-retention-laws-begin-today-this-is-what-you-need-to-know/news-story/28ea2dc1b01d15e53f474e21b6d68501" target='_blank'>for two years</a>in case a
+  government agency decides to investigate you under crimial law? </p>
+<p>Now the government wants to make this data <a href='http://www.canberratimes.com.au/federal-politics/political-news/australians-phone-and-email-records-could-be-used-in-civil-lawsuits-20161222-gtgdy6.html' target='_blank'>available to civil law proceedings</a>, opening people to having their metadata used in family law disputes, workplace and business conflicts.</p>
 </div>
-<!--<p>The raw datasets are available for download <a href="https://ln.sync.com/dl/32f13df20#88cjtdsx-bsrd2iza-fh2qbx7c-tbpcegrq">on this link</a> for the curious. You don't need to download these to solve the challenges.</p>
-  --> 
+
+<div class='homer'><h3>Learn</h3>
+<p>Check out the <a href='datasets.php'>datasets page</a> to see what data is collected and who has access to it.
+    The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. 
+  Although these individual datasets already reveal a lot of your online presence, the real deal is data correlation. Once an experienced analyst begins correlating the different datasets, 
+    your activities throughout the day can be reconstructed.</p>
+  
+<p>It's easy to ignore that so much information about us is collected and stored. SnitchHunt was created to educate the public about the reality of what metadata retention really means.
+   Play the game to find out how people can be tracked through their digital breadcrumbs.</p>
+  </div>
+</div>
+
  </div>
  <div class='right'>
-  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Brisbane, Thu 9th Feb: exclusive screening of <a href="https://twitter.com/killswitchfilm">@killswitchfilm</a> + expert panel discussion. Limited seats: BOOK NOW<a href="https://t.co/vIC1H3aGpw">https://t.co/vIC1H3aGpw</a> <a href="https://t.co/0dcpJ0DwpA">pic.twitter.com/0dcpJ0DwpA</a></p>&mdash; EFA (@efa_oz) <a href="https://twitter.com/efa_oz/status/818270026897756160">January 9, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-             <a class="twitter-timeline"  href="https://twitter.com/hashtag/dataretention" data-widget-id="817226297227157507">#dataretention Tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
- 
-<?php
-//include'challenges.php';
-?>
+  <div class='homer'><h3>Support</h3>
+<p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
+<p>You can solve SnitchHunt together as a group as a cooperative effort or you can compete against one another by registering competing teams.</p>
+<p><a href='registration.php' target='_blank'>Register</a> your team name then use your team name to <a href='play.php' target='_blank'>sign in</a> and you will see the challenges 
+  your team needs to solve.</p>
+  <p>Once a correct solution is entered, your tem points are awarded and that challenge is no longer viewable.</p>
+  <p>No points are deducted for incorrect guesses and there is no limit on the number of attempts you can make on each question.</p>
+  <p>Solve all the challenges to reach 500 points.</p>
+  <p>If you need help provide a username in the chat below and ask away.</p>
+  <p>There's no time limit on SnitchHunt.</p>
+</div>
+
+  <iframe src='https://whistleblower.network/snitch/chat/room/chat.php' style='border-width:0' width='500' height='600' frameborder='0' scrolling='no'>
+
 
 
 </div></div>

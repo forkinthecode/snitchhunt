@@ -8,12 +8,12 @@ require'header.php';
 			{
 			echo"<br><h4>Search a subscriber number against a dialled number to find out how many calls were made:
 			     <div class='searches' style='background-color:#e3f291;'>
-        
+         <table class='forms'><tr><td> 
 			             <form action='cross_search.php'  method='GET'>
 			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' />
-						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' />
+						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' /></td><td>
 			             <input type='submit' name='submit' placeholder='Search' id='submit' />
-			             </form>
+			             </form></td></tr></table>
 			      </div>";
 			}
 			
@@ -25,8 +25,8 @@ require'header.php';
 			$data1=trim($_GET['dialled_number']);
 			$dialled_number= mysqli_real_escape_string ( $db , $data1 );
 			
-			$number_of_calls="SELECT * FROM `phone_metadata` WHERE
-				 `subscriber_phone_number`='$subscriber_number' && `dialled_number` = '$dialled_number'";
+			$number_of_calls="SELECT * FROM `phone_metadata3` WHERE
+				 `subscriber_phone_number`='$subscriber_number' && `dialled_number` = '$dialled_number' ORDER BY date_column DESC";
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
@@ -59,12 +59,12 @@ require'header.php';
 {
 echo"<br><h4>Search two phone numbers to see who they both called:
      <div class='searches' style='background-color:#e3f291;'>
-        
+         <table class='forms'><tr><td> 
              <form action='cross_search.php'  method='GET'>
              <input type='text'  id='caller_one' name='caller_one' placeholder='Phone number one' />
-			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' />
+			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' /></td><td>
              <input type='submit' name='submit' placeholder='Search' id='submit' />
-             </form>
+             </form></td></tr></table>
       </div>";
 }
 

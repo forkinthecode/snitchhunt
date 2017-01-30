@@ -48,16 +48,17 @@ include('styles.php');
         <div class="left">
           <?php
 {
-echo"<br><h4> Search all fields in the <i>Google search</i> metadata:</h4><div class='searches' style='background-color:#cbdbd8'>
+echo"<br>
+<h4> Search all fields in the <i>Google search</i> metadata:</h4><div class='searches' style='background-color:#cbdbd8'>
         
-            <form action=''  method='GET'>
+         <table class='forms'><tr><td>   <form action=''  method='GET'>
 
            <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
-              
+              </td><td>
 
         
              <input type='submit' name='submit' placeholder='Search' id='submit' />
-              </form>
+              </form></td></tr></table>
     
 
 </div>

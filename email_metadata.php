@@ -9,15 +9,15 @@ require'header.php';
 <?php
 {
 echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='searches' style='background-color:#f29f91'>
-       
+    <table class='forms'><tr><td>     
             <form action='email_metadata.php'  method='GET'>
 
            <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
               
-
+</td><td>
         
              <input type='submit' name='submit' placeholder='Search' id='submit' />
-              </form>
+              </form></td></tr></table>
     
 
 </div>

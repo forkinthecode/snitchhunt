@@ -1,0 +1,20 @@
+language: php
+ 
+php:
+    - 5.3
+ 
+before_script:
+    - sudo apt-get install apache2 libapache2-mod-php5
+    - sudo a2enmod actions
+    - sudo a2enmod rewrite
+    - sudo a2enmod php5
+    - echo "$(curl -fsSL https://raw.github.com/gist/2eb301570ed4a1f4c33d/gistfile1.txt)" | sed -e "s,PATH,`pwd`,g" | sudo tee /etc/apache2/sites-available/default > /dev/null
+    - sudo service apache2 restart
+    - make setup
+    - make setup-server-test
+    - echo "http://127.0.0.1" > serverurl
+    - chmod 777 server/data/
+    - curl http://127.0.0.1/check.php
+    - curl http://127.0.0.1/server/status
+
+script: make test-server

@@ -1,7 +1,7 @@
    <style type="text/css">
    body {font-family:Verdana; color:#333; max-width:1500px; font-size:12px; margin:0; }
- .forms {width:100%;}
- .forms td {  padding:10px;}
+ .forms {width:100%; background:#f3f7aa;}
+ .forms td { background:#f3f7aa; padding:10px;}
 
   .score {width:100%; font-size:15px; border: solid 1px #dcdcdc; border-radius:5px; margin-top:2%;}
   .score td:nth-of-type(odd) { width:200px;  text-align:right;}

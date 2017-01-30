@@ -10,11 +10,11 @@ require'header.php';
 {
 echo"<br><h4> Search all fields in the <i>phone subscriber</i> metadata:</h4>
 <div class='searches' style='background-color:#f2d091;'>
-        
+       <table class='forms'><tr><td>   
             <form action='phone_subscribers.php'  method='GET'>
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
-            <input type='submit' name='submit' placeholder='Search' id='submit' />
-            </form>
+         </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
+            </form></td></tr></table>
 </div>
           ";
      }
