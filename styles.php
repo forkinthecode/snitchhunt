@@ -2,7 +2,19 @@
    body {font-family:Verdana; color:#333; max-width:1500px; font-size:12px; margin:0; }
  .forms {width:100%; background:#f3f7aa;}
  .forms td { background:#f3f7aa; padding:10px;}
+select {
 
+  border: 1px solid #111;
+  background: #fff;
+  width: 250px;
+  padding:5px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
   .score {width:100%; font-size:15px; border: solid 1px #dcdcdc; border-radius:5px; margin-top:2%;}
   .score td:nth-of-type(odd) { width:200px;  text-align:right;}
   .score tr:nth-of-type(odd) { background:#cbdbd8;}
