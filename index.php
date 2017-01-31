@@ -66,6 +66,21 @@ echo"</table>";
 
  </div>
  <div class='right'>
+   <?php
+if ( isset($_POST['team_name'] ) )
+{
+
+$data1=$_POST['team_name'];
+$team=mysqli_real_escape_string ( $db , $data1 );
+echo"<h2>You are signed in as $team</h2>";
+
+
+
+
+
+}mysqli_free_result($result);
+
+?>
   <div class='homer'><h3>Support</h3>
 <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
 <p>You can solve SnitchHunt together as a group as a cooperative effort or you can compete against one another by registering competing teams.</p>

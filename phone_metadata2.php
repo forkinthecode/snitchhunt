@@ -2,21 +2,21 @@
 	
 require'header.php';
 ?>
-<h2>Phone usage metadata</h2>
+
 <?php
 echo"    <div class='searches' style='background-color:#e3f291;'>
          <table class='forms'><tr><td> 
-   <form action='phone_metadata.php' class='search' method='GET'>
+   <form action='phone_metadata2.php' class='search' method='GET'>
    <input type='text' id='search_string' name='search_string' placeholder='1.Search string' > 
    </td><td>
       <select name='field' >
        <option value=''>2.Click to Select Search Type</option>
        <option value='search_all_phone'>All fields</option>
-       <option value='search_all_subscriber'>Subscriber numbers only</option>
-       <option value='search_all_dialled'>Dialled numbers only</option>
+      <option value='search_all_subscriber'>Subscriber numbers only</option>
+ <option value='search_all_dialled'>Dialled numbers only</option>
        </select> </td><td>
        
-       <input type='submit' name='Search'  id='Search' />
+       <input type='submit' name='submit' placeholder='Search' id='submit' />
  
       </form></td></tr></table>
       </div>";
@@ -32,8 +32,8 @@ $result = mysqli_query($db, $phone );
   echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
-    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
     <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
@@ -65,9 +65,9 @@ $search_all_subscribers= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching subscriber numbers for <i>$search_all_subscribers</i></h3>";
   
 
-$phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-FROM `phone_metadata4` WHERE 
-`subscriber_phone_number`='$search_all_subscribers' order by phone_metadata4.date_column  DESC";
+$phone = "SELECT *
+FROM `phone_metadata` WHERE 
+`subscriber_phone_number`='$search_all_subscribers' order by phone_metadata.date_time  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
@@ -80,11 +80,11 @@ $result = mysqli_query($db, $phone );
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
  
-    <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
              }//6
         echo"</div>Mouse over/scroll for more results.";
@@ -94,9 +94,9 @@ elseif ($num_results <1)
        echo"<p>There are no exact matches in subsciber numbers for <b>$search_all_subscribers</b>- 
        falling back to partial matches</p>";
      
-      $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-       FROM `phone_metadata4` where 
-        `subscriber_phone_number` LIKE'%$search_all_subscribers%' order by phone_metadata4.date_column  DESC ";
+      $phone = "SELECT *
+       FROM `phone_metadata` where 
+        `subscriber_phone_number` LIKE'%$search_all_subscribers%' order by phone_metadata.date_time  DESC ";
       $result = mysqli_query($db, $phone );
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
@@ -114,11 +114,11 @@ elseif ($num_results <1)
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
-    <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
                  }//6
         echo"</div>Mouse over/scroll for more results.";
@@ -137,9 +137,9 @@ $search_all_dialled= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching dialled numbers for <i>$search_all_dialled</i></h3>";
   
 
-$phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-FROM `phone_metadata4` WHERE 
-`dialled_number`='$search_all_dialled' order by phone_metadata4.date_column  DESC";
+$phone = "SELECT *
+FROM `phone_metadata` WHERE 
+`dialled_number`='$search_all_dialled' order by phone_metadata.date_time  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
@@ -151,11 +151,11 @@ $result = mysqli_query($db, $phone );
              {//6
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td><b>Dialled number:</b></td>      <td><b><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a></b><td><td></td></tr>
+    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td><b>Dialled number:</b></td>      <td><b><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a></b><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
              }//6
         echo"</div>Mouse over/scroll for more results.";
@@ -165,9 +165,9 @@ elseif ($num_results <1)
        echo"<p>There are no exact matches in subsciber numbers for <b>$search_all_dialled</b>- 
        falling back to partial matches</p>";
      
-      $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-       FROM `phone_metadata4` where 
-        `dialled_number` LIKE'%$search_all_dialled%' order by phone_metadata4.date_column  DESC ";
+      $phone = "SELECT *
+       FROM `phone_metadata` where 
+        `dialled_number` LIKE'%$search_all_dialled%' order by phone_metadata.date_time  DESC ";
       $result = mysqli_query($db, $phone );
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
@@ -185,11 +185,11 @@ elseif ($num_results <1)
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
-    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td><b>Dialled number:</b></td>      <td><b><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a></b><td><td></td></tr>
+    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td><b>Dialled number:</b></td>      <td><b><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a></b><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
                  }//6
         echo"</div>Mouse over/scroll for more results.";
@@ -208,14 +208,14 @@ $search_all_fields= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching All Fields for <i>$search_all_fields</i></h3>";
   
 
-$phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-FROM `phone_metadata4` WHERE 
+$phone = "SELECT *
+FROM `phone_metadata` WHERE 
 `subscriber_imei`='$search_all_fields' || 
 `subscriber_phone_number`='$search_all_fields'|| 
 `dialled_number`='$search_all_fields' || 
 `cell_tower_location`='$search_all_fields' || 
-`date_column`='$search_all_fields' || 
-`duration`='$search_all_fields' order by phone_metadata4.date_column  DESC";
+`date_time`='$search_all_fields' || 
+`duration`='$search_all_fields' order by phone_metadata.date_time  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
@@ -228,11 +228,11 @@ $result = mysqli_query($db, $phone );
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
  
-    <tr><td>Subscriber number:</td>   <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td>Subscriber number:</td>   <td><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
              }//6
         echo"</div>Mouse over/scroll for more results.";
@@ -242,14 +242,14 @@ elseif ($num_results <1)
        echo"<p>There are no exact matches for the search criteria <b>$search_all_fields</b>- 
        falling back to partial matches</p>";
      
-      $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-       FROM `phone_metadata4` where 
+      $phone = "SELECT *
+       FROM `phone_metadata` where 
         `subscriber_imei` LIKE'%$search_all_fields%'  ||
         `subscriber_phone_number` LIKE'%$search_all_fields%'|| 
         `dialled_number` LIKE'%$search_all_fields%' || 
         `cell_tower_location` LIKE'%$search_all_fields%' || 
-        `date_column` LIKE'%$search_all_fields%' || 
-        `duration` LIKE'%$search_all_fields%' order by phone_metadata4.date_column  DESC ";
+        `date_time` LIKE'%$search_all_fields%' || 
+        `duration` LIKE'%$search_all_fields%' order by phone_metadata.date_time  DESC ";
       $result = mysqli_query($db, $phone );
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
@@ -267,11 +267,11 @@ elseif ($num_results <1)
      echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
     
-    <tr><td>Subscriber number:</td>   <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td>Subscriber number:</td>   <td><a href='phone_metadata2.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata2.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']." </td></tr>
     </tbody></table><br> ";
         }//6
         echo"</div>Mouse over/scroll for more results.";

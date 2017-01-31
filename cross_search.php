@@ -3,6 +3,7 @@
 require'header.php';
 ?>
 
+<h2>Cross search phone metadata</h2>
 
 			<?php
 			{
@@ -78,8 +79,8 @@ $caller_one= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_GET['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
 
-$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM `phone_metadata` 
-	WHERE subscriber_phone_number IN (SELECT subscriber_phone_number FROM `phone_metadata` 
+$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM `phone_metadata4` 
+	WHERE subscriber_phone_number IN (SELECT subscriber_phone_number FROM `phone_metadata4` 
 	WHERE dialled_number='$caller_one' ) && subscriber_phone_number IN 
 	(SELECT subscriber_phone_number FROM `phone_metadata` WHERE dialled_number='$caller_two' ) 
 	GROUP BY subscriber_phone_number ORDER BY count(subscriber_phone_number) DESC LIMIT 1 ";

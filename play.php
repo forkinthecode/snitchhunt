@@ -47,7 +47,7 @@ include('styles.php');
 
 
         <div class="left">
-           <?php
+           <?php/*
 if ( !isset($_POST['team_name'] )  )
 {
   echo"<h1>If your team is registered log in using the team name</h1>
@@ -61,7 +61,7 @@ if ( !isset($_POST['team_name'] )  )
 
 
 }mysqli_free_result($result);
-
+*/
 ?>
 
       <?php
@@ -128,7 +128,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE teams SET ch2='50' WHERE team='".$team."'";
+  $sql = "UPDATE `teams` set ch2=(ch2+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 2 is correct</h2>";
@@ -171,7 +171,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE teams SET ch3='100' WHERE team='".$team."'";
+   $sql = "UPDATE `teams` set ch3=(ch3+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 3 is correct</h2>";
@@ -213,7 +213,7 @@ if ($num_results >0)
     {
  
 
-   $sql = "UPDATE teams SET ch4='50' WHERE team='".$team."'";
+   $sql = "UPDATE `teams` set ch4=(ch4+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
    echo"<h2>Your solution for Challenge 4 is correct</h2>";
@@ -255,7 +255,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE teams SET ch5='100' WHERE team='".$team."'";
+   $sql = "UPDATE `teams` set ch5=(ch5+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 5 is correct</h2>";
@@ -297,7 +297,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE teams SET ch6='25' WHERE team='".$team."'";
+  $sql = "UPDATE `teams` set ch6=(ch6+25) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 6 is correct</h2>";
@@ -340,7 +340,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE teams SET ch7='150' WHERE team='".$team."'";
+   $$sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 7 is correct</h2>";
@@ -427,272 +427,9 @@ echo"</table>";
  </div>
  <div class='right'>
 
-
 <?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch1 FROM teams where team='$team' && ch1='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-echo" 
-<div class='answers' ><span class='right'>25 points</span>
- <h4> Challenge 1 </h4>
-
-
-
-<p>Q.What's the name of the Chief Data Officer?</p>
-<p>Hint: Search the <a href='article.php' target='_blank'>article</a> to find this answer.</p>
-
-<table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div><br>";
-}
-
-}
-
+include'challenges.php';
 ?>
-
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch2 FROM teams where team='$team' && ch2='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers' ><span class='right'>50 points</span>
- <h4> Challenge 2 </h4>
-
-
-
-<p>Q.What the Google 'user ID' of the whistleblower?</p>
-
-<p>Hint: Search the <a href='google_metadata.php' target='_blank'>Google metadata</a> to find this answer.</p>
-
-
-
-<table class='forms' border='0px' ><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-}
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch3 FROM teams where team='$team' && ch3='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers' ><span class='right'>100 points</span>
- <h4> Challenge 3 </h4>
-
-
-
-<p>Q.What the email address is of the whistleblower?</p>
-
-<p>Hint: Search the <a href='email_metadata.php' target='_blank'>email metadata</a> to find this answer.</p>
-
-
-<table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-}
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch4 FROM teams where team='$team' && ch4='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers' ><span class='right'>50 points</span>
- <h4> Challenge 4</h4>
-
-
-
-<p>Q.What the full address is of the whistleblower?</p>
-
-
-<p>Hint: You'll need to search <a href='phone_subscribers.php' target='_blank'>phone subscribers</a> for this answer.</p>
-
-<table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-}
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch5 FROM teams where team='$team' && ch5='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers' ><span class='right'>100 points</span>
- <h4> Challenge 5 </h4>
-
-
-
-<p>Q.What the last known location of the whistleblower?</p>
-
-
-<p>Hint: For this answer you will need to use <a href='phone_metadata.php' target='_blank'>phone metadata</a> search.</p>
-<table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-}
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch6 FROM teams where team='$team' && ch6='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers' ><span class='right'>25 points</span>
- <h4> Challenge 6 </h4>
-
-
-
-<p>Q.How many times did the whistleblower and the journalist talk to each other?</p>
-
-
-<p>Hint: You will need the <a href='cross_search.php' target='_blank'>cross search</a> to answer this one.</p>
-
- <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-}
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-$query="SELECT ch7 FROM teams where team='$team' && ch7='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-
-{
-
-
-echo"<br>
-<div class='answers'><span class='right'>150 points</span>
- <h4> Challenge 7 </h4>
-
-
-
-<p>What's the name of the second whistleblower at Minecorp?</p>
-
-<p>Hint: You will need the <a href='cross_search.php' target='_blank'>cross search</a> to answer this one.</p>
-
-
- <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
-
-<input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-</div>";
-
-}
-}
-
-?>
-
- 
-
-
   
 
 

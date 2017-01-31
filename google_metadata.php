@@ -14,39 +14,14 @@
     <body>
 
 <?php
-
-
-include('login.php');
-//include('../inclusions.php');
-
-include('styles.php');
-
-
- 
-    
-
+  
+require'header.php';
 ?>
 
-  
-        
-                     
- 
-  <div class="jumbotron"> 
- <?php
-     include'nav.php';
-     ?>
-  
-  
-        </div>
-          
-       
+          <h2>Google search metadata</h2>
 
-          <div class='clear'></div>
-<div class="page_width">
-
-
-        <div class="left">
           <?php
+if ( isset($_POST['team_name'] ) )
 {
 echo"<br>
 <h4> Search all fields in the <i>Google search</i> metadata:</h4><div class='searches' style='background-color:#cbdbd8'>
@@ -101,20 +76,20 @@ $search_all_google= mysqli_real_escape_string ( $db , $data );
 
   
 $google = "SELECT * FROM `google_metadata` where 
-IP_address      ='$search_all_google' 
-|| user_id      ='$search_all_google' 
-|| search_terms     ='$search_all_google' 
-|| user_name     ='$search_all_google'  
-|| full_name   ='$search_all_google'  
-|| address      ='$search_all_google' 
-|| email_address ='$search_all_google' 
-|| date_time   ='$search_all_google' 
-|| employer     ='$search_all_google' 
-|| job_title    ='$search_all_google' 
-|| address      ='$search_all_google'  
-|| source_tcp_port ='$search_all_google' 
-|| user_agent   ='$search_all_google'  
-|| date_time    ='$search_all_google' 
+      IP_address      LIKE'%$search_all_google%' 
+      || user_id      LIKE'%$search_all_google%' 
+      || search_terms     LIKE'%$search_all_google%' 
+      || user_name     LIKE'%$search_all_google%' 
+      || full_name    LIKE'%$search_all_google%' 
+      || address      LIKE'%$search_all_google%' 
+      || email_address LIKE'%$search_all_google%' 
+      || date_time   LIKE'%$search_all_google%' 
+      || employer     LIKE'%$search_all_google%' 
+      || job_title    LIKE'%$search_all_google%' 
+      || address      LIKE'%$search_all_google%' 
+      || source_tcp_port LIKE'%$search_all_google%' 
+      || user_agent   LIKE'%$search_all_google%' 
+      || date_time    LIKE'%$search_all_google%' 
 
 ";
 $result = mysqli_query($db, $google );
@@ -173,20 +148,20 @@ $search_all_google= mysqli_real_escape_string ( $db , $data );
 
 $search_all_google=trim($_GET['search_all_google']);
       $google = "SELECT * FROM `google_metadata` where 
-      IP_address      LIKE'%$search_all_google%' 
-      || user_id      LIKE'%$search_all_google%' 
-      || search_terms     LIKE'%$search_all_google%' 
-      || user_name     LIKE'%$search_all_google%' 
-      || full_name    LIKE'%$search_all_google%' 
-      || address      LIKE'%$search_all_google%' 
-      || email_address LIKE'%$search_all_google%' 
-      || date_time   LIKE'%$search_all_google%' 
-      || employer     LIKE'%$search_all_google%' 
-      || job_title    LIKE'%$search_all_google%' 
-      || address      LIKE'%$search_all_google%' 
-      || source_tcp_port LIKE'%$search_all_google%' 
-      || user_agent   LIKE'%$search_all_google%' 
-      || date_time    LIKE'%$search_all_google%' 
+MATCH(IP_address)   AGAINST('$search_all_google' )
+|| MATCH(user_id)   AGAINST('$search_all_google') 
+|| MATCH(search_terms)   AGAINST('c$search_all_google') 
+|| MATCH(user_name)   AGAINST('$search_all_google')  
+|| MATCH(full_name)   AGAINST('c$search_all_google')
+|| MATCH(address)   AGAINST('$search_all_google')
+|| MATCH(email_address)   AGAINST('$search_all_google')
+|| MATCH(date_time)   AGAINST('$search_all_google')
+|| MATCH(employer)   AGAINST('$search_all_google')
+|| MATCH(job_title )   AGAINST('$search_all_google')
+|| MATCH(address)   AGAINST('$search_all_google')
+|| MATCH(source_tcp_port)   AGAINST('c$search_all_google')
+|| MATCH(user_agent)   AGAINST('$search_all_google')  
+|| MATCH(date_time)   AGAINST('$search_all_google')
 
       ";
       $result = mysqli_query($db, $google );
@@ -205,7 +180,7 @@ $search_all_google=trim($_GET['search_all_google']);
          }//4
         elseif ($num_results <300 && $num_results >0) 
         { //5
-        echo"<h4>There are $num_results inexact matches in <i>Google search metadata</i> results for <b>$search_all_google</b></h4>
+        echo"<h4>There are $num_results partial matches in <i>Google search metadata</i> results for <b>$search_all_google</b></h4>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
@@ -385,7 +360,7 @@ $result = mysqli_query($db, $google );
     
  </div>
  <div class='right'>
- 
+     
 <?php
 include'challenges.php';
 ?>

@@ -1,7 +1,7 @@
    <style type="text/css">
    body {font-family:Verdana; color:#333; max-width:1500px; font-size:12px; margin:0; }
- .forms {width:100%; background:#f3f7aa;}
- .forms td { background:#f3f7aa; padding:10px;}
+.forms {width:100%; background:#f3f7aa; padding:1%; margin:0; }
+.forms td:nth-of-type(odd){ background:#f3f7aa; width:500px; }
 select {
 
   border: 1px solid #111;
@@ -21,7 +21,7 @@ select {
  .scoreboard {width:100%; font-size:18px; border: solid 1px #dcdcdc; border-radius:5px; margin-top:2%;}
  .scoreboard tr:nth-of-type(odd) { background:#eee;}
  .scoreboard td:nth-of-type(odd) { background:#cbdbd8;}
-	   .home {font-size:16px; }
+.home {font-size:16px; }
   h2 {background:#e3f291; padding:10px;}
   h1 {background:#e3f291; padding:10px;}
 input[type=submit] { height:35px; width:100%; color:#759e34; background:#eee; text-align:center; 
@@ -29,9 +29,8 @@ input[type=submit] { height:35px; width:100%; color:#759e34; background:#eee; te
   cursor:pointer;-webkit-border-radius: 5px; border-radius: 5px; font-size:25px; font-style:bold; 
 }
 .answers {width:100%;background:#cbdbd8; padding:10px; border-radius:5px; color:#333; font-size:15px; font-style:italic;}
-    
-   .challenge {width:100%;background:#cbdbd8; padding:2%; border-radius:5px;}
-   span.right {text-align:right; display:inline;}
+.challenge {width:100%;background:#cbdbd8; padding:2%; border-radius:5px;}
+span.right {text-align:right; display:inline;}
 
 a { color:#759e34;  text-decoration:none; }
 .homer {text-align:center; border: solid 1px #dcdcdc; border-radius:5px; margin-top:2%;}
@@ -39,16 +38,26 @@ h3  {width:100%;  color:#759e34; }
 
 
 .agencies {padding:10px;width:100%;}
-input[type="text"] {
-  width:50%;
+input.sign-in[type="text"] {
+  width:90%;
   padding: 10px;
   font-size:15px;
   border: solid 1px #dcdcdc;
 
   transition: box-shadow 0.3s, border 0.3s;
                    }
- .expand {height:600px; overflow:scroll;   padding:2%; margin:1%;}
- .searches {width:100%;  border-radius:5px; padding:1%; margin:1%;}
+input.sign[type=submit] { height:35px; width:75px; color:#759e34; font-size:15px; font-style:bold; text-align:center; 
+}
+input[type="text"] {
+  width:90%;
+  padding: 10px;
+  font-size:15px;
+  border: solid 1px #dcdcdc;
+
+  transition: box-shadow 0.3s, border 0.3s;
+                   }
+.expand {height:600px; overflow:scroll;   padding:2%; margin:1%;}
+/*.searches {width:100%;  border-radius:5px; padding:1%; margin:1%;}*/
  textarea.searches{  }
 .wide {width:100%; background:#cbdbd8; border-radius:5px; padding:1%;}
 .basic {width:100%; background: #cbdbd8; border-radius:5px; padding:1%;}

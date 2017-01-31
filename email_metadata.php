@@ -4,7 +4,7 @@ require'header.php';
 ?>
 
 
-
+<h2>Email usage metadata</h2>
 
 <?php
 {
@@ -35,7 +35,7 @@ $result = mysqli_query($db, $email );
     {
 
 echo"<table class='basic' border='0' style='background-color:#f29f91'><tbody>
-  <tr><td >IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
+  <tr><td width='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
   <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td><td> ".$row['email_subject_line']."<td><td></td></tr>
@@ -99,7 +99,7 @@ if ($num_results <1)
         while ($row = $result->fetch_assoc()) 
        {//6
      echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
-  <tr><td >IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
+  <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td> <td>".$row['email_subject_line']."<td>
@@ -130,7 +130,7 @@ if ($num_results <1)
     {//14
 
    echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
-  <tr><td >IP Address:</td><td> ".$row['source_IP_address']."<td><td></td></tr>
+  <tr><td with='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td><td> ".$row['email_subject_line']."<td>
@@ -194,7 +194,7 @@ if ($num_results <1)
         while ($row = $result->fetch_assoc()) 
        {//6
      echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
-  <tr><td >IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
+  <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td> <td>".$row['email_subject_line']."<td>

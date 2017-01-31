@@ -4,7 +4,7 @@ require'header.php';
 ?>
 
 
-
+<h2>Phone subscriber metadata</h2>
 
 <?php // searches all fields in phone_subscriber data for a  string
 {
