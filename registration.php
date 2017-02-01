@@ -57,8 +57,7 @@ if ( !isset($_POST['team_name'] )  )
   <table class='forms' border='0px'><tr><td>
   <form action='registration.php' method='POST'>
 
-<input type='hidden' name='team' value='".$_POST['team']."'>
-<input type='text'  id='team' name='team' placeholder='Your team name' /></td><td>
+<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>";
 
 
@@ -69,54 +68,69 @@ if ( !isset($_POST['team_name'] )  )
 
 
  <?php
-if ( isset($_POST['team'] ) )
+if ( isset($_POST['team_name'] ) )
 {
   
-     $team= mysqli_real_escape_string ( $db ,trim($_POST['team']) );
-
-$testing_team="SELECT team FROM teams WHERE team ='$team'";
+$team= mysqli_real_escape_string ( $db ,trim($_POST['team_name']) );
+if (strlen($team)>40)
+{
+  echo"<p>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 40 characters.</p>";
+}
+if (strlen($team)<40)
+{
+$testing_team="SELECT team FROM teams WHERE team ='".$team."'";
 $result = mysqli_query($db, $testing_team );
 @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
-{
+         {
+          echo"<br> 
+          <h2> Team name  <i>".$team."</i> already registered with SnitchHunt</h2>
+          <h4>To play on team $team, use your password and sign in at top right.</h4>";
+  
+         }
 
-$showing_teams="SELECT team FROM teams WHERE team ='$team'";
-$result = mysqli_query($db, $showing_teams );
 
-{
-   while ($row = $result->fetch_assoc()) 
-
-    
-  {
-   echo"<br> <table class='forms' border='0px'><tr><td>
-  <h3> Team name  <i>".$team."</i> already registered with SnitchHunt</h3><h3>
-   Click play to continue as team member for ".$team."</h3> <form class='play' action='play.php' method='POST'>
- <input type='hidden' name='team_name' value='".$team."'></td><td>
- <input type='submit' name='Play' value='Play' /></form> </td></tr></table>";
-  }
-}//echo" <h4>The above team names are already registered. <a href='registration.php'>Click here</a> to try a new team name or click on the name to play in that team. </h4>";
-}
 if ($num_results <1)
   {
-    $query="INSERT INTO teams(`time`, `date`, `team`, `ch1`, `ch2`,`ch3`,`ch4`,`ch5`,`ch6`,`ch7`) 
-     VALUES(CURRENT_TIME, CURDATE(), '".$team."', '0', '0','0','0','0','0','0'); ";
+    $query="INSERT INTO teams(`team`, `ch1`, `ch2`,`ch3`,`ch4`,`ch5`,`ch6`,`ch7`) 
+     VALUES('".$team."', '0', '0','0','0','0','0','0'); ";
       if ($db->query($query) === TRUE) 
       {
-        echo"<table class='forms' border='0px'><tr><td>
-     <h3>   Team name $team has been registered</h3>
-     <h3>Click Play to play on team <i>$team</i></h3></td><td>
+        echo"
+     <h2>   Team name $team has been registered</h2>";
 
-         <form class='play' action='play.php' method='POST'>
- <input type='hidden' name='team_name' value='".$team."'>
- <input type='submit' name='Play' value='Play' /></form></td></tr></table>
-        ";
       }
        else 
       {
 
           echo "Error: " . $query . "<br>" . $db->error;
       }
-    }
+
+
+      $query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS password";
+      $result = mysqli_query($db, $query);
+      @$num_results = mysqli_num_rows($result);
+      while ($row = $result->fetch_assoc()) 
+      $password=mysqli_real_escape_string($db, $row['password']); 
+      {
+        echo"<p>You will see your password below. Copy & paste it somewhere as you may need to use it! </p>
+        <p>Use your team name and password to log in at top right. </p>";
+
+      }
+     
+     $query="INSERT INTO teams (`time`,`date`, `team`, `password`) 
+     VALUES(CURRENT_TIME, CURDATE(),'".$team."','".$password."') ; ";
+      if ($db->query($query) === TRUE) 
+             {
+     echo"<h1>Password ".$password."</h1>";
+             } 
+       else 
+            {    
+    echo "Error: " . $query . "<br>" . $db->error;
+            }
+ 
+  }
+}
 }mysqli_free_result($result);
     ?>
 

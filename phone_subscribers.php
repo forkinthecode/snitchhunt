@@ -30,7 +30,7 @@ if( !isset($_GET['search_all_subscribers']) )
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#f2d091;'><tbody>
+echo"<table class='basic' border='0' style=''><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
   <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
@@ -92,7 +92,7 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-  echo"<table class='basic' border='0' style='background-color:#f2d091;'><tbody>
+  echo"<table class='basic' border='0' style=''><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
   <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
@@ -123,7 +123,7 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all
 
     {//14
 
-echo"<table class='basic' border='0' style='background-color:#f2d091;'><tbody>
+echo"<table class='basic' border='0' style=''><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
   <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
@@ -182,7 +182,7 @@ if ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                {//4
-          echo"<table class='basic' border='0' style='background-color:#f2d091;'><tbody>
+          echo"<table class='basic' border='0' style=''><tbody>
           <tr><td>Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
           <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
           <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>

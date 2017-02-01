@@ -22,8 +22,10 @@ echo"
 
  elseif ( isset($_POST['team_name'] ) )
 {
+
 	$data=$_POST['team_name'];
 $team_name=mysqli_real_escape_string ( $db , $data );
+//echo"$team_name ".$_POST['password']."";
   echo"<li><form action='phone_metadata.php' method='POST'>
             <input type='hidden' name='team_name' value='".$team_name."'>
             <input  type='submit' name='submit' value='Phone' id='submit' /></submit>  </form></li>
@@ -57,11 +59,13 @@ $team_name=mysqli_real_escape_string ( $db , $data );
 <li class='horizontal' ><a href='datasets.php'>About Metadata</a></li>
 <li class='horizontal' style='float:right'>
   <table  border='0px'><tr><td>
-  <form action='' method='POST'>
+  <form action='play.php' method='POST'>
 
-<input type='hidden' name='team_name' value='".$_POST['team_name']."'>
 <input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' /></td><td>
-<input class='sign' type='submit'  name='submit' value='Log in' id='submit' /></form></td></tr></table></li>
+<input class='sign-in' type='password'  id='password' name='password' placeholder='password' /></td><td>
+<input  type='submit'  name='submit' value='Log in' id='submit' /></form></td>
+
+</tr></table></li>
 <li class='horizontal' style='float:right'><a class='active' href='play.php'>Log out</a></li>
 <li class='horizontal' style='float:right'><a class='active' href='registration.php' target='_blank'>Register to Play</a></li>
 			</ul></h3>";

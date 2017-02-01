@@ -34,7 +34,7 @@ $result = mysqli_query($db, $email );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#f29f91'><tbody>
+echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
   <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
@@ -98,7 +98,7 @@ if ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>
@@ -129,7 +129,7 @@ if ($num_results <1)
 
     {//14
 
-   echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
+   echo"<table class='basic' border='0' style=''><tbody>
   <tr><td with='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
@@ -193,7 +193,7 @@ if ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0' style='background-color:#f29f91;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
   <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>

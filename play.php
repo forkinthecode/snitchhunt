@@ -340,7 +340,7 @@ if ($num_results >0)
     {
 
 
-   $$sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
+   $sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>Your solution for Challenge 7 is correct</h2>";
@@ -363,26 +363,26 @@ if ($num_results ==0)
 
 ?>
 <?php
-if ( isset($_POST['team_name'] )  )
+if ( isset($_POST['team_name'] ) )
 {
  $team= $_POST['team_name'] ;
-$query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='$team'";
+$query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' LIMIT 1";
 $result = mysqli_query($db, $query );
    while ($row = $result->fetch_assoc())
    { 
 echo"<h1>Score for team: $team </h1>
-<h3>Last update  ".$row['dates']." </h3>
+<h3>Last active  ".$row['dates']." </h3>
 <table  class='score' >
- <tr><th><h2>Score</h2></th><th><h2> 
-     ".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])." points</h2></th></tr>
+ <tr><th>Score</th><th> 
+     ".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])." points</th><th>Max Points</th></tr>
 
-    <tr><td>Challenge 1:</td><td> ".$row['ch1']." points</td></tr>
-      <tr><td>Challenge 2:</td><td> ".$row['ch2']." points</td></tr>
-      <tr><td>Challenge 3:</td><td> ".$row['ch3']." points</td></tr>
-      <tr><td>Challenge 4:</td><td> ".$row['ch4']." points</td></tr>
-      <tr><td>Challenge 5:</td><td> ".$row['ch5']." points</td></tr>
-      <tr><td>Challenge 6:</td><td>".$row['ch6']." points</td></tr>
-      <tr><td>Challenge 7:</td><td> ".$row['ch7']." points</td></tr>
+    <tr><td>Challenge 1:</td><td> ".$row['ch1']." points</td><td>25</td></tr>
+      <tr><td>Challenge 2:</td><td> ".$row['ch2']." points</td><td>50</td></tr>
+      <tr><td>Challenge 3:</td><td> ".$row['ch3']." points</td><td>100</td></tr>
+      <tr><td>Challenge 4:</td><td> ".$row['ch4']." points</td><td>50</td></tr>
+      <tr><td>Challenge 5:</td><td> ".$row['ch5']." points</td><td>100</td></tr>
+      <tr><td>Challenge 6:</td><td>".$row['ch6']." points</td><td>25</td></tr>
+      <tr><td>Challenge 7:</td><td> ".$row['ch7']." points</td><td>150</td></tr>
      </table> ";
     }echo"";
 
@@ -429,6 +429,7 @@ echo"</table>";
 
 <?php
 include'challenges.php';
+
 ?>
   
 

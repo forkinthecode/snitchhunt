@@ -71,25 +71,26 @@ echo"<table class='basic' border='0' style='background-color:#e3f291;'><tbody>
 
  
 
-$google = "SELECT * from google_metadata where id='4' ";
+$google = "SELECT * from google_metadata where id='46' ";
 $result = mysqli_query($db, $google );
    echo"<h4>Example <i>Google</i> metadata <a href='google_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>";
  while ($row = $result->fetch_assoc()) 
     {
 
 echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
-  <tr><td >IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
-  <tr><td >User Id:</td>           <td>".$row['user_id']."       <td></tr>
-  <tr><td>Full Name</td>                  <td>".$row['full_name']."</td></tr>
-  <tr><td>Username:</td>               <td>".$row['user_name']."</td></tr>
-  <tr><td>Email Address:</td>              <td>".$row['email_address']."    <td></tr>
-  <tr><td>Address:</td>                     <td>".$row['address']."         </td></tr>
-  <tr><td>Employer:</td>                    <td>".$row['employer']."        </td></tr>
-  <tr><td>Job Title:</td>                   <td>".$row['job_title']."       </td></tr>
-  <tr><td>Source TCP Port:</td>             <td>".$row['source_tcp_port']."</td></tr>
-  <tr><td>User agent:</td>                  <td>".$row['user_agent']."     </td></tr>
-  <tr><td>Date and Time:</td>                   <td> ".$row['date_time']."     </td></tr>
- </tbody></table><br>";
+  <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
+      <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
+      <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
+      <tr><td>Full Name</td>                    <td>".$row['full_name']."      </td></tr>
+      <tr><td>Username:</td>                    <td>".$row['user_name']."      </td></tr>
+      <tr><td>Email Address:</td>               <td>".$row['email_address']."  <td></tr>
+      <tr><td>Address:</td>                     <td>".$row['address']."        </td></tr>
+      <tr><td>Employer:</td>                    <td>".$row['employer']."       </td></tr>
+      <tr><td>Job Title:</td>                   <td>".$row['job_title']."      </td></tr>
+      <tr><td>Source TCP Port:</td>             <td>".$row['source_tcp_port']."</td></tr>
+      <tr><td>User agent:</td>                  <td>".$row['user_agent']."     </td></tr>
+      <tr><td>Date and Time:</td>               <td>".$row['date_time']."     </td></tr>
+     </tbody></table><br>";
 }
       
 
@@ -108,31 +109,29 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
  
  
 
-  <div class='agencies' style='background-color:#e3f291;'>
+  <div class='agencies' style='background-color:#cbdbd8'>
  <div class='expand'>
-  <p><a href='http://www.zdnet.com/article/brandis-rushes-to-release-telco-metadata-for-civil-proceedings/' target='_blank'>Plaintiff's</a> to have access to phone call, subscriber and email metadata:</p>
-  <p>Family law disputes</p>
-  <p>Workplace disputes</p>
+
  <p>List of organisations <a href='https://www.righttoknow.org.au/request/requests_for_access_to_telecommu#incoming-4557'>reported</a> to have applied for access to phone call, subscriber and email metadata. Click on the name for more info.</p>
 
 
-<p><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</a></p>
-<p><a href='../govspend/agency.php?Agency=Australian Financial Security Authority' target='_blank'>Australian Financial Security Authority</a></p>
-<p><a href='../govspend/agency.php?Agency=Australian Health Practitioner Regulation Agency' target='_blank'>Australian Health Practitioner Regulation Agency (AHPRA)</a></p>
-<p><a href='../govspend/agency.php?Agency=Australian Postal Corporation' target='_blank'>Australian Postal Corporation</a></p>
-<p><a href='../govspend/agency.php?Agency=Australian Taxation Office' target='_blank'>Australian Taxation Office</a></p>
-<p><a href='../govspend/agency.php?Agency=Australian Transaction Reports and Analysis Centre'>Australian Transaction Reports and Analysis Centre</a></p>
-<p><a href='../govspend/agency.php?Agency=Civil Aviation Safety Authority' target='_blank'>Civil Aviation Safety Authority (CASA)</a></p>
-<p><a href='../govspend/agency.php?Agency=Clean Energy Regulator' target='_blank'>Clean Energy Regulator</a></p>
-<p><a href='../govspend/agency.php?Agency=Department of Agriculture' target='_blank'>Department of Agriculture</a></p>
-<p><a href='../govspend/agency.php?Agency=Department of Defence' target='_blank'>Department of Defence (ADFIS and IGD)</a></p>
-<p> <a href='../govspend/agency.php?Agency=Department of the Environment and Energy' target='_blank'>Department of the Environment and Energy</a></p>
-<p> <a href='../govspend/agency.php?Agency=Department of Foreign Affairs and Trade' target='_blank'>Department of Foreign Affairs and Trade</a></p>
-<p> <a href='../govspend/agency.php?Agency=Department of Health' target='_blank'>Department of Health</a></p>
-<p> <a href='../govspend/agency.php?Agency=Department of Human Services' target='_blank'> Department of Human Services</a></p>
-<p> <a href='../govspend/agency.php?Agency=Department of Social Services' target='_blank'>Department of Social Services</a></p>
-<p> <a href='../govspend/agency.php?Agency=Fair Work Building and Construction' target='_blank'>Fair Work Building and Construction</a></p>
-<p> <a href='../govspend/agency.php?Agency=National Measurement Institute' target='_blank'>National Measurement Institute</a></p>
+<h4><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Australian Financial Security Authority' target='_blank'>Australian Financial Security Authority</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Australian Health Practitioner Regulation Agency' target='_blank'>Australian Health Practitioner Regulation Agency (AHPRA)</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Australian Postal Corporation' target='_blank'>Australian Postal Corporation</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Australian Taxation Office' target='_blank'>Australian Taxation Office</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Australian Transaction Reports and Analysis Centre'>Australian Transaction Reports and Analysis Centre</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Civil Aviation Safety Authority' target='_blank'>Civil Aviation Safety Authority (CASA)</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Clean Energy Regulator' target='_blank'>Clean Energy Regulator</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Department of Agriculture' target='_blank'>Department of Agriculture</a></h4>
+<h4><a href='../govspend/agency.php?Agency=Department of Defence' target='_blank'>Department of Defence (ADFIS and IGD)</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Department of the Environment and Energy' target='_blank'>Department of the Environment and Energy</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Department of Foreign Affairs and Trade' target='_blank'>Department of Foreign Affairs and Trade</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Department of Health' target='_blank'>Department of Health</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Department of Human Services' target='_blank'> Department of Human Services</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Department of Social Services' target='_blank'>Department of Social Services</a></h4>
+<p> <a href='../govspend/agency.php?Agency=Fair Work Building and Construction' target='_blank'>Fair Work Building and Construction</a></h4>
+<p> <a href='../govspend/agency.php?Agency=National Measurement Institute' target='_blank'>National Measurement Institute</a></h4>
 <p>ACT Revenue Office, ACT</p>
 <p>Access Canberra (Department of Treasury and Economic Development), ACT</p>
 <p>Bankstown City Council, NSW</p>

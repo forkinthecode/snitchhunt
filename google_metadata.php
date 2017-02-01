@@ -90,7 +90,7 @@ $google = "SELECT * FROM `google_metadata` where
       || source_tcp_port LIKE'%$search_all_google%' 
       || user_agent   LIKE'%$search_all_google%' 
       || date_time    LIKE'%$search_all_google%' 
-
+LIMIT 1000
 ";
 $result = mysqli_query($db, $google );
 @$num_results = mysqli_num_rows($result);
@@ -99,7 +99,7 @@ if ($num_results <1)
        echo"<p>There are no exact matches for the search criteria <b>$search_all_google</b></p>";
 
     }
-        elseif ($num_results >300)
+        elseif ($num_results >300 )
         {//4
          echo"<p>There are too many exact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
          Maximum results displayed is 300.</p><p> 
@@ -109,6 +109,7 @@ if ($num_results <1)
         elseif ($num_results <300 && $num_results >0) 
         { //5
         echo"<h4>There are $num_results exact matches in <i>Google search metadata</i> for <b>$search_all_google</b></h4>
+        <p>Results are limited to 1,000. Will display first 1,000 results.</p>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6

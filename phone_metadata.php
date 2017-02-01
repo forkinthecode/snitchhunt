@@ -29,7 +29,7 @@ $result = mysqli_query($db, $phone );
    echo"<h4>Example <i>phone</i> metadata</h4>";
  while ($row = $result->fetch_assoc()) 
     {
-  echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+  echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
     <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
@@ -77,7 +77,7 @@ $result = mysqli_query($db, $phone );
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
              {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
  
     <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
@@ -111,7 +111,7 @@ elseif ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                  {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
     <tr><td><b>Subscriber number:</b></td>   <td><b><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></b></td></tr>
@@ -149,7 +149,7 @@ $result = mysqli_query($db, $phone );
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
              {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
     <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
     <tr><td><b>Dialled number:</b></td>      <td><b><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a></b><td><td></td></tr>
@@ -182,7 +182,7 @@ elseif ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                  {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
     <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
@@ -225,7 +225,7 @@ $result = mysqli_query($db, $phone );
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
              {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
  
     <tr><td>Subscriber number:</td>   <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
@@ -264,7 +264,7 @@ elseif ($num_results <1)
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0' style='background-color:#e3f291;;'><tbody>
+     echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
     
     <tr><td>Subscriber number:</td>   <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>

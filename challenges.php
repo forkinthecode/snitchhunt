@@ -2,7 +2,7 @@
      <?php/*
 if ( !isset($_POST['team_name'] )  )
 {
-  echo"<h1>If your team is registered log in using the team name</h1>
+  echo"<h3>If your team is registered log in using the team name</h3>
   <table class='forms' border='0px'><tr><td>
   <form action='' method='POST'>
 
@@ -17,21 +17,29 @@ if ( !isset($_POST['team_name'] )  )
 ?>
 
 <?php
-if ( isset($_POST['team_name'] ) )
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-
+$data=$_POST['password'];
+$password=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
-echo"<h2>You are signed in as $team</h2>";
 
-$query="SELECT * FROM teams WHERE team='$team'";
+$query="SELECT * from teams where team='".$team."' && password='".$password."'";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
+if ($num_results<1)
+{
+	echo"<p>To view and answer challenges you need the correct password.</p>";
+
+	}
+if ($num_results>0)
+{
+
 echo"<table class='scoreboard'><tr>
-<th>Ch1</th>
+<th>Ch3</th>
 <th>Ch2</th>
 <th>Ch3</th>
-<th>Ch4</th>
+<th>Ch3</th>
 <th>Ch5</th>
 <th>Ch6</th>
 <th>Ch7</th>
@@ -40,33 +48,30 @@ echo"<table class='scoreboard'><tr>
   while ($row = $result->fetch_assoc()) 
 {
 echo"<tr>
-<td>".$row['ch1']."</td>
+<td>".$row['ch3']."</td>
 <td>".$row['ch2']."</td>
 <td>".$row['ch3']."</td>
-<td>".$row['ch4']."</td>
+<td>".$row['ch3']."</td>
 <td>".$row['ch5']."</td>
 <td>".$row['ch6']."</td>
 <td>".$row['ch7']."</td>
-<td>".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
+<td>".($row['ch3']+$row['ch2']+$row['ch3']+$row['ch3']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
 </tr>";
   }
-echo"</table>
+echo"</table><br>";
 
 
 
 
-<h4>The unsolved challenges for <i>$team</i> are:</h4>";
-
-$query="SELECT ch1 FROM teams where team='$team' && ch1='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+	
 
 {
+	
+	
 
-echo" 
+echo" <br>
 <div class='answers' ><span class='right'>25 points</span>
- <h4> Challenge 1 </h4>
+<h3>Challenge 1 </h3>
 
 
 
@@ -75,61 +80,51 @@ echo"
 
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
 
 </div><br>";
-}
 
 }
 
-?>
 
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch2 FROM teams where team='$team' && ch2='0' or ch2='-25'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
 
 {
 
 
 echo"<br>
 <div class='answers' ><span class='right'>50 points</span>
- <h4> Challenge 2 </h4>
+<h3>Challenge 2 </h3>
 
 
 
-<p>Q.What the Google 'user ID' of the whistleblower?</p>
+<p>Q.What is the Google 'user ID' of the whistleblower?</p>
 
 
 <form class='links' action='google_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Google Metadata' id='submit' /></submit>  </form> 
 <br>
 
 <table class='forms' border='0px' ><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-<p>Access extra hints- if you click reveal to access extra hints you will lose 25 points from this question</p>
+<p>Access hints- if you click reveal to Access hints you will lose 25 points from this question</p>
 
 <form class='links' action='' method='POST'>
-<input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge2' value='".$_POST['challenge2']."'>
+            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='hint2' value='".$_POST['hint2']."'>
+            <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
 
-            if ( isset($_POST['challenge2'] ) )
+            if ( isset($_POST['hint2'] ) )
             {
               echo"<p>Hint: </p>
 <p>Search Google metadata for the term whistleblower (one word) or anna dupont contact </p>
@@ -150,49 +145,41 @@ if ($db->query($sql) === TRUE) {
 echo"</div><br>";
 
 }
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch3 FROM teams where team='$team' && ch3='0' or ch3='-50'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+
 
 {
 
 
 echo"<br>
 <div class='answers' ><span class='right'>100 points</span>
- <h4> Challenge 3 </h4>
+<h3>Challenge 3 </h3>
 
 
 
-<p>Q.What the email address is of the whistleblower?</p>
+<p>Q.What is the email address is of the whistleblower?</p>
 
 <form class='links' action='email_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Email Metadata' id='submit' /></submit>  </form> 
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-<p>Access extra hints- if you click reveal to access extra hints you will lose 50 of the 100 points available for this question.</p>
+
+<p>Access hints- if you click reveal to Access hints you will lose 50 of the 100 points available for this question.</p>
 
 <form class='links' action='' method='POST'>
-<input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge3' value='".$_POST['challenge3']."'>
-            <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
+            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='hint3' value='".$_POST['hint3']."'>
+            <input type='hidden' name='password' value='".$password."'>
+            <input  type='submit' name='submit' value='Reveal' id='submit' /> </form> ";
 
-            if ( isset($_POST['challenge3'] ) )
+            if ( isset($_POST['hint3'] ) )
             {
               echo"<p>Hint: </p>
 <p>Search email metadata for minewatch (minewatch is  one word)</p>
@@ -213,116 +200,96 @@ if ($db->query($sql) === TRUE) {
 echo"</div><br>";
 
 }
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch4 FROM teams where team='$team' && ch4='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+
 
 {
 
 
 echo"<br>
 <div class='answers' ><span class='right'>50 points</span>
- <h4> Challenge 4</h4>
+<h3>Challenge 4</h3>
 
 
 
-<p>Q.What the full address is of the whistleblower?</p>
+<p>Q.What is the full address is of the whistleblower?</p>
 
 
 
 <form class='links' action='phone_subscribers.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Phone Subscriber' id='submit' /></submit>  </form> 
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
-
-<p>Access extra hints- if you click reveal to access extra hints you will lose 25 points from this question</p>
+<p>Access hints- if you click reveal to Access hints you will lose 50 of the 100 points available for this question.</p>
 
 <form class='links' action='' method='POST'>
-<input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge4' value='".$_POST['challenge4']."'>
+            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='hint4' value='".$_POST['hint4']."'>
+            <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
 
-            if ( isset($_POST['challenge4'] ) )
+            if ( isset($_POST['hint4'] ) )
             {
               echo"<p>Hint: </p>
-<p>Plug email into phone subscribers and get answer</p>";
-}
-              
-$sql = "UPDATE teams SET ch4='-25' WHERE team='".$team."'";
+<p>Plug email into phone subscribers and get answer:</p>
+              ";
+$sql = "UPDATE teams SET ch3='-25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>25 points have been deducted from the 50 points available for this question</h2>";
     
-                               } 
+                                } 
    else {
     echo "Error updating db " . $db->error;
         }
-            
+            }
 echo"</div><br>";
 
 }
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch5 FROM teams where team='$team' && ch5='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+
 
 {
 
 
 echo"<br>
 <div class='answers' ><span class='right'>100 points</span>
- <h4> Challenge 5 </h4>
+<h3>Challenge 5 </h3>
 
 
 
-<p>Q.What the last known location of the whistleblower?</p>
+<p>Q.What is the last known location of the whistleblower?</p>
 
 
 
 <form class='links' action='phone_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Phone Metadata' id='submit' /></submit>  </form> 
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
 
-<p>Access extra hints- if you click reveal to access extra hints you will lose 50 of the 100 points available for this question.</p>
+<p>Access hints- if you click reveal to Access hints you will lose 50 of the 100 points available for this question.</p>
 
 <form class='links' action='' method='POST'>
-<input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge5' value='".$_POST['challenge5']."'>
+            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='hint5' value='".$_POST['hint5']."'>
+            <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
 
-            if ( isset($_POST['challenge5'] ) )
+            if ( isset($_POST['hint5'] ) )
             {
               echo"<p>Hint: </p>
 <p>To get last known location take IMEI from the phone subscriber data of the whistleblower
@@ -343,26 +310,16 @@ if ($db->query($sql) === TRUE) {
 echo"</div><br>";
 
 }
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch6 FROM teams where team='$team' && ch6='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+
 
 {
 
 
 echo"<br>
 <div class='answers' ><span class='right'>25 points</span>
- <h4> Challenge 6 </h4>
+<h3>Challenge 6 </h3>
 
 
 
@@ -370,24 +327,25 @@ echo"<br>
 
 
 <form class='links' action='cross_search.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Cross Search' id='submit' /></submit>  </form> 
  <br>
  <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
 
-<p>Access extra hints- if you click reveal to access extra hints you will lose 10 of the 25 points available for this question.</p>
+<p>Access hints- if you click reveal to Access hints you will lose 10 of the 25 points available for this question.</p>
 
 <form class='links' action='' method='POST'>
 <input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge6' value='".$_POST['challenge6']."'>
+            <input type='hidden' name='hint6' value='".$_POST['hint6']."'>
+             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
 
-            if ( isset($_POST['challenge6'] ) )
+            if ( isset($_POST['hint6'] ) )
             {
               echo"<p>Hint: </p>
 <p>Get journalist’s phone number </p>
@@ -396,7 +354,7 @@ echo"<br>
 <p>Switch them over to see how many calls were made in the other direction and add.</p>
 
               ";
-$sql = "UPDATE teams SET ch6='-10' WHERE team='".$team."'";
+$sql = "UPDATE teams SET ch6='-10' WHERE team='".$team."' ";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>10 points have been deducted from the 25 points available for this question</h2>";
@@ -409,57 +367,49 @@ if ($db->query($sql) === TRUE) {
 echo"</div><br>";
 
 }
-}
-?>
-<?php
-if ( isset($_POST['team_name'] ) )
-{
 
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT ch7 FROM teams where team='$team' && ch7='0'";
-  $result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+
 
 {
 
 
 echo"<br>
 <div class='answers'><span class='right'>150 points</span>
- <h4> Challenge 7 </h4>
+<h3>Challenge 7 </h3>
 
 
 
 <p>What's the name of the second whistleblower at Minecorp?</p>
 
-<p>Hint: You will need the <a href='cross_search.php' target='_blank'>cross search</a> to answer this one.</p>
+<form class='links' action='cross_search.php' method='POST'>
+            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
-
+            <input  type='submit' name='submit' value='Cross Search' id='submit' /></submit>  </form> 
+ <br>
  <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
- <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
 <br>
-<p>Access extra hints- if you click reveal to access extra hints you will lose 75 of the 150 points available for this question</p>
+<p>Access hints- if you click reveal to Access hints you will lose 75 of the 150 points available for this question</p>
 
 <form class='links' action='' method='POST'>
 <input type='hidden' name='team_name' value='".$team."'>
-            <input type='hidden' name='challenge7' value='".$_POST['challenge7']."'>
+            <input type='hidden' name='hint7' value='".$_POST['hint7']."'>
+            <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
 
-            if ( isset($_POST['challenge7'] ) )
+            if ( isset($_POST['hint7'] ) )
             {
               echo"<p>Hint: </p>
 <p>Use Cross Search page.</p>
 <p> Enter Annas and David’s phone numbers into the 2nd search box to find out which number they both called. </p>
 <p>Click on the IMEI to search the phone subscriber records to get the details of the 2nd whistleblower. 
-</p>
+</p>";
 
-              ";
 $sql = "UPDATE teams SET ch7='-75' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
@@ -472,6 +422,7 @@ if ($db->query($sql) === TRUE) {
             }
 echo"</div><br>";
 
+    }
 }
 }
 ?>

@@ -20,7 +20,8 @@ $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DA
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<h2>SnitchHunt Scoreboard</h2><p>*Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
+echo"<h2>SnitchHunt Scoreboard</h2>
+<p>*Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
 <th>Ch1</th>
 <th>Ch2</th>
 <th>Ch3</th>
@@ -46,11 +47,11 @@ echo"<tr><td>".$row['team']."</td>
 echo"</table>";
 ?>
 
-<div class='home' style="background-image:'security.jpg';width='700px">
+
   <div class='homer'><h3>News</h3>
-<p>Did you know that ISP's and phone companies have to retain metadata <a href="http://www.news.com.au/technology/online/new-data-retention-laws-begin-today-this-is-what-you-need-to-know/news-story/28ea2dc1b01d15e53f474e21b6d68501" target='_blank'>for two years</a>in case a
+<p>Did you know that ISP's and phone companies have to retain metadata <a href="http://www.news.com.au/technology/online/new-data-retention-laws-begin-today-this-is-what-you-need-to-know/news-story/28ea2dc1b01d15e53f474e21b6d68501" target='_blank'>for two years</a> in case a
   government agency decides to investigate you under crimial law? </p>
-<p>Now the government wants to make this data <a href='http://www.canberratimes.com.au/federal-politics/political-news/australians-phone-and-email-records-could-be-used-in-civil-lawsuits-20161222-gtgdy6.html' target='_blank'>available to civil law proceedings</a>, opening people to having their metadata used in family law disputes, workplace and business conflicts.</p>
+<p>Now the government wants to make this data <a href='http://www.canberratimes.com.au/federal-politics/political-news/australians-phone-and-email-records-could-be-used-in-civil-lawsuits-20161222-gtgdy6.html' target='_blank'> available to civil law proceedings</a>, opening people to having their metadata used in family law disputes, workplace and business conflicts.</p>
 </div>
 
 <div class='homer'><h3>Learn</h3>
@@ -81,22 +82,63 @@ echo"<h2>You are signed in as $team</h2>";
 }mysqli_free_result($result);
 
 ?>
-  <div class='homer'><h3>Support</h3>
+<div class='tabs'>
+ 
+ 
+   <input type='radio' name='tabs' id='tab1' checked >
+   <label for='tab1'>
+       <i class=''></i><span>Instructions</span>
+   </label>
+ 
+ 
+   <input type='radio' name='tabs' id='tab2' >
+   <label for='tab2'>
+       <i class=''></i><span>About</span>
+   </label>
+ 
+   <input type='radio' name='tabs' id='tab3' >
+   <label for='tab3'>
+       <i class=''></i><span>Chat</span>
+   </label>
+
+   <div id='tab-content1' class='tab-content'>
+ 
 <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
 <p>You can solve SnitchHunt together as a group as a cooperative effort or you can compete against one another by registering competing teams.</p>
 <p><a href='registration.php' target='_blank'>Register</a> your team name then use your team name to <a href='play.php' target='_blank'>sign in</a> and you will see the challenges 
   your team needs to solve.</p>
-  <p>Once a correct solution is entered, your tem points are awarded and that challenge is no longer viewable.</p>
-  <p>No points are deducted for incorrect guesses and there is no limit on the number of attempts you can make on each question.</p>
-  <p>Solve all the challenges to reach 500 points.</p>
+  <p>Solve all the challenges without accessing any hints to reach 500 points.</p>
+  <p>Hints are available for challenges 2-7 inclusive. However if you click on the hints you lose half the points for that challenge.</p>
+  <p>You will still need to enter the correct solution for each challenge after accessing any hints.</p>
   <p>If you need help provide a username in the chat below and ask away.</p>
-  <p>There's no time limit on SnitchHunt.</p>
+ 
+
+<br>
+
 </div>
+   <div id='tab-content2' class='tab-content'>
+ <p>Snitchhunt is a game desgined by Gabor Szathmari of CryptoParty Sydney to demonstrate how metadata that is kept on every
+ one of us can be used to track our movements. I discovered Snitchunt at the recent event run by Melbourne University which generated these media stories:
+</p>
+<a href=''>http://www.abc.net.au/triplej/programs/hack/how-team-of-pre-teens-found-whisteblower-using-metadata/8113668</a>
+<a href=''>http://www.startupsmart.com.au/technology/hackathon-exposes-how-easily-you-can-be-found-with-metadata/</a>
+<p>
 
-  <iframe src='https://whistleblower.network/snitch/chat/room/chat.php' style='border-width:0' width='500' height='600' frameborder='0' scrolling='no'>
+You can find Gabor at https://twitter.com/gszathmari You can find me at https://twitter.com/Info_Aus</p>
+<p> You can find CryptoParty Australia at https://www.cryptoparty.in/index
+</p><p>
+Code is intended to be open source licenced as CC BY-SA until further notice.</p>
+
+</div>
+   <div id='tab-content3' class='tab-content'>
+   
+
+ <iframe src='https://whistleblower.network/snitch/chat/room/chat.php' style='border-width:0' width='500' height='600' frameborder='0' scrolling='no'>
+<br>
 
 
-
+  </div>
+ </div>
 </div></div>
 <div class='clear'></div>
 
