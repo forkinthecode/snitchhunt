@@ -5,8 +5,9 @@ require'header.php';
 
 
 
-
-   	<h2 id="whistleblower-reveals-that-minecorps-..."><a class="headeranchor-link" aria-hidden="true" href="#whistleblower-reveals-that-minecorps-..." name="whistleblower-reveals-that-minecorps-..." title="Permanent link: Whistleblower Reveals that Minecorp’s WA Fracking Operation Uses Toxic Chemicals" data-icon="#">Whistleblower Reveals that Minecorp’s WA Fracking Operation Uses Toxic Chemicals</a></h2>
+<!--
+   	<h2>Whistleblower Reveals that Minecorp’s WA Fracking Operation Uses Toxic Chemicals</h2>-->
+<div class='homer'>
 <p><strong>MineWatch, 9th December, 2016</strong></p>
 <p>We still remember vividly not long ago, Western Australia (WA) farmers told ABC News about their <a href="http://www.abc.net.au/news/2016-04-20/fears-over-fracking-planned-in-wa-food-basket-area-dandaragan/7341656" rel="nofollow">Fracking fears in WA 'food basket' Dandaragan</a>, because their freehold farms which they have spent 40 years to build up will be at risk if frackers get on them. </p>
 <p><em>"If the climate keeps drying as it has been, the only way we will be able to grow any crops is by irrigation. And if we foul the aquifers with these chemicals and the gas, then that option won't be open to us."</em> - WA farmer Harry Minty.</p>
@@ -40,11 +41,13 @@ Twitter: &#64;annaminewatch  </p>
 <li><a href="http://www.usatoday.com/story/news/nation/2013/10/02/fracking-radioactive-water-pennsylvania/2904829/">Fracking linked to radioactive river water in Pa.</a></li>
 </ul>
 
-
+</div>
 
 </div>
-<div class='right' style='margin:20px'>
-<h2 id="the-assignment"><a class="headeranchor-link" aria-hidden="true" href="#the-assignment" name="the-assignment" title="Permanent link: The Assignment" data-icon="#">The Assignment</a></h2>
+<div class='right'>
+
+
+	<div class='homer'><h2>The Assignment</h2>
 <p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
 <blockquote>
 <p><strong>From: Finn Coburn &lt;finn.coburn&#64;thepolice.com&gt;</strong><br />
@@ -77,7 +80,7 @@ Tel: 16131<br />
 www.thepolice.com</p>
 </blockquote>
 
-
+</div>
 </div></div>
 <div class='clear'></div>
 

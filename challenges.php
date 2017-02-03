@@ -1,19 +1,15 @@
 
-     <?php/*
-if ( !isset($_POST['team_name'] )  )
+    <?php
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ) )
 {
-  echo"<h3>If your team is registered log in using the team name</h3>
-  <table class='forms' border='0px'><tr><td>
-  <form action='' method='POST'>
-
-<input type='hidden' name='team' value='".mysqli_real_escape_string($db, $_POST['team'])."'>
-<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
-<input type='submit'  name='submit' value='Submit' id='submit' /></form></td></tr></table>";
-
-
-
-}mysqli_free_result($result);
-*/
+ $team= $_POST['team_name'] ;
+$query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' LIMIT 1";
+$result = mysqli_query($db, $query );
+   while ($row = $result->fetch_assoc())
+   { 
+echo"<h3>Last active  ".$row['dates']." </h3>";
+   }
+}
 ?>
 
 <?php
@@ -36,10 +32,10 @@ if ($num_results>0)
 {
 
 echo"<table class='scoreboard'><tr>
-<th>Ch3</th>
 <th>Ch2</th>
-<th>Ch3</th>
-<th>Ch3</th>
+<th>Ch2</th>
+<th>Ch2</th>
+<th>Ch2</th>
 <th>Ch5</th>
 <th>Ch6</th>
 <th>Ch7</th>
@@ -48,14 +44,14 @@ echo"<table class='scoreboard'><tr>
   while ($row = $result->fetch_assoc()) 
 {
 echo"<tr>
-<td>".$row['ch3']."</td>
 <td>".$row['ch2']."</td>
-<td>".$row['ch3']."</td>
-<td>".$row['ch3']."</td>
+<td>".$row['ch2']."</td>
+<td>".$row['ch2']."</td>
+<td>".$row['ch2']."</td>
 <td>".$row['ch5']."</td>
 <td>".$row['ch6']."</td>
 <td>".$row['ch7']."</td>
-<td>".($row['ch3']+$row['ch2']+$row['ch3']+$row['ch3']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
+<td>".($row['ch2']+$row['ch2']+$row['ch2']+$row['ch2']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
 </tr>";
   }
 echo"</table><br>";
@@ -71,7 +67,7 @@ echo"</table><br>";
 
 echo" <br>
 <div class='answers' ><span class='right'>25 points</span>
-<h3>Challenge 1 </h3>
+<h2>Challenge 1 </h2>
 
 
 
@@ -98,7 +94,7 @@ echo" <br>
 
 echo"<br>
 <div class='answers' ><span class='right'>50 points</span>
-<h3>Challenge 2 </h3>
+<h2>Challenge 2 </h2>
 
 
 
@@ -154,7 +150,7 @@ echo"</div><br>";
 
 echo"<br>
 <div class='answers' ><span class='right'>100 points</span>
-<h3>Challenge 3 </h3>
+<h2>Challenge 3 </h2>
 
 
 
@@ -187,7 +183,7 @@ echo"<br>
    <p> Use in page search on the IP address from the Google metadata</p>
      <p>Copy email address from first result of in-page search and see if that is answer</p>
               ";
-$sql = "UPDATE teams SET ch3='-50' WHERE team='".$team."'";
+$sql = "UPDATE teams SET ch2='-50' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>50 points have been deducted from the 100 points available for this question</h2>";
@@ -209,7 +205,7 @@ echo"</div><br>";
 
 echo"<br>
 <div class='answers' ><span class='right'>50 points</span>
-<h3>Challenge 4</h3>
+<h2>Challenge 4</h2>
 
 
 
@@ -240,7 +236,7 @@ echo"<br>
               echo"<p>Hint: </p>
 <p>Plug email into phone subscribers and get answer:</p>
               ";
-$sql = "UPDATE teams SET ch3='-25' WHERE team='".$team."'";
+$sql = "UPDATE teams SET ch2='-25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>25 points have been deducted from the 50 points available for this question</h2>";
@@ -262,7 +258,7 @@ echo"</div><br>";
 
 echo"<br>
 <div class='answers' ><span class='right'>100 points</span>
-<h3>Challenge 5 </h3>
+<h2>Challenge 5 </h2>
 
 
 
@@ -319,7 +315,7 @@ echo"</div><br>";
 
 echo"<br>
 <div class='answers' ><span class='right'>25 points</span>
-<h3>Challenge 6 </h3>
+<h2>Challenge 6 </h2>
 
 
 
@@ -376,7 +372,7 @@ echo"</div><br>";
 
 echo"<br>
 <div class='answers'><span class='right'>150 points</span>
-<h3>Challenge 7 </h3>
+<h2>Challenge 7 </h2>
 
 
 

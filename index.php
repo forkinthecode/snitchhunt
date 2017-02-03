@@ -67,21 +67,7 @@ echo"</table>";
 
  </div>
  <div class='right'>
-   <?php
-if ( isset($_POST['team_name'] ) )
-{
-
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-echo"<h2>You are signed in as $team</h2>";
-
-
-
-
-
-}mysqli_free_result($result);
-
-?>
+   
 <div class='tabs'>
  
  

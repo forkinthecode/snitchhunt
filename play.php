@@ -1,52 +1,8 @@
-<!--top level openaus page-->
-<!--BudPOST Home-->
- <!DOCTYPE HTML>
-<html lang="en">
-  <head>
-<meta charset="UTF-8">
-    <title>Little Bird</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Rosie Williams">
-  <link rel="icon" 
-    type="image/png" 
-    href="../favicon.ico">
-    </head>
-    <body>
-
 <?php
-
-
-include('login.php');
-//include('../inclusions.php');
-
-include('styles.php');
-
-
- 
-    
-
+  
+require'header.php';
 ?>
 
-  
-        
-                     
- 
-  <div class="jumbotron"> 
- <?php
-     include'nav.php';
-     ?>
-  
-  
-        </div>
-          
-       
-
-          <div class='clear'></div>
-<div class="page_width">
-
-
-        <div class="left">
            <?php/*
 if ( !isset($_POST['team_name'] )  )
 {
@@ -370,8 +326,8 @@ $query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams 
 $result = mysqli_query($db, $query );
    while ($row = $result->fetch_assoc())
    { 
-echo"<h1>Score for team: $team </h1>
-<h3>Last active  ".$row['dates']." </h3>
+echo"
+
 <table  class='score' >
  <tr><th>Score</th><th> 
      ".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])." points</th><th>Max Points</th></tr>

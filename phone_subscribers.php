@@ -6,19 +6,24 @@ require'header.php';
 
 <h2>Phone subscriber metadata</h2>
 
-<?php // searches all fields in phone_subscriber data for a  string
+  <?php
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
 echo"<br><h4> Search all fields in the <i>phone subscriber</i> metadata:</h4>
 <div class='searches' style='background-color:#f2d091;'>
        <table class='forms'><tr><td>   
-            <form action='phone_subscribers.php'  method='GET'>
+            <form action='phone_subscribers.php'  method='POST'>
+             <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
          </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
             </form></td></tr></table>
 </div>
           ";
      }
-if( !isset($_GET['search_all_subscribers']) )
+if( !isset($_POST['search_all_subscribers']) )
 {
 
     
@@ -42,11 +47,11 @@ echo"<table class='basic' border='0' style=''><tbody>
 
 }
 }
-if( isset($_GET['search_all_subscribers']) )
+if( isset($_POST['search_all_subscribers']) )
 {
   
 
-$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all_subscribers']) );
+$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
 $subscribers = "SELECT * from phone_subscriber where   
 subscriber_number       ='$search_all_subscribers' 
 || Date_Time               ='$search_all_subscribers' 
@@ -62,7 +67,7 @@ if ($num_results <1)
        falling back to inexact matches</h4>";
 
    
-$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all_subscribers']) );
+$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
       $subscribers = "SELECT * from phone_subscriber where   
    subscriber_number        LIKE'%$search_all_subscribers%' 
 || Date_Time                LIKE'%$search_all_subscribers%' 
@@ -76,7 +81,7 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all
         {//3
         echo"<h4>There are no results for the search criteria <b>$search_all_subscribers</b></h4>";
         }//3
-        
+        /*
         elseif ($num_results >300)
         {//4
          echo"<h4>There are too many results (".number_format($num_results).") 
@@ -84,8 +89,8 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all
          Maximum results displayed is 300.</h4><h4>
           <a href='phone_subscribers.php?show_all_subscribers_data=$search_all_subscribers'>Click here</a> 
           to override limit and display all ".number_format($num_results).".</h4> ";
-         }//4
-        elseif ($num_results <300 && $num_results >0) 
+         }//4*/
+        elseif ($num_results >0) 
         { //5
         echo"<h4>There are $num_results <i>phone subscriber</i> results for
          <b>$search_all_subscribers</b></h4>
@@ -106,7 +111,7 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all
               
  }//2
 
-  
+  /*
  elseif ($num_results >300)
  {//11
   echo"<h4>There are too many exact matches (".number_format($num_results).")
@@ -136,17 +141,17 @@ echo"<table class='basic' border='0' style=''><tbody>
    echo"</div>Mouse over/scroll for more results.";
 
       
-      }//16
+      }//16*/
 }mysqli_free_result($result);
 
 ?>
 
 <?php // searches all fields in phone_subscriber data for a  string
-
-if( !isset($_GET['search_all_subscribers']) && isset($_GET['show_all_subscribers']))
+/*
+if( !isset($_POST['search_all_subscribers']) && isset($_POST['show_all_subscribers']))
 {//1
   
-$show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['show_all_subscribers']) );
+$show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['show_all_subscribers']) );
 
 $subscribers = "SELECT * from phone_subscriber where   
 subscriber_number       ='$show_all_subscribers' 
@@ -162,7 +167,7 @@ if ($num_results <1)
        echo"<h4>There are no exact matches for the search criteria <b>$show_all_subscribers</b>- 
        falling back to inexact matches</h4>";
 
-     $show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['show_all_subscribers']) );
+     $show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['show_all_subscribers']) );
       $subscribers = "SELECT * from phone_subscriber where   
    subscriber_number        LIKE'%$show_all_subscribers%' 
 || Date_Time                LIKE'%$show_all_subscribers%' 
@@ -195,7 +200,7 @@ if ($num_results <1)
 }//2
          }//3
 }mysqli_free_result($result);//1
-
+*/
 ?>
 
 

@@ -5,23 +5,26 @@ require'header.php';
 <h2>Phone usage metadata</h2>
 <?php
 echo"    <div class='searches' style='background-color:#e3f291;'>
-         <table class='forms'><tr><td> 
-   <form action='phone_metadata.php' class='search' method='GET'>
+         <table class='forms' border='0px'><tr><td> 
+   <form action='phone_metadata.php' class='search' method='POST'>
+    <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+
    <input type='text' id='search_string' name='search_string' placeholder='1.Search string' > 
-   </td><td>
-      <select name='field' >
+   
+      <select name='field'>
        <option value=''>2.Click to Select Search Type</option>
        <option value='search_all_phone'>All fields</option>
        <option value='search_all_subscriber'>Subscriber numbers only</option>
        <option value='search_all_dialled'>Dialled numbers only</option>
-       </select> </td><td>
+       </select> 
+    </td><td>
        
        <input type='submit' name='Search'  id='Search' />
  
       </form></td></tr></table>
       </div>";
 
-  if( !isset($_GET['field']) && !isset($_GET['search_string']) )
+  if( !isset($_POST['field']) && !isset($_POST['search_string']) )
  {//
 
   $phone = "SELECT * from phone_metadata where id='1' ";
@@ -38,11 +41,11 @@ $result = mysqli_query($db, $phone );
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
     <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
     </tbody></table><br>
-    <p>This page searches all fields or by subscriber or dialled number. To search using two phone numbers use the <a href='cross_search.php' target='_blank'>Cross Search</a> page. ";
+    <h5>This page searches all fields or by subscriber or dialled number. To search using two phone numbers use the <a href='cross_search.php' target='_blank'>Cross Search</a> page. ";
     }
 }
 
-  if( isset($_GET['field']) && $_GET['search_string']=='' ||  isset($_GET['search_string']) && $_GET['field']=='')
+  if( isset($_POST['field']) && $_POST['search_string']=='' ||  isset($_POST['search_string']) && $_POST['field']=='')
  {//
 echo"<h4>You need to provide a value in the search box (1.) to match against the fields (2.)</h4>
  ";
@@ -50,17 +53,17 @@ echo"<h4>You need to provide a value in the search box (1.) to match against the
  }
 
 
- if( isset($_GET['field']) && isset($_GET['search_string']) && $_GET['search_string']!='' && $_GET['field']!='' )
+ if( isset($_POST['field']) && isset($_POST['search_string']) && $_POST['search_string']!='' && $_POST['field']!='' )
  {
-  echo"<p>Click on subscriber or dialled number in any result to search by that field with that number</p>";
+  echo"cClick on subscriber or dialled number in any result to search by that field with that number</h5>";
 
  }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-if(isset($_GET['field']) && $_GET['field']=='search_all_subscriber' && isset($_GET['search_string']) && $_GET['search_string']!='' )
+if(isset($_POST['field']) && $_POST['field']=='search_all_subscriber' && isset($_POST['search_string']) && $_POST['search_string']!='' )
  {//1
-$data=trim($_GET['search_string']);
+$data=trim($_POST['search_string']);
 $search_all_subscribers= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching subscriber numbers for <i>$search_all_subscribers</i></h3>";
   
@@ -91,8 +94,8 @@ $result = mysqli_query($db, $phone );
       }//5
 elseif ($num_results <1)
  {//2
-       echo"<p>There are no exact matches in subsciber numbers for <b>$search_all_subscribers</b>- 
-       falling back to partial matches</p>";
+       echo"<h5>There are no exact matches in subsciber numbers for <b>$search_all_subscribers</b>- 
+       falling back to partial matches</h5>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
        FROM `phone_metadata4` where 
@@ -101,7 +104,7 @@ elseif ($num_results <1)
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$search_all_subscribers</b></p>";
+        echo"<h5>There are no results for the search criteria <b>$search_all_subscribers</b></h5>";
         }//3
         
        
@@ -130,9 +133,9 @@ elseif ($num_results <1)
 
 <?php
 
-if(isset($_GET['field']) && $_GET['field']=='search_all_dialled' && isset($_GET['search_string'])  && $_GET['search_string']!='')
+if(isset($_POST['field']) && $_POST['field']=='search_all_dialled' && isset($_POST['search_string'])  && $_POST['search_string']!='')
  {//1
-$data=trim($_GET['search_string']);
+$data=trim($_POST['search_string']);
 $search_all_dialled= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching dialled numbers for <i>$search_all_dialled</i></h3>";
   
@@ -162,8 +165,8 @@ $result = mysqli_query($db, $phone );
       }//5
 elseif ($num_results <1)
  {//2
-       echo"<p>There are no exact matches in subsciber numbers for <b>$search_all_dialled</b>- 
-       falling back to partial matches</p>";
+       echo"<h5>There are no exact matches in subsciber numbers for <b>$search_all_dialled</b>- 
+       falling back to partial matches</h5>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
        FROM `phone_metadata4` where 
@@ -172,7 +175,7 @@ elseif ($num_results <1)
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$search_all_dialled</b></p>";
+        echo"<h5>There are no results for the search criteria <b>$search_all_dialled</b></h5>";
         }//3
         
        
@@ -201,9 +204,9 @@ elseif ($num_results <1)
   <?php
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-  if(isset($_GET['field']) && $_GET['field']=='search_all_phone' && isset($_GET['search_string'])  && $_GET['search_string']!='' )
+  if(isset($_POST['field']) && $_POST['field']=='search_all_phone' && isset($_POST['search_string'])  && $_POST['search_string']!='' )
  {//1
-$data=trim($_GET['search_string']);
+$data=trim($_POST['search_string']);
 $search_all_fields= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching All Fields for <i>$search_all_fields</i></h3>";
   
@@ -239,8 +242,8 @@ $result = mysqli_query($db, $phone );
       }//5
 elseif ($num_results <1)
  {//2
-       echo"<p>There are no exact matches for the search criteria <b>$search_all_fields</b>- 
-       falling back to partial matches</p>";
+       echo"<h5>There are no exact matches for the search criteria <b>$search_all_fields</b>- 
+       falling back to partial matches</h5>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
        FROM `phone_metadata4` where 
@@ -254,7 +257,7 @@ elseif ($num_results <1)
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$search_all_fields</b></p>";
+        echo"<h5>There are no results for the search criteria <b>$search_all_fields</b></h5>";
         }//3
         
        

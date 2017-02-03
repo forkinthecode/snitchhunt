@@ -1,52 +1,7 @@
-
- <!DOCTYPE HTML>
-<html lang="en">
-  <head>
-<meta charset="UTF-8">
-    <title>Little Bird</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Rosie Williams">
-  <link rel="icon" 
-    type="image/png" 
-    href="../favicon.ico">
-    </head>
-    <body>
-
 <?php
-
-
-include('login.php');
-//include('../inclusions.php');
-
-include('styles.php');
-
-
- 
-    
-
+  
+require'header.php';
 ?>
-
-  
-        
-                     
- 
-  <div class="jumbotron"> 
- <?php
-     include'nav.php';
-     ?>
-  
-  
-        </div>
-          
-       
-
-          <div class='clear'></div>
-<div class="page_width">
-
-
-        <div class="left">
-
 
    
 
@@ -153,7 +108,7 @@ $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DA
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<hr><br><p>Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
+echo"<br><p>Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
 <th>Ch1</th>
 <th>Ch2</th>
 <th>Ch3</th>

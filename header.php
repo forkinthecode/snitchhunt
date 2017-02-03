@@ -10,6 +10,7 @@
   <link rel="icon" 
     type="image/png" 
     href="../favicon.ico">
+
     </head>
     <body>
 
@@ -26,23 +27,37 @@ include('styles.php');
     
 
 ?>
-
-  
-        
-                     
- 
-  <div class="jumbotron"> 
  <?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=$_POST['team_name'];
+echo"<div class='signt'>Signed in as ".$team."</div>";
+
+}else{echo"<div class='signt'>You are not signed in.</div>";
+
+}
+   ?>  
+ <?php
+
      include'nav.php';
      ?>
   
+        
+   
+
+
+      
+ 
   
-        </div>
-          
+      
        
-
+       
+               
+ 
           <div class='clear'></div>
+
+
+  
 <div class="page_width">
-
-
+  
         <div class="left">

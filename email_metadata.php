@@ -10,7 +10,8 @@ require'header.php';
 {
 echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='searches' style='background-color:#f29f91'>
     <table class='forms'><tr><td>     
-            <form action='email_metadata.php'  method='GET'>
+            <form action='email_metadata.php'  method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
            <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
               
@@ -23,7 +24,7 @@ echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='s
 </div>
           ";
      }
-if(!isset($_GET['search_all_email']) && !isset($_GET['show_all_email_data'])  )
+if(!isset($_POST['search_all_email']) && !isset($_POST['show_all_email_data'])  )
  {//1
 
 
@@ -48,11 +49,11 @@ echo"<table class='basic' border='0' style=''><tbody>
 }
 
 }
-if(isset($_GET['search_all_email'])  )
+if(isset($_POST['search_all_email'])  )
 
 {
 
-$data=trim($_GET['search_all_email']);
+$data=trim($_POST['search_all_email']);
 $search_all_email= mysqli_real_escape_string ( $db , $data );
 $email = "SELECT * FROM `email_metadata` where 
    source_IP_address        ='$search_all_email' 
@@ -69,7 +70,7 @@ if ($num_results <1)
        echo"<p>There are no exact matches for the search criteria <b>$search_all_email</b>- falling back to inexact matches</p>";
 
       
-      $search_all_email= mysqli_real_escape_string ( $db ,trim($_GET['search_all_email']) );
+      $search_all_email= mysqli_real_escape_string ( $db ,trim($_POST['search_all_email']) );
       $email = "SELECT * FROM `email_metadata` where 
              source_IP_address         LIKE'%$search_all_email%' 
           || size                      LIKE'%$search_all_email%' 
@@ -151,11 +152,11 @@ if ($num_results <1)
 
 
 
-if(isset($_GET['show_all_email_data'])  )
+if(isset($_POST['show_all_email_data'])  )
 
 {
 
-$data=trim($_GET['search_all_email_data']);
+$data=trim($_POST['search_all_email_data']);
 $search_all_email_data= mysqli_real_escape_string ( $db , $data );
 $email = "SELECT * FROM `email_metadata` where 
    source_IP_address        ='$show_all_email_data' 
@@ -172,7 +173,7 @@ if ($num_results <1)
        echo"<p>There are no exact matches for the search criteria <b>$show_all_email_data</b>- 
        falling back to inexact matches</p>";
 
-      $show_all_email_data=trim($_GET['show_all_email_data']);
+      $show_all_email_data=trim($_POST['show_all_email_data']);
       $email = "SELECT * FROM `email_metadata` where 
              source_IP_address         LIKE'%$show_all_email_data%' 
           || size                      LIKE'%$show_all_email_data%' 

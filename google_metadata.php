@@ -1,32 +1,21 @@
-<!--Budget Home-->
- <!DOCTYPE HTML>
-<html lang="en">
-  <head>
-<meta charset="UTF-8">
-    <title>Little Bird</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Rosie Williams">
-  <link rel="icon" 
-    type="image/png" 
-    href="../favicon.ico">
-    </head>
-    <body>
-
 <?php
   
 require'header.php';
 ?>
 
+
           <h2>Google search metadata</h2>
 
           <?php
-if ( isset($_POST['team_name'] ) )
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
 echo"<br>
-<h4> Search all fields in the <i>Google search</i> metadata:</h4><div class='searches' style='background-color:#cbdbd8'>
+<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style='background-color:#cbdbd8'>
         
-         <table class='forms'><tr><td>   <form action=''  method='GET'>
+         <table class='forms'><tr><td>   <form action=''  method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
            <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
               </td><td>
@@ -39,17 +28,17 @@ echo"<br>
 </div>
           ";
      }
-if(!isset($_GET['search_all_google']) && !isset($_GET['show_all_google_data'])  )
+if(!isset($_POST['search_all_google']) && !isset($_POST['show_all_google_data'])  )
 {
   
 
 $google = "SELECT * from google_metadata where id='4' ";
 $result = mysqli_query($db, $google );
-   echo"<h4>Example <i>Google</i> metadata</h4>";
+   echo"<h2>Example <i>Google</i> metadata</h2>";
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+echo"<table class='basic' border='0' style=''><tbody>
   <tr><td >IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
   <tr><td >User Id:</td>           <td>".$row['user_id']."       <td></tr>
   <tr><td>Full Name</td>                  <td>".$row['full_name']."</td></tr>
@@ -68,10 +57,10 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
 ?>
 
 <?php
-if(isset($_GET['search_all_google'])  )
+if(isset($_POST['search_all_google'])  )
  {//1
   
-$data=trim($_GET['search_all_google']);
+$data=trim($_POST['search_all_google']);
 $search_all_google= mysqli_real_escape_string ( $db , $data );
 
   
@@ -96,24 +85,30 @@ $result = mysqli_query($db, $google );
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
    {//2
-       echo"<p>There are no exact matches for the search criteria <b>$search_all_google</b></p>";
+       echo"<h5>There are no exact matches for the search criteria <b>$search_all_google</b></h5>";
 
     }
-        elseif ($num_results >300 )
+       /* elseif ($num_results >300 )
         {//4
-         echo"<p>There are too many exact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
-         Maximum results displayed is 300.</p><p> 
-         <a href='google_metadata.php?show_all_google_data=$search_all_google'>Click here</a> 
-         to override limit and display all ".number_format($num_results).".</p> ";
-         }//4
-        elseif ($num_results <300 && $num_results >0) 
+         echo"<h5>There are too many exact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
+         Maximum results displayed is 300.</h5>
+         <table class='forms'><tr><td>   <form action=''  method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+<input type='hidden' name='search_all_google' value='".$_POST['search_all_google']."'> 
+              </td><td>
+
+        
+             <input type='submit' name='submit' placeholder='Search' id='submit' /> </td></tr></table>
+         <h5>Click search to override limit and display all ".number_format($num_results).".</h5> ";
+         }//4*/
+        elseif ( $num_results >0) 
         { //5
-        echo"<h4>There are $num_results exact matches in <i>Google search metadata</i> for <b>$search_all_google</b></h4>
-        <p>Results are limited to 1,000. Will display first 1,000 results.</p>
+        echo"<h2>There are $num_results exact matches in <i>Google search metadata</i> for <b>$search_all_google</b></h2>
+        <h5>Results are limited to 1,000. Will display first 1,000 results.</h5>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-      echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+      echo"<table class='basic' border='0' style=''><tbody>
       <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
@@ -139,15 +134,15 @@ if ($num_results <1)
 
 <?php
 
-
-if(isset($_GET['search_all_google'])  )
+/*
+if(isset($_POST['search_all_google'])  )
  {//1
    echo"<br><div style='background:#eee; padding:10px'>";
  
-$data=trim($_GET['search_all_google']);
+$data=trim($_POST['search_all_google']);
 $search_all_google= mysqli_real_escape_string ( $db , $data );
 
-$search_all_google=trim($_GET['search_all_google']);
+$search_all_google=trim($_POST['search_all_google']);
       $google = "SELECT * FROM `google_metadata` where 
 MATCH(IP_address)   AGAINST('$search_all_google' )
 || MATCH(user_id)   AGAINST('$search_all_google') 
@@ -169,23 +164,23 @@ MATCH(IP_address)   AGAINST('$search_all_google' )
       @$num_results = mysqli_num_rows($result);
       if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$search_all_google</b></p>";
+        echo"<h5>There are no results for the search criteria <b>$search_all_google</b></h5>";
         }//3
         
         elseif ($num_results >300)
         {//4
-         echo"<p>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
-         Maximum results displayed is 300.</p><p> 
+         echo"<h5>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
+         Maximum results displayed is 300.</h5><h5> 
          <a href='google_metadata.php?show_all_google_data=$search_all_google'>Click here</a> 
-         to override limit and display all ".number_format($num_results).".</p> ";
+         to override limit and display all ".number_format($num_results).".</h5> ";
          }//4
         elseif ($num_results <300 && $num_results >0) 
         { //5
-        echo"<h4>There are $num_results partial matches in <i>Google search metadata</i> results for <b>$search_all_google</b></h4>
+        echo"<h2>There are $num_results partial matches in <i>Google search metadata</i> results for <b>$search_all_google</b></h2>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-      echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+      echo"<table class='basic' border='0' style=''><tbody>
       <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
@@ -208,18 +203,18 @@ MATCH(IP_address)   AGAINST('$search_all_google' )
   
  elseif ($num_results >300)
  {//11
-  echo"<p>There are too many inexact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
-  Maximum results displayed is 300.</p><p> <a href='google_metadata.php?show_all_google_data=$search_all_google'>Click here</a> to override limit and display all ".number_format($num_results).".</p> ";
+  echo"<h5>There are too many inexact matches (".number_format($num_results).") to display for the search criteria <b>$search_all_google</b>. 
+  Maximum results displayed is 300.</h5><h5> <a href='google_metadata.php?show_all_google_data=$search_all_google'>Click here</a> to override limit and display all ".number_format($num_results).".</h5> ";
  }//11
  elseif ($num_results <300 && $num_results >0) 
         { //12
-          echo"<h4>There are $num_results <i>Google search metadata</i> exact matches for <b>$search_all_google</b></h4>
+          echo"<h2>There are $num_results <i>Google search metadata</i> exact matches for <b>$search_all_google</b></h2>
          <div class='expand'>";
  while ($row = $result->fetch_assoc()) 
 
     {//13
 
-    echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+    echo"<table class='basic' border='0' style=''><tbody>
       <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
@@ -240,15 +235,15 @@ MATCH(IP_address)   AGAINST('$search_all_google' )
       }echo"</div>";
       
 }mysqli_free_result($result);
-
+*/
 ?>
 
-<?php
-if(isset($_GET['show_all_google_data'])  && !isset($_GET['search_all_google'])  )
+<?php/*
+if(isset($_POST['show_all_google_data'])  && !isset($_POST['search_all_google'])  )
 
  {//1
 
-$data=trim($_GET['show_all_google_data']);
+$data=trim($_POST['show_all_google_data']);
 $show_all_google_data= mysqli_real_escape_string ( $db , $data );
 
 $google = "SELECT * FROM `google_metadata` where 
@@ -272,9 +267,9 @@ $result = mysqli_query($db, $google );
  @$num_results = mysqli_num_rows($result);
           if ($num_results <1)
  {//2
-       echo"<p>There are no exact matches for the search criteria <b>$show_all_google_data</b>- falling back to inexact matches</p>";
+       echo"<h5>There are no exact matches for the search criteria <b>$show_all_google_data</b>- falling back to inexact matches</h5>";
 
-      $show_all_google_data=trim($_GET['show_all_google_data']);
+      $show_all_google_data=trim($_POST['show_all_google_data']);
       $google = "SELECT * FROM `google_metadata` where 
       IP_address      LIKE'%$show_all_google_data%' 
       || user_id      LIKE'%$show_all_google_data%' 
@@ -296,17 +291,17 @@ $result = mysqli_query($db, $google );
        @$num_results = mysqli_num_rows($result);
           if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$show_all_google_data</b></p>";
+        echo"<h5>There are no results for the search criteria <b>$show_all_google_data</b></h5>";
         }//3
         
        
         else
         { //5
-        echo"<h4>There are (".number_format($num_results).") <i>Google search metadata</i> results for <b>$show_all_google_data</b></h4>
+        echo"<h2>There are (".number_format($num_results).") <i>Google search metadata</i> results for <b>$show_all_google_data</b></h2>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-      echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+      echo"<table class='basic' border='0' style=''><tbody>
       <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
@@ -329,7 +324,7 @@ $result = mysqli_query($db, $google );
   
  elseif ($num_results >300)
  {//11
-  echo"<p>There are (".number_format($num_results).") results for <b>$show_all_google_data</b>. </p> ";
+  echo"<h5>There are (".number_format($num_results).") results for <b>$show_all_google_data</b>. </h5> ";
 
  while ($row = $result->fetch_assoc()) 
 
@@ -356,7 +351,7 @@ $result = mysqli_query($db, $google );
       }
       
 }mysqli_free_result($result);
-
+*/
 ?>
     
  </div>

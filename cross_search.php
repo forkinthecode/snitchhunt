@@ -18,12 +18,12 @@ require'header.php';
 			      </div>";
 			}
 			
-			if(isset($_GET['subscriber_number'])  && isset($_GET['dialled_number']))
+			if(isset($_POST['subscriber_number'])  && isset($_POST['dialled_number']))
 			 {//1
 
-			$data=trim($_GET['subscriber_number']);
+			$data=trim($_POST['subscriber_number']);
 			$subscriber_number= mysqli_real_escape_string ( $db , $data );
-			$data1=trim($_GET['dialled_number']);
+			$data1=trim($_POST['dialled_number']);
 			$dialled_number= mysqli_real_escape_string ( $db , $data1 );
 			
 			$number_of_calls="SELECT * FROM `phone_metadata3` WHERE
@@ -71,12 +71,12 @@ echo"<br><h4>Search two phone numbers to see who they both called:
 
 
 
-if(isset($_GET['caller_one'])  && isset($_GET['caller_two']) && !isset($_GET['subscriber_number'])  && !isset($_GET['dialled_number']))
+if(isset($_POST['caller_one'])  && isset($_POST['caller_two']) && !isset($_POST['subscriber_number'])  && !isset($_POST['dialled_number']))
  {//1
 
-$data=trim($_GET['caller_one']);
+$data=trim($_POST['caller_one']);
 $caller_one= mysqli_real_escape_string ( $db , $data );
-$data1=trim($_GET['caller_two']);
+$data1=trim($_POST['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
 
 $phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM `phone_metadata4` 

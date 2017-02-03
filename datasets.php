@@ -18,7 +18,7 @@ $result = mysqli_query($db, $email );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#f29f91'><tbody>
+echo"<table class='basic' border='0' style='background-color:#2a5b72'><tbody>
   <tr><td >IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
   <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
@@ -42,7 +42,7 @@ $result = mysqli_query($db, $subscriber );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#f2d091;'><tbody>
+echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
   <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
@@ -60,7 +60,7 @@ $result = mysqli_query($db, $phone );
  echo"<h4>Example <i>phone</i> metadata <a href='phone_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>";
  while ($row = $result->fetch_assoc()) 
     {
-echo"<table class='basic' border='0' style='background-color:#e3f291;'><tbody>
+echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
   <tr><td >Subscriber's <a href='https://en.wikipedia.org/wiki/International_Mobile_Station_Equipment_Identity' target='_blank'>IMEI</a>:</td><td> ".$row['subscriber_imei']."<td><td></td></tr>
   <tr><td>Subscriber's Number:</td><td>".$row['subscriber_phone_number']."</td></tr>
   <tr><td>Dialled Number:</td><td> ".$row['dialled_number']."<td><td></td></tr>
@@ -77,7 +77,7 @@ $result = mysqli_query($db, $google );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
+echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
   <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
@@ -109,7 +109,7 @@ echo"<table class='basic' border='0' style='background-color:#cbdbd8'><tbody>
  
  
 
-  <div class='agencies' style='background-color:#cbdbd8'>
+  <div class='agencies' style='background-color:#2a5b72'>
  <div class='expand'>
 
  <p>List of organisations <a href='https://www.righttoknow.org.au/request/requests_for_access_to_telecommu#incoming-4557'>reported</a> to have applied for access to phone call, subscriber and email metadata. Click on the name for more info.</p>
