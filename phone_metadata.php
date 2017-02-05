@@ -295,7 +295,7 @@ elseif ($num_results <1)
  <div class='right'>
  
 <?php
-include'challenges.php';
+//include'challenges.php';
 ?>
 
 

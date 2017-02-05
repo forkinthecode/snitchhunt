@@ -61,7 +61,7 @@ echo" <br>
 <p>Hint: Search the <a href='article.php' target='_blank'>article</a> to find this answer.</p>
 
 <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -91,7 +91,7 @@ echo"<br>
 <br>
 
 <table class='forms' border='0px' ><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -144,7 +144,7 @@ echo"<br>
 
 <br>
 <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -196,15 +196,10 @@ echo"<br>
 
 <p>Q.What is the full address is of the whistleblower?</p>
 
-<!--
 
-<form class='links' action='phone_subscribers.php' method='POST'>
- <input type='hidden' name='close' value='".$close."'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Phone Subscriber' id='submit' /></submit>  </form> -->
 <br>
 <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -255,7 +250,7 @@ echo"<br>
 
 <br>
 <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -309,7 +304,7 @@ echo"<br>
 
  <br>
  <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
@@ -365,7 +360,7 @@ echo"<br>
 
  <br>
  <table class='forms' border='0px'><tr><td>
- <form action='play.php' method='POST'> 
+ <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 

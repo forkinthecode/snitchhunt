@@ -1,8 +1,10 @@
    <style type="text/css">
-body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:18px; margin:0; background:url('images/power-plant.jpg'); }
+body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:18px; margin:0;padding:0; background:url('images/power-plant.jpg'); }
 .forms {width:100%; padding:1%; margin:0; }
 .forms td:nth-of-type(odd){  width:500px; }
-.toper { color:#d88a1c; background:#333;font-family:Verdana; height:25px;}
+.navigation { margin:auto;}
+.navigation td{ padding:5px; margin:auto;}
+.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px;}
  .front { width:100%;  padding:5px; margin:auto; text-align:center; background:RGBA(199,211,162, 0.5);}
  .front td{ width:100%;  padding:5px; margin:auto; text-align:center;}
 .navs { float:left; position: fixed;
@@ -49,16 +51,16 @@ select {
 
   h1 {color:#333; padding:10px; font-size:40px; background:RGBA(199,211,162, 0.8); font-family:Georgia;}
   h4 {color:#fff;}
- input[type=submit].close { position:fixed: top:10px; right:40px;
+ input[type=submit].close { position:fixed: top:10px; right:40px; width:70px;
   float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
   }
 input[type=submit] { font-family: "Courier New";
-    font-size: 15px;
-text-align:left;
-    width:150px;
+    font-size: 12px;
+    text-align:center;
+    width:80%;
     color: #fff;
-    padding: 5px 50px 5px 50px;
-    /*border: 1px solid #999;
+    padding: 5px 50px 5px 5px;
+   /* border: 1px solid #999;
  
     text-shadow: 0px 1px 1px #666;
     text-decoration: none;
@@ -115,11 +117,11 @@ input.sign-in[type="password"] {
 
 
 height:25px;
-width:88%;
+width:80%;
 font-size:15px;
 border: 1px solid #999;
  text-decoration: none;
- 
+ /*
     -moz-box-shadow: 0 1px 3px #111;
     -webkit-box-shadow: 0 1px 3px #111;
     box-shadow: 0 1px 3px #111;
@@ -127,30 +129,30 @@ border: 1px solid #999;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    -webkit-border-radius: 4px;*/
  
                    }
 input[type="text"] { 
  
 height:25px;
-width:88%;
+width:80%;
 font-size:15px;
 border: 1px solid #999;
  text-decoration: none;
- 
+ /*
     -moz-box-shadow: 0 1px 3px #111;
     -webkit-box-shadow: 0 1px 3px #111;
     box-shadow: 0 1px 3px #111;
  
     border-radius: 4px;
     -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    -webkit-border-radius: 4px;*/
  
    }
 
 
 .expand {height:600px; overflow:scroll;   padding:2%; margin:1%;}
-.searches {width:100%; background:#c7d3a2; border-radius:5px; padding:1%; color:#fff;}
+.searches {width:100%; background:#c7d3a2; border-radius:5px; padding-top:1%; padding-bottom:1%; color:#fff;}
 .wide {width:100%; background:#2a5b72; border-radius:5px; padding:1%; color:#fff;}
 .basic {width:100%; background: #2a5b72; border-radius:5px; padding:1%; color:#fff;}
 
@@ -204,7 +206,7 @@ li { list-style: none; }
 /*.container { margin: 0px 20% 0px 20%; }*/
 
 #menu{width:100%}
-.box {width:100%; background:#000; height:50px;}
+.box {width:100%; background:#000; height:75px;}
 .box li {float:left; padding:10px; width:150px; display:inline;}
 
 /*------------------------------------*\

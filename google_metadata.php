@@ -12,7 +12,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 $team=  $_POST['team_name'];
 $password=  $_POST['password'];
 echo"<br>
-<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style='background-color:#cbdbd8'>
+<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
         
          <table class='forms'><tr><td>   <form action=''  method='POST'>
           <input type='hidden' name='close' value='".$close."'>
@@ -40,8 +40,8 @@ $result = mysqli_query($db, $google );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style=''><tbody>
-  <tr><td >IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
+echo"<br><table class='basic' border='0' style=''><tbody>
+  <tr><td width='175px'>IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
   <tr><td >User Id:</td>           <td>".$row['user_id']."       <td></tr>
   <tr><td>Full Name</td>                  <td>".$row['full_name']."</td></tr>
   <tr><td>Username:</td>               <td>".$row['user_name']."</td></tr>
@@ -105,16 +105,16 @@ if ($num_results <1)
          }//4*/
         elseif ( $num_results >0) 
         { //5
-        echo"<h2>There are $num_results exact matches in <i>Google search metadata</i> for <b>$search_all_google</b></h2>
-        <h5>Results are limited to 1,000. Will display first 1,000 results.</h5>
+        echo"<h2>There are $num_results exact matches in <i>Google search metadata</i> for <b>$search_all_google</b>:</h2>
+    
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
       echo"<table class='basic' border='0' style=''><tbody>
-      <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
+      <tr><td width='175px'>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
-      <tr><td>Full Name</td>                    <td>".$row['full_name']."      </td></tr>
+      <tr><td>Full Name:</td>                    <td>".$row['full_name']."      </td></tr>
       <tr><td>Username:</td>                    <td>".$row['user_name']."      </td></tr>
       <tr><td>Email Address:</td>               <td>".$row['email_address']."  <td></tr>
       <tr><td>Address:</td>                     <td>".$row['address']."        </td></tr>
@@ -125,7 +125,7 @@ if ($num_results <1)
       <tr><td>Date and Time:</td>               <td>".$row['date_time']."     </td></tr>
      </tbody></table><br>";
         }//6
-        echo"</div>Mouse over/scroll for more results.<br>";
+        echo"</div><h4>Mouse over/scroll for more results.</h4><br>";
     }
              
       
@@ -360,7 +360,7 @@ $result = mysqli_query($db, $google );
  <div class='right'>
      
 <?php
-include'challenges.php';
+include'score.php';
 ?>
 
 

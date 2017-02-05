@@ -86,7 +86,7 @@ echo"<tr><td>".$row['team']."</td>
   }
 echo"</table><p>*Only shows teams registered in past month</p>";
 ?>
- 
+
 </div>
  
 
@@ -94,18 +94,20 @@ echo"</table><p>*Only shows teams registered in past month</p>";
 
 </div>
    <div id='tab-content2' class='tab-content'>
+    <div class='expand'>
     <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
 <p>You can solve SnitchHunt together as a group in a cooperative effort or you can compete against one another in competing teams.</p>
 <p>To register your team name click play, enter a name and your password will appear on the screen.</p>
 <p>Copy-paste your password somewhere in case you get signed out as you will need it to sign back in.</p>
 <table><tr><td>
  <p>When you sign in with your team name and password you will see the challenges 
-  your team needs to solve.</p>
+  your team needs to solve. There are seven challenges to complete.</p>
   <p>Solve all the challenges without accessing any hints to reach 500 points.</p>
+  <p>No points are lost if you submit incorrect solutions but if you access the hints you lose half the points for that challenge.</p>
   <p>Hints are available for challenges 2-7 inclusive. However if you click on the hints you lose half the points for that challenge.</p>
   <p>You will still need to enter the correct solution for each challenge after accessing any hints.</p>
   <p>If you need help provide a username in the chat window and ask away.</p>
- 
+ </div>
 
 </div>
    <div id='tab-content3' class='tab-content'>

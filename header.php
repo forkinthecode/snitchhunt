@@ -82,7 +82,7 @@ can be used to track our movements. Following on from an <a href=http://www.abc.
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
 $team=$_POST['team_name'];
-echo"<div class='toper' style='padding-left:80px'>Signed in as team <i>$team</i></div><div class='signt'>";
+echo"<div class='toper' style='padding-right:20px;padding-left:50px'><span style='float:right'>Signed in as team <i>$team</i></span>";
    
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1'] ) )
 {
@@ -107,7 +107,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch1='25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 1 is correct: 25 points added to team $team!";
+    echo"".$team." solution for Challenge 1 is correct: 25 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -117,7 +117,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-      echo"Your solution is Incorrect";
+      echo"".$team." solution to Challenge 1 is Incorrect";
 
   }
 
@@ -149,7 +149,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch2=(ch2+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 2 is correct: 50 points added to team $team!";
+    echo"".$team." solution for Challenge 2 is correct: 50 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -159,7 +159,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"Your solution for Challenge 2 is Incorrect";
+    echo"".$team." solution for Challenge 2 is Incorrect";
   }
 
 
@@ -191,7 +191,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch3=(ch3+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 3 is correct: 100 points added to team $team!";
+    echo"".$team." solution for Challenge 3 is correct: 100 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -201,7 +201,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"Your solution for Challenge 3 is Incorrect";
+   echo"".$team." solution for Challenge 3 is Incorrect";
   }
 
 
@@ -232,7 +232,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch4=(ch4+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"Your solution for Challenge 4 is correct: 50 points added to team $team!";
+   echo"".$team." solution for Challenge 4 is correct: 50 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -242,7 +242,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"Your solution for Challenge 4 is Incorrect";
+   echo"".$team." solution for Challenge 4 is Incorrect";
   }
 
 
@@ -273,7 +273,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch5=(ch5+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 5 is correct: 100 points added to team $team!";
+    echo"".$team." solution for Challenge 5 is correct: 100 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -283,7 +283,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"Your solution for Challenge 5 is Incorrect";
+    echo"".$team." solution for Challenge 5 is Incorrect";
   }
 
 
@@ -314,7 +314,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch6=(ch6+25) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 6 is correct: 25 points added to team $team!";
+    echo"".$team." solution for Challenge 6 is correct: 25 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -324,7 +324,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"Your solution for Challenge 6 is Incorrect";
+   echo"".$team." solution for Challenge 6 is Incorrect";
   }
 
 
@@ -356,7 +356,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"Your solution for Challenge 7 is correct: 150 points added to team $team!";
+    echo"".$team." solution for Challenge 7 is correct: 150 points added to team $team!";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -366,14 +366,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
- echo"Your solution for Challenge 7 is Incorrect";
+ echo"".$team." solution for Challenge 7 is Incorrect";
   }
 
 
 
 }
 echo"
-</div>";
+</div><div class='clear'></div>";
 
 }else{
 
