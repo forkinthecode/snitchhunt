@@ -15,6 +15,7 @@ echo"<br><h4> Search all fields in the <i>phone subscriber</i> metadata:</h4>
 <div class='searches' style='background-color:#f2d091;'>
        <table class='forms'><tr><td>   
             <form action='phone_subscribers.php'  method='POST'>
+             <input type='hidden' name='close' value='".$close."'>
              <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
@@ -30,7 +31,7 @@ if( !isset($_POST['search_all_subscribers']) )
 
   $subscriber = "SELECT * from phone_subscriber where id='2' ";
   $result = mysqli_query($db, $subscriber );
-   echo"<h4>Example <i>phone subscriber</i> metadata</h4>";
+  // echo"<h4>Example <i>phone subscriber</i> metadata</h4>";
 
  while ($row = $result->fetch_assoc()) 
     {

@@ -13,7 +13,7 @@ require'header.php';
 {
   $email = "SELECT * from email_metadata where id='1' ";
 $result = mysqli_query($db, $email );
-   echo"<h4>Example <i>email</i> metadata <a href='email_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>
+   echo"<h3>Example <i>email</i> metadata</h3>
 ";
  while ($row = $result->fetch_assoc()) 
     {
@@ -36,7 +36,7 @@ echo"<table class='basic' border='0' style='background-color:#2a5b72'><tbody>
 
   $subscriber = "SELECT * from phone_subscriber where id='2' ";
 $result = mysqli_query($db, $subscriber );
-   echo"<h4>Example <i>phone subscriber</i> metadata <a href='phone_subscribers.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>
+   echo"<h3>Example <i>phone subscriber</i> metadata </h3>
 ";
 
  while ($row = $result->fetch_assoc()) 
@@ -57,7 +57,7 @@ echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
      
 $phone = "SELECT * from phone_metadata where id='1'";
 $result = mysqli_query($db, $phone );
- echo"<h4>Example <i>phone</i> metadata <a href='phone_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>";
+ echo"<h3>Example <i>phone usage</i> metadata </h3>";
  while ($row = $result->fetch_assoc()) 
     {
 echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
@@ -73,7 +73,7 @@ echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
 
 $google = "SELECT * from google_metadata where id='46' ";
 $result = mysqli_query($db, $google );
-   echo"<h4>Example <i>Google</i> metadata <a href='google_metadata.php'><img src='hand-holding-up-a-magnifier.png'></img></a></h4>";
+   echo"<h3>Example <i>Google</i> metadata </h3>";
  while ($row = $result->fetch_assoc()) 
     {
 
@@ -104,81 +104,79 @@ echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
  
 
  </div>
- <p>Click on the links in the Datasets drop-down navigation or the magnifying glass to search that dataset</p>
  <div class='right'>
  
  
 
-  <div class='agencies' style='background-color:#2a5b72'>
  <div class='expand'>
 
- <p>List of organisations <a href='https://www.righttoknow.org.au/request/requests_for_access_to_telecommu#incoming-4557'>reported</a> to have applied for access to phone call, subscriber and email metadata. Click on the name for more info.</p>
+ <p>List of organisations <a href='https://www.righttoknow.org.au/request/requests_for_access_to_telecommu#incoming-4557'>reported</a> to have applied for access to phone call, subscriber and email metadata: </p>
 
 
-<h4><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Australian Financial Security Authority' target='_blank'>Australian Financial Security Authority</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Australian Health Practitioner Regulation Agency' target='_blank'>Australian Health Practitioner Regulation Agency (AHPRA)</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Australian Postal Corporation' target='_blank'>Australian Postal Corporation</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Australian Taxation Office' target='_blank'>Australian Taxation Office</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Australian Transaction Reports and Analysis Centre'>Australian Transaction Reports and Analysis Centre</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Civil Aviation Safety Authority' target='_blank'>Civil Aviation Safety Authority (CASA)</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Clean Energy Regulator' target='_blank'>Clean Energy Regulator</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Department of Agriculture' target='_blank'>Department of Agriculture</a></h4>
-<h4><a href='../govspend/agency.php?Agency=Department of Defence' target='_blank'>Department of Defence (ADFIS and IGD)</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Department of the Environment and Energy' target='_blank'>Department of the Environment and Energy</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Department of Foreign Affairs and Trade' target='_blank'>Department of Foreign Affairs and Trade</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Department of Health' target='_blank'>Department of Health</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Department of Human Services' target='_blank'> Department of Human Services</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Department of Social Services' target='_blank'>Department of Social Services</a></h4>
-<p> <a href='../govspend/agency.php?Agency=Fair Work Building and Construction' target='_blank'>Fair Work Building and Construction</a></h4>
-<p> <a href='../govspend/agency.php?Agency=National Measurement Institute' target='_blank'>National Measurement Institute</a></h4>
-<p>ACT Revenue Office, ACT</p>
-<p>Access Canberra (Department of Treasury and Economic Development), ACT</p>
-<p>Bankstown City Council, NSW</p>
-<p>Consumer Affairs, VIC</p>
-<p>Consumer, Building and Occupational Services (Consumer Affairs and Fair Trading – Department of Justice), TAS</p>
-<p>Consumer and Business Services, SA</p>
-<p>Department of Agriculture, Fisheries and Forestry, QLD</p>
-<p>Department of Commerce, WA</p>
-<p>Department of Corrective Services, WA</p>
-<p>Department of Environment and Heritage Protection, QLD</p>
-<p>Department of Economic Development, Jobs, Transport & Resources (Fisheries), VIC</p>
-<p>Department of Environment, Land, Water and Planning, VIC</p>
-<p>Department of Environment Regulation, WA</p>
-<p>Department of Fisheries, WA</p>
-<p>Department of Justice and Regulation (Consumer Affairs), VIC</p>
-<p>Department of Justice and Regulation (Sheriff of Victoria), VIC</p>
-<p>Department of Mines and Petroleum, WA</p>
-<p>Department of Primary Industries (Fisheries), NSW</p>
-<p>Environment Protection Authority, SA</p>
-<p>Greyhound Racing Victoria, VIC</p>
-<p>Harness Racing New South Wales, NSW</p>
-<p>Health Care Complaints Commission, NSW</p>
-<p>Legal Services Board, VIC</p>
-<p>NSW Environment Protection Authority, NSW</p>
-<p>NSW Fair Trading, NSW</p>
-<p>Office of Environment & Heritage, NSW</p>
-<p>Office of Fair Trading (Department of Justice And Attorney-General Office of the Director General), QLD</p>
-<p>Office of State Revenue, NSW</p>
-<p>Office of State Revenue, QLD</p>
-<p>Office of the Racing Integrity Commissioner, VIC</p>
-<p>Primary Industries and Regions South Australia (PIRSA)</p>
-<p>Queensland Building and Construction Commission</p>
-<p>Racing and Wagering Western Australia</p>
-<p>Racing NSW, </p>
-<p>Racing Queensland, QLD</p>
-<p>Roads and Maritime Services NSW, NSW</p>
-<p>Royal Society for the Prevention of Cruelty to Animals (RSPCA)</p>
-<p>State Revenue Office, VIC</p>
-<p>Taxi Services Commission, VIC</p>
-<p>RevenueSA</p>
-<p>Victorian WorkSafe Authority</p>
+<h3><a href='http://projects.propublica.org/nsa-grid/' target='_blank'>National Security Agency, USA</h3>
+<h3>Australian Financial Security Authority</h3>
+<h3>Australian Health Practitioner Regulation Agency (AHPRA)</h3>
+<h3>Australian Postal Corporation</h3>
+<h3>Australian Taxation Office</h3>
+<h3>Australian Transaction Reports and Analysis Centre</h3>
+<h3>Civil Aviation Safety Authority (CASA)</h3>
+<h3>Clean Energy Regulator</h3>
+<h3>Department of Agriculture</h3>
+<h3>Department of Defence (ADFIS and IGD)</h3>
+<h3> Department of the Environment and Energy</h3>
+<h3> Department of Foreign Affairs and Trade</h3>
+<h3> Department of Health</h3>
+<h3>Department of Human Services</h3>
+<h3> Department of Social Services</h3>
+<h3>Fair Work Building and Construction</h3>
+<h3> National Measurement Institute</h3>
+<h3>ACT Revenue Office, ACT</h3>
+<h3>Access Canberra (Department of Treasury and Economic Development), ACT</h3>
+<h3>Bankstown City Council, NSW</h3>
+<h3>Consumer Affairs, VIC</h3>
+<h3>Consumer, Building and Occupational Services (Consumer Affairs and Fair Trading – Department of Justice), TAS</h3>
+<h3>Consumer and Business Services, SA</h3>
+<h3>Department of Agriculture, Fisheries and Forestry, QLD</h3>
+<h3>Department of Commerce, WA</h3>
+<h3>Department of Corrective Services, WA</h3>
+<h3>Department of Environment and Heritage Protection, QLD</h3>
+<h3>Department of Economic Development, Jobs, Transport & Resources (Fisheries), VIC</h3>
+<h3>Department of Environment, Land, Water and Planning, VIC</h3>
+<h3>Department of Environment Regulation, WA</h3>
+<h3>Department of Fisheries, WA</h3>
+<h3>Department of Justice and Regulation (Consumer Affairs), VIC</h3>
+<h3>Department of Justice and Regulation (Sheriff of Victoria), VIC</h3>
+<h3>Department of Mines and Petroleum, WA</h3>
+<h3>Department of Primary Industries (Fisheries), NSW</h3>
+<h3>Environment Protection Authority, SA</h3>
+<h3>Greyhound Racing Victoria, VIC</h3>
+<h3>Harness Racing New South Wales, NSW</h3>
+<h3>Health Care Complaints Commission, NSW</h3>
+<h3>Legal Services Board, VIC</h3>
+<h3>NSW Environment Protection Authority, NSW</h3>
+<h3>NSW Fair Trading, NSW</h3>
+<h3>Office of Environment & Heritage, NSW</h3>
+<h3>Office of Fair Trading (Department of Justice And Attorney-General Office of the Director General), QLD</h3>
+<h3>Office of State Revenue, NSW</h3>
+<h3>Office of State Revenue, QLD</h3>
+<h3>Office of the Racing Integrity Commissioner, VIC</h3>
+<h3>Primary Industries and Regions South Australia (PIRSA)</h3>
+<h3>Queensland Building and Construction Commission</h3>
+<h3>Racing and Wagering Western Australia</h3>
+<h3>Racing NSW, </h3>
+<h3>Racing Queensland, QLD</h3>
+<h3>Roads and Maritime Services NSW, NSW</h3>
+<h3>Royal Society for the Prevention of Cruelty to Animals (RSPCA)</h3>
+<h3>State Revenue Office, VIC</h3>
+<h3>Taxi Services Commission, VIC</h3>
+<h3>RevenueSA</h3>
+<h3>Victorian WorkSafe Authority</h3>
 
 
  </div>Mouse/Scroll over for more results
 </div><!--
   <div style='background-color:#cbdbd8'>
- <p>List of organisations reported to have access to Google metadata:</p>-->
+ <h3>List of organisations reported to have access to Google metadata:</h3>-->
           <br>         
 
 </div></div>

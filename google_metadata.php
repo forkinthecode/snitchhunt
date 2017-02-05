@@ -15,7 +15,9 @@ echo"<br>
 <h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style='background-color:#cbdbd8'>
         
          <table class='forms'><tr><td>   <form action=''  method='POST'>
- <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+          <input type='hidden' name='close' value='".$close."'>
+          <input type='hidden' name='close' value='".$close."'>
+         <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
            <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
               </td><td>
@@ -34,7 +36,7 @@ if(!isset($_POST['search_all_google']) && !isset($_POST['show_all_google_data'])
 
 $google = "SELECT * from google_metadata where id='4' ";
 $result = mysqli_query($db, $google );
-   echo"<h2>Example <i>Google</i> metadata</h2>";
+  // echo"<h3>Example:</h3>";
  while ($row = $result->fetch_assoc()) 
     {
 

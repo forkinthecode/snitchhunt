@@ -1,17 +1,3 @@
-
-    <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ) )
-{
- $team= $_POST['team_name'] ;
-$query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' LIMIT 1";
-$result = mysqli_query($db, $query );
-   while ($row = $result->fetch_assoc())
-   { 
-echo"<h3>Last active  ".$row['dates']." </h3>";
-   }
-}
-?>
-
 <?php
 if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
@@ -30,12 +16,12 @@ if ($num_results<1)
 	}
 if ($num_results>0)
 {
-
+/*
 echo"<table class='scoreboard'><tr>
+<th>Ch1</th>
 <th>Ch2</th>
-<th>Ch2</th>
-<th>Ch2</th>
-<th>Ch2</th>
+<th>Ch3</th>
+<th>Ch4</th>
 <th>Ch5</th>
 <th>Ch6</th>
 <th>Ch7</th>
@@ -54,7 +40,7 @@ echo"<tr>
 <td>".($row['ch2']+$row['ch2']+$row['ch2']+$row['ch2']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
 </tr>";
   }
-echo"</table><br>";
+echo"</table><br>";*/
 
 
 
@@ -76,6 +62,7 @@ echo" <br>
 
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
@@ -101,13 +88,11 @@ echo"<br>
 <p>Q.What is the Google 'user ID' of the whistleblower?</p>
 
 
-<form class='links' action='google_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Google Metadata' id='submit' /></submit>  </form> 
 <br>
 
 <table class='forms' border='0px' ><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
@@ -116,6 +101,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
             <input type='hidden' name='team_name' value='".$team."'>
+             <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint2' value='".$_POST['hint2']."'>
             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
@@ -156,12 +142,10 @@ echo"<br>
 
 <p>Q.What is the email address is of the whistleblower?</p>
 
-<form class='links' action='email_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Email Metadata' id='submit' /></submit>  </form> 
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
@@ -171,6 +155,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
             <input type='hidden' name='team_name' value='".$team."'>
+             <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint3' value='".$_POST['hint3']."'>
             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /> </form> ";
@@ -183,7 +168,7 @@ echo"<br>
    <p> Use in page search on the IP address from the Google metadata</p>
      <p>Copy email address from first result of in-page search and see if that is answer</p>
               ";
-$sql = "UPDATE teams SET ch2='-50' WHERE team='".$team."'";
+$sql = "UPDATE teams SET ch3='-50' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>50 points have been deducted from the 100 points available for this question</h2>";
@@ -211,14 +196,16 @@ echo"<br>
 
 <p>Q.What is the full address is of the whistleblower?</p>
 
-
+<!--
 
 <form class='links' action='phone_subscribers.php' method='POST'>
+ <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Phone Subscriber' id='submit' /></submit>  </form> 
+            <input  type='submit' name='submit' value='Phone Subscriber' id='submit' /></submit>  </form> -->
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
@@ -227,6 +214,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
             <input type='hidden' name='team_name' value='".$team."'>
+             <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint4' value='".$_POST['hint4']."'>
             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
@@ -236,7 +224,7 @@ echo"<br>
               echo"<p>Hint: </p>
 <p>Plug email into phone subscribers and get answer:</p>
               ";
-$sql = "UPDATE teams SET ch2='-25' WHERE team='".$team."'";
+$sql = "UPDATE teams SET ch4='-25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h2>25 points have been deducted from the 50 points available for this question</h2>";
@@ -265,13 +253,10 @@ echo"<br>
 <p>Q.What is the last known location of the whistleblower?</p>
 
 
-
-<form class='links' action='phone_metadata.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Phone Metadata' id='submit' /></submit>  </form> 
 <br>
 <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
@@ -281,6 +266,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
             <input type='hidden' name='team_name' value='".$team."'>
+             <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint5' value='".$_POST['hint5']."'>
             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
@@ -321,13 +307,10 @@ echo"<br>
 
 <p>Q.How many times did the whistleblower and the journalist talk to each other?</p>
 
-
-<form class='links' action='cross_search.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-            <input  type='submit' name='submit' value='Cross Search' id='submit' /></submit>  </form> 
  <br>
  <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
@@ -337,6 +320,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
 <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint6' value='".$_POST['hint6']."'>
              <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";
@@ -377,14 +361,12 @@ echo"<br>
 
 
 <p>What's the name of the second whistleblower at Minecorp?</p>
+<p>Use the cross search to find this answer</p>
 
-<form class='links' action='cross_search.php' method='POST'>
-            <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-
-            <input  type='submit' name='submit' value='Cross Search' id='submit' /></submit>  </form> 
  <br>
  <table class='forms' border='0px'><tr><td>
  <form action='play.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
@@ -394,6 +376,7 @@ echo"<br>
 
 <form class='links' action='' method='POST'>
 <input type='hidden' name='team_name' value='".$team."'>
+ <input type='hidden' name='close' value='".$close."'>
             <input type='hidden' name='hint7' value='".$_POST['hint7']."'>
             <input type='hidden' name='password' value='".$password."'>
             <input  type='submit' name='submit' value='Reveal' id='submit' /></submit>  </form> ";

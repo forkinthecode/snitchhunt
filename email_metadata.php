@@ -7,23 +7,10 @@ require'header.php';
 <h2>Email usage metadata</h2>
 
 <?php
-{
-echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='searches' style='background-color:#f29f91'>
-    <table class='forms'><tr><td>     
-            <form action='email_metadata.php'  method='POST'>
- <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
-           <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
-              
-</td><td>
-        
-             <input type='submit' name='submit' placeholder='Search' id='submit' />
-              </form></td></tr></table>
-    
 
-</div>
-          ";
-     }
+
+     
 if(!isset($_POST['search_all_email']) && !isset($_POST['show_all_email_data'])  )
  {//1
 
@@ -31,7 +18,7 @@ if(!isset($_POST['search_all_email']) && !isset($_POST['show_all_email_data'])  
 
 $email = "SELECT * from email_metadata where id='1' ";
 $result = mysqli_query($db, $email );
-   echo"<h4>Example <i>email</i> metadata</h4>";
+  // echo"<h4>Example <i>email</i> metadata</h4>";
  while ($row = $result->fetch_assoc()) 
     {
 
@@ -46,13 +33,34 @@ echo"<table class='basic' border='0' style=''><tbody>
 
  </tbody></table><br>";
 
-}
+     }
 
 }
-if(isset($_POST['search_all_email'])  )
+
+
+if(isset($_POST['team_name']) && isset($_POST['password'])  )
+
 
 {
+  echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='searches' style=''>
+    <table class='forms'><tr><td>     
+            <form action='email_metadata.php'  method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
+           <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
+              
+</td><td>
+        
+             <input type='submit' name='submit' placeholder='Search' id='submit' />
+              </form></td></tr></table>
+    
+
+</div>
+          ";
+        }
+ 
+if(isset($_POST['search_all_email'])  )
+{
 $data=trim($_POST['search_all_email']);
 $search_all_email= mysqli_real_escape_string ( $db , $data );
 $email = "SELECT * FROM `email_metadata` where 

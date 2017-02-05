@@ -4,9 +4,53 @@ require'header.php';
 ?>
 <h2>Phone usage metadata</h2>
 <?php
-echo"    <div class='searches' style='background-color:#e3f291;'>
+
+
+  if( !isset($_POST['field']) && !isset($_POST['search_string']) )
+ {//
+
+  $phone = "SELECT * from phone_metadata where id='1' ";
+$result = mysqli_query($db, $phone );
+ //  echo"<h4>Example</h4>";
+ while ($row = $result->fetch_assoc()) 
+    {
+  echo"<table class='basic' border='0' style=''><tbody>
+    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
+   
+    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
+    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
+    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
+    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
+    <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
+    </tbody></table><br>
+    <h3>This page searches all fields or by subscriber or dialled number. To search using two phone numbers use the <a href='cross_search.php' target='_blank'>Cross Search</a> page. </h3>";
+    }
+}
+
+  if( isset($_POST['field']) && $_POST['search_string']=='' ||  isset($_POST['search_string']) && $_POST['field']=='')
+ {//
+echo"<h4>You need to provide a value in the search box (1.) to match against the fields (2.)</h4>
+ ";
+
+ }
+
+
+ if( isset($_POST['field']) && isset($_POST['search_string']) && $_POST['search_string']!='' && $_POST['field']!='' )
+ {
+  echo"Click on subscriber or dialled number in any result to search by that field with that number</h5>";
+
+ }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+if(isset($_POST['field']) && $_POST['field']=='search_all_subscriber' && isset($_POST['search_string']) && $_POST['search_string']!='' )
+ {//1
+$data=trim($_POST['search_string']);
+$search_all_subscribers= mysqli_real_escape_string ( $db , $data );
+echo"    <div class='searches' style=''>
          <table class='forms' border='0px'><tr><td> 
    <form action='phone_metadata.php' class='search' method='POST'>
+    <input type='hidden' name='close' value='".$close."'>
     <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
    <input type='text' id='search_string' name='search_string' placeholder='1.Search string' > 
@@ -23,48 +67,6 @@ echo"    <div class='searches' style='background-color:#e3f291;'>
  
       </form></td></tr></table>
       </div>";
-
-  if( !isset($_POST['field']) && !isset($_POST['search_string']) )
- {//
-
-  $phone = "SELECT * from phone_metadata where id='1' ";
-$result = mysqli_query($db, $phone );
-   echo"<h4>Example <i>phone</i> metadata</h4>";
- while ($row = $result->fetch_assoc()) 
-    {
-  echo"<table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-   
-    <tr><td>Subscriber number:</td>          <td><a href='phone_metadata.php?search_string=".$row['subscriber_phone_number']."&field=search_all_subscriber'>".$row['subscriber_phone_number']."</a></td></tr>
-    <tr><td>Dialled number:</td>      <td><a href='phone_metadata.php?search_string=".$row['dialled_number']."&field=search_all_dialled'>".$row['dialled_number']."</a><td><td></td></tr>
-    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
-    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
-    </tbody></table><br>
-    <h5>This page searches all fields or by subscriber or dialled number. To search using two phone numbers use the <a href='cross_search.php' target='_blank'>Cross Search</a> page. ";
-    }
-}
-
-  if( isset($_POST['field']) && $_POST['search_string']=='' ||  isset($_POST['search_string']) && $_POST['field']=='')
- {//
-echo"<h4>You need to provide a value in the search box (1.) to match against the fields (2.)</h4>
- ";
-
- }
-
-
- if( isset($_POST['field']) && isset($_POST['search_string']) && $_POST['search_string']!='' && $_POST['field']!='' )
- {
-  echo"cClick on subscriber or dialled number in any result to search by that field with that number</h5>";
-
- }
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-if(isset($_POST['field']) && $_POST['field']=='search_all_subscriber' && isset($_POST['search_string']) && $_POST['search_string']!='' )
- {//1
-$data=trim($_POST['search_string']);
-$search_all_subscribers= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching subscriber numbers for <i>$search_all_subscribers</i></h3>";
   
 

@@ -8,9 +8,10 @@ require'header.php';
  <?php
 if ( !isset($_POST['team_name'] )  )
 {
-  echo"<h1>Enter team name</h1>
+  echo"<h2>Enter team name</h2>
   <table class='forms' border='0px'><tr><td>
   <form action='registration.php' method='POST'>
+   <input type='hidden' name='close' value='".$close."'> 
 
 <input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>";
@@ -29,9 +30,9 @@ if ( isset($_POST['team_name'] ) )
 $team= mysqli_real_escape_string ( $db ,trim($_POST['team_name']) );
 if (strlen($team)>40)
 {
-  echo"<p>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 40 characters.</p>";
+  echo"<p>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 20 characters.</p>";
 }
-if (strlen($team)<40)
+if (strlen($team)<20)
 {
 $testing_team="SELECT team FROM teams WHERE team ='".$team."'";
 $result = mysqli_query($db, $testing_team );
@@ -40,7 +41,7 @@ if ($num_results >0)
          {
           echo"<br> 
           <h2> Team name  <i>".$team."</i> already registered with SnitchHunt</h2>
-          <h4>To play on team $team, use your password and sign in at top right.</h4>";
+          <h4>To play on team $team, use your password and sign in using top left drop down menu</h4>";
   
          }
 
@@ -73,11 +74,10 @@ if ($num_results <1)
 
       }
      
-     $query="INSERT INTO teams (`time`,`date`, `team`, `password`) 
-     VALUES(CURRENT_TIME, CURDATE(),'".$team."','".$password."') ; ";
+     $query="UPDATE teams set time=CURRENT_TIME, date=CURDATE(), password='".$password."' where team='".$team."'; ";
       if ($db->query($query) === TRUE) 
              {
-     echo"<h1>Password ".$password."</h1>";
+     echo"<h2>Password ".$password."</h2>";
              } 
        else 
             {    
