@@ -61,8 +61,8 @@ $result = mysqli_query($db, $phone );
  while ($row = $result->fetch_assoc()) 
     {
 echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
-  <tr><td >Subscriber's <a href='https://en.wikipedia.org/wiki/International_Mobile_Station_Equipment_Identity' target='_blank'>IMEI</a>:</td><td> ".$row['subscriber_imei']."<td><td></td></tr>
-  <tr><td>Subscriber's Number:</td><td>".$row['subscriber_phone_number']."</td></tr>
+  <tr><td >Subscriber <a href='https://en.wikipedia.org/wiki/International_Mobile_Station_Equipment_Identity' target='_blank'>IMEI</a>:</td><td> ".$row['subscriber_imei']."<td><td></td></tr>
+  <tr><td>Subscriber Number:</td><td>".$row['subscriber_phone_number']."</td></tr>
   <tr><td>Dialled Number:</td><td> ".$row['dialled_number']."<td><td></td></tr>
   <tr><td>Cell Tower Location:</td><td>".$row['cell_tower_location']."</td></tr>
   <tr><td>Date and Time:</td><td> ".$row['date_time']."</td></tr>
@@ -78,10 +78,10 @@ $result = mysqli_query($db, $google );
     {
 
 echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
-  <tr><td>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
+  <tr><td width='150px'>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
       <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
       <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
-      <tr><td>Full Name</td>                    <td>".$row['full_name']."      </td></tr>
+      <tr><td>Full Name:</td>                    <td>".$row['full_name']."      </td></tr>
       <tr><td>Username:</td>                    <td>".$row['user_name']."      </td></tr>
       <tr><td>Email Address:</td>               <td>".$row['email_address']."  <td></tr>
       <tr><td>Address:</td>                     <td>".$row['address']."        </td></tr>

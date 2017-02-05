@@ -1,5 +1,5 @@
    <style type="text/css">
-body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:18px; margin:0; background:url('power-plant.jpg'); }
+body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:18px; margin:0; background:url('images/power-plant.jpg'); }
 .forms {width:100%; padding:1%; margin:0; }
 .forms td:nth-of-type(odd){  width:500px; }
 .toper { color:#d88a1c; background:#333;font-family:Verdana; height:25px;}
@@ -50,7 +50,7 @@ select {
   h1 {color:#333; padding:10px; font-size:40px; background:RGBA(199,211,162, 0.8); font-family:Georgia;}
   h4 {color:#fff;}
  input[type=submit].close { position:fixed: top:10px; right:40px;
-  float:right; height:70px;  background:url('fast-forward.png'); background-repeat:no-repeat;
+  float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
   }
 input[type=submit] { font-family: "Courier New";
     font-size: 15px;
@@ -87,10 +87,10 @@ input[type=submit]:hover {
 .challenge {width:100%;background:#d88a1c; padding:2%; color:#2a5b72; border-radius:5px; }
 span.right {text-align:right; display:inline;}
 .news {background:RGBA(199,211,162, 0.7);}
-a { color:#333; text-decoration:none; font-family:Georgia;}
+a { color:#d88a1c; text-decoration:none; font-family:Georgia;}
 .homer {text-align:left; border: solid 1px #dcdcdc;  
   border-radius:5px; margin-top:2%;   padding:10px; background:RGBA(42, 91, 114, 0.75)}
-.homer a {color:#333; background:;}
+.homer a {color:#d88a1c; background:;}
 
 .overlay-holder {
     position: relative;

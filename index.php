@@ -15,7 +15,7 @@ require'header.php';
 
  
   <div class='homer'><h2 >Learn</h2>
-<p>Check out the <a href='datasets.php'>datasets page</a> to see what data is collected and who has access to it.
+<p>Check out the metadata page to see what data is collected and who has access to it.
     The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. 
   Although these individual datasets already reveal a lot of your online presence, the real deal is data correlation. Once an experienced analyst begins correlating the different datasets, 
     your activities throughout the day can be reconstructed.</p>
@@ -26,7 +26,7 @@ require'header.php';
  <div class='homer'><h2 >Play</h2>
 <p>Snitchhunt puts you in the shoes of a data analyst working for the federal police, using this data to solve the challenges. You will need to dig into, 
   correlate and pivot on the various metadata sets to catch a whistleblower.</p>
-<p>Read the <a href='article.php' target='_blank'>article</a> and instructions carefully!  
+<p>Read the article and instructions carefully!  
   Good luck!</p>
 </div>
  </div>
@@ -96,7 +96,7 @@ echo"</table><p>*Only shows teams registered in past month</p>";
    <div id='tab-content2' class='tab-content'>
     <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
 <p>You can solve SnitchHunt together as a group in a cooperative effort or you can compete against one another in competing teams.</p>
-<p><a href='registration.php' target='_blank'>Register</a> your team name and your password will appear on the screen.</p>
+<p>To register your team name click play, enter a name and your password will appear on the screen.</p>
 <p>Copy-paste your password somewhere in case you get signed out as you will need it to sign back in.</p>
 <table><tr><td>
  <p>When you sign in with your team name and password you will see the challenges 

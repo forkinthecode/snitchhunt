@@ -4,7 +4,7 @@
 <!--
   <div class='icons'><img src='list.png'></img></icons>*-->
 	      
-    
+    <h1>SnitchHunt</h1>
 	        <div class='box'>
 	      	
 	         
@@ -16,7 +16,7 @@
 
 
 
-echo"
+echo" 
  <ul>
 
 ";

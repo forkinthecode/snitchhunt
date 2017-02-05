@@ -42,17 +42,17 @@ include('styles.php');
 
 
 <h1>Snitchhunt is a game desgined by Gabor Szathmari of CryptoParty Sydney to demonstrate how metadata 
-can be used to track our movements. Following on from an event hosted by Melbourne Uni I created my own version to keep the 
+can be used to track our movements. Following on from an <a href=http://www.abc.net.au/triplej/programs/hack/how-team-of-pre-teens-found-whisteblower-using-metadata/8113668' target='_blank'>event</a> hosted by Melbourne Uni, Rosie Williams created this version to keep the 
  game up and running.
           </h1>
-<h1>You can find <a href='https://twitter.com/gszathmari'>Gabor</a> and <a href='https://twitter.com/Info_Aus'>Rosie</a> on Twitter. You can find future events at <a href='https://www.cryptoparty.in/index'>CryptoParty Australia.</a>
+<h1>You can find <a href='https://twitter.com/gszathmari' target='_blank'>Gabor</a> and <a href='https://twitter.com/Info_Aus' target='_blank'>Rosie</a> on Twitter. You can find future events at <a href='https://www.cryptoparty.in/index'>CryptoParty Australia</a>.
         </h1>
 
 
      </td>
 
  <td style='padding:20px'>
-
+<div class='homer'>
  
 
 
@@ -60,8 +60,8 @@ can be used to track our movements. Following on from an event hosted by Melbour
 
   
 <iframe src='https://calendar.google.com/calendar/embed?title=Events&amp;showDate=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffcc&amp;src=0r80kjpj3en973b8iomrpuebb8%40group.calendar.google.com&amp;color=%23853104&amp;ctz=Australia%2FSydney'
- style='border:solid 1px #777' width='500' height='400' frameborder='0' scrolling='no'></iframe>
-
+ style='border:solid 1px #777' width='500' height='500' frameborder='0' scrolling='no'></iframe>
+</div>
 </td></tr></table>
 
       ";
