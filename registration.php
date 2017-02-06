@@ -22,18 +22,19 @@ if ( !isset($_POST['team_name'] )  )
 
 ?>
 
-
- <?php
-if ( isset($_POST['team_name'] ) )
+<?php
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-  
-$team= mysqli_real_escape_string ( $db ,trim($_POST['team_name']) );
-if (strlen($team)>40)
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
 {
+     if (strlen($team)>15)
+     {
   echo"<p>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 20 characters.</p>";
-}
-if (strlen($team)<20)
-{
+     }
+     if (strlen($team)<15)
+      {
 $testing_team="SELECT team FROM teams WHERE team ='".$team."'";
 $result = mysqli_query($db, $testing_team );
 @$num_results = mysqli_num_rows($result);
@@ -41,7 +42,7 @@ if ($num_results >0)
          {
           echo"<br> 
           <h2> Team name  <i>".$team."</i> already registered with SnitchHunt</h2>
-          <h4>To play on team $team, use your password and sign in using top left drop down menu</h4>";
+          <h4>To play on team $team, use your correct password and sign in using top left drop down menu</h4>";
   
          }
 
@@ -83,7 +84,7 @@ if ($num_results <1)
             {    
     echo "Error: " . $query . "<br>" . $db->error;
             }
- 
+ }
   }
 }
 }mysqli_free_result($result);

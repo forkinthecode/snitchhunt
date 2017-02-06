@@ -28,11 +28,11 @@ include('styles.php');
 
 ?>
 
+
  <?php
   if ( isset($_POST['close'] ) )
 {
-  echo"
- <h1>SnitchHunt</h1>";
+  //echo"<h1>SnitchHunt</h1>";
 }
   if ( !isset($_POST['close'] ) )
 {
@@ -81,16 +81,98 @@ else{
 ?>
 
 
+ 
+  
+    </div> <div class='clear'></div>   
+   
+
+
+      
+ 
+  
+      
+       
+       
+               
+ 
+          <div class='clear'></div>
+
+
+  
+<div class="page_width">
+  <div class='toper'>
+    <?php
+if ( isset($_POST['team_name'] ) || isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team='' || $password='' )
+{
+  echo"<h4>You must enter both your registered team name and password to log in. 
+  Click <i>play</i> to register a new team</h4>";
+}
+
+}
+
+?>
+ 
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
+{
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+  $result = mysqli_query($db, $query);
+@$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
+ 
+         if (!isset($_POST['challenge1']) && 
+             !isset($_POST['challenge2'])  && 
+             !isset($_POST['challenge3'])  && 
+             !isset($_POST['challenge4']) && 
+             !isset($_POST['challenge5']) && 
+             !isset($_POST['challenge6']) && 
+             !isset($_POST['challenge7'])  )
+         {
+      
+        echo"<h4>Signed in as team <i>$team</i></h4>";
+         }
+      }
+    }
+      if ($num_results <1)
+       {
+           
+            echo"<h4>You must enter both your registered team name and password to log in. 
+             Click <i>play</i> to register a new team</h4>";
+           }
+           
+         
+
+}
+
+
+?>
  <?php
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=$_POST['team_name'];
-$password=$_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
-echo"<div class='toper' style='padding-right:20px;padding-left:50px'><span style='float:right'>Signed in as team <i>$team</i></span>";
-   
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge1'] ) )
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+  $result = mysqli_query($db, $query);
+@$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
+
+if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
 {
 $data = $_POST['challenge1']; 
 $challenge_one=mysqli_real_escape_string ( $db , $data );
@@ -112,7 +194,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch1='25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 1 is correct: 25 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 1 is correct: 25 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -122,7 +204,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-      echo"".$team." solution to Challenge 1 is Incorrect";
+      echo"<h4>".$team." solution to Challenge 1 is Incorrect</h4>";
 
   }
 
@@ -130,8 +212,7 @@ if ($num_results ==0)
 
 }
 
-?>
-<?php
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge2'] ) )
 {
  
@@ -154,7 +235,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch2=(ch2+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 2 is correct: 50 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 2 is correct: 50 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -164,16 +245,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"".$team." solution for Challenge 2 is Incorrect";
+    echo"<h4>".$team." solution for Challenge 2 is Incorrect</h4>";
   }
 
 
 
 }
 
-?>
 
-<?php
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge3'] ) )
 {
  
@@ -196,7 +275,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch3=(ch3+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 3 is correct: 100 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 3 is correct: 100 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -206,15 +285,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"".$team." solution for Challenge 3 is Incorrect";
+   echo"<h4>".$team." solution for Challenge 3 is Incorrect</h4.";
   }
 
 
 
 }
 
-?>
-<?php
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge4'] ) )
 {
  
@@ -237,7 +315,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch4=(ch4+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"".$team." solution for Challenge 4 is correct: 50 points added to team $team!";
+   echo"<h4>".$team." solution for Challenge 4 is correct: 50 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -247,15 +325,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"".$team." solution for Challenge 4 is Incorrect";
+   echo"<h4.".$team." solution for Challenge 4 is Incorrect</h4>";
   }
 
 
 
 }
 
-?>
-<?php
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge5'] ) )
 {
  
@@ -278,7 +355,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch5=(ch5+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 5 is correct: 100 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 5 is correct: 100 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -288,15 +365,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"".$team." solution for Challenge 5 is Incorrect";
+    echo"<h4>".$team." solution for Challenge 5 is Incorrect</h4.";
   }
 
 
 
 }
 
-?>
-<?php
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge6'] ) )
 {
  
@@ -319,7 +395,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch6=(ch6+25) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 6 is correct: 25 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 6 is correct: 25 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -329,15 +405,14 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"".$team." solution for Challenge 6 is Incorrect";
+   echo"<h4>".$team." solution for Challenge 6 is Incorrect</h4>";
   }
 
 }
 
 }
 
-?>
-<?php
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge7'] ) )
 {
  
@@ -361,7 +436,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"".$team." solution for Challenge 7 is correct: 150 points added to team $team!";
+    echo"<h4>".$team." solution for Challenge 7 is correct: 150 points added to team $team!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -371,36 +446,19 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
- echo"".$team." solution for Challenge 7 is Incorrect";
+ echo"<h4>".$team." solution for Challenge 7 is Incorrect</h4>";
   }
 
 
 
 }
-echo"
-</div><div class='clear'></div>";
+
 
 }
+}
+
    ?>  
- 
-  
-        
-   
-
-
-      
- 
-  
-      
-       
-       
-               
- 
-          <div class='clear'></div>
-
-
-  
-<div class="page_width">
+ </div>
   <br>
   
         <div class="left">

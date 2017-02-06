@@ -27,13 +27,23 @@ $result = mysqli_query($db, $phone );
     }
 }
 
+?>
+
   
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+            $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+         if ($num_results >0)
+  {
 echo" <h2> Search all fields, subscriber numbers or dialled numbers in the <i>phone</i> metadata:</h2>   <div class='searches' style=''>
          <table class='forms' border='0px'><tr><td> 
    <form action='phone_metadata.php' class='search' method='POST'>
@@ -41,7 +51,7 @@ echo" <h2> Search all fields, subscriber numbers or dialled numbers in the <i>ph
     <input type='hidden' name='team_name' value='".$team."'> 
     <input type='hidden' name='password' value='".$password."'>
 
-   <input type='text' id='search_string' name='search_string' placeholder='1.Search string' > 
+   <input type='text' id='search_string' name='search_string' placeholder='1.Search string' > </td></tr><tr><td>
    
       <select name='field'>
        <option value=''>2.Click to Select Search Type</option>
@@ -100,8 +110,8 @@ $result = mysqli_query($db, $phone );
              }//6
         echo"</div>Mouse over/scroll for more results.";
       }//5
-elseif ($num_results <1)
- {//2
+      elseif ($num_results <1)
+       {//2
        echo"<h3>There are no exact matches in subsciber numbers for <b>$search_all_subscribers</b>- 
        falling back to partial matches</h3>";
      
@@ -134,7 +144,8 @@ elseif ($num_results <1)
                  }//6
         echo"</div>Mouse over/scroll for more results.";
             }//5
-  }
+         }
+}
 }
 }
 }mysqli_free_result($result);
@@ -142,12 +153,19 @@ elseif ($num_results <1)
 ?>
 
 <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+            $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+         if ($num_results >0)
+  {
 if(isset($_POST['field']) && $_POST['field']=='search_all_dialled' && isset($_POST['search_string'])  && $_POST['search_string']!='')
  {//1
 $data=trim($_POST['search_string']);
@@ -302,10 +320,10 @@ elseif ($num_results <1)
     }//5
   
 
-  
+  }
             
-            }
- }
+}
+}
 }
 }mysqli_free_result($result);
 
