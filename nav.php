@@ -89,6 +89,13 @@ $close=$_POST['close'];
 <input type='hidden' name='close' value='".$close."'>
 <input type='submit' class='user' name='Metadata' value='Metadata' id='submit' /></form>
 </li>
+<li class='horizontal'>
+<form action='article.php' method='POST'>  <input type='hidden' name='close' value='".$close."'>
+<input type='submit' class='user' name='Article' value='Article' id='submit' /></form></li>
+
+<li class='horizontal'>
+ <form action='index.php' method='POST'> <input type='hidden' name='close' value='".$close."'>
+ <input type='submit' class='user' name='Home' value='Home' id='submit' /></form></li>
 
 
       </ul>";

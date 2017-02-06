@@ -10,8 +10,9 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
   opacity: 0;
   width: 300px;
   height: 100%;
- background:#000;
-  top: 55px;
+ 
+  top: 10px;
+  right:30px;
 
   background:RGBA(199,211,162, 0.5);
   -webkit-transition: all 0.3s ease-in-out; 
@@ -21,7 +22,8 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
 }
 #menu ul {
   position: relative;
-  top: 50px;
+  top: 60px;
+  right:30px;
   -webkit-transform: scale(2);
   -moz-transform: scale(2);
   -ms-transform: scale(2);
@@ -60,12 +62,13 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
   font-size: 24px;
   display: block;
   cursor: pointer;
-  position: relative;
-  top:55px;
+  position: fixed;
+  top:40px;
+  right:30px;
   z-index: 500;
   width: 250px;
   height: 30px;
- margin-left:30px;
+
  margin-bottom:30px;
 /*border-radius:5px;*/
       
@@ -85,14 +88,14 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
   transform: scale(1);
 }
 #toggle-nav:checked ~ #toggle-nav-label { 
-  top:55px;
+   top:40px;
  
   
 }
 ul.horizontal { 
     list-style-type: none;
     margin: 0;
-    padding-left: 33%;
+    padding-left: 30px;
     overflow: hidden;
    background:RGBA(199,211,162, 0.5);
 }
@@ -317,9 +320,6 @@ li { list-style: none; }
 
 /*.container { margin: 0px 20% 0px 20%; }*/
 
-#menu{width:100%}
-.box {width:100%; background:#000; height:75px;}
-.box li {float:left; padding:10px; width:150px; display:inline;}
 
 /*------------------------------------*\
     ACCORDION

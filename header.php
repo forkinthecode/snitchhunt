@@ -27,8 +27,13 @@ include('styles.php');
     
 
 ?>
-<h1>SnitchHunt</h1>
+
  <?php
+  if ( isset($_POST['close'] ) )
+{
+  echo"
+ <h1>SnitchHunt</h1>";
+}
   if ( !isset($_POST['close'] ) )
 {
   
@@ -66,19 +71,16 @@ can be used to track our movements. Following on from an <a href=http://www.abc.
 </td></tr></table>
 
       ";
-
+}
+else{
          
-
-  
+ include'nav.php';
 
 }
 
 ?>
 
-<?php
 
-     include'nav.php';
-     ?>
  <?php
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
@@ -378,8 +380,6 @@ if ($num_results ==0)
 echo"
 </div><div class='clear'></div>";
 
-}else{
-
 }
    ?>  
  
@@ -401,5 +401,6 @@ echo"
 
   
 <div class="page_width">
+  <br>
   
         <div class="left">
