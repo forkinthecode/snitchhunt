@@ -7,30 +7,7 @@ require'header.php';
           <h2>Google search metadata</h2>
 
           <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
-{
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-echo"<br>
-<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
-        
-         <table class='forms'><tr><td>   <form action=''  method='POST'>
-          <input type='hidden' name='close' value='".$close."'>
-          <input type='hidden' name='close' value='".$close."'>
-         <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
-
-           <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
-              </td><td>
-
-        
-             <input type='submit' name='submit' placeholder='Search' id='submit' />
-              </form></td></tr></table>
-    
-
-</div>
-          ";
-     }
-if(!isset($_POST['search_all_google']) && !isset($_POST['show_all_google_data'])  )
+          if(!isset($_POST['search_all_google']) && !isset($_POST['show_all_google_data'])  )
 {
   
 
@@ -54,11 +31,43 @@ echo"<br><table class='basic' border='0' style=''><tbody>
   <tr><td>Date and Time:</td>                   <td> ".$row['date_time']."     </td></tr>
  </tbody></table><br>";
 }
-}
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
+echo"<br>
+<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
+        
+         <table class='forms'><tr><td>   <form action=''  method='POST'>
+          <input type='hidden' name='close' value='".$close."'>
+         <input type='hidden' name='team_name' value='".$team."'> 
+         <input type='hidden' name='password' value='".$password."'>
 
+           <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
+              </td><td>
+
+        
+             <input type='submit' name='submit' placeholder='Search' id='submit' />
+              </form></td></tr></table>
+    
+
+</div>
+          ";
+     }
+
+}
+}
 ?>
 
 <?php
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
 if(isset($_POST['search_all_google'])  )
  {//1
   
@@ -128,7 +137,8 @@ if ($num_results <1)
         echo"</div><h4>Mouse over/scroll for more results.</h4><br>";
     }
              
-      
+     }
+     } 
 }mysqli_free_result($result);
 
 ?>

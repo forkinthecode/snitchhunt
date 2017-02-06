@@ -24,8 +24,8 @@ $result = mysqli_query($db, $email );
 
 echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
-  <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
-  <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
+  <tr><td>Sender email:</td><td>".$row['sender_email_address']."</td></tr>
+  <tr><td>Recipient email:</td><td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td><td> ".$row['email_subject_line']."<td><td></td></tr>
   <tr><td>Port</td><td>Port:".$row['port']."</td></tr>
   <tr><td>Date and Time:</td><td> ".$row['date_time']."</td></tr>
@@ -38,11 +38,14 @@ echo"<table class='basic' border='0' style=''><tbody>
 }
 
 
-if(isset($_POST['team_name']) && isset($_POST['password'])  )
-
-
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-  echo"<br> <h4> Search all fields in the <i>email</i> metadata:</h4><div class='searches' style=''>
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
+{
+  echo"<br> <h2> Search all fields in the <i>email</i> metadata:</h2><div class='searches' style=''>
     <table class='forms'><tr><td>     
             <form action='email_metadata.php'  method='POST'>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
@@ -109,8 +112,8 @@ if ($num_results <1)
        {//6
      echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
-  <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
-  <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>
+  <tr><td>Sender email:</td>     <td>".$row['sender_email_address']."</td></tr>
+  <tr><td>Recipient email:</td>  <td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td> <td>".$row['email_subject_line']."<td>
   <tr><td>Port:</td>               <td>".$row['port']."</td></tr>
   <tr><td>Date and Time:</td>      <td>".$row['date_time']."</td></tr>
@@ -140,8 +143,8 @@ if ($num_results <1)
 
    echo"<table class='basic' border='0' style=''><tbody>
   <tr><td with='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td><td></td></tr>
-  <tr><td>Sender's email:</td><td>".$row['sender_email_address']."</td></tr>
-  <tr><td>Recipient's email:</td><td>".$row['recipient_email_address']."</td></tr>
+  <tr><td>Sender email:</td><td>".$row['sender_email_address']."</td></tr>
+  <tr><td>Recipient  email:</td><td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td><td> ".$row['email_subject_line']."<td>
   <tr><td>Port:</td><td> ".$row['port']."</td></tr>
   <tr><td>Date and Time:</td><td> ".$row['date_time']."</td></tr>
@@ -152,14 +155,21 @@ if ($num_results <1)
 
       
       }//16
+
+    }
+  }
 }mysqli_free_result($result);
 
 ?>
 
 <?php
 
-
-
+if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
 if(isset($_POST['show_all_email_data'])  )
 
 {
@@ -204,8 +214,8 @@ if ($num_results <1)
        {//6
      echo"<table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."<td><td></td></tr>
-  <tr><td>Sender's email:</td>     <td>".$row['sender_email_address']."</td></tr>
-  <tr><td>Recipient's email:</td>  <td>".$row['recipient_email_address']."</td></tr>
+  <tr><td>Sender  email:</td>     <td>".$row['sender_email_address']."</td></tr>
+  <tr><td>Recipient  email:</td>  <td>".$row['recipient_email_address']."</td></tr>
   <tr><td>Email subject line:</td> <td>".$row['email_subject_line']."<td>
   <tr><td>Port:</td>               <td>".$row['port']."</td></tr>
   <tr><td>Date and Time:</td>      <td>".$row['date_time']."</td></tr>
@@ -218,7 +228,8 @@ if ($num_results <1)
 
 }
 
-      
+      }
+    }
    
 }mysqli_free_result($result);
 
@@ -234,7 +245,7 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-//include'challenges.php';
+include'score.php';
 ?>
 
 

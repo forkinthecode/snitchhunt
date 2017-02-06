@@ -27,6 +27,7 @@ include('styles.php');
     
 
 ?>
+<h1>SnitchHunt</h1>
  <?php
   if ( !isset($_POST['close'] ) )
 {
@@ -82,12 +83,14 @@ can be used to track our movements. Following on from an <a href=http://www.abc.
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
 $team=$_POST['team_name'];
+$password=$_POST['password'];
+  if ( $team!='' && $password!='' )
+{
 echo"<div class='toper' style='padding-right:20px;padding-left:50px'><span style='float:right'>Signed in as team <i>$team</i></span>";
    
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1'] ) )
 {
- 
-  $data = $_POST['challenge1']; 
+$data = $_POST['challenge1']; 
 $challenge_one=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
@@ -327,7 +330,7 @@ if ($num_results ==0)
    echo"".$team." solution for Challenge 6 is Incorrect";
   }
 
-
+}
 
 }
 

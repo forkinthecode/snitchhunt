@@ -1,10 +1,122 @@
    <style type="text/css">
-body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:18px; margin:0;padding:0; background:url('images/power-plant.jpg'); }
+body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px; margin:0;padding:0; background:url('images/power-plant.jpg'); }
+
+
+#menu .box { 
+  position: fixed;
+  text-align: left;
+  overflow: scroll;
+  z-index: -1;
+  opacity: 0;
+  width: 300px;
+  height: 100%;
+ background:#000;
+  top: 55px;
+
+  background:RGBA(199,211,162, 0.5);
+  -webkit-transition: all 0.3s ease-in-out; 
+  -moz-transition: all 0.3s ease-in-out; 
+  -o-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out;
+}
+#menu ul {
+  position: relative;
+  top: 50px;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  -webkit-transition: all 0.3s ease-in-out; 
+  -moz-transition: all 0.3s ease-in-out; 
+  -o-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out;
+}
+#menu li { 
+  /*display: inline-block;*/ 
+  margin: 20px;
+}
+#menu li a {
+  /*border-radius: 3px;*/
+  padding: 15px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 20px;
+  color: #eoeoeo;
+  -webkit-transition: all 0.2s ease-in-out; 
+  -moz-transition: all 0.2s ease-in-out; 
+  -o-transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
+}
+#menu li a:hover { border-color: #fff; }
+#menu li a i { 
+  margin-right: 5px; 
+  font-size: 24px;
+}
+#toggle-nav-label {
+  color: #dce7eb;
+  background:#2a5b72;
+  text-align: center;
+  line-height: 30px;
+  font-size: 24px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  top:55px;
+  z-index: 500;
+  width: 250px;
+  height: 30px;
+ margin-left:30px;
+ margin-bottom:30px;
+/*border-radius:5px;*/
+      
+ 
+  
+}
+#toggle-nav { display: none; }
+#toggle-nav:checked ~ .box { 
+  
+  opacity: 1;
+  z-index: 400;
+}
+#toggle-nav:checked ~ .box ul {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+#toggle-nav:checked ~ #toggle-nav-label { 
+  top:55px;
+ 
+  
+}
+ul.horizontal { 
+    list-style-type: none;
+    margin: 0;
+    padding-left: 33%;
+    overflow: hidden;
+   background:RGBA(199,211,162, 0.5);
+}
+li.horizontal  {
+    float: left;
+}
+li.horizontal  a {
+    display: block;
+ 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+li.horizontal  a:hover {
+  
+}
+
+
 .forms {width:100%; padding:1%; margin:0; }
 .forms td:nth-of-type(odd){  width:500px; }
 .navigation { margin:auto;}
 .navigation td{ padding:5px; margin:auto;}
-.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px;}
+.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px; font-size:18px;}
  .front { width:100%;  padding:5px; margin:auto; text-align:center; background:RGBA(199,211,162, 0.5);}
  .front td{ width:100%;  padding:5px; margin:auto; text-align:center;}
 .navs { float:left; position: fixed;
@@ -49,7 +161,7 @@ select {
  .scoreboard td:nth-of-type(even) { background:#eaf5f9;padding:5px;}
 .home {font-size:16px; }
 
-  h1 {color:#333; padding:10px; font-size:40px; background:RGBA(199,211,162, 0.8); font-family:Georgia;}
+  h1 {color:#333; padding:10px; font-size:40px; padding-bottom:0; background:RGBA(199,211,162, 0.8); font-family:Georgia;}
   h4 {color:#fff;}
  input[type=submit].close { position:fixed: top:10px; right:40px; width:70px;
   float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
@@ -151,7 +263,7 @@ border: 1px solid #999;
    }
 
 
-.expand {height:600px; overflow:scroll;   padding:2%; margin:1%;}
+.expand {height:600px; overflow:scroll;   padding:2%; margin:1%;   background:RGBA(199,211,162, 0.5);}
 .searches {width:100%; background:#c7d3a2; border-radius:5px; padding-top:1%; padding-bottom:1%; color:#fff;}
 .wide {width:100%; background:#2a5b72; border-radius:5px; padding:1%; color:#fff;}
 .basic {width:100%; background: #2a5b72; border-radius:5px; padding:1%; color:#fff;}
@@ -272,4 +384,6 @@ li { list-style: none; }
   background-clip: padding-box;
   text-align: center;
 }
+
+
 </style>

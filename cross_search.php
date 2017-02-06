@@ -24,14 +24,24 @@ $result = mysqli_query($db, $phone );
     </tbody></table><br>";
    }
 }
-			if(isset($_POST['team_name'])  && isset($_POST['password']))
-			 {//
+
+?>
+<?php
+	if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
+
 			{
 			echo"<br><h3>Search a subscriber number against a dialled number to find out how many calls were made:</h3>
 			     <div class='searches' style=''>
          <table class='forms'><tr><td> 
 			             <form action='cross_search.php'  method='POST'>
-			              <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+			             <input type='hidden' name='close' value='".$close."'>
+			              <input type='hidden' name='team_name' value='".$team."'> 
+			              <input type='hidden' name='password' value='".$password."'>
 
 			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' />
 						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' /></td><td>
@@ -53,7 +63,7 @@ $result = mysqli_query($db, $phone );
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
-			 {//2
+			    {//2
 			       echo"<h3>There are no calls originating with $subscriber_number to $dialled_number </h3>";
 	   
 			   }
@@ -77,10 +87,15 @@ $result = mysqli_query($db, $phone );
 			   
 		   }
 			}
+		}
 			?>
 <?php
-	if(isset($_POST['team_name'])  && isset($_POST['password']))
-			 {//
+		if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+$team=  $_POST['team_name'];
+$password=  $_POST['password'];
+  if ( $team!='' && $password!='' )
+{
 $data=trim($_POST['team_name']);
 $team= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_POST['password']);
@@ -90,7 +105,9 @@ echo"<br><h3>Search two phone numbers to see who they both called:</h3>
      <div class='searches' style=''>
          <table class='forms'><tr><td> 
              <form action='cross_search.php'  method='POST'>
-<input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+             <input type='hidden' name='close' value='".$close."'>
+<input type='hidden' name='team_name' value='".$team."'> 
+<input type='hidden' name='password' value='".$password."'>
 
              <input type='text'  id='caller_one' name='caller_one' placeholder='Phone number one' />
 			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' /></td><td>
@@ -138,6 +155,7 @@ if ($num_results <1)
 	}
 
   }
+}
     
 }mysqli_free_result($result);
 
@@ -149,7 +167,7 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-include'challenges.php';
+include'score.php';
 ?>
 
 
