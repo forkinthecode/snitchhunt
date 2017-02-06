@@ -37,20 +37,30 @@ echo"<table class='basic' border='0' style=''><tbody>
 
 }
 
+?>
 
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
-{
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
   echo"<br> <h2> Search all fields in the <i>email</i> metadata:</h2><div class='searches' style=''>
     <table class='forms'><tr><td>     
-            <form action='email_metadata.php'  method='POST'>
- <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+  <form action='email_metadata.php'  method='POST'>
+ <input type='hidden' name='team_name' value='".$team."'> 
+ <input type='hidden' name='password' value='".$password."'>
 
-           <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
+ <input type='text'  id='search_all_email' name='search_all_email' placeholder='Search string' />
               
 </td><td>
         
@@ -155,21 +165,27 @@ if ($num_results <1)
 
       
       }//16
+}
+}
 
-    }
-  }
 }mysqli_free_result($result);
 
 ?>
 
 <?php
-
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
 if(isset($_POST['show_all_email_data'])  )
 
 {
@@ -225,12 +241,11 @@ if ($num_results <1)
  }//5
               
 
-
+}
+}
 }
 
-      }
-    }
-   
+}   
 }mysqli_free_result($result);
 
 ?>

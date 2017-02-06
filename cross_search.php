@@ -26,15 +26,21 @@ $result = mysqli_query($db, $phone );
 }
 
 ?>
-<?php
-	if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
-{
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
-{
 
-			{
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
+{
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
 			echo"<br><h3>Search a subscriber number against a dialled number to find out how many calls were made:</h3>
 			     <div class='searches' style=''>
          <table class='forms'><tr><td> 
@@ -86,16 +92,23 @@ $password=  $_POST['password'];
 			   }
 			   
 		   }
-			}
+	}
 		}
 			?>
 <?php
-		if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
 $data=trim($_POST['team_name']);
 $team= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_POST['password']);
@@ -156,7 +169,7 @@ if ($num_results <1)
 
   }
 }
-    
+ }   
 }mysqli_free_result($result);
 
 ?>

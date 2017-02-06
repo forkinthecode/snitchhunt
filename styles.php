@@ -14,7 +14,7 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
   top: 10px;
   right:30px;
 
-  background:RGBA(199,211,162, 0.7);
+  background:RGBA(199,211,162, 0.9);
   -webkit-transition: all 0.3s ease-in-out; 
   -moz-transition: all 0.3s ease-in-out; 
   -o-transition: all 0.3s ease-in-out; 
@@ -136,7 +136,7 @@ li.horizontal  a:hover {
     left: 20px;}
 
 th {color:#2a5b72;}
-p,h4,h2 { color:#333; background:#c7d3a2;}
+h4,h2 { color:#333; background:#c7d3a2;}
 .left h3 {color:#333; font-family:Garamond; font-size:25px; background:#c7d3a2; padding-left:5px; }
 
 

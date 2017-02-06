@@ -1,7 +1,18 @@
 <?php
-if ( isset($_POST['team_name'] ) )
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
- $team= $_POST['team_name'] ;
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
+{
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
+
 $query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' ";
 $result = mysqli_query($db, $query );
    while ($row = $result->fetch_assoc())
@@ -23,6 +34,8 @@ echo"
     }echo"";
 
 
+      }
+    }
+  }
 }
-
  ?>

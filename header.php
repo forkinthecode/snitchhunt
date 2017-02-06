@@ -126,8 +126,8 @@ $password=  $_POST['password'];
 {
   
    $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-  $result = mysqli_query($db, $query);
-@$num_results = mysqli_num_rows($result);
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
        {
  
@@ -147,7 +147,7 @@ if ($num_results >0)
       if ($num_results <1)
        {
            
-            echo"<h4>You must enter both your registered team name and password to log in. 
+            echo"<h4>You must enter both your registered team name and correct password to log in. 
              Click <i>play</i> to register a new team</h4>";
            }
            
@@ -457,8 +457,7 @@ if ($num_results ==0)
 }
 }
 
-   ?>  
- </div>
+   ?>  </div>
   <br>
   
         <div class="left">

@@ -31,12 +31,22 @@ echo"<br><table class='basic' border='0' style=''><tbody>
   <tr><td>Date and Time:</td>                   <td> ".$row['date_time']."     </td></tr>
  </tbody></table><br>";
 }
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+}
+?>
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
 echo"<br>
 <h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
         
@@ -62,12 +72,19 @@ echo"<br>
 ?>
 
 <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
 {
+  
+   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   $result = mysqli_query($db, $query);
+   @$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+       {
 if(isset($_POST['search_all_google'])  )
  {//1
   
@@ -139,6 +156,7 @@ if ($num_results <1)
              
      }
      } 
+   }
 }mysqli_free_result($result);
 
 ?>

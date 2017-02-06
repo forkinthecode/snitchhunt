@@ -11,17 +11,18 @@ if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
 $team=  $_POST['team_name'];
 $password=  $_POST['password'];
-echo"<br><h4> Search all fields in the <i>phone subscriber</i> metadata:</h4>
-<div class='searches' style='background-color:#f2d091;'>
+echo"<br><h2> Search all fields in the <i>phone subscriber</i> metadata:</h2>
+<div class='searches' style=''>
        <table class='forms'><tr><td>   
             <form action='phone_subscribers.php'  method='POST'>
              <input type='hidden' name='close' value='".$close."'>
-             <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+             <input type='hidden' name='team_name' value='".$team."'> 
+             <input type='hidden' name='password' value='".$password."'>
 
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
          </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
             </form></td></tr></table>
-</div>
+</div><br>
           ";
      }
 if( !isset($_POST['search_all_subscribers']) )

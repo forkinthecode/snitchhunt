@@ -8,22 +8,28 @@
           <label id="toggle-nav-label" for="toggle-nav"><i class="icon-reorder"></i><img src='searching.png'/></label>
         
           <div class="box">
-          <?php
-{
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-$close=$_POST['close'];
- echo"
+      <?php
+      
+
+  
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+  
+
+ echo"$team : $password
             <ul>
 <li >
- <form action='play.php' method='POST'> <input type='hidden' name='close' value='".$close."'>
- <input type='hidden' name='team' value='".$team."'>
+ <form action='play.php' method='POST'> 
+ <input type='hidden' name='close' value='".$close."'>
+ <input type='hidden' name='team_name' value='".$team."'>
  <input type='hidden' name='password' value='".$password."'>
  <input type='submit' class='user' name='Challenges' value='Challenges' id='submit' /></form></li>
+
 <li><form action='phone_metadata.php' method='POST'>
  <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
-  <input type='hidden' name='passsword' value='".$password."'>
+  <input type='hidden' name='password' value='".$password."'>
   <input  type='submit' name='submit' value='Phone' id='submit' /></submit>  </form></li>
 
 <li>
@@ -38,7 +44,7 @@ $close=$_POST['close'];
    <form action='phone_subscribers.php' method='POST'>
    <input type='hidden' name='close' value='".$close."'>
    <input type='hidden' name='team_name' value='".$team."'>
-   <input type='hidden' name='passsword' value='".$password."'>
+   <input type='hidden' name='password' value='".$password."'>
    <input  type='submit' name='submit' value='Subscriber' id='submit' /></submit>  </form>
 </li>
  
@@ -70,7 +76,7 @@ $close=$_POST['close'];
 <input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
 </li>
 
-<li class='horizontal'><input type='hidden' name='password' value='".$password."'>
+<li class='horizontal'>
 <input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
 </li>
 
@@ -91,21 +97,29 @@ $close=$_POST['close'];
 <li class='horizontal'>
 <form action='datasets.php' method='POST'> 
 <input type='hidden' name='close' value='".$close."'>
+  <input type='hidden' name='team_name' value='".$team."'>
+  <input type='hidden' name='password' value='".$password."'>
 <input type='submit' class='user' name='Metadata' value='Metadata' id='submit' /></form>
 </li>
 <li class='horizontal'>
-<form action='article.php' method='POST'>  <input type='hidden' name='close' value='".$close."'>
+<form action='article.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
+  <input type='hidden' name='team_name' value='".$team."'>
+  <input type='hidden' name='password' value='".$password."'>
 <input type='submit' class='user' name='Article' value='Article' id='submit' /></form></li>
 
 <li class='horizontal'>
- <form action='index.php' method='POST'> <input type='hidden' name='close' value='".$close."'>
+ <form action='index.php' method='POST'> 
+  <input type='hidden' name='close' value='".$close."'>
+  <input type='hidden' name='team_name' value='".$team."'>
+  <input type='hidden' name='password' value='".$password."'>
  <input type='submit' class='user' name='Home' value='Home' id='submit' /></form></li>
 
 
 
       </ul>";
 
-    }
+    
     ?>
 	       
 	        
