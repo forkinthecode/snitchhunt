@@ -39,7 +39,7 @@ $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DA
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<br><br><p>*Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
+echo"<br><br><h3>*Only shows teams registered in past month</h3><table class='scoreboard'><tr><th>Team</th>
 <th>Ch1</th>
 <th>Ch2</th>
 <th>Ch3</th>

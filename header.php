@@ -45,15 +45,15 @@ include('styles.php');
  <h1>Welcome to SnitchHunt!</h1>
 <table><tr><td>
 
+<div class='homer'>
 
-
-<h1>Snitchhunt is a game desgined by Gabor Szathmari of CryptoParty Sydney to demonstrate how metadata 
+<h2>Snitchhunt is a game desgined by Gabor Szathmari of CryptoParty Sydney to demonstrate how metadata 
 can be used to track our movements. Following on from an <a href=http://www.abc.net.au/triplej/programs/hack/how-team-of-pre-teens-found-whisteblower-using-metadata/8113668' target='_blank'>event</a> hosted by Melbourne Uni, Rosie Williams created this version to keep the 
  game up and running.
-          </h1>
-<h1>You can find <a href='https://twitter.com/gszathmari' target='_blank'>Gabor</a> and <a href='https://twitter.com/Info_Aus' target='_blank'>Rosie</a> on Twitter. You can find future events at <a href='https://www.cryptoparty.in/index'>CryptoParty Australia</a>.
-        </h1>
-
+          </h2>
+<h2>You can find <a href='https://twitter.com/gszathmari' target='_blank'>Gabor</a> and <a href='https://twitter.com/Info_Aus' target='_blank'>Rosie</a> on Twitter. You can find future events at <a href='https://www.cryptoparty.in/index'>CryptoParty Australia</a>.
+        </h2>
+</div>
 
      </td>
 
@@ -75,7 +75,6 @@ can be used to track our movements. Following on from an <a href=http://www.abc.
 else{
          
  include'nav.php';
-
 }
 
 ?>
@@ -102,27 +101,39 @@ else{
 <div class="page_width">
   <div class='toper'>
     <?php
-if ( isset($_POST['team_name'] ) || isset($_POST['password'] ))
-{
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team='' || $password='' )
-{
-  echo"<h4>You must enter both your registered team name and password to log in. 
-  Click <i>play</i> to register a new team</h4>";
-}
+   
+      if ( !isset($_POST['team_name'] ) && isset($_POST['password']  ))
+         {
+  
 
-}
+ 
+  echo"<h4>You must enter both your registered team name and password to log in. 
+  Click <i>register</i> to register a new team</h4>";
+
+
+   
+          }
+ elseif ( isset($_POST['team_name'] ) && !isset($_POST['password']  ))
+         {
+   
+ 
+  echo"<h4>You must enter both your registered team name and password to log in. 
+  Click <i>register</i> to register a new team</h4>";
+
+  
+         }
+
 
 ?>
  
 <?php
+
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
    $team=$_POST['team_name'];
    $password=$_POST['password'];
     
-    if ( $team!='' && $password!='' )
+    if ( $team!='' && $password!=''  )
 {
   
    $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
@@ -147,8 +158,7 @@ if ($num_results >0)
       if ($num_results <1)
        {
            
-            echo"<h4>You must enter both your registered team name and correct password to log in. 
-             Click <i>play</i> to register a new team</h4>";
+            //echo"<h4>You must enter both your registered team name and correct password to log in.  Click <i>play</i> to register a new team</h4>";
            }
            
          
@@ -194,7 +204,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch1='25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 1 is correct: 25 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 1 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -235,7 +245,8 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch2=(ch2+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 2 is correct: 50 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 2 is correct!</h4>
+    ";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -275,7 +286,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch3=(ch3+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 3 is correct: 100 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 3 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -315,7 +326,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch4=(ch4+50) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"<h4>".$team." solution for Challenge 4 is correct: 50 points added to team $team!</h4>";
+   echo"<h4>".$team." solution for Challenge 4 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -355,7 +366,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch5=(ch5+100) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 5 is correct: 100 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 5 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -395,7 +406,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch6=(ch6+25) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 6 is correct: 25 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 6 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -436,7 +447,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 7 is correct: 150 points added to team $team!</h4>";
+    echo"<h4>".$team." solution for Challenge 7 is correct!</h4>";
    } 
    else {
     echo "Error updating db " . $db->error;

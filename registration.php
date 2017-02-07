@@ -6,14 +6,14 @@ require'header.php';
    
 
  <?php
-if ( !isset($_POST['team_name'] )  )
+if ( !isset($_POST['team'] )  )
 {
   echo"<h2>Enter team name</h2>
   <table class='forms' border='0px'><tr><td>
   <form action='registration.php' method='POST'>
    <input type='hidden' name='close' value='".$close."'> 
 
-<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
+<input type='text'  id='team' name='team' placeholder='Your team name' /></td><td>
 <input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>";
 
 
@@ -23,15 +23,14 @@ if ( !isset($_POST['team_name'] )  )
 ?>
 
 <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+if ( isset($_POST['team'] )  )
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-  if ( $team!='' && $password!='' )
-{
+$team=  $_POST['team'];
+
+ 
      if (strlen($team)>15)
      {
-  echo"<p>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 20 characters.</p>";
+  echo"<h3>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 20 characters.</h3>";
      }
      if (strlen($team)<15)
       {
@@ -70,8 +69,8 @@ if ($num_results <1)
       while ($row = $result->fetch_assoc()) 
       $password=mysqli_real_escape_string($db, $row['password']); 
       {
-        echo"<p>You will see your password below. Copy & paste it somewhere as you may need to use it! </p>
-        <p>Use your team name and password to log in at top right. </p>";
+        echo"<h3>You will see your password below. Copy & paste it somewhere as you may need to use it! </h3>
+        <h3>Use your team name and password to log in at top right. </h3>";
 
       }
      
@@ -84,9 +83,8 @@ if ($num_results <1)
             {    
     echo "Error: " . $query . "<br>" . $db->error;
             }
- }
-  }
 }
+  }
 }mysqli_free_result($result);
     ?>
 
@@ -109,7 +107,7 @@ $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DA
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<br><p>Only shows teams registered in past month</p><table class='scoreboard'><tr><th>Team</th>
+echo"<br><h3>Only shows teams registered in past month</h3><table class='scoreboard'><tr><th>Team</th>
 <th>Ch1</th>
 <th>Ch2</th>
 <th>Ch3</th>

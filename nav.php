@@ -17,7 +17,7 @@
     
   
 
- echo"$team : $password
+ echo"
             <ul>
 <li >
  <form action='play.php' method='POST'> 
@@ -72,7 +72,7 @@
       <ul class='horizontal'>
        
 <li class='horizontal'>
-<form action='' method='POST'> <input type='hidden' name='close' value='".$close."'>
+<form action='play.php' method='POST'> <input type='hidden' name='close' value='".$close."'>
 <input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
 </li>
 
@@ -90,7 +90,7 @@
 <input type='submit' class='user' name='Logout' value='Logout' id='submit' /></form>
 </li>
 
-<li class='horizontal'><form action='registration.php' method='POST'> 
+<li class='horizontal'><form action='' method='POST'> 
  <input type='hidden' name='close' value='".$close."'>
 <input type='submit' class='user' name='register' value='Register' id='submit' /></form>
 </li>

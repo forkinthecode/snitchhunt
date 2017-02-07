@@ -44,7 +44,7 @@ Twitter: &#64;annaminewatch  </p>
 </div>
 
 </div>
-<div class='right'>
+<div class='right' style='background:RGBA(199,211,162, 0.5);padding:15px'>
 
 
 	<div class='homer'><h2>The Assignment</h2>
@@ -61,15 +61,15 @@ Twitter: &#64;annaminewatch  </p>
 <p>May I remind you that the mines in Australia are all critical infrastructure, and those leaked docs cannot get into the wrong hands on the black market. <strong>Therefore, we need to identify the person of interest to put him/her under arrest.</strong></p>
 <p>So I need you to dig this guy up for me. As some of you are new hires here, let me reiterate again what is expected from you to do:</p>
 
-<p><strong>#1</strong>. Open up <a href="google_metadata.php" target='_blank'>the Google metadata search page</a>. 
+<p><strong>#1</strong>. Open up the Google metadata search page. 
 	
 	 This brings up Google's records of what people have searched for. The article should come handy to find the right person.
 </p>
-<p><strong>#2</strong>. To get the email address of the whistleblower, switch to the <a href='email_metadata.php' target='_blank'>email metadata logs</a> (yay, we plugged <em>smalllake.com.au</em> in recently!). 
+<p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
 </p>
-<p><strong>#3</strong>. You will need to dig into the <a href='phone_subscribers.php' target='_blank'>phone subscriber data</a> to get the name and full address.  </p>
+<p><strong>#3</strong>. You will need to dig into the phone subscriber data to get the name and full address.  </p>
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
-<p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the <a href='cross_search.php' target='_blank'>cross search</a> page.</p>
+<p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the cross search page.</p>
 <p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both the numbers you have</p>
 	
 <p> You will need to solve the challenges in order to find the solutions. </p>

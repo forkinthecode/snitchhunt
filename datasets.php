@@ -173,7 +173,7 @@ echo"<table class='basic' border='0' style='background-color:#2a5b72;'><tbody>
 <h3>Victorian WorkSafe Authority</h3>
 
 
- </div>Mouse/Scroll over for more results
+ </div><h4>Mouse/Scroll over for more results</h4>
 </div><!--
   <div style='background-color:#cbdbd8'>
  <h3>List of organisations reported to have access to Google metadata:</h3>-->

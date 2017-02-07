@@ -30,7 +30,7 @@ require'header.php';
   Good luck!</p>
 </div>
  </div>
- <div class='right'>
+ <div class='right' style='background:RGBA(199,211,162, 0.5);padding:15px'>
 
 <br>
 
@@ -54,7 +54,7 @@ require'header.php';
    </label>
 
    <div id='tab-content1' class='tab-content'>
-<div class='expand'>
+
 <?php
 $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DAY ) AND NOW( )
  order by (ch1+ch2+ch2+ch4+ch5+ch6+ch7) DESC";
@@ -87,14 +87,14 @@ echo"<tr><td>".$row['team']."</td>
 echo"</table><p>*Only shows teams registered in past month</p>";
 ?>
 
-</div>
+
  
 
 <br>
 
 </div>
    <div id='tab-content2' class='tab-content'>
-    <div class='expand'>
+ 
     <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
 <p>You can solve SnitchHunt together as a group in a cooperative effort or you can compete against one another in competing teams.</p>
 <p>To register your team name click play, enter a name and your password will appear on the screen.</p>
@@ -109,7 +109,7 @@ echo"</table><p>*Only shows teams registered in past month</p>";
   <p>If you need help provide a username in the chat window and ask away.</p>
  </div>
 
-</div>
+
    <div id='tab-content3' class='tab-content'>
    <p>Please be advised that this chat room is public and communications can be seen by anyone viewing the window.</p>
 

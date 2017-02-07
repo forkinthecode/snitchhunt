@@ -1,6 +1,6 @@
    <style type="text/css">
 body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px; margin:0;padding:0; background:url('images/power-plant.jpg'); }
-
+.green {background:RGBA(199.211,162,0.9);}
 
 #menu .box { 
   position: fixed;
@@ -59,7 +59,7 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
   font-size: 24px;
 }
 #toggle-nav-label {
-  color: #dce7eb;
+ 
 
   text-align: center;
   line-height: 30px;
@@ -99,7 +99,7 @@ body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px;
 ul.horizontal {   
     list-style-type: none;
     margin: 10px;
-    padding-left: 30px;
+    padding-left: 90px;
 
 }
 li.horizontal  {   width:125px;
@@ -126,7 +126,7 @@ li.horizontal  a:hover {
 .forms td:nth-of-type(odd){  width:65%%; }
 .navigation { margin:auto;}
 .navigation td{ padding:5px; margin:auto;}
-.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px; font-size:18px; position:relative:top:50px;}
+.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px; font-size:18px; position:relative:top:50px; width:100%;}
 .toper h4 {color:#d88a1c; background:#333;padding:10px;}
  .front { width:100%;  padding:5px; margin:auto; text-align:center; background:RGBA(199,211,162, 0.5);}
  .front td{ width:100%;  padding:5px; margin:auto; text-align:center;}
@@ -136,7 +136,7 @@ li.horizontal  a:hover {
     left: 20px;}
 
 th {color:#2a5b72;}
-h4,h2 { color:#333; background:#c7d3a2;}
+h4,h2 { color:#333; background:#c7d3a2; padding:5px;}
 .left h3 {color:#333; font-family:Garamond; font-size:25px; background:#c7d3a2; padding-left:5px; }
 
 
@@ -175,12 +175,12 @@ select {
   h4 {color:#fff;}
  
 
-.answers  {width:100%;background:#c7d3a2; padding:10px; 
+.answers  {width:95%;background:#c7d3a2; padding:10px; 
   border-radius:5px;  font-size:15px; }
  .answers p,h2,h3 {color:#333;}
  .answers a {color:#2a5b72}
 .challenge {width:100%;background:#d88a1c; padding:2%; color:#2a5b72; border-radius:5px; }
-span.right {text-align:right; display:inline;}
+span.right {text-align:right; display:inline; color:#d88a1c; font-size:15px; background:#fff; width:100px; padding:5px;}
 .news {background:RGBA(199,211,162, 0.7);}
 a { color:#d88a1c; text-decoration:none; font-family:Georgia;}
 .homer {text-align:left; border: solid 1px #dcdcdc;  
@@ -205,7 +205,10 @@ a { color:#d88a1c; text-decoration:none; font-family:Georgia;}
     height: 0;
     z-index: 10;
   }
-input[type=submit].close { position:fixed: top:10px; right:40px; width:70px;
+  input[type=submit].hint { width:70px; background:RGBA(42, 91, 114, 0.75)
+  float:right; height:70px;  background:url('information.png'); background-repeat:no-repeat; border: none;
+  }
+input[type=submit].close { position:fixed: top:10px; right:40px; width:70px; border: none;
   float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
   }
 input[type=submit] { font-family: "Courier New";
@@ -215,13 +218,14 @@ input[type=submit] { font-family: "Courier New";
     color: #fff;
     padding: 5px 50px 5px 5px;
  
-    
+ color:#333;
  
-   background:#333;
+   background:#aaa;
  
     cursor: pointer;
  
 }
+   * html .btn { border: 3px double #aaa; }
 input[type=submit]:hover {
    
 }
@@ -253,8 +257,8 @@ border: 1px solid #999;
 .wide {width:100%; background:#2a5b72; border-radius:5px; padding:1%; color:#fff;}
 .basic {width:100%; background: #2a5b72; border-radius:5px; padding:1%; color:#fff;}
 
-.right {float:right; background:RGBA(199,211,162, 0.5); padding:15px; }
-.left {float:left; background:RGBA(199,211,162, 0.5); padding:15px;}
+
+.left {float:left; background:RGBA(199,211,162, 0.5); padding:15px; }
 .page_width {max-width:1300px; margin:auto;}
 @media (max-width: 519px) {
 

@@ -6,25 +6,7 @@ require'header.php';
 
 <h2>Phone subscriber metadata</h2>
 
-  <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
-{
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
-echo"<br><h2> Search all fields in the <i>phone subscriber</i> metadata:</h2>
-<div class='searches' style=''>
-       <table class='forms'><tr><td>   
-            <form action='phone_subscribers.php'  method='POST'>
-             <input type='hidden' name='close' value='".$close."'>
-             <input type='hidden' name='team_name' value='".$team."'> 
-             <input type='hidden' name='password' value='".$password."'>
-
-            <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
-         </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
-            </form></td></tr></table>
-</div><br>
-          ";
-     }
+<?php
 if( !isset($_POST['search_all_subscribers']) )
 {
 
@@ -32,7 +14,7 @@ if( !isset($_POST['search_all_subscribers']) )
 
   $subscriber = "SELECT * from phone_subscriber where id='2' ";
   $result = mysqli_query($db, $subscriber );
-  // echo"<h4>Example <i>phone subscriber</i> metadata</h4>";
+  // echo"<h2>Example <i>phone subscriber</i> metadata</h2>";
 
  while ($row = $result->fetch_assoc()) 
     {
@@ -49,27 +31,78 @@ echo"<table class='basic' border='0' style=''><tbody>
 
 }
 }
-if( isset($_POST['search_all_subscribers']) )
-{
+
+?>
+
+<?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+{//1
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+    
+    if ( $team!='' && $password!='' )
+{//2
+  
+            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+            $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+         if ($num_results >0)
+  {//3
+echo"<br><h2> Search all fields in the <i>phone subscriber</i> metadata:</h2>
+<div class='searches' style=''>
+       <table class='forms'><tr><td>   
+            <form action='phone_subscribers.php'  method='POST'>
+             <input type='hidden' name='close' value='".$close."'>
+             <input type='hidden' name='team_name' value='".$team."'> 
+             <input type='hidden' name='password' value='".$password."'>
+
+            <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
+         </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
+            </form></td></tr></table>
+</div><br>
+          ";
+     }
+   }
+ }
+ ?>
+ <?php
+  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ) && isset($_POST['search_all_subscribers']))
+{//1
+   $team=$_POST['team_name'];
+   $password=$_POST['password'];
+   $search_all_subscribers= $_POST['search_all_subscribers'];
+    
+    if ( $team!='' && $password!='' )
+{//2
+  
+            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+            $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+         if ($num_results >0)
+  {//3
+ //   echo"$team $password: $search_all_subscribers<br>";
+
+
   
 
 $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
 $subscribers = "SELECT * from phone_subscriber where   
-subscriber_number       ='$search_all_subscribers' 
-|| Date_Time               ='$search_all_subscribers' 
-|| subscriber_imei         ='$search_all_subscribers'  
-|| subscriber_address      ='$search_all_subscribers'  
-|| subscriber_email        ='$search_all_subscribers'  
-|| subscriber_name         ='$search_all_subscribers'    ";
+MATCH(subscriber_number)       AGAINST('$search_all_subscribers') 
+|| MATCH(Date_Time)               AGAINST('$search_all_subscribers') 
+|| MATCH(subscriber_imei)         AGAINST('$search_all_subscribers')  
+|| MATCH(subscriber_address)      AGAINST('$search_all_subscribers') 
+|| MATCH(subscriber_email)        AGAINST('$search_all_subscribers')  
+|| MATCH(subscriber_name)         AGAINST('$search_all_subscribers')    ";
   $result = mysqli_query($db, $subscribers );
 @$num_results = mysqli_num_rows($result);
-if ($num_results <1)
- {//2
-       echo"<h4>There are no exact matches for the search criteria <b>$search_all_subscribers</b>- 
-       falling back to inexact matches</h4>";
+//echo"$num_results";
+         if ($num_results <1)
+        {//4
+       echo"<h2>There are no exact matches for the search criteria <b>$search_all_subscribers</b>- 
+       falling back to partial matches</h2>";
 
    
-$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
+//$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
       $subscribers = "SELECT * from phone_subscriber where   
    subscriber_number        LIKE'%$search_all_subscribers%' 
 || Date_Time                LIKE'%$search_all_subscribers%' 
@@ -80,25 +113,17 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_al
   $result = mysqli_query($db, $subscribers );
   @$num_results = mysqli_num_rows($result);
   if ($num_results <1)
-        {//3
-        echo"<h4>There are no results for the search criteria <b>$search_all_subscribers</b></h4>";
-        }//3
-        /*
-        elseif ($num_results >300)
-        {//4
-         echo"<h4>There are too many results (".number_format($num_results).") 
-         to display for the search criteria <b>$search_all_subscribers</b>. 
-         Maximum results displayed is 300.</h4><h4>
-          <a href='phone_subscribers.php?show_all_subscribers_data=$search_all_subscribers'>Click here</a> 
-          to override limit and display all ".number_format($num_results).".</h4> ";
-         }//4*/
+        {//5
+        echo"<h2>There are no results for the search criteria <b>$search_all_subscribers</b></h2>";
+        }//5
+       }
         elseif ($num_results >0) 
-        { //5
-        echo"<h4>There are $num_results <i>phone subscriber</i> results for
-         <b>$search_all_subscribers</b></h4>
+        { //6
+        echo"<h2>There are $num_results <i>phone subscriber</i> results for
+         <b>$search_all_subscribers</b></h2>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
-       {//6
+       {//7
   echo"<table class='basic' border='0' style=''><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
@@ -107,43 +132,16 @@ $search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_al
   <tr><td>Subscriber Number</td>      <td>".$row['subscriber_number']."</td></tr>
   <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
   </tbody></table><br>";
-        }//6
-        echo"</div>Mouse over/scroll for more results.";
-      }//5
+        }//7
+        echo"</div><h4>Mouse over/scroll for more results.</h4>";
+    
               
- }//2
+ }//4
 
-  /*
- elseif ($num_results >300)
- {//11
-  echo"<h4>There are too many exact matches (".number_format($num_results).")
-   to display for the search criteria <b>$search_all_subscribers</b>. 
-   Maximum results displayed is 300.</h4>
-   <h4> <a href='phone_metadata.php?show_all_subscribers=$search_all_subscribers'>Click here</a> 
-   to override limit and display all ".number_format($num_results).".</h4> ";
- }//12
- elseif ($num_results <300 && $num_results >0) 
-        { //13
-          echo"<h4>There are $num_results <i>phone subscribers</i> results for <b>$search_all_subscribers</b></h4>
-         <div class='expand'>";
- while ($row = $result->fetch_assoc()) 
 
-    {//14
 
-echo"<table class='basic' border='0' style=''><tbody>
-  <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
-  <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
-  <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
-  <tr><td>Subscriber Name:</td>       <td>".$row['subscriber_name']."</td></tr>
-  <tr><td>Subscriber Number</td>      <td>".$row['subscriber_number']."</td></tr>
-  <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
-  </tbody></table>";
-
-    }//15 
-   echo"</div>Mouse over/scroll for more results.";
-
-      
-      }//16*/
+}//3
+}//2
 }mysqli_free_result($result);
 
 ?>
@@ -166,8 +164,8 @@ subscriber_number       ='$show_all_subscribers'
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
  {//2
-       echo"<h4>There are no exact matches for the search criteria <b>$show_all_subscribers</b>- 
-       falling back to inexact matches</h4>";
+       echo"<h2>There are no exact matches for the search criteria <b>$show_all_subscribers</b>- 
+       falling back to inexact matches</h2>";
 
      $show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['show_all_subscribers']) );
       $subscribers = "SELECT * from phone_subscriber where   
@@ -184,8 +182,8 @@ if ($num_results <1)
       
         if ($num_results >300 ) 
         { //3
-        echo"<h4>There are $num_results <i>phone subscriber</i> results for
-         <b>$show_all_subscribers</b></h4>
+        echo"<h2>There are $num_results <i>phone subscriber</i> results for
+         <b>$show_all_subscribers</b></h2>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                {//4
@@ -198,7 +196,7 @@ if ($num_results <1)
           <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
           </tbody></table><br>";
                 }//4
-        echo"</div>Mouse over/scroll for more results.";
+        echo"</div><h4>Mouse over/scroll for more results.</h4>";
 }//2
          }//3
 }mysqli_free_result($result);//1
