@@ -90,7 +90,7 @@
 <input type='submit' class='user' name='Logout' value='Logout' id='submit' /></form>
 </li>
 
-<li class='horizontal'><form action='' method='POST'> 
+<li class='horizontal'><form action='registration.php' method='POST'> 
  <input type='hidden' name='close' value='".$close."'>
 <input type='submit' class='user' name='register' value='Register' id='submit' /></form>
 </li>

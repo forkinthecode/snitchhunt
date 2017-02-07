@@ -176,10 +176,11 @@ select {
  
 
 .answers  {width:95%;background:#c7d3a2; padding:10px; 
-  border-radius:5px;  font-size:15px; }
- .answers p,h2,h3 {color:#333;}
+  border-radius:5px;  font-size:15px; font-family:Georgia;}
+ .answers p,h2,h3 {color:#333; font-family:Georgia;}
  .answers a {color:#2a5b72}
 .challenge {width:100%;background:#d88a1c; padding:2%; color:#2a5b72; border-radius:5px; }
+
 span.right {text-align:right; display:inline; color:#d88a1c; font-size:15px; background:#fff; width:100px; padding:5px;}
 .news {background:RGBA(199,211,162, 0.7);}
 a { color:#d88a1c; text-decoration:none; font-family:Georgia;}

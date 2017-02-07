@@ -48,8 +48,8 @@ if ($num_results >0)
 
 if ($num_results <1)
   {
-    $query="INSERT INTO teams(`team`, `ch1`, `ch2`,`ch3`,`ch4`,`ch5`,`ch6`,`ch7`) 
-     VALUES('".$team."', '0', '0','0','0','0','0','0'); ";
+    $query="INSERT INTO teams(`team`, `ch1`, `ch1_max`, `ch2`,`ch2_max`,  `ch3`,`ch3_max`,  `ch4`,`ch4_max`,  `ch5`,`ch5_max`,  `ch6`,`ch6_max`,  `ch7`,`ch7_max`) 
+                    VALUES('".$team."', '0',   '25',     '0',  '50',       '0',    '100',     '0',  '50',      '0',   '100',    '0',  '25',          '0','150'); ";
       if ($db->query($query) === TRUE) 
       {
         echo"

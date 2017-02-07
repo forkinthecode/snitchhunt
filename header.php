@@ -242,7 +242,7 @@ if ($num_results >0)
     {
 
 
-  $sql = "UPDATE `teams` set ch2=(ch2+50) where team='".$team."'";
+  $sql = "UPDATE `teams` set ch2=ch2_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h4>".$team." solution for Challenge 2 is correct!</h4>
@@ -283,7 +283,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE `teams` set ch3=(ch3+100) where team='".$team."'";
+   $sql = "UPDATE `teams` set ch3=ch3_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h4>".$team." solution for Challenge 3 is correct!</h4>";
@@ -296,7 +296,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<h4>".$team." solution for Challenge 3 is Incorrect</h4.";
+   echo"<h4>".$team." solution for Challenge 3 is Incorrect</h4>.";
   }
 
 
@@ -323,7 +323,7 @@ if ($num_results >0)
     {
  
 
-   $sql = "UPDATE `teams` set ch4=(ch4+50) where team='".$team."'";
+   $sql = "UPDATE `teams` set ch4=ch4_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
    echo"<h4>".$team." solution for Challenge 4 is correct!</h4>";
@@ -363,7 +363,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE `teams` set ch5=(ch5+100) where team='".$team."'";
+   $sql = "UPDATE `teams` set ch5=ch5_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h4>".$team." solution for Challenge 5 is correct!</h4>";
@@ -376,7 +376,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"<h4>".$team." solution for Challenge 5 is Incorrect</h4.";
+    echo"<h4>".$team." solution for Challenge 5 is Incorrect</h4>.";
   }
 
 
@@ -403,7 +403,7 @@ if ($num_results >0)
     {
 
 
-  $sql = "UPDATE `teams` set ch6=(ch6+25) where team='".$team."'";
+  $sql = "UPDATE `teams` set ch6=ch6_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h4>".$team." solution for Challenge 6 is correct!</h4>";
@@ -444,7 +444,7 @@ if ($num_results >0)
     {
 
 
-   $sql = "UPDATE `teams` set ch7=(ch7+150) where team='".$team."'";
+   $sql = "UPDATE `teams` set ch7=ch7_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
     echo"<h4>".$team." solution for Challenge 7 is correct!</h4>";
