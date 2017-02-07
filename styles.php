@@ -1,6 +1,6 @@
    <style type="text/css">
 body {font-family: "Courier New";  color:#fff; max-width:1500px; font-size:15px; margin:0;padding:0; background:url('images/power-plant.jpg'); }
-.green {background:RGBA(199.211,162,0.9);}
+.top {padding-right:50px;}
 
 #menu .box { 
   position: fixed;
@@ -126,8 +126,9 @@ li.horizontal  a:hover {
 .forms td:nth-of-type(odd){  width:65%%; }
 .navigation { margin:auto;}
 .navigation td{ padding:5px; margin:auto;}
-.toper { color:#d88a1c; background:#333;font-family:Verdana; height:35px; font-size:18px; position:relative:top:50px; width:100%;}
-.toper h4 {color:#d88a1c; background:#333;padding:10px;}
+.toper { color:#d88a1c; background:#333;font-family: Georgia; height:35px; 
+  font-size:18px; position:relative:top:50px; width:100%;}
+.toper h4 {color:#d88a1c; background:#333;padding-left:10px;}
  .front { width:100%;  padding:5px; margin:auto; text-align:center; background:RGBA(199,211,162, 0.5);}
  .front td{ width:100%;  padding:5px; margin:auto; text-align:center;}
 .navs { float:left; position: fixed;
@@ -138,7 +139,7 @@ li.horizontal  a:hover {
 th {color:#2a5b72;}
 h4,h2 { color:#333; background:#c7d3a2; padding:5px;}
 .left h3 {color:#333; font-family:Garamond; font-size:25px; background:#c7d3a2; padding-left:5px; }
-
+h5 {font-size:13px; color:#2a5b72;}
 
 .right h3 {color:#333; font-family:Garamond; font-size:25px; background:#c7d3a2; padding-left:5px; }
 .left h2 {color:#333; font-family:Garamond; background:#c7d3a2; padding:10px;}
@@ -158,16 +159,23 @@ select {
  
    
 }
-  .score {width:100%; font-size:15px; border: solid 1px #dcdcdc; border-radius:5px; margin-top:10px; color:#333;
-    background:#2a5b72;}
-  .score td:nth-of-type(odd) { width:200px;  padding:5px;}
-  .score tr:nth-of-type(odd) { background:#c7d3a2;}
-  .score tr:nth-of-type(even) { background:#eaf5f9;}
- .scoreboard {width:100%; font-size:18px; border: solid 1px #dcdcdc; border-radius:5px; 
-  margin-top:10px; padding:2px;color:#333;background:#2a5b72;}
- .scoreboard tr:nth-of-type(odd) { background:#c7d3a2;}
- .scoreboard td:nth-of-type(odd) { background:RGBA(199,211,162, 0.4);padding:5px;}
- .scoreboard td:nth-of-type(even) { background:#eaf5f9;padding:5px;}
+table { 
+    border-collapse: collapse; 
+}
+  .score {width:100%; font-size:18px; border: dashed 1px #dcdcdc; border-radius:5px; margin-top:10px; color:#2a5b72;
+ background:RGBA(199,211,162, 0.8); font-family:Georgia; }
+ .score td:nth-of-type(even) { width:200px;  padding-left:85px; padding-bottom:10px;}
+.score th {padding:10px;}
+  .score td:nth-of-type(odd) { width:200px;  padding-left:85px;padding-bottom:10px;}
+  .score tr:nth-of-type(odd) {  border-bottom: dashed 1px #dcdcdc;}
+  .score tr:nth-of-type(even) {  background:#eaf5f9;}
+  .scoreboard th {padding:10px;}
+ .scoreboard {width:100%; font-size:30px; font-style:italic; border-bottom: dashed 1px #dcdcdc; border-radius:5px; 
+  margin-top:10px; padding:5px;color:#d88a1c;background:#2a5b72; font-family:Georgia;}
+ .scoreboard tr:nth-of-type(odd) { background:#c7d3a2;padding:15px; }
+  .scoreboard tr:nth-of-type(even) { padding:15px;}
+ .scoreboard td:nth-of-type(odd) { padding-left:60px; }
+ .scoreboard td:nth-of-type(even) { padding-left:60px;}
 .home {font-size:16px; }
 
   h1 {color:#333; padding:10px; font-size:40px; padding-bottom:20; background:RGBA(199,211,162, 0.8); 
@@ -206,13 +214,16 @@ a { color:#d88a1c; text-decoration:none; font-family:Georgia;}
     height: 0;
     z-index: 10;
   }
+  input[type=submit].answer { width:70px; background:RGBA(42, 91, 114, 0.75)
+  float:right; height:70px;  background:url('grades-green.png'); background-repeat:no-repeat; border: none;
+  }
   input[type=submit].hint { width:70px; background:RGBA(42, 91, 114, 0.75)
-  float:right; height:70px;  background:url('information.png'); background-repeat:no-repeat; border: none;
+  float:right; height:70px;  background:url('question.png'); background-repeat:no-repeat; border: none;
   }
 input[type=submit].close { position:fixed: top:10px; right:40px; width:70px; border: none;
   float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
   }
-input[type=submit] { font-family: "Courier New";
+input[type=submit] { font-family: "Georgia";
     font-size: 15px;
     height:35px;
     width:100%;
@@ -349,7 +360,8 @@ li { list-style: none; }
 
 #tab1:checked ~ #tab-content1,
 #tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3
+#tab3:checked ~ #tab-content3,
+#tab3:checked ~ #tab-content4
 {
     display: block;
 }
@@ -359,7 +371,7 @@ li { list-style: none; }
  .tabs {max-width: 750px; margin: 50px auto;}
 
   .overlaid  { padding:5px;}
-  td:nth-of-type(even) {}
+ 
 #overlay {
   width: 90%;
   margin: 0 auto;

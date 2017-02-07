@@ -23,13 +23,13 @@ include('login.php');
 include('styles.php');
 
 
- 
+ include'nav.php';
     
 
 ?>
 
 
- <?php
+ <?php/*
   if ( isset($_POST['close'] ) )
 {
   //echo"<h1>SnitchHunt</h1>";
@@ -76,7 +76,7 @@ else{
          
  include'nav.php';
 }
-
+*/
 ?>
 
 
@@ -94,7 +94,7 @@ else{
        
                
  
-          <div class='clear'></div>
+         
 
 
   
@@ -336,7 +336,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<h4.".$team." solution for Challenge 4 is Incorrect</h4>";
+   echo"<h4>.".$team." solution for Challenge 4 is Incorrect</h4>";
   }
 
 

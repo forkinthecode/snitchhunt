@@ -18,16 +18,16 @@ echo"
 
 <table  class='score' >
  <tr><th>Score</th><th> 
-     Points Awarded</th><th>New Max</th></tr>
+     Points Awarded</th><th>New Max</th><th>Original Max</th></tr>
 
-      <tr><td>Challenge 1:</td><td> ".$row['ch1']." points</td><td>".$row['ch1_max']."</td></tr>
-      <tr><td>Challenge 2:</td><td> ".$row['ch2']." points</td><td>".$row['ch2_max']."</td></tr>
-      <tr><td>Challenge 3:</td><td> ".$row['ch3']." points</td><td>".$row['ch3_max']."</td></tr>
-      <tr><td>Challenge 4:</td><td> ".$row['ch4']." points</td><td>".$row['ch4_max']."</td></tr>
-      <tr><td>Challenge 5:</td><td> ".$row['ch5']." points</td><td>".$row['ch5_max']."</td></tr>
-      <tr><td>Challenge 6:</td><td> ".$row['ch6']." points</td><td>".$row['ch6_max']."</td></tr>
-      <tr><td>Challenge 7:</td><td> ".$row['ch7']." points</td><td>".$row['ch7_max']."</td></tr>
-       <tr><td>Tally</td><td> ".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])." </td><td>".($row['ch1_max']+$row['ch2_max']+$row['ch3_max']+$row['ch4_max']+$row['ch5_max']+$row['ch6_max']+$row['ch7_max'])."</td></tr>
+      <tr><td>Challenge 1</td><td> ".$row['ch1']." points</td><td>".$row['ch1_max']."</td><td>25</td></tr>
+      <tr><td>Challenge 2</td><td> ".$row['ch2']." points</td><td>".$row['ch2_max']."</td><td>50</td></tr>
+      <tr><td>Challenge 3</td><td> ".$row['ch3']." points</td><td>".$row['ch3_max']."</td><td>100</td></tr>
+      <tr><td>Challenge 4</td><td> ".$row['ch4']." points</td><td>".$row['ch4_max']."</td><td>50</td></tr>
+      <tr><td>Challenge 5</td><td> ".$row['ch5']." points</td><td>".$row['ch5_max']."</td><td>100</td></tr>
+      <tr><td>Challenge 6</td><td> ".$row['ch6']." points</td><td>".$row['ch6_max']."</td><td>25</td></tr>
+      <tr><td>Challenge 7</td><td> ".$row['ch7']." points</td><td>".$row['ch7_max']."</td><td>150</td></tr>
+       <tr><td>Tally</td><td> ".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])." </td><td>".($row['ch1_max']+$row['ch2_max']+$row['ch3_max']+$row['ch4_max']+$row['ch5_max']+$row['ch6_max']+$row['ch7_max'])."</td><td>500</td></tr>
      </table> ";
     }echo"";
 
@@ -35,6 +35,12 @@ echo"
 }
 
  ?>
+ <div class='homer'>
+   <p>Please be advised that this chat room is public and communications can be seen by anyone viewing the chatroom from other computers.</p>
+
+
+ <iframe src='https://whistleblower.network/snitch/chat/room/chat.php' style='border-width:0' width='100%' height='500' frameborder='0' scrolling='no'>
+</div>
 <?php
 $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DAY ) AND NOW( )
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
