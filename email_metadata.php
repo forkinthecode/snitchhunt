@@ -22,7 +22,7 @@ $result = mysqli_query($db, $email );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style=''><tbody>
+echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
   <tr><td width='150px'>IP Address:</td><td> ".$row['source_IP_address']."<td></tr>
   <tr><td>Sender email:</td><td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient email:</td><td>".$row['recipient_email_address']."</td></tr>
@@ -31,7 +31,7 @@ echo"<table class='basic' border='0' style=''><tbody>
   <tr><td>Date and Time:</td><td> ".$row['date_time']."</td></tr>
 
 
- </tbody></table><br>";
+ </tbody></table></div><br>";
 
      }
 
@@ -64,8 +64,8 @@ if ($num_results >0)
               
 </td><td>
         
-             <input type='submit' name='submit' placeholder='Search' id='submit' />
-              </form></td></tr></table>
+           
+        <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
     
 
 </div>
@@ -88,7 +88,7 @@ $result = mysqli_query($db, $email );
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
  {//2
-       echo"<p>There are no exact matches for the search criteria <b>$search_all_email</b>- falling back to inexact matches</p>";
+       echo"<h2>There are no exact matches for the search criteria <b>$search_all_email</b>- falling back to inexact matches</h2>";
 
       
       $search_all_email= mysqli_real_escape_string ( $db ,trim($_POST['search_all_email']) );
@@ -104,17 +104,17 @@ if ($num_results <1)
          @$num_results = mysqli_num_rows($result);
          if ($num_results <1)
         {//3
-        echo"<p>There are no results for the search criteria <b>$search_all_email</b></p>";
+        echo"<h2>There are no results for the search criteria <b>$search_all_email</b></h2>";
         }//3
-        
+        /*
         elseif ($num_results >300)
         {//4
-         echo"<p>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
-         Maximum results displayed is 300.</p><p> 
+         echo"<h2>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         Maximum results displayed is 300.</h2><h2> 
          <a href='email_metadata.php?show_all_email_data=$search_all_email'>Click here</a>
-          to override limit and display all ".number_format($num_results).".</p> ";
-         }//4
-        elseif ($num_results <300 && $num_results >0) 
+          to override limit and display all ".number_format($num_results).".</h2> ";
+         }//4*/
+        elseif ($num_results >0) 
         { //5
         echo"<h4>There are $num_results <i>email metadata</i> results for <b>$search_all_email</b></h4>
         <div class='expand'>";
@@ -134,16 +134,16 @@ if ($num_results <1)
               
  }//2
 
-  
+  /*
  elseif ($num_results >300)
  {//11
-  echo"<p>There are too many exact matches (".number_format($num_results).") to 
+  echo"<h2>There are too many exact matches (".number_format($num_results).") to 
   display for the search criteria <b>$search_all_email</b>. 
-  Maximum results displayed is 300.</p><p> 
+  Maximum results displayed is 300.</h2><h2> 
   <a href='email_metadata.php?show_all_email_data=$search_all_email'>Click here</a> 
-  to override limit and display all ".number_format($num_results).".</p> ";
- }//12
- elseif ($num_results <300 && $num_results >0) 
+  to override limit and display all ".number_format($num_results).".</h2> ";
+ }//12*/
+ elseif ($num_results >0) 
         { //13
           echo"<h4>There are $num_results <i>email metadata</i> exact matches for <b>$search_all_email</b></h4>
          <div class='expand'>";
@@ -204,8 +204,8 @@ $result = mysqli_query($db, $email );
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
  {//2
-       echo"<p>There are no exact matches for the search criteria <b>$show_all_email_data</b>- 
-       falling back to inexact matches</p>";
+       echo"<h2>There are no exact matches for the search criteria <b>$show_all_email_data</b>- 
+       falling back to inexact matches</h2>";
 
       $show_all_email_data=trim($_POST['show_all_email_data']);
       $email = "SELECT * FROM `email_metadata` where 
@@ -260,7 +260,10 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-include'score.php';
+//include'score.php';
+?>
+<?php
+include'challenges.php';
 ?>
 
 

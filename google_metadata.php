@@ -17,7 +17,7 @@ $result = mysqli_query($db, $google );
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<br><table class='basic' border='0' style=''><tbody>
+echo"<div class='homer'><br><table class='basic' border='0' style=''><tbody>
   <tr><td width='175px'>IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
   <tr><td >User Id:</td>           <td>".$row['user_id']."       <td></tr>
   <tr><td>Full Name</td>                  <td>".$row['full_name']."</td></tr>
@@ -29,7 +29,7 @@ echo"<br><table class='basic' border='0' style=''><tbody>
   <tr><td>Source TCP Port:</td>             <td>".$row['source_tcp_port']."</td></tr>
   <tr><td>User agent:</td>                  <td>".$row['user_agent']."     </td></tr>
   <tr><td>Date and Time:</td>                   <td> ".$row['date_time']."     </td></tr>
- </tbody></table><br>";
+ </tbody></table></div><br>";
 }
 }
 ?>
@@ -50,16 +50,16 @@ if ($num_results >0)
 echo"<br>
 <h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
         
-         <table class='forms'><tr><td>   <form action=''  method='POST'>
+         <table class='forms' border='0px'><tr><td>   <form action=''  method='POST'>
           <input type='hidden' name='close' value='".$close."'>
          <input type='hidden' name='team_name' value='".$team."'> 
          <input type='hidden' name='password' value='".$password."'>
 
-           <input type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
+           <input  type='text'  id='search_all_google' name='search_all_google' placeholder='Search string' />
               </td><td>
 
         
-             <input type='submit' name='submit' placeholder='Search' id='submit' />
+           <input class='searching'   type='submit' name='submit' value='' id='submit' /></form>
               </form></td></tr></table>
     
 
@@ -388,9 +388,12 @@ $result = mysqli_query($db, $google );
  <div class='right'>
      
 <?php
-include'score.php';
+//include'score.php';
 ?>
 
+<?php
+include'challenges.php';
+?>
 
 
 </div></div>

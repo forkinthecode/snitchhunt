@@ -29,86 +29,26 @@ include('styles.php');
 ?>
 
 
- <?php/*
-  if ( isset($_POST['close'] ) )
-{
-  //echo"<h1>SnitchHunt</h1>";
-}
-  if ( !isset($_POST['close'] ) )
-{
-  
 
-  echo"
-  <form action='' method='POST'> 
-         <input type='hidden' name='close' value='".$close."'>
- <input type='submit' class='close' name='close' value='' id='submit' /></form>
- <h1>Welcome to SnitchHunt!</h1>
-<table><tr><td>
-
-<div class='homer'>
-
-<h2>Snitchhunt is a game desgined by Gabor Szathmari of CryptoParty Sydney to demonstrate how metadata 
-can be used to track our movements. Following on from an <a href=http://www.abc.net.au/triplej/programs/hack/how-team-of-pre-teens-found-whisteblower-using-metadata/8113668' target='_blank'>event</a> hosted by Melbourne Uni, Rosie Williams created this version to keep the 
- game up and running.
-          </h2>
-<h2>You can find <a href='https://twitter.com/gszathmari' target='_blank'>Gabor</a> and <a href='https://twitter.com/Info_Aus' target='_blank'>Rosie</a> on Twitter. You can find future events at <a href='https://www.cryptoparty.in/index'>CryptoParty Australia</a>.
-        </h2>
-</div>
-
-     </td>
-
- <td style='padding:20px'>
-<div class='homer'>
- 
-
-
-  
-
-  
-<iframe src='https://calendar.google.com/calendar/embed?title=Events&amp;showDate=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffcc&amp;src=0r80kjpj3en973b8iomrpuebb8%40group.calendar.google.com&amp;color=%23853104&amp;ctz=Australia%2FSydney'
- style='border:solid 1px #777' width='500' height='500' frameborder='0' scrolling='no'></iframe>
-</div>
-</td></tr></table>
-
-      ";
-}
-else{
-         
- include'nav.php';
-}
-*/
-?>
-
-
- 
   
     </div> <div class='clear'></div>   
    
 
-
-      
- 
-  
-      
-       
-       
-               
- 
-         
+  <div class="page_width">
 
 
-  
-<div class="page_width">
-  <div class='toper'>
+
+
     <?php
+     
    
       if ( !isset($_POST['team_name'] ) && isset($_POST['password']  ))
          {
   
 
  
-  echo"<h4>You must enter both your registered team name and password to log in. 
-  Click <i>register</i> to register a new team</h4>";
+   echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
+         echo"Signed out <i>$team</i> at $timezone </span></div>";
 
 
    
@@ -117,62 +57,33 @@ else{
          {
    
  
-  echo"<h4>You must enter both your registered team name and password to log in. 
-  Click <i>register</i> to register a new team</h4>";
+  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
+         echo"Signed out <i>$team</i> at $timezone </span></div>";
 
   
          }
 
-
-?>
- 
-<?php
-
-  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
-{
-   $team=$_POST['team_name'];
-   $password=$_POST['password'];
-    
-    if ( $team!='' && $password!=''  )
-{
-  
-   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-   $result = mysqli_query($db, $query);
-   @$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-       {
- 
-         if (!isset($_POST['challenge1']) && 
-             !isset($_POST['challenge2'])  && 
-             !isset($_POST['challenge3'])  && 
-             !isset($_POST['challenge4']) && 
-             !isset($_POST['challenge5']) && 
-             !isset($_POST['challenge6']) && 
-             !isset($_POST['challenge7'])  )
+elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
          {
-      
-        echo"<h4>Signed in as team <i>$team</i></h4>";
+   
+ 
+  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
+         echo"<h4>Signed out <i>$team</i> at $timezone </span></h4></div>";
+
+  
          }
-      }
-    }
-      if ($num_results <1)
-       {
-           
-            //echo"<h4>You must enter both your registered team name and correct password to log in.  Click <i>play</i> to register a new team</h4>";
-           }
-           
-         
-
-}
-
 
 ?>
+ 
+
  <?php
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
    $team=$_POST['team_name'];
    $password=$_POST['password'];
-    
+
+
+  
     if ( $team!='' && $password!='' )
 {
   
@@ -181,6 +92,7 @@ if ($num_results >0)
 @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
        {
+          echo"<div class='toper'>";
 
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
 {
@@ -204,7 +116,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch1='25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 1 is correct!</h4>";
+    echo"<span class='right' >Question 1</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -214,7 +126,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-      echo"<h4>".$team." solution to Challenge 1 is Incorrect</h4>";
+     echo"<span class='wrong'>Challenge 1</span>";
 
   }
 
@@ -223,7 +135,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge2'] ) )
+if ( isset($_POST['team_name'] ) && isset($_POST['challenge2'] )   )
 {
  
 
@@ -245,7 +157,8 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch2=ch2_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 2 is correct!</h4>
+    echo"<span class='right'>Question 1</span><span class='right' >Question 2</span>
+
     ";
    } 
    else {
@@ -256,7 +169,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"<h4>".$team." solution for Challenge 2 is Incorrect</h4>";
+    echo"<span class='right'>Question 1</span><span class='wrong'>Challenge 2</span>";
   }
 
 
@@ -286,7 +199,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch3=ch3_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 3 is correct!</h4>";
+    echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right' >Question 3</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -296,7 +209,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<h4>".$team." solution for Challenge 3 is Incorrect</h4>.";
+   echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='wrong'>Challenge 3 </span>";
   }
 
 
@@ -326,7 +239,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch4=ch4_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"<h4>".$team." solution for Challenge 4 is correct!</h4>";
+   echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right' >Question 3</span><span class='right' >Question 4</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -336,7 +249,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<h4>.".$team." solution for Challenge 4 is Incorrect</h4>";
+ echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right'>Question 3</span><span class='wrong'>Challenge 4</span>";
   }
 
 
@@ -366,7 +279,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch5=ch5_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 5 is correct!</h4>";
+    echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right' >Question 3</span><span class='right' >Question 4</span><span class='right' >Question 5</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -376,7 +289,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-    echo"<h4>".$team." solution for Challenge 5 is Incorrect</h4>.";
+  echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right'>Question 3</span><span class='right' >Question 4</span><span class='wrong'>Challenge 5</span>";
   }
 
 
@@ -406,7 +319,7 @@ if ($num_results >0)
   $sql = "UPDATE `teams` set ch6=ch6_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 6 is correct!</h4>";
+    echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right' >Question 3</span><span class='right' >Question 4</span><span class='right' >Question 5</span><span class='right' >Question 6</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -416,7 +329,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<h4>".$team." solution for Challenge 6 is Incorrect</h4>";
+   echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right'>Question 3</span><span class='right' >Question 4</span><span class='right'>Question 5</span><span class='wrong'>Challenge 6</span>";
   }
 
 }
@@ -447,7 +360,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch7=ch7_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<h4>".$team." solution for Challenge 7 is correct!</h4>";
+    echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right' >Question 3</span><span class='right' >Question 4</span><span class='right' >Question 5</span><span class='right' >Question 6</span><span class='right' >Question 7</span>";
    } 
    else {
     echo "Error updating db " . $db->error;
@@ -457,7 +370,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
- echo"<h4>".$team." solution for Challenge 7 is Incorrect</h4>";
+ echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right'>Question 3</span><span class='right' >Question 4</span><span class='right'>Question 5</span><span class='right' >Quetion 6</span><span class='wrong'>Challenge 7</span>";
   }
 
 
@@ -465,10 +378,74 @@ if ($num_results ==0)
 }
 
 
-}
+}echo"</div>";
 }
 
-   ?>  </div>
-  <br>
+   ?>  
+  <div class='clear'></div>
+   <?php
+if ( isset($_POST['team'] ) &&  isset($_POST['password'] ))
+{
+$team=  $_POST['team'];
+$password=  $_POST['password'];
+
+ if (!isset($_POST['challenge1']) && 
+             !isset($_POST['challenge2'])  && 
+             !isset($_POST['challenge3'])  && 
+             !isset($_POST['challenge4']) && 
+             !isset($_POST['challenge5']) && 
+             !isset($_POST['challenge6']) && 
+             !isset($_POST['challenge7'])  )
+         {
+ 
+     if (strlen($team)>15)
+     {
+  echo"<div class='toper2'><h3>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 15 characters.</h3></div>";
+     }
+     if (strlen($team)<15)
+      {
+
+$testing_team="SELECT team FROM teams WHERE team ='".$team."'";
+$result = mysqli_query($db, $testing_team );
+@$num_results = mysqli_num_rows($result);
+if ($num_results >0)
+         {
+          echo"<div class='toper2'>
+          <h4> Team name <i>".$team."</i> already registered with SnitchHunt. To play on team $team, 
+          use your correct password and sign in using top left drop down menu.</h4></div>";
   
+         }
+
+
+if ($num_results <1)
+
+  {
+   
+
+    $query="INSERT INTO teams(`date`, `time`, `team`, `password`, `ch1`, `ch1_max`, `ch2`,`ch2_max`,  `ch3`,`ch3_max`,  `ch4`,`ch4_max`,  `ch5`,`ch5_max`,  `ch6`,`ch6_max`,  `ch7`,`ch7_max`) 
+                    VALUES( CURDATE(), CURRENT_TIME(), '".$team."', '".$password."', '0',   '25',     '0',  '50',       '0',    '100',     '0',  '50',      '0',   '100',    '0',  '25',          '0','150'); ";
+      if ($db->query($query) === TRUE) 
+      {
+        echo"<div class='toper2'>
+     <h4>Team name $team has been registered with password $password. Use these credentials to log in.
+    </h4></div>";
+
+      }
+       else 
+      {
+
+          echo "Error: " . $query . "<br>" . $db->error;
+      }
+
+
+     
+     }
+     
+     
+}
+  }
+}mysqli_free_result($result);
+    ?>
+
+  <br>
         <div class="left">

@@ -24,20 +24,20 @@
  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'>
  <input type='hidden' name='password' value='".$password."'>
- <input type='submit' class='user' name='Challenges' value='Challenges' id='submit' /></form></li>
+ <input class='menu-button' type='submit'  name='Challenges' value='Challenges' id='submit' /></form></li>
 
 <li><form action='phone_metadata.php' method='POST'>
  <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
   <input type='hidden' name='password' value='".$password."'>
-  <input  type='submit' name='submit' value='Phone' id='submit' /></submit>  </form></li>
+  <input class='menu-button'  type='submit' name='submit' value='Phone' id='submit' /></submit>  </form></li>
 
 <li>
    <form action='email_metadata.php' method='POST'>
     <input type='hidden' name='close' value='".$close."'>
     <input type='hidden' name='team_name' value='".$team."'>
     <input type='hidden' name='password' value='".$password."'>
-    <input  type='submit' name='submit' value='Email' id='submit' /></submit>  </form>
+    <input class='menu-button'  type='submit' name='submit' value='Email' id='submit' /></submit>  </form>
 </li>
 
 <li>
@@ -45,7 +45,7 @@
    <input type='hidden' name='close' value='".$close."'>
    <input type='hidden' name='team_name' value='".$team."'>
    <input type='hidden' name='password' value='".$password."'>
-   <input  type='submit' name='submit' value='Subscriber' id='submit' /></submit>  </form>
+   <input class='menu-button'  type='submit' name='submit' value='Subscriber' id='submit' /></submit>  </form>
 </li>
  
 
@@ -54,7 +54,7 @@
  <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'>
  <input type='hidden' name='password' value='".$password."'>
- <input  type='submit' name='submit' value='Google' id='submit' /></submit>  </form>
+ <input class='menu-button' type='submit' name='submit' value='Google' id='submit' /></submit>  </form>
  </li>
 
 <li>
@@ -62,7 +62,7 @@
   <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
   <input type='hidden' name='password' value='".$password."'>
-  <input  type='submit' name='submit' value='X Search' id='submit' /></submit>  </form>
+  <input class='menu-button' type='submit' name='submit' value='X Search' id='submit' /></submit>  </form>
 </li>
       </ul>
             </div>
@@ -81,39 +81,39 @@
 </li>
 
 <li class='horizontal'>
-<input  type='submit'  name='submit' value='Log in' id='submit' /></form>
+<input class='menu-button' type='submit'  name='submit' value='Log in' id='submit' /></form>
 </li>
 
 <li class='horizontal'>
 <form action='' method='POST'> 
-<input type='hidden' name='close' value='".$close."'>
-<input type='submit' class='user' name='Logout' value='Logout' id='submit' /></form>
+<input type='hidden' name='logout' value='".$logout."'>
+<input  class='menu-button' type='submit'  name='Logout' value='Logout' id='submit' /></form>
 </li>
 
 <li class='horizontal'><form action='registration.php' method='POST'> 
  <input type='hidden' name='close' value='".$close."'>
-<input type='submit' class='user' name='register' value='Register' id='submit' /></form>
+<input class='menu-button' type='submit'  name='register' value='Register' id='submit' /></form>
 </li>
 <li class='horizontal'>
 <form action='datasets.php' method='POST'> 
 <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
   <input type='hidden' name='password' value='".$password."'>
-<input type='submit' class='user' name='Metadata' value='Metadata' id='submit' /></form>
+<input class='menu-button' type='submit'  name='Metadata' value='Metadata' id='submit' /></form>
 </li>
 <li class='horizontal'>
 <form action='article.php' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
   <input type='hidden' name='password' value='".$password."'>
-<input type='submit' class='user' name='Article' value='Article' id='submit' /></form></li>
+<input class='menu-button' type='submit'  name='Article' value='Article' id='submit' /></form></li>
 
 <li class='horizontal'>
  <form action='index.php' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
   <input type='hidden' name='team_name' value='".$team."'>
   <input type='hidden' name='password' value='".$password."'>
- <input type='submit' class='user' name='Home' value='Home' id='submit' /></form></li>
+ <input class='menu-button' type='submit'  name='Home' value='Home' id='submit' /></form></li>
 
 
 

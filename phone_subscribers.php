@@ -19,14 +19,14 @@ if( !isset($_POST['search_all_subscribers']) )
  while ($row = $result->fetch_assoc()) 
     {
 
-echo"<table class='basic' border='0' style=''><tbody>
+echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
   <tr><td >Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
   <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
   <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
   <tr><td>Subscriber Name:</td>       <td>".$row['subscriber_name']."</td></tr>
   <tr><td>Subscriber Number</td>      <td>".$row['subscriber_number']."</td></tr>
   <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
-  </tbody></table>";
+  </tbody></table></div>";
 
 
 }
@@ -57,8 +57,8 @@ echo"<br><h2> Search all fields in the <i>phone subscriber</i> metadata:</h2>
              <input type='hidden' name='password' value='".$password."'>
 
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
-         </td><td>   <input type='submit' name='submit' placeholder='Search' id='submit' />
-            </form></td></tr></table>
+         </td><td> 
+        <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 </div><br>
           ";
      }
@@ -228,7 +228,9 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-//include'challenges.php';
+//include'score.php';
+
+include'challenges.php';
 ?>
 
 

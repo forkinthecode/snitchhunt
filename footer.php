@@ -1,5 +1,5 @@
 <?php
-close($db);
+mysqli_close($db)
 echo"
 
 

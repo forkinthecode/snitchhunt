@@ -13,7 +13,7 @@ $result = mysqli_query($db, $phone );
  //  echo"<h3>Example</h3>";
  while ($row = $result->fetch_assoc()) 
     {
-  echo"<table class='basic' border='0' style=''><tbody>
+  echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
    
     <tr><td>Subscriber number:</td>          <td>".$row['subscriber_phone_number']."</td></tr>
@@ -21,7 +21,7 @@ $result = mysqli_query($db, $phone );
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
     <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
-    </tbody></table><br>";
+    </tbody></table></div><br>";
    }
 }
 
@@ -51,8 +51,8 @@ if ($num_results >0)
 
 			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' />
 						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' /></td><td>
-			             <input type='submit' name='submit' placeholder='Search' id='submit' />
-			             </form></td></tr></table>
+			           
+        <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 			      </div>";
 			}
 			
@@ -124,8 +124,8 @@ echo"<br><h3>Search two phone numbers to see who they both called:</h3>
 
              <input type='text'  id='caller_one' name='caller_one' placeholder='Phone number one' />
 			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' /></td><td>
-             <input type='submit' name='submit' placeholder='Search' id='submit' />
-             </form></td></tr></table>
+           
+        <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
       </div>";
 
 
@@ -170,7 +170,7 @@ if ($num_results <1)
   }
 }
  }   
-}mysqli_free_result($result);
+}mysqli_free_result($result); 
 
 ?>
 
@@ -180,9 +180,11 @@ if ($num_results <1)
  <div class='right'>
  
 <?php
-include'score.php';
+//include'score.php';
 ?>
-
+<?php
+include'challenges.php';
+?>
 
 
 </div></div>

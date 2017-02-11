@@ -1,6 +1,12 @@
-<div style='background:RGBA(199,211,162, 0.5);padding:15px'>
+<?php
+include'check.php'
+?>
 
 <?php
+if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ))
+{
+   echo"<div class='homer'><h2>You have to be registered and signed in to see the challenges</h2></div>";
+}
 if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
 $data=$_POST['password'];
@@ -8,59 +14,34 @@ $password=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT * from teams where team='".$team."' && password='".$password."'";
-$result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results<1)
-{
-	echo"<h4>To view and answer challenges you need the correct password.</h4>";
 
-	}
-if ($num_results>0)
-{
-/*
-echo"<table class='scoreboard'><tr>
-<th>Ch1</th>
-<th>Ch3</th>
-<th>Ch3</th>
-<th>Ch4</th>
-<th>Ch5</th>
-<th>Ch6</th>
-<th>Ch7</th>
-<th>Score</th>
-</tr>";
-  while ($row = $result->fetch_assoc()) 
-{
-echo"<tr>
-<td>".$row['ch3']."</td>
-<td>".$row['ch3']."</td>
-<td>".$row['ch3']."</td>
-<td>".$row['ch3']."</td>
-<td>".$row['ch5']."</td>
-<td>".$row['ch6']."</td>
-<td>".$row['ch7']."</td>
-<td>".($row['ch3']+$row['ch3']+$row['ch3']+$row['ch3']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
-</tr>";
-  }
-echo"</table><br>";*/
+$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            if ($num_results<1)
+            {
+              echo"<div class='homer'><h2>You have to be registered and signed in to see the challenges</h2></div>";
+            }
+           if ($num_results>0)
+	{
 
 
-
-
-	
 
  $query="SELECT ch1 from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
             while ($row = $result->fetch_assoc()) 
+
+
     {
       $answer=$row['ch1'];
     }
+
   if (  $answer <25  )
             {
 
 echo" <br>
-<div class='answers' ><span class='right'>25 points</span>
+<div class='answers' >
 <h3>Challenge 1 </h3>
 
 
@@ -71,25 +52,32 @@ echo" <br>
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
+
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
-<input class='answer'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+
+<input class='answer'   type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 </div><br>";
 
 }
 
-/*
-$query="SELECT * FROM `solutions` WHERE solutions ='".$challenge_two."' && id='2'";
-$result = mysqli_query($db, $query );
-@$num_results = mysqli_num_rows($result);
-if ($num_results <1)
-{
- 
- */
-    
-    
+/* challenge 2 */
+ $query="SELECT ch1 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+  
+             {
+    $answer=$row['ch1'];
+
+              }
+   
+  
+
+     if ($answer!='0')
+    {
 
  $query="SELECT * from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
@@ -104,7 +92,7 @@ if ($num_results <1)
 {
 
 echo"<br>
-<div class='answers' ><span class='right'>50 points </span>
+<div class='answers' >
 <h3>Challenge 2 </h3>
 
 
@@ -121,7 +109,9 @@ echo"<br>
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' onclick='div_show()'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+
+
 <h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 25 points from this question</h5>";
 {
   echo"
@@ -139,7 +129,7 @@ echo"<br>
              <h3>Search Google metadata for the term whistleblower (one word) or anna dupont contact </h3>
              <h3>Look through the search terms to see if you can find other clues and try that Google ID</h3>
              <h3>Try each Google User ID in turn until you get the right one- the long string of letters and numbers. </h3>
-             <h3>Keep this search result up because you will need to use the Google metadata results to answer Challenge 3.</h3>
+             <h3>Keep this search result in mind because you will need to use the Google metadata results to answer Challenge 3.</h3>
               ";
                $sql = "UPDATE teams SET ch2_max='25' WHERE team='".$team."'";
 
@@ -158,9 +148,21 @@ echo"<br>
 echo"</div><br>";
      
   }
-              
+}
+            
 
+/* challenge 3 */
+ $query="SELECT ch2 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+     {
+    $answer=$row['ch2'];
 
+              }
+   
+    if ($answer!='0')
+    {
 
  $query="SELECT * from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
@@ -176,7 +178,7 @@ echo"</div><br>";
 
 
 echo"<br>
-<div class='answers' ><span class='right'>100 points</span>
+<div class='answers' >
 <h3>Challenge 3 </h3>
 
 
@@ -188,7 +190,7 @@ echo"<br>
  <form action='' method='POST'> 
   <input type='hidden' name='close' value='".$close."'>
  <input type='hidden' name='team_name' value='".$team."'> 
- <input type='hidden' name='password' value='".$password."'>
+ <input class='answer'type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
@@ -227,12 +229,22 @@ if ($db->query($sql) === TRUE) {
           }
 echo"</div><br>";
 
-
+}
 
 
 }
-      
+     
 
+ $query="SELECT ch3 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+            {
+    $answer=$row['ch3'];
+
+              }
+      if ($answer!='0')
+    {
   $query="SELECT * from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
@@ -248,7 +260,7 @@ echo"</div><br>";
     
 
 echo"<br>
-<div class='answers' ><span class='right'>50 points</span>
+<div class='answers' >
 <h3>Challenge 4</h3>
 
 
@@ -264,7 +276,7 @@ echo"<br>
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 <h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 25 of the 50 points available for this question.</h5>
 ";
 
@@ -298,6 +310,18 @@ echo"<br>
 echo"</div><br>";
 
 }
+}
+
+ $query="SELECT ch4 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+             {
+    $answer=$row['ch4'];
+
+              }
+     if ($answer!='0')
+    {
 
 
   $query="SELECT * from teams where team='".$team."'";
@@ -316,7 +340,7 @@ echo"</div><br>";
 
 
 echo"<br>
-<div class='answers' ><span class='right'>100 points</span>
+<div class='answers' >
 <h3>Challenge 5 </h3>
 
 
@@ -332,7 +356,7 @@ echo"<br>
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 50 of the 100 points available for this question.</h5>
 ";
@@ -366,11 +390,21 @@ if ($db->query($sql) === TRUE) {
           }
 echo"</div><br>";
 
-
+}
 
 }
 
 
+ $query="SELECT ch5 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+             {
+    $answer=$row['ch5'];
+
+              }
+     if ($answer!='0')
+    {
 
 
  $query="SELECT * from teams where team='".$team."'";
@@ -386,7 +420,7 @@ echo"</div><br>";
 {
 
 echo"<br>
-<div class='answers' ><span class='right'>25 points</span>
+<div class='answers' >
 <h3>Challenge 6 </h3>
 
 
@@ -400,7 +434,7 @@ echo"<br>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 10 of the 25 points available for this question.</h5>
 ";
@@ -432,12 +466,22 @@ if ($db->query($sql) === TRUE) {
         }
             }
           }
-echo"</div><br>";
-
-
+echo"<br></div><br>";
+}
 
 }
 
+
+ $query="SELECT ch6 from teams where team='".$team."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            while ($row = $result->fetch_assoc()) 
+             {
+    $answer=$row['ch6'];
+
+              }
+    if ($answer!='0')
+    {
 
 
  $query="SELECT * from teams where team='".$team."'";
@@ -455,7 +499,7 @@ echo"</div><br>";
 
 
 echo"<br>
-<div class='answers'><span class='right'>150 points</span>
+<div class='answers'>
 <h3>Challenge 7 </h3>
 
 
@@ -470,7 +514,7 @@ echo"<br>
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
-<input type='submit' class='user' name='submit' value='Submit' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 <br>
 <h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 75 of the 150 points available for this question</h5>
 ";
@@ -501,10 +545,12 @@ if ($db->query($sql) === TRUE) {
         }
             }
           }
-echo"</div><br>";
+echo"<br></div><br>";
+}
 
     }
 }
 }
 ?>
-</div>
+
+
