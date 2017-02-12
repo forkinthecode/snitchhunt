@@ -95,14 +95,13 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers')
 || MATCH(subscriber_name)         AGAINST('$search_all_subscribers')    ";
   $result = mysqli_query($db, $subscribers );
 @$num_results = mysqli_num_rows($result);
-//echo"$num_results";
+
          if ($num_results <1)
         {//4
        echo"<h2>There are no exact matches for the search criteria <b>$search_all_subscribers</b>- 
        falling back to partial matches</h2>";
 
    
-//$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
       $subscribers = "SELECT * from phone_subscriber where   
    subscriber_number        LIKE'%$search_all_subscribers%' 
 || Date_Time                LIKE'%$search_all_subscribers%' 
@@ -116,10 +115,10 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers')
         {//5
         echo"<h2>There are no results for the search criteria <b>$search_all_subscribers</b></h2>";
         }//5
-       }
-        elseif ($num_results >0) 
+       
+        elseif ($num_results >0 && $num_results <1000) 
         { //6
-        echo"<h2>There are $num_results <i>phone subscriber</i> results for
+        echo"<h2>There are ".number_format($num_results)." <i>phone subscriber</i> results for
          <b>$search_all_subscribers</b></h2>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
@@ -133,10 +132,15 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers')
   <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
   </tbody></table><br>";
         }//7
-        echo"</div><h4>Mouse over/scroll for more results.</h4>";
+        echo"</div><h3>Mouse over/scroll for more results.</h3>";
     
-              
+       if ($num_results >1000 )
+        {//4
+         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
+         }//4
  }//4
+}
 
 
 
@@ -145,75 +149,6 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers')
 }mysqli_free_result($result);
 
 ?>
-
-<?php // searches all fields in phone_subscriber data for a  string
-/*
-if( !isset($_POST['search_all_subscribers']) && isset($_POST['show_all_subscribers']))
-{//1
-  
-$show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['show_all_subscribers']) );
-
-$subscribers = "SELECT * from phone_subscriber where   
-subscriber_number       ='$show_all_subscribers' 
-|| Date_Time               ='$show_all_subscribers' 
-|| subscriber_imei         ='$show_all_subscribers'  
-|| subscriber_address      ='$show_all_subscribers'  
-|| subscriber_email        ='$show_all_subscribers'  
-|| subscriber_name         ='$show_all_subscribers'    ";
-  $result = mysqli_query($db, $subscribers );
-@$num_results = mysqli_num_rows($result);
-if ($num_results <1)
- {//2
-       echo"<h2>There are no exact matches for the search criteria <b>$show_all_subscribers</b>- 
-       falling back to inexact matches</h2>";
-
-     $show_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['show_all_subscribers']) );
-      $subscribers = "SELECT * from phone_subscriber where   
-   subscriber_number        LIKE'%$show_all_subscribers%' 
-|| Date_Time                LIKE'%$show_all_subscribers%' 
-|| subscriber_imei          LIKE'%$show_all_subscribers%' 
-|| subscriber_address       LIKE'%$show_all_subscribers%' 
-|| subscriber_email         LIKE'%$show_all_subscribers%'  
-|| subscriber_name          LIKE'%$show_all_subscribers%'     ";
-  $result = mysqli_query($db, $subscribers );
-  @$num_results = mysqli_num_rows($result);
- 
-        
-      
-        if ($num_results >300 ) 
-        { //3
-        echo"<h2>There are $num_results <i>phone subscriber</i> results for
-         <b>$show_all_subscribers</b></h2>
-        <div class='expand'>";
-        while ($row = $result->fetch_assoc()) 
-               {//4
-          echo"<table class='basic' border='0' style=''><tbody>
-          <tr><td>Subscriber IMEI:</td>      <td>".$row['subscriber_imei']."<td></tr>
-          <tr><td>Subscriber Address:</td>    <td>".$row['subscriber_address']."</td></tr>
-          <tr><td>Subscriber Email:</td>      <td>".$row['subscriber_email']."<td></tr>
-          <tr><td>Subscriber Name:</td>       <td>".$row['subscriber_name']."</td></tr>
-          <tr><td>Subscriber Number</td>      <td>".$row['subscriber_number']."</td></tr>
-          <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
-          </tbody></table><br>";
-                }//4
-        echo"</div><h4>Mouse over/scroll for more results.</h4>";
-}//2
-         }//3
-}mysqli_free_result($result);//1
-*/
-?>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

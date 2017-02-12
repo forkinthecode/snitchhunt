@@ -11,6 +11,8 @@
     type="image/png" 
     href="../favicon.ico">
 
+
+
     </head>
     <body>
 
@@ -32,7 +34,9 @@ include('styles.php');
 
   
     </div> <div class='clear'></div>   
-   
+ 
+
+
 
   <div class="page_width">
 

@@ -170,7 +170,6 @@ select {
 table { 
     border-collapse: collapse; 
 }
-
   .score {width:100%; font-size:18px; border:none; border-radius:5px; margin-top:10px; color:#2a5b72;
  background:RGBA(199,211,162, 1); font-family:Georgia; }
  .score td:nth-of-type(even) { width:200px;  padding-bottom:10px;}
@@ -224,13 +223,16 @@ a { color:#d88a1c; text-decoration:none; font-family:Georgia;}
   }
 #play {margin:20px; position:absolute:top: 20px;right:20px; background:#fff; width:100px;}
    input[type=submit].searching { width:70px; height: 70px; background:RGBA(42, 91, 114, 0.75);
-  background:url('search.png'); background-repeat:no-repeat; border: none; background-size:70px; display:inline; float:right;
+  background:url('images/search.png'); background-repeat:no-repeat; border: none; background-size:70px; display:inline; float:right;
+  }
+   input[type=submit].override { width:65px; height:65px; font-family: "Georgia"; 
+   background:url('images/loading.png'); background-repeat:no-repeat;margin: 20px;background-repeat:no-repeat; border: none; 
   }
   input[type=submit].answer { width:100px; height:65px; font-family: "Georgia"; 
-   background:url('grades-green.png'); background-repeat:no-repeat; border: none;
+   background:url('images/grades-green.png'); background-repeat:no-repeat; border: none;
   }
   input[type=submit].hint { width:100px; height:75px; font-family: "Georgia"; 
-    background:url('question.png'); background-repeat:no-repeat; border: none;
+    background:url('images/question.png'); background-repeat:no-repeat; border: none;
   }
 input[type=submit].close { position:fixed: top:10px; right:40px; width:70px; border: none; font-family: "Georgia"; 
   float:right; height:70px;  background:url('images/fast-forward.png'); background-repeat:no-repeat;
@@ -314,7 +316,5 @@ span.term2 {
 }
 
 li { list-style: none; }
-
-
 
 </style>
