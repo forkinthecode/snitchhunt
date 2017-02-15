@@ -1,38 +1,4 @@
-<?php
-  
-require'header.php';
-?>
 
-
-          <h2>Google search metadata</h2>
-
-          <?php
-          if(!isset($_POST['search_all_google']) && !isset($_POST['show_all_google_data'])  )
-{
-  
-
-$google = "SELECT * from google_metadata where id='4' ";
-$result = mysqli_query($db, $google );
-  // echo"<h3>Example:</h3>";
- while ($row = $result->fetch_assoc()) 
-    {
-
-echo"<div class='homer'><br><table class='basic' border='0' style=''><tbody>
-  <tr><td width='175px'>IP Address:</td>        <td>".$row['IP_address']."    <td></tr>
-  <tr><td >User Id:</td>           <td>".$row['user_id']."       <td></tr>
-  <tr><td>Full Name</td>                  <td>".$row['full_name']."</td></tr>
-  <tr><td>Username:</td>               <td>".$row['user_name']."</td></tr>
-  <tr><td>Email Address:</td>              <td>".$row['email_address']."    <td></tr>
-  <tr><td>Address:</td>                     <td>".$row['address']."         </td></tr>
-  <tr><td>Employer:</td>                    <td>".$row['employer']."        </td></tr>
-  <tr><td>Job Title:</td>                   <td>".$row['job_title']."       </td></tr>
-  <tr><td>Source TCP Port:</td>             <td>".$row['source_tcp_port']."</td></tr>
-  <tr><td>User agent:</td>                  <td>".$row['user_agent']."     </td></tr>
-  <tr><td>Date and Time:</td>                   <td> ".$row['date_time']."     </td></tr>
- </tbody></table></div><br>";
-}
-}
-?>
 <?php
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
@@ -48,10 +14,10 @@ echo"<div class='homer'><br><table class='basic' border='0' style=''><tbody>
 if ($num_results >0)
        {
 echo"<br>
-<h2> Search all fields in the <i>Google search</i> metadata:</h2><div class='searches' style=''>
+<h3> Search all fields in the <i>Google search</i> metadata:</h3><div class='searches' style=''>
         
-         <table class='forms' border='0px'><tr><td>   <form action=''  method='POST'>
-          <input type='hidden' name='close' value='".$close."'>
+      <p>   <table class='forms' border='0px'><tr><td>   <form action=''  method='POST'>
+         
          <input type='hidden' name='team_name' value='".$team."'> 
          <input type='hidden' name='password' value='".$password."'>
 
@@ -61,7 +27,7 @@ echo"<br>
         
            <input class='searching'   type='submit' name='submit' value='' id='submit' /></form>
               </form></td></tr></table>
-    
+    </p>
 
 </div>
           ";
@@ -112,37 +78,38 @@ $result = mysqli_query($db, $google );
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
         {
-        echo"<h2>There are no partial matches for the search criteria <b>$search_all_google</b></h2>";
+        echo"<h3>There are no partial matches for the search criteria <b>$search_all_google</b></h3>";
         }//3
         
         elseif ($num_results >1000 )
         {//4
-         echo"<h3>There are too many results ".number_format($num_results)." to display for the search criteria <b>$search_all_email</b>. 
+         echo"<h3>There are too many results ".number_format($num_results)." to display for the search criteria <i>".$search_all_google."</i>. 
          Maximum results displayed is 1000.</h3><h3> Try a different search string.</h3>";
          }//4
         elseif ($num_results >0 && $num_results <1000) 
         { //5
 
-        echo"<h3>There are $num_results <i>email metadata</i> results for <b>".$search_all_google."</b></h3>
-     <div class='expand'>";
+        echo"<h3>There are $num_results <i>google metadata</i> results for <b>".$search_all_google."</b></h3>
+  
+  <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0' style=''><tbody>
-      <tr><td width='175px'>IP Address:</td>                  <td>".$row['IP_address']."     <td></tr>
-      <tr><td>Search Terms:</td>                  <td>".$row['search_terms']."     <td></tr>
-      <tr><td>User Id:</td>                     <td>".$row['user_id']."        <td></tr>
-      <tr><td>Full Name:</td>                    <td>".$row['full_name']."      </td></tr>
+     echo"<table class='basic'  style=''><tbody>
+      <tr><td width='175px'>IP Address:</td>    <td>".$row['IP_address']."     </td></tr>
+      <tr><td>Search Terms:</td>                <td>".$row['search_terms']."   </td></tr>
+      <tr><td>User Id:</td>                     <td>".$row['user_id']."        </td></tr>
+      <tr><td>Full Name:</td>                   <td>".$row['full_name']."      </td></tr>
       <tr><td>Username:</td>                    <td>".$row['user_name']."      </td></tr>
-      <tr><td>Email Address:</td>               <td>".$row['email_address']."  <td></tr>
+      <tr><td>Email Address:</td>               <td>".$row['email_address']."  </td></tr>
       <tr><td>Address:</td>                     <td>".$row['address']."        </td></tr>
       <tr><td>Employer:</td>                    <td>".$row['employer']."       </td></tr>
       <tr><td>Job Title:</td>                   <td>".$row['job_title']."      </td></tr>
       <tr><td>Source TCP Port:</td>             <td>".$row['source_tcp_port']."</td></tr>
       <tr><td>User agent:</td>                  <td>".$row['user_agent']."     </td></tr>
-      <tr><td>Date and Time:</td>               <td>".$row['date_time']."     </td></tr>
+      <tr><td>Date and Time:</td>               <td>".$row['date_time']."      </td></tr>
   </tbody></table><br> ";
         }//6
-        echo"</div>";
+        echo"</div><h3>Mouse/Scroll for more</h3>";
  }//5
               
  }
@@ -151,27 +118,3 @@ if ($num_results <1)
 }mysqli_free_result($result);
 
 ?>
-
-
-
-    
- </div>
- <div class='right'>
-     
-<?php
-//include'score.php';
-?>
-
-<?php
-include'challenges.php';
-?>
-
-
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
-</html>

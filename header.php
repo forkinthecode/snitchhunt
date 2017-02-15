@@ -1,4 +1,4 @@
-<!--Budget Home-->
+
  <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -44,7 +44,7 @@ include('styles.php');
 
 
     <?php
-     
+     /*
    
       if ( !isset($_POST['team_name'] ) && isset($_POST['password']  ))
          {
@@ -76,7 +76,7 @@ elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
 
   
          }
-
+*/
 ?>
  
 
@@ -96,6 +96,14 @@ elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
 @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
        {
+
+        if (isset($_POST['challenge1']) ||
+          isset($_POST['challenge2'] ) ||
+          isset($_POST['challenge3'] ) ||
+          isset($_POST['challenge4'] ) ||
+          isset($_POST['challenge5'] ) ||
+          isset($_POST['challenge6'] ) ||
+          isset($_POST['challenge7'] )) 
           echo"<div class='toper'>";
 
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )

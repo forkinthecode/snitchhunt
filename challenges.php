@@ -112,7 +112,7 @@ echo"<br>
 <input class='answer' onclick='div_show()'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 25 points from this question</h5>";
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 25 points from this question</h5>";
 {
   echo"
 
@@ -195,7 +195,7 @@ echo"<br>
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 
 50 of the 100 points available for this question.</h5>";
 {
   echo"
@@ -277,7 +277,7 @@ echo"<br>
 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 25 of the 50 points available for this question.</h5>
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 25 of the 50 points available for this question.</h5>
 ";
 
 {
@@ -358,7 +358,7 @@ echo"<br>
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 50 of the 100 points available for this question.</h5>
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 50 of the 100 points available for this question.</h5>
 ";
 { echo"
 <form class='links' action='' method='POST'>
@@ -436,7 +436,7 @@ echo"<br>
 <input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 10 of the 25 points available for this question.</h5>
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 10 of the 25 points available for this question.</h5>
 ";
 {echo"
 <form class='links' action='' method='POST'>
@@ -516,7 +516,7 @@ echo"<br>
 <input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
 <input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 <br>
-<h5>Access hints- if you click <img height='20px' src='question.png'/> to access hints you will lose 75 of the 150 points available for this question</h5>
+<h5>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 75 of the 150 points available for this question</h5>
 ";
 { echo"
 <form class='links' action='' method='POST'>

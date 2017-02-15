@@ -1,38 +1,5 @@
-<?php
-	
-require'header.php';
-?>
-<h2>Phone usage metadata</h2>
-<?php
 
 
-  if( !isset($_POST['field']) && !isset($_POST['search_string']) )
- {//
-
-  $phone = "SELECT * from phone_metadata where id='1' ";
-$result = mysqli_query($db, $phone );
- //  echo"<h2>Example</h2>";
- while ($row = $result->fetch_assoc()) 
-    {
-  echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-   
-    <tr><td>Subscriber number:</td>    <td>".$row['subscriber_phone_number']."</td></tr>
-    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
-    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
-    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
-    </tbody></table></div><br>
-    <h2>You can perform three searches with this page:
-    <ul><li>1. Search string against: all fields</li>
-     <li>1. Search sting against  subscriber numbers</li>
-     <li>3. Search string against dialled numbers </li>
-     </ul></h2>
-     <h3> To search using two phone numbers use the Cross Search page. </h3>";
-    }
-}
-
-?>
 
   
 <?php
@@ -49,11 +16,11 @@ $result = mysqli_query($db, $phone );
            @$num_results = mysqli_num_rows($result);
          if ($num_results >0)
   {
-echo" <h2> Search all fields, subscriber numbers or dialled numbers in the <i>phone</i> metadata:</h2>   <div class='searches' style=''>
+echo" <h3> Search all fields, originating numbers or dialled numbers in the <i>phone</i> metadata:</h3>   <div class='searches' style=''>
          <table class='forms' border='0px'><tr><td>  
 
 
-   <form action='phone_metadata.php' class='search' method='POST'>
+   <form action='' class='search' method='POST'>
     <input type='hidden' name='close' value='".$close."'>
     <input type='hidden' name='team_name' value='".$team."'> 
     <input type='hidden' name='password' value='".$password."'>
@@ -76,7 +43,7 @@ echo" <h2> Search all fields, subscriber numbers or dialled numbers in the <i>ph
       </div>";
   if( isset($_POST['field']) && $_POST['search_string']=='' ||  isset($_POST['search_string']) && $_POST['field']=='')
  {//
-echo"<h2>You need to provide a value in the search box (1.) to match against the fields (2.)</h2>
+echo"<h3>You need to provide a value in the search box (1.) to match against the fields (2.)</h3>
  ";
 
  }
@@ -91,57 +58,60 @@ if(isset($_POST['field']) && $_POST['field']=='search_all_subscriber' &&
 $data=trim($_POST['search_string']);
 $search_all_subscribers= mysqli_real_escape_string ( $db , $data );
 
-echo"<h2>Searching <i>subscriber numbers</i> for <i>$search_all_subscribers</i></h2>";
+echo"<h3>Searching <i>subscriber numbers</i> for <i>$search_all_subscribers</i></h3>";
   
 
 $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-FROM `phone_metadata4` WHERE 
-`subscriber_phone_number`='$search_all_subscribers' order by phone_metadata4.date_column  DESC";
+FROM `phone_metadata4` WHERE MATCH(`subscriber_phone_number`) AGAINST('$search_all_subscribers' IN BOOLEAN MODE) order by phone_metadata4.date_column  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
       if ($num_results>0) 
         { //5
-        echo"<h2>There are ".number_format($num_results)." matches in subscriber numbers for <b>$search_all_subscribers</b></h2>
-        <div class='expand'>";
+        echo"<h3>There are ".number_format($num_results)." matches in subscriber numbers for <b>".$search_all_subscribers."</b></h3>
+       <div class='expand_search'>
+  <details>
+  <summary>View Results</summary> <div class='expand'> ";
         while ($row = $result->fetch_assoc()) 
              {//6
      echo"<table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
+    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."</td></tr>
  
     <tr><td><b>Subscriber number:</b></td>   <td><b>".$row['subscriber_phone_number']."</b></td></tr>
-    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
+    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."</td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
     <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
              }//6
-        echo"</div>Mouse over/scroll for more results.";
+       echo"</div><h3>Mouse/Scroll for more</h3></details>
+
+        </div>";
       }//5
       elseif ($num_results <1)
        {//2
-       echo"<h2>There are no exact matches in subsciber numbers for <b>$search_all_subscribers</b>- 
-       falling back to partial matches</h2>";
+       echo"<h3>There are no exact matches in subsciber numbers for <i>$search_all_subscribers</i>- 
+       falling back to partial matches</h3>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-       FROM `phone_metadata4` where 
-        `subscriber_phone_number` LIKE'%$search_all_subscribers%' order by phone_metadata4.date_column  DESC ";
+       FROM `phone_metadata4` where `subscriber_phone_number` LIKE('%$search_all_subscribers%') ORDER BY phone_metadata4.date_column  DESC ";
       $result = mysqli_query($db, $phone );
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<h2>There are no results for the search criteria <b>$search_all_subscribers</b></h2>";
+        echo"<h3>There are no results for the search criteria <i>$search_all_subscribers</i></h3>";
         }//3
         
         elseif ($num_results >1000 )
         {//4
-         echo"<h3>There are too many results ".number_format($num_results)." to display for the search criteria <b>$search_all_email</b>. 
+         echo"<h3>There are too many results ".number_format($num_results)." to display for the search criteria <i>".$search_all_subscribers."</i>. 
          Maximum results displayed is 1000.</h3><h3> Try a different search string.</h3>";
          }//4
         elseif ($num_results>0 && $num_results <1000) 
             { //5
-        echo"<h2>There are ".number_format($num_results)." partial matches in subscriber numbers for <i>$search_all_subscribers</i></h2>
-        <div class='expand'>";
+        echo"<h3>There are ".number_format($num_results)." partial matches in subscriber numbers for <i>$search_all_subscribers</i></h3>
+        
+  <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                  {//6
      echo"<table class='basic' border='0' style=''><tbody>
@@ -154,7 +124,7 @@ $result = mysqli_query($db, $phone );
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
                  }//6
-        echo"</div>Mouse over/scroll for more results.";
+  echo"</div><h3>Mouse/Scroll for more</h3>";
             }//5
          }
 }
@@ -182,19 +152,19 @@ if(isset($_POST['field']) && $_POST['field']=='search_all_dialled' && isset($_PO
  {//1
 $data=trim($_POST['search_string']);
 $search_all_dialled= mysqli_real_escape_string ( $db , $data );
-echo"<h2>Searching <i>dialled numbers</i> for <i>$search_all_dialled</i></h2>";
+echo"<h3>Searching <i>dialled numbers</i> for <i>$search_all_dialled</i></h3>";
   
 
 $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
-FROM `phone_metadata4` WHERE 
-`dialled_number`='$search_all_dialled' order by phone_metadata4.date_column  DESC";
+FROM `phone_metadata4` WHERE MATCH(`dialled_number`) AGAINST('$search_all_dialled' IN BOOLEAN MODE) ORDER BY phone_metadata4.date_column  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
       if ($num_results>0) 
         { //5
-        echo"<h2>There are $num_results matches in subscriber numbers for <b>$search_all_dialled</b></h2>
-        <div class='expand'>";
+        echo"<h3>There are $num_results matches in subscriber numbers for <b>$search_all_dialled</b></h3>
+     
+  <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
              {//6
      echo"<table class='basic' border='0' style=''><tbody>
@@ -206,12 +176,12 @@ $result = mysqli_query($db, $phone );
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
              }//6
-        echo"</div>Mouse over/scroll for more results.";
+           echo"</div><h3>Mouse/Scroll for more</h3>";
       }//5
 elseif ($num_results <1)
  {//2
-       echo"<h2>There are no exact matches in subsciber numbers for <b>$search_all_dialled</b>- 
-       falling back to partial matches</h2>";
+       echo"<h3>There are no exact matches in subsciber numbers for <b>$search_all_dialled</b>- 
+       falling back to partial matches</h3>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
        FROM `phone_metadata4` where 
@@ -220,14 +190,20 @@ elseif ($num_results <1)
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<h2>There are no results for the search criteria <b>$search_all_dialled</b></h2>";
+        echo"<h3>There are no results for the search criteria <b>$search_all_dialled</b></h3>";
         }//3
         
-       
-        elseif ($num_results>0) 
+          elseif ($num_results >1000 )
+        {//4
+         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
+         }//4
+        
+        elseif ($num_results>0 && $num_results<1000) 
             { //5
-        echo"<h2>There are ".number_format($num_results)." partial matches in dialled numbers for <i>$search_all_dialled</i></h2>
-        <div class='expand'>";
+        echo"<h3>There are ".number_format($num_results)." partial matches in dialled numbers for <i>$search_all_dialled</i></h3>
+       
+  <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
                  {//6
      echo"<table class='basic' border='0' style=''><tbody>
@@ -240,7 +216,7 @@ elseif ($num_results <1)
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
                  }//6
-        echo"</div>Mouse over/scroll for more results.";
+         echo"</div><h3>Mouse/Scroll for more</h3>";
             }//5
   }
 }
@@ -259,23 +235,23 @@ $password=  $_POST['password'];
  {//1
 $data=trim($_POST['search_string']);
 $search_all_fields= mysqli_real_escape_string ( $db , $data );
-echo"<h2>Searching <i>All Fields</i> for <i>$search_all_fields</i></h2>";
+echo"<h3>Searching <i>All Fields</i> for <i>$search_all_fields</i></h3>";
   
 
 $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
 FROM `phone_metadata4` WHERE 
-`subscriber_imei`='$search_all_fields' || 
-`subscriber_phone_number`='$search_all_fields'|| 
-`dialled_number`='$search_all_fields' || 
-`cell_tower_location`='$search_all_fields' || 
-`date_column`='$search_all_fields' || 
-`duration`='$search_all_fields' order by phone_metadata4.date_column  DESC";
+MATCH(`subscriber_imei`)         AGAINST('$search_all_fields' IN BOOLEAN MODE) || 
+MATCH(`subscriber_phone_number`) AGAINST('$search_all_fields' IN BOOLEAN MODE) ||  
+MATCH(`dialled_number`)          AGAINST('$search_all_fields' IN BOOLEAN MODE) || 
+MATCH(`cell_tower_location`)     AGAINST('$search_all_fields' IN BOOLEAN MODE) ||  
+MATCH(`date_column`)             AGAINST('$search_all_fields' IN BOOLEAN MODE) || 
+MATCH(`duration`)                AGAINST('$search_all_fields' IN BOOLEAN MODE) ORDER BY phone_metadata4.date_column  DESC";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
       if ($num_results>0) 
         { //5
-        echo"<h2>There are ".number_format($num_results)." matches across all <i>phone metadata</i> fields for <b>$search_all_fields</b></h2>
+        echo"<h3>There are ".number_format($num_results)." matches across all <i>phone metadata</i> fields for <b>$search_all_fields</b></h3>
         <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
              {//6
@@ -293,8 +269,8 @@ $result = mysqli_query($db, $phone );
       }//5
 elseif ($num_results <1)
  {//2
-       echo"<h2>There are no exact matches for the search criteria <b>$search_all_fields</b>- 
-       falling back to partial matches</h2>";
+       echo"<h3>There are no exact matches for the search criteria <b>$search_all_fields</b>- 
+       falling back to partial matches</h3>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
        FROM `phone_metadata4` where 
@@ -308,14 +284,19 @@ elseif ($num_results <1)
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)
         {//3
-        echo"<h2>There are no results for the search criteria <b>$search_all_fields</b></h2>";
+        echo"<h3>There are no results for the search criteria <b>$search_all_fields</b></h3>";
         }//3
         
-       
+        elseif ($num_results >1000 )
+        {//4
+         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
+         }//4
         elseif ($num_results>0) 
         { //5
-        echo"<h2>There are ".number_format($num_results)." partial matches across all <i>phone metadata</i> fields for <i>$search_all_fields</i></h2>
-        <div class='expand'>";
+        echo"<h3>There are ".number_format($num_results)." partial matches across all <i>phone metadata</i> fields for <i>$search_all_fields</i></h3>
+  
+  <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
      echo"<table class='basic' border='0' style=''><tbody>
@@ -328,7 +309,7 @@ elseif ($num_results <1)
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
         }//6
-        echo"</div><h3>Mouse over/scroll for more results.</h3>";
+          echo"</div><h3>Mouse/Scroll for more</h3>";
     }//5
   
 
@@ -340,24 +321,3 @@ elseif ($num_results <1)
 }mysqli_free_result($result);
 
 ?>
-
- </div>
- <div class='right'>
- 
-<?php
-//include'score.php';
-?>
-<?php
-include'challenges.php';
-?>
-
-
-
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
-</html>

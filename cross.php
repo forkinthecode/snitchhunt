@@ -1,31 +1,6 @@
-<?php
-	
-require'header.php';
-?>
 
-<h2>Cross search phone metadata</h2>
 
-			<?php
-			if(!isset($_POST['subscriber_number'])  && !isset($_POST['dialled_number']))
-			 {
-			 $phone = "SELECT * from phone_metadata where id='1' ";
-$result = mysqli_query($db, $phone );
- //  echo"<h3>Example</h3>";
- while ($row = $result->fetch_assoc()) 
-    {
-  echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-   
-    <tr><td>Subscriber number:</td>          <td>".$row['subscriber_phone_number']."</td></tr>
-    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
-    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
-    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-    <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
-    </tbody></table></div><br>";
-   }
-}
-
-?>
+			
 
 <?php
   if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
@@ -65,7 +40,9 @@ if ($num_results >0)
 			$dialled_number= mysqli_real_escape_string ( $db , $data1 );
 			
 			$number_of_calls="SELECT * FROM `phone_metadata3` WHERE
-				 `subscriber_phone_number`='$subscriber_number' && `dialled_number` = '$dialled_number' ORDER BY date_column DESC";
+				MATCH(`subscriber_phone_number`) AGAINST('$subscriber_number' IN BOOLEAN MODE) 
+				&& MATCH(`dialled_number`) AGAINST('$dialled_number' IN BOOLEAN MODE) 
+				ORDER BY date_column DESC";
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
@@ -80,15 +57,16 @@ if ($num_results >0)
 					 
 			       {//6
 			     echo"<table class='basic' border='0' style=''><tbody>
+			  <!--   <tr><td>".$row['id']."</td><td></td></tr>-->
 			    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
 			    <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
 			    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
 			    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
 			    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-			    <tr><td>Date and Time:</td>       <td>".$row['date_time']."</td></tr>
+			    <tr><td>Date and Time:</td>       <td>".$row['date_column']." ".$row['time']."</td></tr>
 			    </tbody></table><br> ";
 			        }//6
-			        echo"</div>Mouse over/scroll for more results.";
+			        echo"</div><h3>Mouse over/scroll for more results.</h3>";
 			   }
 			   
 		   }
@@ -118,7 +96,6 @@ echo"<br><h3>Search two phone numbers to see who they both called:</h3>
      <div class='searches' style=''>
          <table class='forms'><tr><td> 
              <form action='cross_search.php'  method='POST'>
-             <input type='hidden' name='close' value='".$close."'>
 <input type='hidden' name='team_name' value='".$team."'> 
 <input type='hidden' name='password' value='".$password."'>
 
@@ -139,10 +116,11 @@ $caller_one= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_POST['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
 
-$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM `phone_metadata` 
-	WHERE subscriber_phone_number IN (SELECT subscriber_phone_number FROM `phone_metadata` 
-	WHERE dialled_number='$caller_one' ) && subscriber_phone_number IN 
-	(SELECT subscriber_phone_number FROM `phone_metadata` WHERE dialled_number='$caller_two' ) 
+$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM phone 
+	WHERE subscriber_phone_number IN 
+	(SELECT subscriber_phone_number FROM phone 
+	WHERE MATCH(dialled_number) AGAINST('$caller_one' IN BOOLEAN MODE)) && subscriber_phone_number IN 
+	(SELECT subscriber_phone_number FROM phone WHERE MATCH(dialled_number) AGAINST('$caller_two'IN BOOLEAN MODE ) )
 	GROUP BY subscriber_phone_number ORDER BY count(subscriber_phone_number) DESC LIMIT 1 ";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
@@ -173,25 +151,3 @@ if ($num_results <1)
 }mysqli_free_result($result); 
 
 ?>
-
-
-
- </div>
- <div class='right'>
- 
-<?php
-//include'score.php';
-?>
-<?php
-include'challenges.php';
-?>
-
-
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
-</html>

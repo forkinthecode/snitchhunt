@@ -1,43 +1,3 @@
-<?php
-	
-require'header.php';
-?>
-
-
-<h2>Email usage metadata</h2>
-
-<?php
-
-
-
-     
-if(!isset($_POST['search_all_email']) && !isset($_POST['show_all_email_data'])  )
- {//1
-
-
-
-$email = "SELECT * from email_metadata where id='1' ";
-$result = mysqli_query($db, $email );
-  // echo"<h3>Example <i>email</i> metadata</h3>";
- while ($row = $result->fetch_assoc()) 
-    {
-
-echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
-  <tr><td width='150px'>IP Address:</td><td> ".$row['source_IP_address']."</td></tr>
-  <tr><td>Sender email:</td><td>".$row['sender_email_address']."</td></tr>
-  <tr><td>Recipient email:</td><td>".$row['recipient_email_address']."</td></tr>
-  <tr><td>Email subject line:</td><td> ".$row['email_subject_line']."</td></tr>
-  <tr><td>Port</td><td>Port:".$row['port']."</td></tr>
-  <tr><td>Date and Time:</td><td> ".$row['date_time']."</td></tr>
-
-
- </tbody></table></div><br>";
-
-     }
-
-}
-
-?>
 
 
 <?php
@@ -54,9 +14,9 @@ echo"<div class='homer'><table class='basic' border='0' style=''><tbody>
    @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
        {
-  echo"<br> <h2> Search all fields in the <i>email</i> metadata:</h2><div class='searches' style=''>
+  echo"<br> <h3> Search all fields in the <i>email</i> metadata:</h3><div class='searches' style=''>
     <table class='forms'><tr><td>     
-  <form action='email_metadata.php'  method='POST'>
+  <form action=''  method='POST'>
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
 
@@ -86,7 +46,7 @@ $result = mysqli_query($db, $email );
 @$num_results = mysqli_num_rows($result);
  if ($num_results >1000 )
         {//4
-         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <i>$search_all_email</i>. 
          Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
          }//4
         elseif ($num_results >0 && $num_results <1000) 
@@ -96,7 +56,10 @@ $result = mysqli_query($db, $email );
      <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0px' style=''><tbody>
+     echo" <div class='expand_search'>
+  <details>
+  <summary>View Results</summary> 
+  <div class='expand'<table class='basic'  style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."</td></tr>
   <tr><td>Sender email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient email:</td>  <td>".$row['recipient_email_address']."</td></tr>
@@ -105,11 +68,11 @@ $result = mysqli_query($db, $email );
   <tr><td>Date and Time:</td>      <td>".$row['date_time']."</td></tr>
  </tbody></table><br> ";
         }//6
-        echo"</div>";
+        echo"</div></details></div>";
       }
 elseif ($num_results <1)
  {//2
-       echo"<h2>There are no exact matches for the search criteria <b>$search_all_email</b>- falling back to inexact matches</h2>";
+       echo"<h3>There are no exact matches for the search criteria <i>$search_all_email</i>- falling back to inexact matches</h3>";
 
       
       $search_all_email= mysqli_real_escape_string ( $db ,trim($_POST['search_all_email']) );
@@ -125,22 +88,24 @@ elseif ($num_results <1)
          @$num_results = mysqli_num_rows($result);
          if ($num_results <1)
         {//3
-        echo"<h2>There are no partial matches for the search criteria <b>$search_all_email</b></h2>";
+        echo"<h3>There are no partial matches for the search criteria <i>$search_all_email</i></h3>";
         }//3
         
         elseif ($num_results >1000 )
         {//4
-         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
+         echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <i>$search_all_email</i>. 
          Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
          }//4
         elseif ($num_results >0 && $num_results <1000) 
         { //5
 
         echo"<h3>There are $num_results <i>email metadata</i> results for <b>".$search_all_email."</b></h3>
-     <div class='expand'>";
+  <div class='expand'> 
+ ";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo"<table class='basic' border='0px' style=''><tbody>
+     echo" 
+  <table class='basic'  style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."</td></tr>
   <tr><td>Sender email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient email:</td>  <td>".$row['recipient_email_address']."</td></tr>
@@ -149,7 +114,9 @@ elseif ($num_results <1)
   <tr><td>Date and Time:</td>      <td>".$row['date_time']."</td></tr>
   </tbody></table><br> ";
         }//6
-        echo"</div>";
+       echo"</div>
+       <h3>Mouse/Scroll for more</h3>
+      ";
  }//5
               
  }
@@ -160,28 +127,3 @@ elseif ($num_results <1)
 ?>
 
 
-
-
-
-
-
- </div>
- <div class='right'>
- 
-<?php
-//include'score.php';
-?>
-<?php
-include'challenges.php';
-?>
-
-
-
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
-</html>

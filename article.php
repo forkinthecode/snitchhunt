@@ -11,7 +11,7 @@ require'header.php';
 <h2>MineWatch, 9th December, 2016</h2>
 <p>We still remember vividly not long ago, Western Australia (WA) farmers told ABC News about their <a href="http://www.abc.net.au/news/2016-04-20/fears-over-fracking-planned-in-wa-food-basket-area-dandaragan/7341656" rel="nofollow">Fracking fears in WA 'food basket' Dandaragan</a>, because their freehold farms which they have spent 40 years to build up will be at risk if frackers get on them. </p>
 <p><em>"If the climate keeps drying as it has been, the only way we will be able to grow any crops is by irrigation. And if we foul the aquifers with these chemicals and the gas, then that option won't be open to us."</em> - WA farmer Harry Minty.</p>
-
+<details><summary>More</summary>
 <p>Nobody wants to use contaminated groundwater. It is horrifying for anyone having to ventilate their home anytime they take a shower to prevent the build-up of methane in their home and facing the serious risk of losing the sense of smell and taste.</p>
 <p>Who can assure Mr. Minty and many other WA farmers and residents that the environment and families are protected?</p>
 <p>Firstly, let’s take a look at <a href="http://www.bbc.com/news/uk-14432401" rel="nofollow">what is fracking and why is it controversial</a>. Fracking is the process of drilling down into the earth before a high-pressure water mixture is directed at the rock to release the gas inside.</p>
@@ -40,16 +40,19 @@ Twitter: &#64;annaminewatch  </p>
 <li><a href="http://www.statedevelopment.sa.gov.au/resources/the-facts/fracture-stimulation-in-south-australia">The facts about fracture stimulation in South Australia</a></li>
 <li><a href="http://www.usatoday.com/story/news/nation/2013/10/02/fracking-radioactive-water-pennsylvania/2904829/">Fracking linked to radioactive river water in Pa.</a></li>
 </ul>
-
+</details>
 </div>
 
 </div>
-<div class='right' style='background:RGBA(199,211,162, 0.5);padding:15px'>
+<div class='right' style=''>
 
 
 	<div class='homer'><h2>The Assignment</h2>
 <p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
-<div  class='email'><blockquote>
+<details><summary>More</summary>
+<div class='phone'>
+	<div style='max-width:400px;margin-left:25px;padding-top:55px;height:740px'>
+		<div class='expand' style='max-width:355px; overflow:scroll;height:585px;color:#333;background:RGBA(199,211,162, 0.5); font-family:Georgia'>
 <p><strong>From: Finn Coburn &lt;finn.coburn&#64;thepolice.com&gt;</strong><br />
 <strong>To: data-analysts&#64;thepolice.com</strong><br />
 <strong>Date: 2016-12-10 10:58</strong><br />
@@ -78,7 +81,10 @@ CHIEF DATA OFFICER<br />
 COMPUTER CRIME SQUAD<br />
 Tel: 16131<br />
 www.thepolice.com</p>
-</blockquote>
+</div>
+</div>
+</div>
+</details>
 </div>
 </div>
 </div></div>

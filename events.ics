@@ -1,0 +1,173 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Events
+X-WR-TIMEZONE:Australia/Sydney
+X-WR-CALDESC:Events of interest to the privacy community
+BEGIN:VEVENT
+DTSTART:20170514T230000Z
+DTEND:20170519T000000Z
+DTSTAMP:20170213T055450Z
+UID:jea96fv6mklp3bhbkjcmihujrk@google.com
+CREATED:20170213T051602Z
+DESCRIPTION:TBA
+LAST-MODIFIED:20170213T051602Z
+LOCATION:TBA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Privacy Week Victoria
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170317T050000Z
+DTEND:20170317T060000Z
+DTSTAMP:20170213T055450Z
+UID:0664bfhjj7op6k5kc3pk1qd700@google.com
+CREATED:20170213T013730Z
+DESCRIPTION:CryptoParty Sydney goes to Canberra! Join our workshop on the B
+ Sides conference. More info at https://www.meetup.com/CryptoParty-Sydney/ev
+ ents/237630517/\n\nWere you planning to publish something anonymously on th
+ e Internet? What can go wrong? \n\nJoin this workshop to avoid the common m
+ istakes others make. Learn how you can generate a fancy .onion URLs for you
+ r static blog. Scan your service for OPSEC leaks and misconfiguration that 
+ may reveal your real identity.
+LAST-MODIFIED:20170213T013730Z
+LOCATION:Canberra Rex Hotel\, 150 Northbourne Ave\, Braddon ACT 2612\, Aust
+ ralia
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Set up your secret blog on a Tor hidden service: CryptoParty Sydney
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170317T033000Z
+DTEND:20170317T040000Z
+DTSTAMP:20170213T055450Z
+UID:57qfg76vcn527egcstvmerh2v4@google.com
+CREATED:20170213T013455Z
+DESCRIPTION:CryptoParty Sydney goes to Canberra! Join our workshop on the B
+ Sides conference.\nMore info at https://www.meetup.com/CryptoParty-Sydney/e
+ vents/237630486/\n\nAre you a pentester or bug bounty hunter? Do you share 
+ lots of secrets over Slack? There is a better way. We build our own end-to-
+ end encrypted secure group chat service based on Matrix and Riot. Matrix is
+  an open standard for decentralised communication and Riot allows teams to 
+ communicate across a wide range of collaboration apps.
+LAST-MODIFIED:20170213T013455Z
+LOCATION:Canberra Rex Hotel\, 150 Northbourne Ave\, Braddon ACT 2612\, Aust
+ ralia
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Set up your own end-to-end encrypted group chat: CryptoParty Sydney
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170216T070000Z
+DTEND:20170216T100000Z
+DTSTAMP:20170213T055450Z
+UID:41ema1ij46prfhg5p2m9h3h5vg@google.com
+CREATED:20170204T224742Z
+DESCRIPTION:SnitchHunt is a game that teaches the public about metadata: wh
+ at it is and how it can be used to identify and track individuals. \n\nCome
+  and test the open source beta version of SnitchHunt with Free Software Mel
+ bourne so the developer can see how different people handle the game. Numbe
+ rs will be limited. \n\nhttps://whistleblower.network/snitch/index.php
+LAST-MODIFIED:20170213T012122Z
+LOCATION:Electron Workshop - Coworking Space\, 31 Arden St\, North Melbourn
+ e VIC 3051\, Australia
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:SnitchHunt Testing Event- Free Software Melbourne
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170216T070000Z
+DTEND:20170216T100000Z
+DTSTAMP:20170213T055450Z
+UID:rfggv7g2f5a6oh791pkloc9bj4@google.com
+CREATED:20170208T222256Z
+DESCRIPTION:More info https://www.meetup.com/electronic-frontiers-australia
+ -sydney/events/237150666/
+LAST-MODIFIED:20170208T222256Z
+LOCATION:280 Pitt St\, Sydney NSW 2000\, Australia
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Kill Switch Screening - EFA Sydney
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170307T070000Z
+DTEND:20170307T080000Z
+DTSTAMP:20170213T055450Z
+UID:fg71hfajaeml8ai5ls2u0vlrqc@google.com
+CREATED:20170208T075543Z
+DESCRIPTION:In this non-threatening\, open-to-all tutorial\, technologist a
+ nd filmmaker Nancy Schwartzman\, along with Crypto Melbourne\, will lead a 
+ data encryption party that is inclusive and mindful of gender and race in a
+  language that is understandable to you! \n\nMore info https://www.aidc.com
+ .au/events/crypto-for-filmmakers-newbies-technophobes-you
+LAST-MODIFIED:20170208T075543Z
+LOCATION:The Cube\, Melbourne
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Crypto For Filmmakers\, Newbies\, Technophobes & You
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170210T013000Z
+DTEND:20170210T023000Z
+DTSTAMP:20170213T055450Z
+UID:06k3j4rjghcfi6qsjmvu2dorp4@google.com
+CREATED:20170206T065448Z
+DESCRIPTION:Guest speakers will discuss how organisations and individuals c
+ an enjoy the benefits of social media without sacrificing privacy\, quashin
+ g the antiquated view that we can’t have both. The forum will explore the r
+ ights and responsibilities of both the employee and employer when using soc
+ ial media\, and will consider how organisations can use social media as a t
+ ool to engage with the public\, while also maintaining a strong commitment 
+ to citizen privacy.\nMore info https://www.trybooking.com/book/event?eid=25
+ 2413
+LAST-MODIFIED:20170206T065448Z
+LOCATION:121 Exhibition St\, Melbourne\, VIC 3001
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Social Media & Privacy - Office of the Commissioner for Privacy and
+  Data Protection
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170215T070000Z
+DTEND:20170215T100000Z
+DTSTAMP:20170213T055450Z
+UID:du3ai163627ondr24faj0lo3rc@google.com
+CREATED:20170204T224129Z
+DESCRIPTION:CyptoParty Sydney is running an event on electronic voting in t
+ he age of Trump & Putin.\n\nInfo at https://www.meetup.com/CryptoParty-Sydn
+ ey/
+LAST-MODIFIED:20170204T225423Z
+LOCATION:Fishburners\, 608 Harris St\, Ultimo NSW 2007\, Australia
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:E-Voting - CyrptoParty Sydney
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20170209T070000Z
+DTEND:20170209T100000Z
+DTSTAMP:20170213T055450Z
+UID:804uu5boonm7iul3253jrmb3g8@google.com
+CREATED:20170204T225318Z
+DESCRIPTION:EFA's Brisbane Chapter\, in conjunction with the Queensland Cou
+ ncil for Civil Liberties presents an exclusive screening of the award-winni
+ ng documentary\, Killswitch: the battle to control the Internet.\n\nInfo at
+  https://www.efa.org.au/chapters/brisbane/
+LAST-MODIFIED:20170204T225318Z
+LOCATION:Brisbane Square Library\, Brisbane Square\, 266 George St\, Brisba
+ ne City QLD 4000\, Australia
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Kill Switch Screening - Electronic Frontiers Australia QLD
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
