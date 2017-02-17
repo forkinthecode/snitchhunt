@@ -42,27 +42,42 @@ include('styles.php');
 
 
 
-
     <?php
-     /*
+      if ( isset($_POST['team_name'] ) && isset($_POST['password']))
+         {
+     $data=$_POST['password'];
+$password=mysqli_real_escape_string ( $db , $data );
+$data1=$_POST['team_name'];
+$team=mysqli_real_escape_string ( $db , $data1 );
+
+
+$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            if ($num_results<1)
+            {
+  echo"   <div class='toper'> <h3>Wrong team or password</h3> </div>";
+            }
+
+          }
    
-      if ( !isset($_POST['team_name'] ) && isset($_POST['password']  ))
+      if ( !isset($_POST['team_name'] ) && isset($_POST['password']))
          {
   
 
  
-   echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
-         echo"Signed out <i>$team</i> at $timezone </span></div>";
+   echo"   <div class='toper'><h3>Signed out</h3> </div>";
 
 
    
           }
- elseif ( isset($_POST['team_name'] ) && !isset($_POST['password']  ))
+        
+          
+ elseif (  $_POST['team_name']=='' &&  $_POST['password']==''  )
          {
    
  
-  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
-         echo"Signed out <i>$team</i> at $timezone </span></div>";
+  //echo"   <div class='toper'><h3>No team or password entered</h3> </div>";
 
   
          }
@@ -76,7 +91,7 @@ elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
 
   
          }
-*/
+
 ?>
  
 
@@ -94,6 +109,20 @@ elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
    $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
   $result = mysqli_query($db, $query);
 @$num_results = mysqli_num_rows($result);
+ 
+          if (!isset($_POST['challenge1']) &&
+          !isset($_POST['challenge2'] ) &&
+          !isset($_POST['challenge3'] ) &&
+          !isset($_POST['challenge4'] ) &&
+          !isset($_POST['challenge5'] ) &&
+          !isset($_POST['challenge6'] ) &&
+          !isset($_POST['challenge7'] )) 
+          {
+
+            echo"<div class='toper'><h3>Enter an answer to see your progress</h3></div>";
+          }
+
+
 if ($num_results >0)
        {
 
@@ -104,8 +133,8 @@ if ($num_results >0)
           isset($_POST['challenge5'] ) ||
           isset($_POST['challenge6'] ) ||
           isset($_POST['challenge7'] )) 
-          echo"<div class='toper'>";
-
+       
+echo"<div class='toper'>";
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
 {
 $data = $_POST['challenge1']; 
@@ -380,7 +409,7 @@ if ($db->query($sql) === TRUE) {
     }
 
 }
-if ($num_results ==0)
+elseif ($num_results ==0)
   {
  echo"<span class='right'>Question 1</span><span class='right' >Question 2</span><span class='right'>Question 3</span><span class='right' >Question 4</span><span class='right'>Question 5</span><span class='right' >Quetion 6</span><span class='wrong'>Challenge 7</span>";
   }
@@ -438,7 +467,7 @@ if ($num_results <1)
                     VALUES( CURDATE(), CURRENT_TIME(), '".$team."', '".$password."', '0',   '25',     '0',  '50',       '0',    '100',     '0',  '50',      '0',   '100',    '0',  '25',          '0','150'); ";
       if ($db->query($query) === TRUE) 
       {
-        echo"<div class='toper2'>
+        echo"<div class='toper'>
      <h4>Team name $team has been registered with password $password. Use these credentials to log in.
     </h4></div>";
 

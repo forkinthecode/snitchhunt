@@ -1,6 +1,6 @@
    <style type="text/css">
 body {font-family: "Courier New"; height:100%; background:#eee; color:#fff; max-width:1500px; font-size:15px;
- margin:0;padding:0; background:url('images/power-plant.jpg'); }
+ margin:0;padding:0; background:url('images/power-plant.pg'); }
 .top {padding-right:50px;}
 
 
@@ -14,7 +14,7 @@ body {font-family: "Courier New"; height:100%; background:#eee; color:#fff; max-
 .navigation { margin:auto;}
 .navigation td{ padding:5px; margin:auto;}
 .toper { color:#2a5b72; background:#eee; font-family: Georgia; height:30px; 
- width:95%; }
+ width:100%; }
 .toper h4 {color:#2a5b72; background:#eee; font-family: Georgia; font-size:20px;}
 .toper2 h4 {color:#2a5b72; background:#eee; font-family: Georgia; font-size:20px;}
 /*

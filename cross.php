@@ -19,8 +19,7 @@ if ($num_results >0)
 			echo"<br><h3>Search a subscriber number against a dialled number to find out how many calls were made:</h3>
 			     <div class='searches' style=''>
          <table class='forms'><tr><td> 
-			             <form action='cross_search.php'  method='POST'>
-			             <input type='hidden' name='close' value='".$close."'>
+			             <form action=''  method='POST'>
 			              <input type='hidden' name='team_name' value='".$team."'> 
 			              <input type='hidden' name='password' value='".$password."'>
 
@@ -57,7 +56,7 @@ if ($num_results >0)
 					 
 			       {//6
 			     echo"<table class='basic' border='0' style=''><tbody>
-			  <!--   <tr><td>".$row['id']."</td><td></td></tr>-->
+			
 			    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
 			    <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
 			    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
@@ -95,7 +94,7 @@ $password= mysqli_real_escape_string ( $db , $data1 );
 echo"<br><h3>Search two phone numbers to see who they both called:</h3>
      <div class='searches' style=''>
          <table class='forms'><tr><td> 
-             <form action='cross_search.php'  method='POST'>
+             <form action=''  method='POST'>
 <input type='hidden' name='team_name' value='".$team."'> 
 <input type='hidden' name='password' value='".$password."'>
 
@@ -116,9 +115,9 @@ $caller_one= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_POST['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
 
-$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM phone 
+$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM phone_metadata4 
 	WHERE subscriber_phone_number IN 
-	(SELECT subscriber_phone_number FROM phone 
+	(SELECT subscriber_phone_number FROM phone_metadata4 
 	WHERE MATCH(dialled_number) AGAINST('$caller_one' IN BOOLEAN MODE)) && subscriber_phone_number IN 
 	(SELECT subscriber_phone_number FROM phone WHERE MATCH(dialled_number) AGAINST('$caller_two'IN BOOLEAN MODE ) )
 	GROUP BY subscriber_phone_number ORDER BY count(subscriber_phone_number) DESC LIMIT 1 ";
@@ -135,7 +134,7 @@ if ($num_results <1)
         while ($row = $result->fetch_assoc()) 
        {//6
      echo"<table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
+    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."</td></tr>
     <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
     
     </tbody></table><br> ";

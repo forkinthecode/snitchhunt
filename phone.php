@@ -69,9 +69,7 @@ $result = mysqli_query($db, $phone );
       if ($num_results>0) 
         { //5
         echo"<h3>There are ".number_format($num_results)." matches in subscriber numbers for <b>".$search_all_subscribers."</b></h3>
-       <div class='expand_search'>
-  <details>
-  <summary>View Results</summary> <div class='expand'> ";
+    <div class='expand'> ";
         while ($row = $result->fetch_assoc()) 
              {//6
      echo"<table class='basic' border='0' style=''><tbody>
@@ -84,9 +82,7 @@ $result = mysqli_query($db, $phone );
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
              }//6
-       echo"</div><h3>Mouse/Scroll for more</h3></details>
-
-        </div>";
+       echo"</div><h3>Mouse/Scroll for more</h3>";
       }//5
       elseif ($num_results <1)
        {//2

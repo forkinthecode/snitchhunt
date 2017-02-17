@@ -23,7 +23,7 @@ $query="SELECT id FROM teams where team='".$team."' && password='".$password."'"
               echo"<div class='homer'><h2>You have to be registered and signed in to see the challenges</h2></div>";
             }
            if ($num_results>0)
-	{
+  {
 
 
 
@@ -183,7 +183,7 @@ echo"<br>
 
 
 
-<h3>Q.What is the email address is of the whistleblower?</h3>
+<h3>Q.What is the email address of the whistleblower?</h3>
 
 <br>
 <table class='forms' border='0px'><tr><td>
@@ -292,7 +292,8 @@ echo"<br>
     if ( isset($_POST['hint4']) && $_POST['hint4']='hint4')
             {
               echo"<h3>Hint: </h3>
-        <h3>You need to plug the IMEI of the whistleblower's phone into the phone subscribers database to get this answer.</h3>
+        <h3>You need to plug the whistleblower's email address into the phone subscribers database to get potential matches,
+         then do an in page search (via the browser) using the email address to get this answer.</h3>
 
 
               ";
@@ -371,7 +372,7 @@ echo"<br>
              if ( isset($_POST['hint5']) && $_POST['hint5']='hint5')
             {
               echo"<h3>Hint: </h3>
-<h3>To get last known location take IMEI from the phone subscriber data of the whistleblower
+<h3>To get last known location take the subscriber phone number of the whistleblower
 and plug into phone metadata search</h3>
 
 
@@ -530,7 +531,7 @@ echo"<br>
             {
               echo"<h3>Hint: </h3>
 <h3>Use Cross Search page.</h3>
-<h3> Enter Annas and David’s phone numbers into the 2nd search box to find out which number they both called. </h3>
+<h3> Enter the journalist and whistleblower's phone numbers into the 2nd cross search box to find out which number they both called. </h3>
 <h3>Click on the IMEI to search the phone subscriber records to get the details of the 2nd whistleblower. 
 </h3>";
 

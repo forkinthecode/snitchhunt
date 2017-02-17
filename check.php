@@ -43,7 +43,7 @@ if ($num_results >0)
 
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
 {
-$data = $_POST['challenge1']; 
+$data = trim($_POST['challenge1']); 
 $challenge_one=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
@@ -64,7 +64,7 @@ if ($num_results >0)
    $sql = "UPDATE teams SET ch1='25' WHERE team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"<div class='homer'><h2>$challenge_one is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
+   echo"<div class='homer'><h2>Challenge 1 is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
     ";
    } 
    else {
@@ -133,7 +133,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge3'] ) )
 {
  
 
-$challenge_three=mysqli_real_escape_string ( $db , $_POST['challenge3'] );
+$challenge_three=mysqli_real_escape_string ( $db , trim($_POST['challenge3']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -151,7 +151,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch3=ch3_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-    echo"<div class='homer' style='padding-bottom:20px'><h2>$challenge_three is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
+    echo"<div class='homer' style='padding-bottom:20px'><h2>Challenge 3 is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
     ";
    } 
    else {
@@ -162,7 +162,7 @@ if ($db->query($sql) === TRUE) {
 }
 if ($num_results ==0)
   {
-   echo"<div class='homer' style='padding-bottom:20px'><h2>Challenge 3 is Incorrect<img style='float:right;' src='images/error.png'/></h2></div>";
+   echo"<div class='homer' style='padding-bottom:20px'><h2>$challenge_three  is Incorrect<img style='float:right;' src='images/error.png'/></h2></div>";
   }
 
 
@@ -174,7 +174,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge4'] ) )
 {
  
 
-$challenge_four=mysqli_real_escape_string ( $db , $_POST['challenge4'] );
+$challenge_four=mysqli_real_escape_string ( $db , trim($_POST['challenge4']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -192,7 +192,7 @@ if ($num_results >0)
    $sql = "UPDATE `teams` set ch4=ch4_max where team='".$team."'";
 
 if ($db->query($sql) === TRUE) {
-   echo"<div class='homer' style='padding-bottom:20px'><h2>$challenge_four is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
+   echo"<div class='homer' style='padding-bottom:20px'><h2>Challenge 4 is correct! <img style='float:right;' src='images/checked.png'/></h2></div>
     ";
    } 
    else {
@@ -216,7 +216,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge5'] ) )
 {
  
 
-$challenge_five=mysqli_real_escape_string ( $db , $_POST['challenge5'] );
+$challenge_five=mysqli_real_escape_string ( $db , trim($_POST['challenge5']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -258,7 +258,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge6'] ) )
 {
  
 
-$challenge_six=mysqli_real_escape_string ( $db , $_POST['challenge6'] );
+$challenge_six=mysqli_real_escape_string ( $db , trim($_POST['challenge6']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -300,7 +300,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge7'] ) )
 {
  
 
-$challenge_seven=mysqli_real_escape_string ( $db , $_POST['challenge7'] );
+$challenge_seven=mysqli_real_escape_string ( $db , trim($_POST['challenge7']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -331,7 +331,7 @@ if ($db->query($sql) === TRUE) {
 if ($num_results ==0)
   {
 
-   echo"<div class='homer' style='padding-bottom:20px'><h2>Challenge 7 is Incorrect<img style='float:right;' src='images/error.png'/></h2></div>";
+   echo"<div class='homer' style='padding-bottom:20px'><h2>$challenge_seven is Incorrect<img style='float:right;' src='images/error.png'/></h2></div>";
   }
 
 

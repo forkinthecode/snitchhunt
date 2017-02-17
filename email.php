@@ -34,14 +34,14 @@ if(isset($_POST['search_all_email'])  )
 {
 $data=trim($_POST['search_all_email']);
 $search_all_email= mysqli_real_escape_string ( $db , $data );
-$email = "SELECT * FROM `email_metadata` where 
-   source_IP_address        ='$search_all_email' 
-|| size                     ='$search_all_email' 
-|| sender_email_address     ='$search_all_email'
-|| recipient_email_address  ='$search_all_email'
-|| email_subject_line       ='$search_all_email'
-|| date_time                ='$search_all_email' 
-|| port                     ='$search_all_email' ";
+$email = "SELECT * FROM `email_metadata` WHERE 
+source_IP_address='$search_all_email' 
+|| size='$search_all_email'
+|| sender_email_address='$search_all_email' 
+|| recipient_email_address='$search_all_email' 
+|| email_subject_line='$search_all_email'  
+|| date_time='$search_all_email'  
+|| port='$search_all_email' ";
 $result = mysqli_query($db, $email );
 @$num_results = mysqli_num_rows($result);
  if ($num_results >1000 )
@@ -56,10 +56,9 @@ $result = mysqli_query($db, $email );
      <div class='expand'>";
         while ($row = $result->fetch_assoc()) 
        {//6
-     echo" <div class='expand_search'>
-  <details>
-  <summary>View Results</summary> 
-  <div class='expand'<table class='basic'  style=''><tbody>
+     echo" 
+
+  <table class='basic'  style=''><tbody>
   <tr><td width='150px'>IP Address:</td>        <td>".$row['source_IP_address']."</td></tr>
   <tr><td>Sender email:</td>     <td>".$row['sender_email_address']."</td></tr>
   <tr><td>Recipient email:</td>  <td>".$row['recipient_email_address']."</td></tr>
@@ -68,11 +67,11 @@ $result = mysqli_query($db, $email );
   <tr><td>Date and Time:</td>      <td>".$row['date_time']."</td></tr>
  </tbody></table><br> ";
         }//6
-        echo"</div></details></div>";
+        echo"</div>";
       }
 elseif ($num_results <1)
  {//2
-       echo"<h3>There are no exact matches for the search criteria <i>$search_all_email</i>- falling back to inexact matches</h3>";
+       echo"<h3>There are no exact matches for the search criteria <i>$search_all_email</i>- falling back to partial matches</h3>";
 
       
       $search_all_email= mysqli_real_escape_string ( $db ,trim($_POST['search_all_email']) );

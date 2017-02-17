@@ -72,10 +72,11 @@
     <ul >
 <li class='listish'>You can solve SnitchHunt together as a group in a cooperative effort or you can compete against one another in competing teams.</li>
 <li class='listish'>To register your team name click play, enter a name and your password will appear on the screen.</li>
-<li class='listish'>Copy-paste your password somewhere in case you get signed out as you will need it to sign back in.</li>
+<li class='listish'><b>Copy-paste your password somewhere in case you get signed out as you will need it to sign back in.</b></li>
 <li class='listish'>When you sign in with your team name and password you will see the challenges 
   your team needs to solve. There are seven challenges to complete.</li>
-  <li class='listish'>Copy-paste notes as you go of the important data you find. You might need it later</li>
+
+  <li class='listish'><b>Copy-paste notes/useful data into a separate document as you proceed.</b> You will need this information later.</li>
   <li class='listish'>Solve all the challenges without accessing any hints to reach 500 points.</li>
   <li class='listish'>No points are lost if you submit incorrect solutions but if you access the hints you lose half the points for that challenge.</li>
   <li class='listish'>Hints are available for challenges 2-7 inclusive. However if you click on the hints you lose half the points for that challenge.</li>

@@ -72,42 +72,40 @@ echo"</table><br></div></details>";mysqli_free_result($result);
  <div class='right' style=''>
 
 <div class='homer'>
-                <details open><summary>Search Google Usage Data</summary>
+   <details open><summary>Search Google Usage Data</summary>
 <?php
 include'google.php';
 ?>
-                </details>
+</details>
 </div>
 
- 
-<div class='homer'>
-                    <details open><summary>Search Phone Usage Data</summary>
-<?php
-include'phone.php';
-?>
-                    </details>
- </div>
- 
  <div class='homer'>
-                   <details open><summary>Search Phone Subscriber Data</summary>
-<?php
-include'subscribers.php';
-?>
-                   </details>
-  
-</div><div class='homer'>
-                    <details open><summary>Search Email Useage Data</summary>
+      <details open><summary>Search Email Useage Data</summary>
 <?php
 include'email.php';
 ?>
-                    </details>
-
+         </details>
+</div>
+<div class='homer'>
+  <details open><summary>Search Phone Usage Data</summary>
+<?php
+include'phone.php';
+?>
+</details>
+ </div>
+ <div class='homer'>
+  <details open><summary>Search Phone Subscriber Data</summary>
+<?php
+include'subscribers.php';
+?>
+</details>
+  
 </div><div class='homer'>
-                      <details open><summary>Use Cross Search</summary>
+ <details open><summary>Use Cross Search</summary>
 <?php
 include'cross.php';
 ?>
-                     </details>
+</details>
  </div>
 
   <div class='homer'>

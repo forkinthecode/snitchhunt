@@ -73,7 +73,7 @@ Twitter: &#64;annaminewatch  </p>
 <p><strong>#3</strong>. You will need to dig into the phone subscriber data to get the name and full address.  </p>
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
 <p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the cross search page.</p>
-<p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both the numbers you have</p>
+<p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both numbers.</p>
 	
 <p> You will need to solve the challenges in order to find the solutions. </p>
 <p>FINN COBURN<br />
