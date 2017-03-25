@@ -3,80 +3,86 @@
 			
 
 <?php
-  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+  //if ( isset($_GET['team_name'] ) && isset($_GET['password'] ))
 {
-   $team=$_POST['team_name'];
-   $password=$_POST['password'];
+   //$team=$_GET['team_name'];
+   //$password=$_GET['password'];
     
-    if ( $team!='' && $password!='' )
+   // if ( $team!='' && $password!='' )
 {
   
-   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-   $result = mysqli_query($db, $query);
-   @$num_results = mysqli_num_rows($result);
-if ($num_results >0)
+  // $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+   //$result = mysqli_query($db, $query);
+  // @$num_results = mysqli_num_rows($result);
+//if ($num_results >0)
        {
-			echo"<br><h3>Search a subscriber number against a dialled number to find out how many calls were made:</h3>
-			     <div class='searches' style=''>
+			echo"
+			     <div class='searches' style=''><form action=''  method='GET'>
          <table class='forms'><tr><td> 
-			             <form action=''  method='POST'>
-			              <input type='hidden' name='team_name' value='".$team."'> 
-			              <input type='hidden' name='password' value='".$password."'>
+		
 
-			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' />
-						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' /></td><td>
-			           
-        <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
+	<input type='text'  id='subscriber_phone_number' name='subscriber_phone_number' placeholder='Dialled Number' />
+	<input type='text'  id='cell_tower_location' name='cell_tower_location' placeholder='Cell Tower Location' /></td><td>
+	<input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 			      </div>";
 			}
 			
-			if(isset($_POST['subscriber_number'])  && isset($_POST['dialled_number']))
+			if( isset($_GET['subscriber_phone_number']))
 			 {//1
 
-			$data=trim($_POST['subscriber_number']);
-			$subscriber_number= mysqli_real_escape_string ( $db , $data );
-			$data1=trim($_POST['dialled_number']);
-			$dialled_number= mysqli_real_escape_string ( $db , $data1 );
+			//$data=trim($_GET['subscriber_number']);
+			//$subscriber_number= mysqli_real_escape_string ( $db , $data );
+			$data1=trim($_GET['subscriber_phone_number']);
+			$subscriber_phone_number= mysqli_real_escape_string ( $db , $data1 );
+			$data1=trim($_GET['cell_tower_location']);
+			$cell_tower_location= mysqli_real_escape_string ( $db , $data1 );
 			
-			$number_of_calls="SELECT * FROM `phone_metadata3` WHERE
-				MATCH(`subscriber_phone_number`) AGAINST('$subscriber_number' IN BOOLEAN MODE) 
-				&& MATCH(`dialled_number`) AGAINST('$dialled_number' IN BOOLEAN MODE) 
-				ORDER BY date_column DESC";
+			$number_of_calls="SELECT *
+			FROM `phone_metadata3` WHERE
+			 MATCH(`dialled_number`) AGAINST('$subscriber_phone_number' IN BOOLEAN MODE) 
+			 && `cell_tower_location` LIKE('%$cell_tower_location%') 
+			 GROUP BY cell_tower_location
+           ";
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
 			    {//2
-			       echo"<h3>There are no calls originating with $subscriber_number to $dialled_number </h3>";
+			       echo"<h3>There are no calls originating from $subscriber_phone_number at the $cell_tower_location location. </h3>";
 	   
 			   }
 			   else
 			   {
-				   echo"<h3>".$num_results." calls were made <i>from</i> $subscriber_number <i>to</i> $dialled_number</h3><div class='expand'> ";
-				   while ($row = $result->fetch_assoc()) 
-					 
-			       {//6
-			     echo"<table class='basic' border='0' style=''><tbody>
+				   echo"<h3>".$num_results." unique phones called the number </i> $subscriber_phone_number in the past two years from $cell_tower_location</h3> ";
+				   	 echo"<table class='basic' border='0' style=''><tbody>
 			
-			    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-			    <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
-			    <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
-			    <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>
-			    <tr><td>Duration:</td>            <td>".$row['duration']."</td></tr>
-			    <tr><td>Date and Time:</td>       <td>".$row['date_column']." ".$row['time']."</td></tr>
-			    </tbody></table><br> ";
+			     <td>Subscriber IMEI:</td>     
+			     <td>Subscriber number:</td>  
+			     <td>Dialled number:</td>  
+			     <td>Location: </td> 
+			  </tr><tr>";
+			      
+				   while ($row = $result->fetch_assoc()) 
+				 {//6
+			     echo"
+			   <tr> <td>".$row['subscriber_imei']."</td>
+			    <td>".$row['subscriber_phone_number']."</td>
+			    <td>".$row['dialled_number']."</td>
+			     <td>".$row['cell_tower_location']."</td>
+			   </tr>
+			    ";
 			        }//6
-			        echo"</div><h3>Mouse over/scroll for more results.</h3>";
+			        echo" </tbody></table><br>";
 			   }
 			   
 		   }
 	}
 		}
 			?>
-<?php
-  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+<?php/*
+  if ( isset($_GET['team_name'] ) && isset($_GET['password'] ))
 {
-   $team=$_POST['team_name'];
-   $password=$_POST['password'];
+   $team=$_GET['team_name'];
+   $password=$_GET['password'];
     
     if ( $team!='' && $password!='' )
 {
@@ -86,15 +92,15 @@ if ($num_results >0)
    @$num_results = mysqli_num_rows($result);
 if ($num_results >0)
        {
-$data=trim($_POST['team_name']);
+$data=trim($_GET['team_name']);
 $team= mysqli_real_escape_string ( $db , $data );
-$data1=trim($_POST['password']);
+$data1=trim($_GET['password']);
 $password= mysqli_real_escape_string ( $db , $data1 );
 
 echo"<br><h3>Search two phone numbers to see who they both called:</h3>
      <div class='searches' style=''>
          <table class='forms'><tr><td> 
-             <form action=''  method='POST'>
+             <form action=''  method='GET'>
 <input type='hidden' name='team_name' value='".$team."'> 
 <input type='hidden' name='password' value='".$password."'>
 
@@ -106,13 +112,13 @@ echo"<br><h3>Search two phone numbers to see who they both called:</h3>
 
 
 
-  if(isset($_POST['caller_one'])  && isset($_POST['caller_two']) && 
-	!isset($_POST['subscriber_number'])  && !isset($_POST['dialled_number']))
+  if(isset($_GET['caller_one'])  && isset($_GET['caller_two']) && 
+	!isset($_GET['subscriber_number'])  && !isset($_GET['dialled_number']))
  {//1
 
-$data=trim($_POST['caller_one']);
+$data=trim($_GET['caller_one']);
 $caller_one= mysqli_real_escape_string ( $db , $data );
-$data1=trim($_POST['caller_two']);
+$data1=trim($_GET['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
 
 $phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM phone_metadata4 
@@ -147,6 +153,6 @@ if ($num_results <1)
   }
 }
  }   
-}mysqli_free_result($result); 
+}mysqli_free_result($result); */
 
 ?>

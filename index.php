@@ -1,95 +1,202 @@
 <?php
-{
-  include'header.php';
+
+
+include('login.php');
+
+
+include('css.php');
+
+
+
+    
+
+?>
+<!DOCTYPE html> 
+<html>
+<title>SnitchHunt</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
+<head>
+
+
+
+<script> 
+ function BlockMove(event) {
+  // Tell Safari not to move the window.
+  event.preventDefault() ;
  }
+</script> 
+</head>
 
+<body > 
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+<div id='nav'>
+  <div id="a1">
+  <div id="a2">
+  <div id="a3">
+  <div id="a4">
+  <div id="a5">
+  <div id="a6">
+  <div id="a7">
+  <div id="a8">
+  <div id="a9">
+  <div id="a10">
+  <!--<div id="a11">
+  <div id="a12">
+  <div id="a13">
+  <div id="a14">
+  <div id="a15">-->
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+   <table  class='framework'> 
+    <tr> 
+     <td><a href="#a1" id="p1">1 </a></td> 
+     <td><a href="#a2" id="p2">2 </a></td> 
+     <td><a href="#a3" id="p3">3 </a></td> 
+     <td><a href="#a4" id="p4">4 </a></td> 
+     <td><a href="#a5" id="p5">5 </a></td> </tr>
+</table>
+<table class='framework2'>
+     <tr>
+     <td><a href="#a6" id="p6">Task</a></td> 
+     <td><a href="#a7" id="p7">Article</a></td> 
+     <td><a href="#a8" id="p8">Short quiz</a></td> 
+     <td><a href="#a9" id="p9">Hard quiz</a></td> 
+     <td><a href="#a10" id="p10">About</td> </tr>
+    
+    <!-- <tr><td><a href="#a11" id="p11">11</a></td> </tr><tr>
+     <td><a href="#a12" id="p12">12</a></td> </tr><tr>
+     <td><a href="#a13" id="p13">13</a></td> </tr><tr>
+     <td><a href="#a14" id="p10">14</a></td> </tr><tr>
+     <td><a href="#a15" id="p10">15</a></td>
+    </tr> -->
+   </table>
+
+</nav>
+
+   <!-- Fallback -->
+
+   <div id="i0" class="page">
+
+    <h1>There is a problem with your browser</h1>
+
+   </div>
+
+
+
+   <!-- First Page #a1 -->
+
+   <div id="i1" class="page">   
+    <div class='nav'>
+   <div class='content_title'>One</div>
+    <a href="#a2" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+ 
+    <div class='content'>
+ 
+<?php
+include'one.php';
+?>
+ 
+</div>
+</div>
+ <div id="i2" class="page">
+  <div class='nav'>
+    <a href="#a1" class="backbutton"><img src='images/next-blue-light-left.png'></img></a><div class='content_title'>Two</div>
+    <a href="#a3" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div> 
+     <div class='content'>
+  <?php
+  include'two.php';
+  ?>
+
+</div>
+</div>
+<div id="i3" class="page"><div class='content_title'>Three</div>
+ <div class='nav'>
+     <a href="#a2" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+      <a href="#a4" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+      <div class='content'>
+ <?php
+  include'three.php';
+  ?>
+</div>
+</div>
+ <div id="i4" class="page"><div class='content_title'>Four</div>
+  <div class='nav'>
+   <a href="#a3" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a5" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+    <div class='content'>
+  <?php
+  include'four.php';
+  ?>
+</div>
+</div>
+  <div id="i5" class="page"><div class='content_title'>Five</div>
+   <div class='nav'>
+    <a href="#a4" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a6" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+    <div class='content'>
+  <?php
+  include'five.php';
+  ?>
+</div>
+</div>
+  <div id="i6" class="page"><div class='content_title'>Task</div>
+   <div class='nav'>
+    <a href="#a5" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a7" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+    <div class='content'>
+  <?php
+  include'six.php';
+  ?>
+</div>
+</div>      
+  <div id="i7" class="page"><div class='content_title'>Article</div>
+   <div class='nav'>
+     <a href="#a6" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a8" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+    <div class='content'>
+   <?php
+   include'seven.php';
+   ?>
+ </div>
+  </div>
+<div id="i8" class="page"><div class='content_title'>Short Challenge</div>
+ <div class='nav'>
+    <a href="#a7" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a9" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+<div class='content'>
+   <?php
+   include'eight.php';
+   ?>
+ </div>
+       </div>
+ <div id="i9" class="page"><div class='content_title'>Hard Challenge</div>
+  <div class='nav'>
+    <a href="#a8" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a10" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
+    <div class='content'>
+   <?php
+   include'nine.php';
+   ?>
+ </div>
+</div>
+ <div id="i10" class="page"><div class='content_title'>About</div>
+  <div class='nav'>
+    <a href="#a9" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
+    <a href="#a1" class="nextbutton">Start</a></div>
+    <div class='content'>
+<?php
+ include'ten.php';
  ?>
-
-
-
-
-
-     <div class='homer'>
-
-  <iframe width='100%' height='315' src='https://www.youtube.com/embed/OszCffhS2yk' frameborder='0' allowfullscreen></iframe>
-
 </div>
 
-<div class='homer'>
- 
-<h2>News</h2>
-<p>Did you know that ISP's and phone companies have to retain metadata <a href='http://www.abc.net.au/7.30/content/2017/s4600581.htm' target='_blank'>for two years</a> in case a
-  government agency decides to investigate you under crimial law? </p>
-<p>Now the government wants to make this data <a href='http://www.canberratimes.com.au/federal-politics/political-news/australians-phone-and-email-records-could-be-used-in-civil-lawsuits-20161222-gtgdy6.html' target='_blank'>available to civil law proceedings</a>, opening people to having their metadata used in family law disputes, workplace and business conflicts.</p>
-<p>Submissions to the departmental inquiry closed at the end of January the and the government is to review the recommendations by mid April.
-<details><summary>Events</summary>
-  <div class='calendar-container'>
-<iframe  src='https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffcc&amp;src=0r80kjpj3en973b8iomrpuebb8%40group.calendar.google.com&amp;color=%23853104&amp;ctz=Australia%2FSydney' style='border-width:0' width='100%' height='500px' frameborder='0' scrolling='no'></iframe>
-</details>
 </div>
 
 
 
-<div class='homer'><h2 >Donate</h2>
-<p>If you would like to help support this project current options are available at <a href='https://whistleblower.network/donate/'>this page</a>.</p>
-
 </div>
-<!--<div class='homer'>
-     <details>      <summary>Privacy News</summary>
-    <br>     
-                          <a class="twitter-timeline" style='margin:auto' href="https://twitter.com/hashtag/dataretention" data-widget-id="817226297227157507">#dataretention Tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
-
-          </details>
-
-</div>-->
- </div>
- <div class='right' >
-
-
-
- <div class='homer'><h2 >Learn</h2>
-<p>Check out the metadata page to see what data is collected and who has access to it.
-    The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. 
-  Although these individual datasets already reveal a lot of your online presence, the real deal is data correlation. Once an experienced analyst begins correlating the different datasets, 
-    your activities throughout the day can be reconstructed.</p>
-  
-<p>It's easy to ignore that so much information about us is collected and stored. SnitchHunt was created to educate the public about the reality of what metadata retention really means.
-   Play the game to find out how people can be tracked through their digital breadcrumbs.</p>
-
- </div>
- 
- <div class='homer'><h2 >Play</h2>
-<p>Snitchhunt puts you in the shoes of a data analyst working for the federal police, using this data to solve the challenges. You will need to dig into, 
-  correlate and pivot on the various metadata sets to catch a whistleblower.</p>
-<p>Read the article and instructions carefully!  
-  Good luck!</p>
-
-<details>
-  <summary>Get Started</summary>
-   <p>SnitchHunt can be played by individuals or teams- just give yourself a team name.</p>
-    <ul >
-<li class='listish'>You can solve SnitchHunt together as a group in a cooperative effort or you can compete against one another in competing teams.</li>
-<li class='listish'>To register your team name click play, enter a name and your password will appear on the screen.</li>
-<li class='listish'><b>Copy-paste your password somewhere in case you get signed out as you will need it to sign back in.</b></li>
-<li class='listish'>When you sign in with your team name and password you will see the challenges 
-  your team needs to solve. There are seven challenges to complete.</li>
-
-  <li class='listish'><b>Copy-paste notes/useful data into a separate document as you proceed.</b> You will need this information later.</li>
-  <li class='listish'>Solve all the challenges without accessing any hints to reach 500 points.</li>
-  <li class='listish'>No points are lost if you submit incorrect solutions but if you access the hints you lose half the points for that challenge.</li>
-  <li class='listish'>Hints are available for challenges 2-7 inclusive. However if you click on the hints you lose half the points for that challenge.</li>
-  <li class='listish'>You will still need to enter the correct solution for each challenge after accessing any hints.</li>
-  <li class='listish'>If you need help provide a username in the chat window and ask away.</li>
-</ul>
-</details>
-</div>
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
+</body>
 </html>
+
+

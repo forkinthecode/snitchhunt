@@ -1,34 +1,21 @@
-<?php
-  
-require'header.php';
-?>
-
-    
 
 
-
-
-
- <?php
-include'challenges.php';
-
-?>
 
 <br>
        
 <?php
 if ( isset($_POST['team_name'] )  )
-{
+{/*
  $team= $_POST['team_name'] ;
 $query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' ";
 $result = mysqli_query($db, $query );
    while ($row = $result->fetch_assoc())
    { 
 echo"
- <div class='homer'><details><summary>$team Scores</summary>
- <p>If you click on hints (Challenges 2-7) you lose 1/2 the points awarded for that question. Your new max available points will be updated below</p>
+ <div class='homer'><details><summary><h5>$team Scores</h5></summary>
+ <h6>If you click on hints (Challenges 2-7) you lose 1/2 the points awarded for that question. Your new max available points will be updated below</h6>
 <table  class='score' >
- <tr><th>Score</th><th> 
+ <tr><th></th><th> 
      Points Awarded</th><th>New Max</th><th>Original Max</th></tr>
 
       <tr><td>Challenge 1</td><td> ".$row['ch1']." points</td><td>".$row['ch1_max']."</td><td>25</td></tr>
@@ -42,13 +29,13 @@ echo"
      </table></div></details> ";
     }
 
-
+*/
 
 $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DAY ) AND NOW( )
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<br><div class='homer'><details><summary>All Team Scores</summary><table class='scoreboard'><tr><th>Team</th>
+echo"<br><div class='homer'><details><summary><h5>Scores</h5></summary><table class='wide'><tr><th>Team</th>
 
 <th>Score</th>
 </tr>";
@@ -65,70 +52,3 @@ echo"</table><br></div></details>";mysqli_free_result($result);
 
 
 
-
-
-
- </div>
- <div class='right' style=''>
-
-<div class='homer'>
-   <details open><summary>Search Google Usage Data</summary>
-<?php
-include'google.php';
-?>
-</details>
-</div>
-
- <div class='homer'>
-      <details open><summary>Search Email Useage Data</summary>
-<?php
-include'email.php';
-?>
-         </details>
-</div>
-<div class='homer'>
-  <details open><summary>Search Phone Usage Data</summary>
-<?php
-include'phone.php';
-?>
-</details>
- </div>
- <div class='homer'>
-  <details open><summary>Search Phone Subscriber Data</summary>
-<?php
-include'subscribers.php';
-?>
-</details>
-  
-</div><div class='homer'>
- <details open><summary>Use Cross Search</summary>
-<?php
-include'cross.php';
-?>
-</details>
- </div>
-
-  <div class='homer'>
-          <details>
-            <summary>Help</summary>
-            <br><div class='calendar-container' style='margin-top:20px'>
-<iframe  src='https://whistleblower.network/snitch/chat/room/chat.php'
-    style='border-width:0' width='100%' height='600px' frameborder='0' scrolling='no'></a>
-  </div>
-  </details>
-</div>
-
-
-
-
-</div></div>
-<div class='clear'></div>
-
-
-    <?php include'footer.php';?>
-
-    </body>
-</html>
-
-
-    

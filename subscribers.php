@@ -1,25 +1,22 @@
 
 <?php
-  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+//  if ( isset($_GET['team_name'] ) && isset($_GET['password'] ))
 {//1
-   $team=$_POST['team_name'];
-   $password=$_POST['password'];
+ //  $team=$_GET['team_name'];
+//   $password=$_GET['password'];
     
-    if ( $team!='' && $password!='' )
+  //  if ( $team!='' && $password!='' )
 {//2
   
-            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+     /*       $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
             $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
-         if ($num_results >0)
+         if ($num_results >0)*/
   {//3
-echo"<br><h3> Search all fields in the <i>phone subscriber</i> metadata:</h3>
+echo"
 <div class='searches' style=''>
        <table class='forms'><tr><td>   
-            <form action=''  method='POST'>
-             <input type='hidden' name='close' value='".$close."'>
-             <input type='hidden' name='team_name' value='".$team."'> 
-             <input type='hidden' name='password' value='".$password."'>
+            <form action=''  method='GET'>
 
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
          </td><td> 
@@ -31,28 +28,28 @@ echo"<br><h3> Search all fields in the <i>phone subscriber</i> metadata:</h3>
  }
  ?>
  <?php
-  if ( isset($_POST['team_name'] ) && isset($_POST['password'] ) && isset($_POST['search_all_subscribers']))
+  if (  isset($_GET['search_all_subscribers'])   && $_GET['search_all_subscribers']!='')
 {//1
-   $team=$_POST['team_name'];
-   $password=$_POST['password'];
-   $search_all_subscribers= $_POST['search_all_subscribers'];
+  // $team=$_GET['team_name'];
+   //$password=$_GET['password'];
+   //$search_all_subscribers= $_GET['search_all_subscribers'];
     
-    if ( $team!='' && $password!='' )
+   // if ( $team!='' && $password!='' )
 {//2
   
-            $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+       /*     $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
             $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
-         if ($num_results >0)
+         if ($num_results >0)*/
   {//3
    // echo"$team $password: $search_all_subscribers<br>";
 
 
   
 
-$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
+$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all_subscribers']) );
 $subscribers = "SELECT * from phone_subscriber where   
-MATCH(subscriber_number)       AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 
+MATCH(subscriber_number)          AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 
 || MATCH(Date_Time)               AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 
 || MATCH(subscriber_imei)         AGAINST('$search_all_subscribers' IN BOOLEAN MODE)  
 || MATCH(subscriber_address)      AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 
@@ -91,7 +88,7 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers' IN BOOLEAN MODE
         echo"<h3>There are ".number_format($num_results)." <i>phone subscriber</i> results for
          <b>$search_all_subscribers</b></h3>
         
-  <div class='expand'>";
+  ";
         while ($row = $result->fetch_assoc()) 
        {//7
   echo"<table class='basic' border='0' style=''><tbody>
@@ -103,7 +100,7 @@ MATCH(subscriber_number)       AGAINST('$search_all_subscribers' IN BOOLEAN MODE
   <tr><td>Date and Time:</td>         <td>".$row['Date_Time']."     </td></tr>
   </tbody></table><br>";
         }//7
-        echo"</div><h3>Mouse/Scroll for more</h3>";
+        //echo"</div><h3>Mouse/Scroll for more</h3>";
     
     
 
