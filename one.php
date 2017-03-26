@@ -3,6 +3,7 @@
   <img class='people_small' src='images/people.jpg'></img>
 </div>
 <div class='right'>
+
   <p>There are different levels of access governent agencies can have of the information generated whenever we contact someone with an electronic device:</p>
 <details><summary><h5>1. 'warrantless metadata'</h5></summary>
     <p>So called 'metadata' that has been generated within the last two years is available to law enforcement agencies without a warrant. </p>
