@@ -1,10 +1,14 @@
 <div class='left'>
+    <h3>How anonymous are we? </h3>
   <img class='people' src='images/magnifying-glass.jpg'></img>
   <img class='people_small' src='images/people.jpg'></img>
+
+
+  <p>Get the low down on how easy it is to track us down through our data with this short presentation...</p>
 </div>
 <div class='right'>
 
-  <p>There are different levels of access governent agencies can have of the information generated whenever we contact someone with an electronic device:</p>
+  <p>There are different levels of access government agencies can have of the information generated whenever we contact someone with an electronic device:</p>
 <details><summary><h5>1. 'warrantless metadata'</h5></summary>
     <p>So called 'metadata' that has been generated within the last two years is available to law enforcement agencies without a warrant. </p>
 </details>

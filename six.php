@@ -25,7 +25,7 @@ against the calls to and from the journalist to see if we can narrow it down to 
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
 </p>-->
 <p><strong>#1</strong>. You will need to read the article (next slide) to get the name of the journalist. </p>
-<p><strong>#2</strong>. You will need to dig into the phone subscriber data (searches/last slide) to get the full information on the journalist.  </p>
+<p><strong>#2</strong>. You will need to dig into the phone subscriber data (last slide) to get the full information on the journalist.  </p>
 
 <p><strong>#3</strong>. You will need to use the journalists phone number search the phone usage data to find out who has been in contact with her. </p>
 

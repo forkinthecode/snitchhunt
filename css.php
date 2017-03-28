@@ -17,12 +17,11 @@ body { height:100%; overflow: scroll;
 width:100%;}
 .content{width:100%; }
 .police {width:450px;}
-.content_title {  color:#25a3f7; float:right; margin-right:100px; padding:10px; display:none; }
+.content_title {  color:#eee;  padding:10px; display:none;}
 .pics { width:100%; margin-bottom:30px; border: solid: 1px;}
 .pics td:nth-of-type(odd) { width:30%; }
 
-
-.people {width:100%;}
+.people {width:100%; padding:2%;}
 p {margin-bottom:20px; margin-left:20px; padding-right:90px;  }
 h1 { text-align: center; padding: 0 50px;  font-size: 40px; padding-right:90px; }
 h2 {padding-left:10px; padding-right:90px;}
@@ -35,6 +34,7 @@ input[type="text"] { padding-left:5px; height:30px; width:90%; font-size:15px;te
 blockquote {margin:20px;padding-right:20px;}
 .data {width:450px;}
 @media (max-width: 719px) { .page {margin-left:5px; margin-right:5px; }
+.framework {display:none;}
 p {font-size:15px; line-height:20px; width:100%;}
 h5 {font-size:17px;}
 h2 {font-size:20px;}
@@ -52,8 +52,7 @@ details {line-height:35px;}
 @media (min-width: 720px) { 
 .people_small { display:none; width:100%;}
 }
-.framework2   { display:none;
-display: none;
+.framework2   { 
 width:100%; 
 /*background:RGBA(42, 91, 114, 1);*/
 margin-top:60px;
@@ -67,7 +66,7 @@ right: 0;
 
 }
 
-.framework2  a { display:none;
+.framework2  a { 
 line-height: 54px;
 font-family: helvetica, arial;
 font-size: 20px;
@@ -85,33 +84,33 @@ margin: 0;
 transition: all 1s; */
 
 }
+@media (min-width: 719px) {
 
-.framework   { 
-  position:fixed;
-display: none;
-width:100%; 
+.framework   { width:100%;
+position:fixed;
+background:#fff;
 cellspacing: 0; 
 border-collapse: collapse;
-/*background:RGBA(42, 91, 114, 1);*/
+position: fixed;
 z-index: 5000;
-top: -1px;
+bottom: -1px;
 left: 0;
 right: 0;
 
 }
 .framework td {min-width:60px;   }
 
-.framework  a { display:none;
-line-height: 54px;
+.framework a {
+line-height: 24px;
 font-family: helvetica, arial;
-font-size: 20px;
+font-size: 11px;
 font-weight: bold;
 text-decoration: none;
-
+color: #333;
 display: block;
 text-align: center;
 margin: 0;
-color :#fff;
+
 /*
 -moz-transition: all 1s; 
 -webkit-transition: all 1s; 
@@ -135,7 +134,7 @@ transition: all 1s; */
 #a12:target #p12,
 #a13:target #p13,
 #a14:target #p14,
-#a15:target #p15*/ { background:#333;  }
+#a15:target #p15*/ { background:#eee;  }
 
 .framework a:hover 
 
@@ -146,7 +145,7 @@ transition: all 1s; */
 -o-transition: background 0s; 
 transition: background 0s; 
 }
-
+}
 
 input[type=radio]
 {/* Double-sized Checkboxes/radioboxes */

@@ -51,14 +51,12 @@ include('css.php');
 
    <table  class='framework'> 
     <tr> 
-     <td><a href="#a1" id="p1">1 </a></td> 
-     <td><a href="#a2" id="p2">2 </a></td> 
-     <td><a href="#a3" id="p3">3 </a></td> 
-     <td><a href="#a4" id="p4">4 </a></td> 
-     <td><a href="#a5" id="p5">5 </a></td> </tr>
-</table>
-<table class='framework2'>
-     <tr>
+     <td><a href="#a1" id="p1">Intro </a></td> 
+     <td><a href="#a2" id="p2">Data Retention Scheme</a></td> 
+     <td><a href="#a3" id="p3">What is SnitchHunt? </a></td> 
+     <td><a href="#a4" id="p4">Datasets</a></td> 
+     <td><a href="#a5" id="p5">Data Matching</a></td> </tr>
+<tr>
      <td><a href="#a6" id="p6">Task</a></td> 
      <td><a href="#a7" id="p7">Article</a></td> 
      <td><a href="#a8" id="p8">Short quiz</a></td> 
@@ -89,9 +87,9 @@ include('css.php');
 
    <div id="i1" class="page">   
     <div class='nav'>
-   <div class='content_title'>One</div>
+
     <a href="#a2" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
- 
+    <div class='content_title'>Slide One</div>
     <div class='content'>
  
 <?php
@@ -102,7 +100,7 @@ include'one.php';
 </div>
  <div id="i2" class="page">
   <div class='nav'>
-    <a href="#a1" class="backbutton"><img src='images/next-blue-light-left.png'></img></a><div class='content_title'>Two</div>
+    <a href="#a1" class="backbutton"><img src='images/next-blue-light-left.png'></img></a><div class='content_title'>Slide Two</div>
     <a href="#a3" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div> 
      <div class='content'>
   <?php
@@ -111,7 +109,7 @@ include'one.php';
 
 </div>
 </div>
-<div id="i3" class="page"><div class='content_title'>Three</div>
+<div id="i3" class="page"><div class='content_title'>Slide Three</div>
  <div class='nav'>
      <a href="#a2" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
       <a href="#a4" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
@@ -121,7 +119,7 @@ include'one.php';
   ?>
 </div>
 </div>
- <div id="i4" class="page"><div class='content_title'>Four</div>
+ <div id="i4" class="page"><div class='content_title'>Slide Four</div>
   <div class='nav'>
    <a href="#a3" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
     <a href="#a5" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
@@ -131,7 +129,7 @@ include'one.php';
   ?>
 </div>
 </div>
-  <div id="i5" class="page"><div class='content_title'>Five</div>
+  <div id="i5" class="page"><div class='content_title'>Slide Five</div>
    <div class='nav'>
     <a href="#a4" class="backbutton"><img src='images/next-blue-light-left.png'></img></a>
     <a href="#a6" class="nextbutton"><img src='images/next-blue-light.png'></img></a></div>
