@@ -47,7 +47,7 @@
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
 			    {//2
-			       echo"<h3>There are no calls originating from $subscriber_phone_number at the $cell_tower_location location. </h3>";
+			       echo"<h3>There are no calls originating from $subscriber_phone_number at the $cell_tower_location location. </h3><br>";
 	   
 			   }
 			   else

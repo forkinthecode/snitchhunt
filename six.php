@@ -1,45 +1,144 @@
+<h2>Data Matching</h2>
+<p>Data matching means taking information that appears in more than one data set and finding matching records for it.</p>
+<p>For example, when we browse the web or send an email using the same internet connection, the IP address of the router our 
+  devices use to access the internet is recorded along with other data about each activity.</p>
 
-<p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
+<details><summary><h5>Which datasets contain IP address of the device connected to the internet?</h5></summary>
+  <p>Google search data & Email metadata</p>
+</details>
+<details><summary><h5>Which datasets contain email address?</h5></summary>
+  <p>Phone subscriber database, Email metadata, Google search metadata.</p>
+</details>
+<details><summary><h5>Which datasets contain home address?</h5></summary>
+  <p>Google search metadata, Phone subscriber data</p>
+</details>
+<details><summary><h5>Which datasets real time location information?</h5></summary>
+  <p>Phone usage metadata</p>
+</details>
+  <h2>Email metadata </h2>
+<!--<table class='metadata'><tr><td>
+<img  src='images/email.png'></td><td>
+<p>Email metadata that is provided to government without warrant includes data from emails sent to and from Australian email providers, including recipient and sender address, time and date, regardless of whether the email was successfully delivered.</p>
+<p>It is worth remembering that while metadata is provided to law enforcement agencies without a warrant,  access to content is available where a warrant has been granted.</p>
 
-<div class='phone'>  
-	<div class='task'>
-<p><strong>From: Finn Coburn &lt;finn.coburn&#64;thepolice.com&gt;</strong><br />
-<p><strong>To: data-analysts&#64;thepolice.com</strong></p>
-<p><strong>Date: 2016-12-10 10:58</strong></p>
-<p><strong>Subject: Fixing a leak at Minecorp</strong>  </p>
-<p>Good morning analysts,</p>
-<p>Apologies for the email on the weekend. I am just off the phone with the chief and I need you to work on something asap.</p>
-<p>It seems there is a whistleblower at Minecorp leaking to a journalist at MineWatch. Here is the article that just came out yesterday evening:</p>
-<p>Anna Dupont: Whistleblower Reveals that Minecorp's WA Fracking Operation Uses Toxic Chemicals (next slide)</p>
-<p>May I remind you that the mines in Australia are all critical infrastructure, and those leaked docs cannot get into the wrong hands on the black market. 
-	Therefore, we need to identify the person of interest to put him/her under arrest.</p>
-<p>So I need you to dig this guy up for me. As some of you are new hires here, let me reiterate again what is expected from you to do:</p>
-<p>We need to know who has been in contact with the journalist. We have taken the data from the cell tower location at <b>Bungana Drive</b> near the mine and we need to match it
-against the calls to and from the journalist to see if we can narrow it down to a suspect.</p>
-<p>
-<!--
-<p><strong>#1</strong>. Open up the Google metadata search page. 
-  
-   This brings up Google's records of what people have searched for. The article should come handy to find the right person.
+</td></tr></table>-->
+
+<?php
+
+  $email = "SELECT * from email_metadata where id='1' ";
+$result = mysqli_query($db, $email );
+   echo"
+ 
+";
+ while ($row = $result->fetch_assoc()) 
+    {
+
+echo"  
+
+
+<br>
+<table class='basic' ><tbody>
+  <tr><td>IP Address:</td>            <td><a class='mobile' href='' title='IP Address of the device connected to the ISP'>".$row['source_IP_address']." </a>    </td><td>IP Address of the router that connects your devices to the internet.</td></tr>
+  <tr><td>Sender :</td>               <td><a class='mobile'href='' title='Sender email'>".$row['sender_email_address']."</a>   </td><td></td></tr>
+  <tr><td>Recipient:</td>             <td><a class='mobile'href='' title='Recipient email'>".$row['recipient_email_address']."</a></td><td></td></tr>
+  <tr><td>Email subject line:</td>    <td><a class='mobile'href='' title='Email subject line- this is content under the Data Retention Scheme: only available with warrant'> ".$row['email_subject_line']."</a>     </td><td>This is content under the Data Retention Scheme: only available with warrant</td></tr>
+  <tr><td>Port</td>                   <td><a class='mobile'href='' title='Port number'>".$row['port']."  </a>              <td></td>    </td></tr>
+  <tr><td>Date and Time:</td>         <td><a class='mobile'href='' title='Date/Time'>".$row['date_time']."</a>         <td></td>     </td></tr>
+
+
+ </tbody></table><br>";
+
+}
+?>
+
+
+
+<h2>Web search metadata </h2>
+<!--<table class='metadata'><tr><td><img  src='images/computer.png'></td><td>
+ <p>While the Australian government doesn't have direct access to your browsing history, foreign governments collect this data
+and access can be provided to local authorities. Search engine data varies depending on the information you have provided in your use of the internet and your privacy settings.</p>
+</td></tr></table>-->
+
+<?php
+$google = "SELECT * from google_metadata where id='46' ";
+$result = mysqli_query($db, $google );
+ 
+ while ($row = $result->fetch_assoc()) 
+    {
+
+echo"<table class='basic' border='0' ><tbody>
+  <tr><td width='150px'>IP Address:</td>        <td><a class='mobile' href='' title='IP Address'>".$row['IP_address']." </a>    </td><td>This is the IP address of the device not the web page. <a href='https://en.wikipedia.org/wiki/IP_address'>More</a></td></tr>
+      <tr><td>Search Terms:</td>                <td><a class='mobile' href='' title='search terms'>".$row['search_terms']." </a>    </td><td></td></tr>
+      <tr><td>User Id:</td>                     <td><a class='mobile' href='' title='Google user ID'>".$row['user_id']."  </a>      </td><td></td></tr>
+      <tr><td>Full Name:</td>                   <td><a class='mobile' href='' title='Full name'>".$row['full_name']."</a>      </td><td></td></tr>
+      <tr><td>Username:</td>                    <td><a class='mobile' href='' title='Username'>".$row['user_name']." </a>     </td><td></td></tr>
+      <tr><td>Email Address:</td>               <td><a class='mobile' href='' title='Email address'>".$row['email_address']." </a> </td><td></td></tr>
+      <tr><td>Address:</td>                     <td><a class='mobile' href='' title='Street Address'>".$row['address']." </a>       </td><td></td></tr>
+      <tr><td>Employer:</td>                    <td><a class='mobile' href='' title='Employer'>".$row['employer']."</a>       </td><td></td></tr>
+      <tr><td>Job Title:</td>                   <td><a class='mobile' href='' title='Job Title'>".$row['job_title']."</a>      </td><td></td></tr>
+      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
+      <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type'>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
+      <tr><td>Date and Time:</td>               <td><a class='mobile' href='' title='Date/Time'>".$row['date_time']."</a>     </td><td></td></tr>
+     </tbody></table><br>";
+}
+      
+?>
+
+<h2>Phone subscriber metadata  </h2>
+<!--<table class='metadata'><tr><td>
+  <img src='images/smartphone-blue.png'></td><td>
+<p>Every phone has a number called an <a href='https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity' target='_blank'>IMEI</a> that is unique to that device. This number is part of your customer records with your phone company along with your basic personal information like name, address and email. 
+</p><p>People can be identified by taking information from one dataset and using it search a different dataset. Mouse over the fields for more information on where this data comes from and compare with the other datasets here to see which fields occur in more than one dataset.</p>
+
+</td></tr></table>-->
+
+<?php
+  $subscriber = "SELECT * from phone_subscriber where id='2' ";
+$result = mysqli_query($db, $subscriber );
+   echo"<br>
+";
+
+ while ($row = $result->fetch_assoc()) 
+    {
+
+echo"<table class='basic' ><tbody>
+  <tr><td>Subscriber IMEI:</td>      <td><a class='mobile' href='' title='Device IMEI'>".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network</td></tr>
+  <tr><td>Subscriber Address:</td>    <td><a class='mobile' href='' title='Subscriber address'>".$row['subscriber_address']."</a></td><td></td></tr>
+  <tr><td>Subscriber Email:</td>      <td><a class='mobile' href='' title='Subscriber email'>".$row['subscriber_email']."</a></td><td></td></tr>
+  <tr><td>Subscriber Name:</td>       <td><a class='mobile' href='' title='Subscriber name'>".$row['subscriber_name']."</a></td><td></td></tr>
+  <tr><td>Subscriber Number</td>      <td><a class='mobile' href='' title='Subscriber number'>".$row['subscriber_number']."</a></td><td></td></tr>
+  <tr><td>Date and Time:</td>         <td><a class='mobile' href='' title='Date/Time'>".$row['Date_Time']."</a>    </td><td></td></tr>
+  </tbody></table><br>";
+
+
+}
+
+?>
+
+
+<h2>Phone usage metadata </h2>
+<!--<table class='metadata'><tr><td><img src='images/sim-card.png'></td><td>
+   <p>Your IMEI can be used to track your geographical location and find all the records for that device.
+ These records show when calls were made, how long they lasted, when texts were sent, 
+ who they were sent to or received from and the locations of each party during the call or text.
 </p>
-<p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
-</p>-->
-<p><strong>#1</strong>. You will need to read the article (next slide) to get the name of the journalist. </p>
-<p><strong>#2</strong>. You will need to dig into the phone subscriber data (last slide) to get the full information on the journalist.  </p>
+<p>The government also has warrantless access to when (and where) you log into and out of your voice mail messages.</p>
+</td></tr></table>-->
 
-<p><strong>#3</strong>. You will need to use the journalists phone number search the phone usage data to find out who has been in contact with her. </p>
+    <?php
+$phone = "SELECT * from phone_metadata where id='1'";
+$result = mysqli_query($db, $phone );
 
-<p><strong>#4</strong>. Once you have the results for calls made to cell towers around the mine, plug it into the phone subscriber data base to identify our potential suspect. </p>
-<!--
-<p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
-<p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the cross search page.</p>
-<p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both numbers.</p>
-  
-<p> You will need to solve the challenges in order to find the solutions. </p>-->
-<p>FINN COBURN<br />
-CHIEF DATA OFFICER<br />
-COMPUTER CRIME SQUAD<br />
-Tel: 16131<br />
-www.thepolice.com</p>
-</div>
-</div>
+ while ($row = $result->fetch_assoc()) 
+    {
+echo"<br><table class='basic' border='0' ><tbody>
+  <tr><td>Subscriber IMEI:</td><td><a class='mobile' href='' title='Device IMEI'> ".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network.</td></tr>
+  <tr><td>Subscriber Number:</td><td><a class='mobile' href='' title='Suscriber phone number'>".$row['subscriber_phone_number']."</a></td><td></td></tr>
+  <tr><td>Dialled Number:</td><td><a class='mobile' href='' title='Dialled number'> ".$row['dialled_number']."</a></td><td></td></tr>
+  <tr><td>Cell Tower Location:</td><td><a class='mobile' href='' title='Cell tower location'>".$row['cell_tower_location']."</a></td><td>The Global System for Mobile Communications uses cell towers to relay information to and from your phone. <a href='https://en.wikipedia.org/wiki/Cell_site'>More</a></td></tr>
+  <tr><td>Date and Time:</td><td><a class='mobile' href='' title='Date/Time'> ".$row['date_time']."</a></td><td></td></tr>
+  </tbody></table><br> ";
+}
+
+ ?>
+

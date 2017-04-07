@@ -5,6 +5,9 @@
 body { height:100%; overflow: scroll; 
   color: #333;  font-family: helvetica, arial; font-size:20px;  } a:active { outline: none;}
   .nav { width:100%; height:50px;}
+  .heading {}
+  .banner {width:100%; }
+p.small {font-size:15px;}
 ::selection { background: #ffb7b7; /* WebKit/Blink Browsers */}
 ::-moz-selection { background: #ffb7b7; /* Gecko Browsers */}
 .backbutton {float:left;  background-size:50px; z-index: 5000;}
@@ -15,7 +18,7 @@ body { height:100%; overflow: scroll;
 .page {  overflow:scroll;   font-size:30px; position: absolute; margin-left:50px; margin-top:20px;
   margin-right:50px; margin-bottom:20px; 
 width:100%;}
-.content{width:100%; }
+.content{width:100%; height:100%; }
 .police {width:450px;}
 .content_title {  color:#eee;  padding:10px; display:none;}
 .pics { width:100%; margin-bottom:30px; border: solid: 1px;}
@@ -39,6 +42,7 @@ p {font-size:15px; line-height:20px; width:100%;}
 h5 {font-size:17px;}
 h2 {font-size:20px;}
 details {line-height:35px;}
+summary {width:100%; margin-left:-20px;}
 .people {display:none;}
 .people_small {margin:10px;}
 .police {width:300px; margin-left:50px;}
@@ -77,11 +81,11 @@ display: block;
 text-align: center;
 margin: 0;
 
-/*
--moz-transition: all 1s; 
--webkit-transition: all 1s; 
--o-transition: all 1s; 
-transition: all 1s; */
+
+-moz-transition: all 0.2s; 
+-webkit-transition: all 0.2s; 
+-o-transition: all 0.2s; 
+transition: all 0.2s; 
 
 }
 @media (min-width: 719px) {
@@ -111,11 +115,11 @@ display: block;
 text-align: center;
 margin: 0;
 
-/*
--moz-transition: all 1s; 
--webkit-transition: all 1s; 
--o-transition: all 1s; 
-transition: all 1s; */
+
+-moz-transition: all 0.2s; 
+-webkit-transition: all 0.2s; 
+-o-transition: all 0.2s; 
+transition: all 0.2s; 
 
 }
 
@@ -266,10 +270,10 @@ li { list-style: square; font-size:15px; margin-left:30px; }
 /* The Transition Effect */
 
 .page { 
--webkit-transition: -webkit-transform 0.8s;
--moz-transition: -moz-transform 0.8s;
--o-transition: -o-transform 0.8s;
-transition: transform 0.8s;
+-webkit-transition: -webkit-transform 0.5s;
+-moz-transition: -moz-transform 0.5s;
+-o-transition: -o-transform 0.5s;
+transition: transform 0.5s;
       }
 
 

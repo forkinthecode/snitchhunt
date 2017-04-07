@@ -19,6 +19,8 @@ include('css.php');
 
 
 
+
+<div class='clear'></div>
 <script> 
  function BlockMove(event) {
   // Tell Safari not to move the window.
@@ -28,7 +30,10 @@ include('css.php');
 </head>
 
 <body > 
+<?php
+include('footer.php');
 
+?>
 
 <!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
@@ -51,17 +56,17 @@ include('css.php');
 
    <table  class='framework'> 
     <tr> 
-     <td><a href="#a1" id="p1">Intro </a></td> 
-     <td><a href="#a2" id="p2">Data Retention Scheme</a></td> 
-     <td><a href="#a3" id="p3">What is SnitchHunt? </a></td> 
-     <td><a href="#a4" id="p4">Datasets</a></td> 
-     <td><a href="#a5" id="p5">Data Matching</a></td> </tr>
+     <td><a href="#a1" id="p1">Home</a></td> 
+     <td><a href="#a2" id="p2">Government</a></td> 
+     <td><a href="#a3" id="p3">Corporations</a></td> 
+     <td><a href="#a4" id="p4">What is SnitchHunt?</a></td> 
+     <td><a href="#a5" id="p5">Datasets</a></td> </tr>
 <tr>
-     <td><a href="#a6" id="p6">Task</a></td> 
-     <td><a href="#a7" id="p7">Article</a></td> 
-     <td><a href="#a8" id="p8">Short quiz</a></td> 
-     <td><a href="#a9" id="p9">Hard quiz</a></td> 
-     <td><a href="#a10" id="p10">About</td> </tr>
+     <td><a href="#a6" id="p6">Data Matching</a></td> 
+     <td><a href="#a7" id="p7">Task</a></td> 
+     <td><a href="#a8" id="p8">Article</a></td> 
+     <td><a href="#a9" id="p9">Short Quiz</a></td> 
+     <td><a href="#a10" id="p10">Hard Quiz</td> </tr>
     
     <!-- <tr><td><a href="#a11" id="p11">11</a></td> </tr><tr>
      <td><a href="#a12" id="p12">12</a></td> </tr><tr>
@@ -194,6 +199,7 @@ include'one.php';
 
 
 </div>
+
 </body>
 </html>
 

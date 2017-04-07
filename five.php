@@ -1,27 +1,11 @@
-<h2>Data Matching</h2>
-<p>Data matching means taking information that appears in more than one data set and finding matching records for it.</p>
-<p>For example, when we browse the web or send an email using the same internet connection, the IP address of the router our 
-  devices use to access the internet is recorded along with other data about each activity.</p>
 
-<details><summary><h5>Which datasets contain IP address of the device connected to the internet?</h5></summary>
-  <p>Google search data & Email metadata</p>
-</details>
-<details><summary><h5>Which datasets contain email address?</h5></summary>
-  <p>Phone subscriber database, Email metadata, Google search metadata.</p>
-</details>
-<details><summary><h5>Which datasets contain home address?</h5></summary>
-  <p>Google search metadata, Phone subscriber data</p>
-</details>
-<details><summary><h5>Which datasets real time location information?</h5></summary>
-  <p>Phone usage metadata</p>
-</details>
   <h2>Email metadata </h2>
-<!--<table class='metadata'><tr><td>
+<table class='metadata'><tr><td>
 <img  src='images/email.png'></td><td>
 <p>Email metadata that is provided to government without warrant includes data from emails sent to and from Australian email providers, including recipient and sender address, time and date, regardless of whether the email was successfully delivered.</p>
 <p>It is worth remembering that while metadata is provided to law enforcement agencies without a warrant,  access to content is available where a warrant has been granted.</p>
 
-</td></tr></table>-->
+</td></tr></table>
 
 <?php
 
@@ -52,45 +36,13 @@ echo"
 ?>
 
 
-
-<h2>Web search metadata </h2>
-<!--<table class='metadata'><tr><td><img  src='images/computer.png'></td><td>
- <p>While the Australian government doesn't have direct access to your browsing history, foreign governments collect this data
-and access can be provided to local authorities. Search engine data varies depending on the information you have provided in your use of the internet and your privacy settings.</p>
-</td></tr></table>-->
-
-<?php
-$google = "SELECT * from google_metadata where id='46' ";
-$result = mysqli_query($db, $google );
- 
- while ($row = $result->fetch_assoc()) 
-    {
-
-echo"<table class='basic' border='0' ><tbody>
-  <tr><td width='150px'>IP Address:</td>        <td><a class='mobile' href='' title='IP Address'>".$row['IP_address']." </a>    </td><td>This is the IP address of the device not the web page. <a href='https://en.wikipedia.org/wiki/IP_address'>More</a></td></tr>
-      <tr><td>Search Terms:</td>                <td><a class='mobile' href='' title='search terms'>".$row['search_terms']." </a>    </td><td></td></tr>
-      <tr><td>User Id:</td>                     <td><a class='mobile' href='' title='Google user ID'>".$row['user_id']."  </a>      </td><td></td></tr>
-      <tr><td>Full Name:</td>                   <td><a class='mobile' href='' title='Full name'>".$row['full_name']."</a>      </td><td></td></tr>
-      <tr><td>Username:</td>                    <td><a class='mobile' href='' title='Username'>".$row['user_name']." </a>     </td><td></td></tr>
-      <tr><td>Email Address:</td>               <td><a class='mobile' href='' title='Email address'>".$row['email_address']." </a> </td><td></td></tr>
-      <tr><td>Address:</td>                     <td><a class='mobile' href='' title='Street Address'>".$row['address']." </a>       </td><td></td></tr>
-      <tr><td>Employer:</td>                    <td><a class='mobile' href='' title='Employer'>".$row['employer']."</a>       </td><td></td></tr>
-      <tr><td>Job Title:</td>                   <td><a class='mobile' href='' title='Job Title'>".$row['job_title']."</a>      </td><td></td></tr>
-      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
-      <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type'>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
-      <tr><td>Date and Time:</td>               <td><a class='mobile' href='' title='Date/Time'>".$row['date_time']."</a>     </td><td></td></tr>
-     </tbody></table><br>";
-}
-      
-?>
-
 <h2>Phone subscriber metadata  </h2>
-<!--<table class='metadata'><tr><td>
+<table class='metadata'><tr><td>
   <img src='images/smartphone-blue.png'></td><td>
 <p>Every phone has a number called an <a href='https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity' target='_blank'>IMEI</a> that is unique to that device. This number is part of your customer records with your phone company along with your basic personal information like name, address and email. 
 </p><p>People can be identified by taking information from one dataset and using it search a different dataset. Mouse over the fields for more information on where this data comes from and compare with the other datasets here to see which fields occur in more than one dataset.</p>
 
-</td></tr></table>-->
+</td></tr></table>
 
 <?php
   $subscriber = "SELECT * from phone_subscriber where id='2' ";
@@ -117,13 +69,13 @@ echo"<table class='basic' ><tbody>
 
 
 <h2>Phone usage metadata </h2>
-<!--<table class='metadata'><tr><td><img src='images/sim-card.png'></td><td>
+<table class='metadata'><tr><td><img src='images/sim-card.png'></td><td>
    <p>Your IMEI can be used to track your geographical location and find all the records for that device.
  These records show when calls were made, how long they lasted, when texts were sent, 
  who they were sent to or received from and the locations of each party during the call or text.
 </p>
 <p>The government also has warrantless access to when (and where) you log into and out of your voice mail messages.</p>
-</td></tr></table>-->
+</td></tr></table>
 
     <?php
 $phone = "SELECT * from phone_metadata where id='1'";
@@ -141,4 +93,36 @@ echo"<br><table class='basic' border='0' ><tbody>
 }
 
  ?>
+
+<h2>Web search metadata </h2>
+<table class='metadata'><tr><td><img  src='images/computer.png'></td><td>
+ <p>While the Australian government doesn't have direct access to your browsing history, foreign governments collect this data
+and access can be provided to local authorities. Search engine data varies depending on the information you have provided in your use of the internet and your privacy settings.</p>
+</td></tr></table>
+
+<?php
+$google = "SELECT * from google_metadata where id='46' ";
+$result = mysqli_query($db, $google );
+ 
+ while ($row = $result->fetch_assoc()) 
+    {
+
+echo"<table class='basic' border='0' ><tbody>
+  <tr><td width='150px'>IP Address:</td>        <td><a class='mobile' href='' title='IP Address'>".$row['IP_address']." </a>    </td><td>This is the IP address of the device not the web page. <a href='https://en.wikipedia.org/wiki/IP_address'>More</a></td></tr>
+      <tr><td>Search Terms:</td>                <td><a class='mobile' href='' title='search terms'>".$row['search_terms']." </a>    </td><td></td></tr>
+      <tr><td>User Id:</td>                     <td><a class='mobile' href='' title='Google user ID'>".$row['user_id']."  </a>      </td><td></td></tr>
+      <tr><td>Full Name:</td>                   <td><a class='mobile' href='' title='Full name'>".$row['full_name']."</a>      </td><td></td></tr>
+      <tr><td>Username:</td>                    <td><a class='mobile' href='' title='Username'>".$row['user_name']." </a>     </td><td></td></tr>
+      <tr><td>Email Address:</td>               <td><a class='mobile' href='' title='Email address'>".$row['email_address']." </a> </td><td></td></tr>
+      <tr><td>Address:</td>                     <td><a class='mobile' href='' title='Street Address'>".$row['address']." </a>       </td><td></td></tr>
+      <tr><td>Employer:</td>                    <td><a class='mobile' href='' title='Employer'>".$row['employer']."</a>       </td><td></td></tr>
+      <tr><td>Job Title:</td>                   <td><a class='mobile' href='' title='Job Title'>".$row['job_title']."</a>      </td><td></td></tr>
+      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
+      <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type'>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
+      <tr><td>Date and Time:</td>               <td><a class='mobile' href='' title='Date/Time'>".$row['date_time']."</a>     </td><td></td></tr>
+     </tbody></table><br>";
+}
+      
+?>
+
 
