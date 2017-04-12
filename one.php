@@ -1,9 +1,9 @@
 <div class='left'>
 <div class='heading'>
-<img class='banner' src='images/header.png'/>
+<a href='https://whistleblower.network'><img class='banner' src='images/header.png'/></a>
 
 </div>
-<iframe src="https://embed.theguardian.com/embed/video/world/video/2017/apr/04/wiretaps-data-dumps-and-zero-days-is-digital-privacy-no-longer-possible-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<iframe class='video' src="https://embed.theguardian.com/embed/video/world/video/2017/apr/04/wiretaps-data-dumps-and-zero-days-is-digital-privacy-no-longer-possible-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
 <p class='small'><i>"Terrorism is tipping the balance from privacy and toward ongoing mass surveillance."</i></p>
 
@@ -43,7 +43,7 @@ of metadata can be brought together to identify & track the movements of individ
 <p>The easy version does not require log in and is not scored. The difficult version requires sign up to keep track of scoring so is a more competitive type of event.</p>
 <p>My version of SnitchHunt is currently open sourced at <a href='https://github.com/forkinthecode/snitchhunt'>GitHub</a>.</p>
 <p>Rosie Williams has a degree in Sociology (inequality, public policy) and programming skills in PHP, MySQL, CSS & HTML. </p>
-
+<p>The layout of this site came from <a href='http://www.designmadeingermany.de/slideshow/' target='_blank'>here</a>, although it has been altered for my own purposes.</p>
 
 </details>
 <details><summary><h5>Donate</h5></summary>

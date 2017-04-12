@@ -23,7 +23,7 @@ echo"<div class='homer'><h5>Challenge 1 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_one is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_one is Incorrect for Q1<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -53,7 +53,7 @@ echo"<div class='homer'><h5>Challenge 2 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_two is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_two is Incorrect for Q2<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -83,7 +83,7 @@ echo"<div class='homer'><h5>Challenge 3 is correct! <img style='' src='images/ch
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_three is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_three is Incorrect for Q3<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -113,7 +113,7 @@ echo"<div class='homer'><h5>Challenge 4 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_four is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_four is Incorrect for Q4<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -143,7 +143,7 @@ echo"<div class='homer'><h5>Challenge 5 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_five is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_five is Incorrect for Q5<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -173,40 +173,47 @@ echo"<div class='homer'><h5>Challenge 6 is correct! <img style='' src='images/ch
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_six is Incorrect<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_six is Incorrect for Q6<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
 
 ?>
 <br><br>
+<div class='searches'>
+<h5>Q1. What's the name of the journalist at Minewatch?</a></h5>
+<details><!--[if !IE]><!-->
 
-<details><summary><h5>Q1. What's the name of the journalist at Minewatch?</a></h5></summary>
-<h6>Hint: Search the article (last slide) to find this answer.</h6>
+  <summary><img height='20px' style='float:right' src='images/information.png'></img></summary><!--<![endif]-->
+<h6>Search the article (last slide) to find this answer.</h6>
+</details>
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
 <input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
+</div>
 
-</details>
 <br>
 
 
 
+<div class='searches'>
 
 
+<h5>Q2. What's the phone number of the journalist?</h5>
 
-<details><summary><h5>Q2. What's the phone number of the journalist?</h5></summary>
+<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
 <h6>Hint: Search the article (last slide) to find this answer.</h6>
+</details>
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</details>
+</div>
 
 <br>
 
@@ -214,18 +221,20 @@ else
 
 
 
+<div class='searches'>
 
+<h5>Q3. What's the full address of the journalist?</h5>
 
-<details><summary><h5>Q3. What's the full address of the journalist?</h5></summary>
-
+<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
 <h6>Hint: Search the phone subscriber database (opposite).</h6>
+</details>
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</details>
+</div>
 <br>
 
 
@@ -233,33 +242,37 @@ else
 
 
 
+<div class='searches'>
 
+<h5>Q4. What number called the journalist from the location closest the mine?</h5>
 
-<details><summary><h5>Q4. What number called the journalist from the location closest the mine?</h5></summary>
+<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
 <h6>Hint: Search phone usage metadata by entering the journalist's phone number and the cell tower name mentioned in the task (slide 6) to get any numbers that called
   the journalist from near the mine.</h6>
-
+</details>
 <br>
 <table class='forms' border='0px' ><tr><td>
  <form action='' method='GET'> 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</details>
+</div>
 
 <br>
 
 
 
+<div class='searches'>
+<h5>Q5. What is the name of the person who has called the journalist from near the mine?</h5>
 
-<details><summary><h5>Q5. What is the name of the person who has called the journalist from near the mine?</h5></summary>
-
+<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
 <h6>Hint: Use the phone subscriber database </h6>
+</details>
 <br>
 <table class='forms' border='0px' ><tr><td>
  <form action='' method='GET'> 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</details>
+</div>
 <br>
 
 
@@ -276,9 +289,11 @@ else
 -->
 </div>
 <div class='right'>
+<p>Searches are not case sensitive</p>
 
+<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
 <h5>Phone subscriber database</h5>
-
+</details>
 <?php
 include'subscribers.php';
 

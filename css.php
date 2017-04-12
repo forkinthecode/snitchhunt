@@ -1,10 +1,18 @@
 <style>
 
-
+summary::-webkit-details-marker {
+  display: none
+}
 * { margin: 0; padding: 0; }
-body { height:100%; overflow: scroll; 
-  color: #333;  font-family: helvetica, arial; font-size:20px;  } a:active { outline: none;}
-  .nav { width:100%; height:50px;}
+body { height:100%;  overflow-x:hidden; 
+  color: #333;  font-family: helvetica, arial; font-size:20px; width:100%; } a:active { outline: none;}
+  .nav { width:100%; height:50px; }
+  .content browser {
+ margin-right: -14px !important;
+ overflow-y: scroll;
+ overflow-x: hidden;
+}
+ul li {font-size:30px; margin:10px;}
   .heading {}
   .banner {width:100%; }
 p.small {font-size:15px;}
@@ -15,9 +23,9 @@ p.small {font-size:15px;}
 .right {float:right; width:45%; }
 .left {float:left; width:45%; }
 
-.page {  overflow:scroll;   font-size:30px; position: absolute; margin-left:50px; margin-top:20px;
-  margin-right:50px; margin-bottom:20px; 
-width:100%;}
+.page {  overflow:scroll;   font-size:30px; position: absolute; margin-left:20px; padding-top:20px;
+padding-bottom:20px; 
+width:100%; }
 .content{width:100%; height:100%; }
 .police {width:450px;}
 .content_title {  color:#eee;  padding:10px; display:none;}
@@ -31,18 +39,20 @@ h2 {padding-left:10px; padding-right:90px;}
 h3 {padding-left:10px; padding-right:90px;}
 h4 {padding-left:10px;padding-right:90px; font-size:15px; font-family:arial;}
 h5 {padding-left:35px; padding-right:100px;}
-h6 {padding-left:10px; font-size:15px; padding-right:90px; font-family:arial; margin-bottom:20px;}
+h6 {padding-left:35px; font-size:15px; margin-top:10px; font-family:arial; margin-bottom:10px;
+  color:RGBA(42, 91, 114, 0.75);}
 ul {margin-left:50px;}
 input[type="text"] { padding-left:5px; height:30px; width:90%; font-size:15px;text-decoration: none;}
 blockquote {margin:20px;padding-right:20px;}
 .data {width:450px;}
 @media (max-width: 719px) { .page {margin-left:5px; margin-right:5px; }
+.video {display:none;}
 .framework {display:none;}
 p {font-size:15px; line-height:20px; width:100%;}
 h5 {font-size:17px;}
 h2 {font-size:20px;}
 details {line-height:35px;}
-summary {width:100%; margin-left:-20px;}
+summary {width:100%; margin-left:-20px; }
 .people {display:none;}
 .people_small {margin:10px;}
 .police {width:300px; margin-left:50px;}
@@ -54,6 +64,7 @@ summary {width:100%; margin-left:-20px;}
 .basic td:nth-of-type(odd) {display:none;}
 }
 @media (min-width: 720px) { 
+.page {  min-height:1000px; }
 .people_small { display:none; width:100%;}
 }
 .framework2   { 
@@ -81,12 +92,12 @@ display: block;
 text-align: center;
 margin: 0;
 
-
+/*
 -moz-transition: all 0.2s; 
 -webkit-transition: all 0.2s; 
 -o-transition: all 0.2s; 
 transition: all 0.2s; 
-
+*/
 }
 @media (min-width: 719px) {
 
@@ -115,24 +126,16 @@ display: block;
 text-align: center;
 margin: 0;
 
-
+/*
 -moz-transition: all 0.2s; 
 -webkit-transition: all 0.2s; 
 -o-transition: all 0.2s; 
 transition: all 0.2s; 
-
+*/
 }
 
 
-#a1:target #p1,
-#a2:target #p2,
-#a3:target #p3,
-#a4:target #p4,
-#a5:target #p5,
-#a6:target #p6,
-#a7:target #p7,
-#a8:target #p8,
-#a9:target #p9,
+
 #a10:target #p10/*,
 #a11:target #p11,
 #a12:target #p12,
@@ -143,11 +146,11 @@ transition: all 0.2s;
 .framework a:hover 
 
 { 
- 
+ /*
 -moz-transition: background 0s; 
 -webkit-transition: background 0s; 
 -o-transition: background 0s; 
-transition: background 0s; 
+transition: background 0s; */
 }
 }
 
@@ -183,7 +186,8 @@ div.wrong  { width:90%; padding:1%; margin:20px; background:RGBA(37,163,247, 0.5
  background:url('images/error.png');
  background-size:40px; background-repeat:no-repeat; }
 
-.searches { width:100%;  float:right; display:inline;padding:20px; border-radius: 40px 10px;  }
+.searches { width:100%;  float:right; display:inline;padding:20px; margin-bottom:2%;  
+  border-radius: 20px ;}
 .right {float:right; display:inline;}
 .expand { height:500px; overflow:scroll;   padding:2%; margin:1%;   }
 .search  tr:nth-of-type(even){   } 
@@ -226,11 +230,14 @@ details { margin-bottom:30px; margin-top:30px; width:100%; margin-left:20px;}
 
 
 details:focus
-{outline : none;}
-summary::-webkit-details-marker {border:none;  display:none; float:right; opacity:0.3; margin-right:50px; }
+{outline : none; color:#fff;}
+summary::-webkit-details-marker {
+  display: none
+}/*
+summary:after:-webkit-details-marker {border:none;  display:none; float:right; opacity:0.3; margin-right:50px; }
 summary {    background:url('images/drop-down.png'); opacity:0.7; background-repeat:no-repeat; background-size:30px;
   position: relative; border:none; float:right;width:100%; margin-bottom:30px; margin-right:20px;  }
-
+*/
 
 details[open] summary:after {background:url('show-less-fold-button.png');}
 summary:active {outline:none; }
@@ -269,11 +276,11 @@ li { list-style: square; font-size:15px; margin-left:30px; }
 
 /* The Transition Effect */
 
-.page { 
+.page { /*
 -webkit-transition: -webkit-transform 0.5s;
 -moz-transition: -moz-transform 0.5s;
 -o-transition: -o-transform 0.5s;
-transition: transform 0.5s;
+transition: transform 0.5s;*/
       }
 
 

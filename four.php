@@ -1,4 +1,5 @@
  <h2>SnitchHunt  </h2>
+ <img src='https://whistleblower.network/snitch/images/snitch.png'/><br>
 <div class='left'>
   <p>  The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. </p>
 
@@ -8,6 +9,7 @@
 
 </div>
 <div class='right'>
+
     <details><summary><h5>Google search data</h5></summary>
  <img class='data' src='images/google-ex.png'></img>
  </details>
