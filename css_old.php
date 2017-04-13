@@ -21,7 +21,7 @@ p.small {font-size:15px;}
 .right {float:right; width:45%; }
 .left {float:left; width:45%; }
 
-.page {  overflow:scroll;   font-size:30px;  margin-left:20px; right-margin:50px; padding-top:20px;
+.page {  overflow:scroll;   font-size:30px; position: absolute; margin-left:20px; padding-top:20px;
 padding-bottom:20px; 
 width:100%; }
 .content{width:100%; height:100%; }
@@ -29,8 +29,7 @@ width:100%; }
 .content_title {  color:#eee;  padding:10px; display:none;}
 .pics { width:100%; margin-bottom:30px; border: solid: 1px;}
 .pics td:nth-of-type(odd) { width:30%; }
-.top-nav { margin:20px; width:90%; margin-right:20px; }
-.top-nav td:nth-of-type(even) {float:right;}
+.small tr:nth-of-type(odd) { border-bottom:dashed 1px #333; }
 .people {width:100%; padding:2%;}
 p {margin-bottom:20px; margin-left:20px; padding-right:90px;  }
 h1 { text-align: center; padding: 0 50px;  font-size: 40px; padding-right:90px; }
@@ -258,8 +257,58 @@ li { list-style: square; font-size:15px; margin-left:30px; }
 .homer p {margin:2%;}
 /* The Pages */
 
+#i1 { left: 0%; background-color:; }
+#i1 { left: 100%; background:;}
+#i2 { left: 200%; background-color:; }
+#i3 { left: 300%; background-color: ; }
+#i4 { left: 400%; background-color:; }
+#i5 { left: 500%; background-color: ; }
+#i6 { left: 600%; background-color: ; }
+#i7 { left: 700%; background:;}
+#i8 { left: 800%; background:; }
+#i9 { left: 900%; background-color: ; }
+#i10 { left: 1000%; background-color: ; }
+/*#i11 { left: 1100%; background-color: #fff; }
+#i12 { left: 1200%; background-color: #fff; }
+#i13 { left: 1300%; background-color: #fff; }
+#i14 { left: 1400%; background-color: #fff; }
+#i15 { left: 1500%; background-color: #fff; }*/
+
+/* The Transition Effect */
+
+.page { /*
+-webkit-transition: -webkit-transform 0.5s;
+-moz-transition: -moz-transform 0.5s;
+-o-transition: -o-transform 0.5s;
+transition: transform 0.5s;*/
+      }
 
 
+
+/* The Sliding Action */
+/* TranslateX for better Performance. Translate3D for better Performance on Ipad. */
+
+#a1:target .page { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%); }
+#a2:target .page { -webkit-transform: translateX(-200%); -moz-transform: translateX(-200%); -o-transform: translateX(-200%); transform: translateX(-200%); }
+#a3:target .page { -webkit-transform: translateX(-300%); -moz-transform: translateX(-300%); -o-transform: translateX(-300%); transform: translateX(-300%); }
+#a4:target .page { -webkit-transform: translateX(-400%); -moz-transform: translateX(-400%); -o-transform: translateX(-400%); transform: translateX(-400%); }
+#a5:target .page { -webkit-transform: translateX(-500%); -moz-transform: translateX(-500%); -o-transform: translateX(-500%); transform: translateX(-500%); }
+#a6:target .page { -webkit-transform: translateX(-600%); -moz-transform: translateX(-600%); -o-transform: translateX(-600%); transform: translateX(-600%); }
+#a7:target .page { -webkit-transform: translateX(-700%); -moz-transform: translateX(-700%); -o-transform: translateX(-700%); transform: translateX(-700%); }
+#a8:target .page { -webkit-transform: translateX(-800%); -moz-transform: translateX(-800%); -o-transform: translateX(-800%); transform: translateX(-800%); }
+#a9:target .page { -webkit-transform: translateX(-900%); -moz-transform: translateX(-900%); -o-transform: translateX(-900%); transform: translateX(-900%); }
+#a10:target .page { -webkit-transform: translateX(-1000%); -moz-transform: translateX(-1000%); -o-transform: translateX(-1000%); transform: translateX(-1000%); }
+/*#a11:target .page { -webkit-transform: translateX(-1100%); -moz-transform: translateX(-1100%); -o-transform: translateX(-1100%); transform: translateX(-1100%); }
+#a12:target .page { -webkit-transform: translateX(-1200%); -moz-transform: translateX(-1200%); -o-transform: translateX(-1200%); transform: translateX(-1200%); }
+#a13:target .page { -webkit-transform: translateX(-1300%); -moz-transform: translateX(-1300%); -o-transform: translateX(-1300%); transform: translateX(-1300%); }
+#a14:target .page { -webkit-transform: translateX(-1400%); -moz-transform: translateX(-1400%); -o-transform: translateX(-1400%); transform: translateX(-1400%); }
+#a15:target .page { -webkit-transform: translateX(-1500%); -moz-transform: translateX(-1500%); -o-transform: translateX(-1500%); transform: translateX(-1500%); }
+*/
+/* The First Page - Initial Positioning without Anchor */
+
+.page { 
+-webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%);
+}
 
 
 </style>

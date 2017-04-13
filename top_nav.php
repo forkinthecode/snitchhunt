@@ -1,0 +1,1 @@
+<table class='top-nav'><tr><td><img src='images/next-blue-light-left.png'></img</td><td><img src='images/next-blue-light.png'></img></td></tr></table>

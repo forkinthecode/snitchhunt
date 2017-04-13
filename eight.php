@@ -1,4 +1,62 @@
-   
+   <?php
+
+
+include('login.php');
+
+
+include('css.php');
+
+
+
+    
+
+?>
+<!DOCTYPE html> 
+<html>
+<title>SnitchHunt</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
+<head>
+
+
+<?php
+include('footer.php');
+
+?>
+
+</script> 
+</head>
+
+<body > 
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+<div id='nav'>
+  <div id="a1">
+  <div id="a2">
+  <div id="a3">
+  <div id="a4">
+  <div id="a5">
+  <div id="a6">
+  <div id="a7">
+  <div id="a8">
+  <div id="a9">
+  <div id="a10">
+  <!--<div id="a11">
+  <div id="a12">
+  <div id="a13">
+  <div id="a14">
+  <div id="a15">-->
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+ <?php
+
+include'framework.php';
+?>
+
+</nav>
+<table class='top-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+
+<div class='page'>
 <h3>MineWatch, 9th December, 2016</h3>
 <p>We still remember vividly not long ago, Western Australia (WA) farmers told ABC News about their <a href="http://www.abc.net.au/news/2016-04-20/fears-over-fracking-planned-in-wa-food-basket-area-dandaragan/7341656" rel="nofollow">Fracking fears in WA 'food basket' Dandaragan</a>, because their freehold farms which they have spent 40 years to build up will be at risk if frackers get on them. </p>
 <p><em>"If the climate keeps drying as it has been, the only way we will be able to grow any crops is by irrigation. And if we foul the aquifers with these chemicals and the gas, then that option won't be open to us."</em> - WA farmer Harry Minty.</p>
@@ -33,3 +91,13 @@ Twitter: &#64;annaminewatch  </p>
 <li><a href="http://www.usatoday.com/story/news/nation/2013/10/02/fracking-radioactive-water-pennsylvania/2904829/">Fracking linked to radioactive river water in Pa.</a></li>
 </ul>
 </details>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+</body>
+</html>

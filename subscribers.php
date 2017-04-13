@@ -4,7 +4,7 @@
 echo"
 <div class='searches' style=''>
        <table class='forms'><tr><td>   
-            <form action=''  method='GET'>
+            <form action=''  method='POST'>
 
             <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
          </td><td> 
@@ -14,11 +14,11 @@ echo"
   
  ?>
  <?php
-  if (  isset($_GET['search_all_subscribers'])   && $_GET['search_all_subscribers']!='')
+  if (  isset($_POST['search_all_subscribers'])   && $_POST['search_all_subscribers']!='')
 {
 
   
-$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_GET['search_all_subscribers']) );
+$search_all_subscribers= mysqli_real_escape_string ( $db ,trim($_POST['search_all_subscribers']) );
 $subscribers = "SELECT * from phone_subscriber where   
 MATCH(subscriber_number)          AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 
 || MATCH(Date_Time)               AGAINST('$search_all_subscribers' IN BOOLEAN MODE) 

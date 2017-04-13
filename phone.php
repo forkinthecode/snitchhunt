@@ -1,8 +1,8 @@
 
   <?php
-if(  isset($_GET['search_all_phone'])  )
+if(  isset($_POST['search_all_phone'])  )
  {
-$data=trim($_GET['search_all_phone']);
+$data=trim($_POST['search_all_phone']);
 $search_all_phone= mysqli_real_escape_string ( $db , $data );
 echo"<h3>Searching <i>All phone</i> for <i>$search_all_phone</i></h3>";
   

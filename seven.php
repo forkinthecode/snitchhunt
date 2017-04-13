@@ -1,4 +1,61 @@
+<?php
 
+
+include('login.php');
+
+
+include('css.php');
+
+
+
+    
+
+?>
+<!DOCTYPE html> 
+<html>
+<title>SnitchHunt</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
+<head>
+
+
+<?php
+include('footer.php');
+
+?>
+
+</head>
+
+<body > 
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+<div id='nav'>
+  <div id="a1">
+  <div id="a2">
+  <div id="a3">
+  <div id="a4">
+  <div id="a5">
+  <div id="a6">
+  <div id="a7">
+  <div id="a8">
+  <div id="a9">
+  <div id="a10">
+  <!--<div id="a11">
+  <div id="a12">
+  <div id="a13">
+  <div id="a14">
+  <div id="a15">-->
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+<?php
+
+include'framework.php';
+?>
+
+</nav>
+<table class='top-nav'><tr><td><a href='six.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='eight.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+
+<div class='page'>
 <p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
 
 <div class='phone'>  
@@ -43,3 +100,14 @@ Tel: 16131<br />
 www.thepolice.com</p>
 </div>
 </div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+</body>
+</html>
+

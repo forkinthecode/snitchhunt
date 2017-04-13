@@ -1,3 +1,70 @@
+<?php
+
+
+include('login.php');
+
+
+include('css.php');
+
+
+
+    
+
+?>
+<!DOCTYPE html> 
+<html>
+<title>SnitchHunt</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
+<head>
+
+<?php
+include('footer.php');
+
+?>
+
+</head>
+
+<body > 
+
+
+<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
+<div id='nav'>
+  <div id="a1">
+  <div id="a2">
+  <div id="a3">
+  <div id="a4">
+  <div id="a5">
+  <div id="a6">
+  <div id="a7">
+  <div id="a8">
+  <div id="a9">
+  <div id="a10">
+  <!--<div id="a11">
+  <div id="a12">
+  <div id="a13">
+  <div id="a14">
+  <div id="a15">-->
+   <!-- Top Navigation. Ya, tables are evil. -->
+
+   <table  class='framework'> 
+    <tr> 
+     <td><a href="one.php" id="p1">Home</a></td> 
+     <td><a href="two.php" id="p2">Government</a></td> 
+     <td><a href="three.php" id="p3">Corporations</a></td> 
+     <td><a href="four.php" id="p4">What is SnitchHunt?</a></td> 
+     <td><a href="five.php" id="p5">Datasets</a></td> </tr>
+<tr>
+     <td><a href="six.php" id="p6">Data Matching</a></td> 
+     <td><a href="seven.php" id="p7">Task</a></td> 
+     <td><a href="eight.php" id="p8">Article</a></td> 
+     <td><a href="short_quiz.php" id="p9">Short Quiz</a></td> 
+     <td><a href="hard_quiz.php" id="p10">Hard Quiz</td> </tr>
+  
+   </table>
+
+</nav>
+
+<div class='page'>
 <div class='left'>
 <div class='heading'>
 <a href='https://whistleblower.network'><img class='banner' src='images/header.png'/></a>
@@ -60,3 +127,17 @@ of metadata can be brought together to identify & track the movements of individ
 	</details>
 
 </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</body>
+</html>

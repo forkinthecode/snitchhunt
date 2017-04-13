@@ -55,7 +55,7 @@ elseif ($num_results <1)
         `dialled_number` LIKE'%$string%' || 
         `cell_tower_location` LIKE'%$string%' || 
         `date_column` LIKE'%$string%' || 
-        `duration` LIKE'%$string%' order by phone_metadata4.date_column  DESC ";
+        `duration` LIKE'%$string%' order by phone_metadata4.date_column,time  DESC ";
       $result = mysqli_query($db, $phone );
             @$num_results = mysqli_num_rows($result);
             if ($num_results <1)

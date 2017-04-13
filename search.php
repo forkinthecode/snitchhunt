@@ -1,6 +1,6 @@
 
 
-    
+    <p>Copy/Paste interesting results to a text file or google doc for later use.</p>
 
 
   <?php
@@ -11,10 +11,10 @@
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
   <table class='basic'><tr>
-<td><input type='radio' name='checklist'  value='phone'></td>    <td> Search against all fields in the phone usage data </input>  </td><td><img height='70px' src='images/sim-card.png'/></td></tr><tr>
-<td><input type='radio' name='checklist'  value='email'> </td>   <td> Search against all fields in the email usage data  </input>  </td><td><img height='70px' src='images/email.png'/></td>   </tr><tr>
-<td><input type='radio' name='checklist'  value='google'> </td>  <td> Search against all fields in the Google search data  </input>  </td><td><img height='70px' src='images/computer.png'/></td> </tr><tr>
-<td><input type='radio' name='checklist'  value='subscriber'></td><td>Search against all fields in the phone subscriber database</input></td><td><img height='70px' src='images/smartphone.png'/></td> </tr>
+<td><input type='radio' name='checklist'  value='phone'></td>    <td> Search against all fields in the <b>phone usage</b> data </input>  </td><td><img height='70px' src='images/sim-card.png'/></td></tr><tr>
+<td><input type='radio' name='checklist'  value='email'> </td>   <td> Search against all fields in the <b>email usage</b> data  </input>  </td><td><img height='70px' src='images/email.png'/></td>   </tr><tr>
+<td><input type='radio' name='checklist'  value='google'> </td>  <td> Search against all fields in the <b>Google search</b> data  </input>  </td><td><img height='70px' src='images/computer.png'/></td> </tr><tr>
+<td><input type='radio' name='checklist'  value='subscriber'></td><td>Search against all fields in the <b>phone subscriber</b> database</input></td><td><img height='70px' src='images/smartphone.png'/></td> </tr>
 <td>
    </td></td><td><input  type='text'  id='string' name='string' placeholder='Search string' /></td><td><input class='searching' type='submit' name='Submit' value='' /></form></td>
    </tr></table>";
