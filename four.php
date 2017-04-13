@@ -82,6 +82,7 @@ include'framework.php';
 
 
 </div>
+<table class='top-nav'><tr><td><a href='three.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='five.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 </div>

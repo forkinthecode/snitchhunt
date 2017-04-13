@@ -274,6 +274,7 @@ include'search.php'
 ?>
 </div>
 </div>
+<table class='top-nav'><tr><td><a href='short_quiz.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='index.php'>Home</a></td></tr></table>
 
 </div>
 

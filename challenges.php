@@ -106,7 +106,7 @@ echo"
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
-<input class='answer' onclick='div_show()'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 25 points from this question</h6>";
@@ -189,7 +189,7 @@ echo"
  <input class='answer'type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 
 50 of the 100 points available for this question.</h6>";
@@ -209,7 +209,7 @@ echo"
               echo"<h6>Hint: </h6>
               <h6>Search email metadata for minewatch (minewatch is  one word)</h6>
               <h6>There are 705 email metadata results for minewatch</h6>
-              <h6> Use in page search on the IP address from the Google metadata</h6>
+              <h6>Use in page search on the IP address from the Google metadata</h6>
               <h6>Copy email address from first result of in-page search and see if that is answer</h6>
               ";
               $sql = "UPDATE teams SET ch6_max='50' WHERE team='".$team."'";
@@ -271,7 +271,7 @@ echo"
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 25 of the 50 points available for this question.</h6>
 ";
 
@@ -351,7 +351,7 @@ echo"
  <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 50 of the 100 points available for this question.</h6>
 ";
@@ -428,7 +428,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 10 of the 25 points available for this question.</h6>
 ";
@@ -507,7 +507,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
 <input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
-<input class='answer' type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
+<input class='answer' type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 75 of the 150 points available for this question</h6>
 ";
@@ -523,7 +523,7 @@ echo"
             {
               echo"<h6>Hint: </h6>
 <h6>Use Cross Search page.</h6>
-<h6> Enter the journalist and whistleblower's phone numbers into the 2nd cross search box to find out which number they both called. </h6>
+<h6>Enter the journalist and whistleblower's phone numbers into the 2nd cross search box to find out which number they both called. </h6>
 <h6>Click on the IMEI to search the phone subscriber records to get the details of the 2nd whistleblower. 
 </h6>";
 

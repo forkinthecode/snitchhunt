@@ -92,6 +92,7 @@ Twitter: &#64;annaminewatch  </p>
 </ul>
 </details>
 </div>
+<table class='top-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

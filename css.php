@@ -117,7 +117,7 @@ right: 0;
 .framework td {min-width:60px;   }
 
 .framework a {
-line-height: 24px;
+line-height: 35px;
 font-family: helvetica, arial;
 font-size: 11px;
 font-weight: bold;

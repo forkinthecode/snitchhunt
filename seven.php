@@ -67,7 +67,7 @@ include'framework.php';
 <p>Good morning analysts,</p>
 <p>Apologies for the email on the weekend. I am just off the phone with the chief and I need you to work on something asap.</p>
 <p>It seems there is a whistleblower at Minecorp leaking to a journalist at MineWatch. Here is the article that just came out yesterday evening:</p>
-<p>Anna Dupont: Whistleblower Reveals that Minecorp's WA Fracking Operation Uses Toxic Chemicals (next slide)</p>
+<p>Anna Dupont: Whistleblower Reveals that Minecorp's WA Fracking Operation Uses Toxic Chemicals (next page)</p>
 <p>May I remind you that the mines in Australia are all critical infrastructure, and those leaked docs cannot get into the wrong hands on the black market. 
 	Therefore, we need to identify the person of interest to put him/her under arrest.</p>
 <p>So I need you to dig this guy up for me. As some of you are new hires here, let me reiterate again what is expected from you to do:</p>
@@ -81,8 +81,8 @@ against the calls to and from the journalist to see if we can narrow it down to 
 </p>
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
 </p>-->
-<p><strong>#1</strong>. You will need to read the article (next slide) to get the name of the journalist. </p>
-<p><strong>#2</strong>. You will need to dig into the phone subscriber data (last slide) to get the full information on the journalist.  </p>
+<p><strong>#1</strong>. You will need to read the article (next page) to get the name of the journalist. </p>
+<p><strong>#2</strong>. You will need to dig into the phone subscriber data (last page) to get the full information on the journalist.  </p>
 
 <p><strong>#3</strong>. You will need to use the journalists phone number search the phone usage data to find out who has been in contact with her. </p>
 
@@ -99,6 +99,8 @@ COMPUTER CRIME SQUAD<br />
 Tel: 16131<br />
 www.thepolice.com</p>
 </div>
+<table class='top-nav'><tr><td><a href='six.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='eight.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+
 </div>
 </div>
 

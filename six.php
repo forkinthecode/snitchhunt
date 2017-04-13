@@ -201,6 +201,7 @@ echo"<br><table class='basic' border='0' ><tbody>
 
  ?>
 </div>
+<table class='top-nav'><tr><td><a href='five.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

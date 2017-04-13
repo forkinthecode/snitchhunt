@@ -18,22 +18,16 @@ include('css.php');
 <head>
 
 
-
-
-<div class='clear'></div>
-<script> 
- function BlockMove(event) {
-  // Tell Safari not to move the window.
-  event.preventDefault() ;
- }
-</script> 
-</head>
-
-<body > 
 <?php
 include('footer.php');
 
 ?>
+
+
+</head>
+
+<body > 
+
 
 <!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
@@ -79,7 +73,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 1 is correct! <img style='float:right;margin-right:50px' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 1 is correct! <img style='float:left;margin-right:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -87,7 +81,7 @@ echo"<div class='homer'><h5>Challenge 1 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_one is Incorrect for Q1<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_one is Incorrect for Q1<img style='float:left;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -109,7 +103,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 2 is correct! <img style='float:right;margin-right:50px' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 2 is correct! <img style='float:right;margin-left:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -117,7 +111,7 @@ echo"<div class='homer'><h5>Challenge 2 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_two is Incorrect for Q2<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_two is Incorrect for Q2<img style='float:left;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -139,7 +133,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 3 is correct! <img style='' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 3 is correct! <img style='float:right;margin-left:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -147,7 +141,7 @@ echo"<div class='homer'><h5>Challenge 3 is correct! <img style='' src='images/ch
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_three is Incorrect for Q3<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_three is Incorrect for Q3<img style='float:left;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -169,7 +163,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 4 is correct! <img style='float:right;margin-right:50px' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 4 is correct! <img style='float:right;margin-left:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -177,7 +171,7 @@ echo"<div class='homer'><h5>Challenge 4 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_four is Incorrect for Q4<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_four is Incorrect for Q4<img style='float:left;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -199,7 +193,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 5 is correct! <img style='float:right;margin-right:50px' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 5 is correct! <img style='float:right;margin-left:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -207,7 +201,7 @@ echo"<div class='homer'><h5>Challenge 5 is correct! <img style='float:right;marg
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_five is Incorrect for Q5<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_five is Incorrect for Q5<img style='float:left;margin-right:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -229,7 +223,7 @@ if ($num_results >0)
    while ($row = $result->fetch_assoc()) 
 
     {
-echo"<div class='homer'><h5>Challenge 6 is correct! <img style='' src='images/checked.png'/></h5></div>";
+echo"<div class='homer'><h5>Challenge 6 is correct! <img style='float:right;margin-left:50px' src='images/checked.png'/></h5></div>";
     }
   
   }
@@ -237,7 +231,7 @@ echo"<div class='homer'><h5>Challenge 6 is correct! <img style='' src='images/ch
 else
   {
      
-   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_six is Incorrect for Q6<img style='float:right;margin-right:50px' src='images/error.png'/></h5></div>";
+   echo"<div class='homer'  style='padding-bottom:20px'><h5>$challenge_six is Incorrect for Q6<img style='float:right;margin-left:50px' src='images/error.png'/></h5></div>";
 
   }
 }
@@ -374,6 +368,7 @@ include'cross.php';
 ?>
 </div>
 </div>
+<table class='top-nav'><tr><td><a href='eight.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='hard_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 </div>

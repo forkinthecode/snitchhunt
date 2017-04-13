@@ -183,6 +183,7 @@ echo"<table class='basic' border='0' ><tbody>
 ?>
 
 </div>
+<table class='top-nav'><tr><td><a href='four.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 
