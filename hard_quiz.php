@@ -25,27 +25,11 @@ include('footer.php');
 
 </head>
 
-<body > 
+<body > <h2 class='top_title'>Hard Quiz</h2>
 
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+ 
 
 <?php
 
@@ -53,128 +37,28 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='short_quiz.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='index.php'>Home</a></td></tr></table>
+<table class='top-nav'><tr><td>
+
+    <?php
+    echo" 
+<form action='short_quiz.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+</td><td><a href='index.php'>Home</a></td></tr></table>
 
 <div class='page'>
 <div class='left'>
 
-
-   <?php
-  
-
-   if ( !isset($_POST['team_name'] ) && !isset($_POST['password'] ) )
-{
-echo"
-<table border='0px' class='forms' border='0px' id='log-in'>
-<tr>
-<td>
-<form action='' method='POST'> 
-<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
-
-<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
-</td>
-<td>
-<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
-</td>
-
-</tr>
-</table>";
-}
-
-?>
   <?php
-      if ( isset($_POST['team_name'] ) && isset($_POST['password']))
-         {
-     $data=$_POST['password'];
-$password=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-  $result = mysqli_query($db, $query);
-           @$num_results = mysqli_num_rows($result);
-            if ($num_results<1)
-            {
-  echo"   <div class='toper'> <p>Wrong team or password</p> </div>
-<table border='0px' class='forms' border='0px' id='log-in'>
-<tr>
-<td>
-<form action='' method='POST'> 
-<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
-
-<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
-</td>
-<td>
-<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
-</td>
-
-</tr>
-</table>";
-            }
-
-          }
-   
-      if ( !isset($_POST['team_name'] ) && isset($_POST['password']))
-         {
-  
-
- 
-   echo"   <div class='toper'><h3>Signed out</h3> </div>";
-
-
-   
-          }
-      
-          
- elseif (  $_POST['team_name']=='' &&  $_POST['password']==''  )
-         {
-   
- 
-  echo"   <div class='toper'><p>Log in above or register below</p> </div>";
-
-  
-         }
-
-elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
-         {
-   
- 
-  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
-         echo"<h4>Signed out <i>$team</i> at $timezone </span></h4></div>";
-
-  
-         }
-
-?>
-
- <?php
-if ( !isset($_POST['team_name'] )  )
-{
-   $query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS password";
-      $result = mysqli_query($db, $query);
-      @$num_results = mysqli_num_rows($result);
-      while ($row = $result->fetch_assoc()) 
-      $password=mysqli_real_escape_string($db, $row['password']); 
-  echo"
-  <table class='forms' border='0px'><tr><td>
-  <form action='' method='POST'>
-   <input type='hidden' name='password' value='".$password."'> 
-
-<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
-<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
-
-
-
-}mysqli_free_result($result);
-
-?>
-  
-
-  
-
-  
-  <div class='clear'></div>
-   <?php
 if ( isset($_POST['team_name'] ) &&  isset($_POST['password'] ))
 {
 $team=  $_POST['team_name'];
@@ -198,12 +82,13 @@ $password=  $_POST['password'];
       @$num_results = mysqli_num_rows($result);
       while ($row = $result->fetch_assoc()) 
       $password=mysqli_real_escape_string($db, $row['password']); 
+
   echo"<h3>Enter team name to register:</h3>
   <table class='forms' border='0px'><tr><td>
   <form action='' method='POST'>
    <input type='hidden' name='password' value='".$password."'> 
 
-<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
+<input type='text'  id='team_name' name='team_name' placeholder='Register your team name' /></td><td>
 <input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
 
 
@@ -234,7 +119,7 @@ if ($num_results <1)
       if ($db->query($query) === TRUE) 
       {
         echo"<div class='toper'>
-     <h4>Team name $team has been registered with password $password. Copy/paste your password to a safe place.
+     <h4>Team name <i>$team</i> has been registered with password <i>$password</i>. Copy/paste your password to a safe place.
     </h4></div>";
 
       }
@@ -252,8 +137,131 @@ if ($num_results <1)
 }
   }
 
-}mysqli_free_result($result);
+}
     ?>
+    <?php
+if ( !isset($_POST['team_name']) &&  !isset($_POST['password']) ||
+ $_POST['team_name']=='' &&  $_POST['password']=='')
+{
+   $query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS password";
+      $result = mysqli_query($db, $query);
+      @$num_results = mysqli_num_rows($result);
+      while ($row = $result->fetch_assoc()) 
+      $password=mysqli_real_escape_string($db, $row['password']); 
+  echo"
+  <table class='forms' border='0px'><tr><td>
+  <form action='' method='POST'>
+   <input type='hidden' name='password' value='".$password."'> 
+
+<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
+<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
+
+
+
+}
+
+?>
+<?php
+
+ if ( !isset($_POST['team_name'] ) && isset($_POST['password']))
+         {
+  
+
+ 
+   echo"   <div class='toper'><h3>Signed out</h3> </div>";
+
+
+   
+          }
+      
+          
+ elseif (  $_POST['team_name']=='' &&  $_POST['password']==''  )
+         {
+   
+ 
+  echo"   <div class='toper'><p>Register to play above or log in below</p> </div>";
+
+  
+         }
+
+elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
+         {
+   
+ 
+  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
+         echo"<h4>Signed out <i>$team</i> at $timezone </span></h4></div>";
+
+  
+         }
+
+         ?>
+  <?php
+      if ( isset($_POST['team_name'] ) && isset($_POST['password']))
+         {
+$data=$_POST['password'];
+$password=mysqli_real_escape_string ( $db , $data );
+$data1=$_POST['team_name'];
+$team=mysqli_real_escape_string ( $db , $data1 );
+
+$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
+  $result = mysqli_query($db, $query);
+           @$num_results = mysqli_num_rows($result);
+            if ($num_results<1)
+            {
+  echo"   
+<table border='0px' class='forms' border='0px' id='log-in'>
+<tr>
+<td>
+<form action='' method='POST'> 
+<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
+
+<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
+</td>
+<td>
+<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
+</td>
+
+</tr>
+</table>";
+            }
+
+          }
+   
+     
+
+?>
+ 
+  
+
+
+   <?php
+  
+
+   if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) )
+{
+echo"
+<table border='0px' class='forms' border='0px' id='log-in'>
+<tr>
+<td>
+<form action='' method='POST'> 
+<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
+
+<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
+</td>
+<td>
+<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
+</td>
+
+</tr>
+</table>";
+}
+
+?>
+
+  
+
+  
+ 
 
 <div class='clear'></div>
 <?php
@@ -274,8 +282,23 @@ include'search.php'
 ?>
 </div>
 </div>
-<table class='top-nav'><tr><td><a href='short_quiz.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='index.php'>Home</a></td></tr></table>
+<table class='bottom-nav'><tr><td>
 
+  <?php
+    echo" 
+<form action='short_quiz.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+
+</td><td><a href='index.php'>Home</a></td></tr></table>
 </div>
 
 </div>

@@ -35,7 +35,7 @@ $result = mysqli_query($db, $phone );
     <tr><td>Date and Time:</td>       <td>".$row['date_column']." (".$row['time'].")</td></tr>
     </tbody></table><br> ";
              }
-        echo"";
+      
       }
 elseif ($num_results <1)
  {

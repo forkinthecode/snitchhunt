@@ -24,28 +24,13 @@ include('footer.php');
 
 </head>
 
-<body > 
-<table class='top-nav'><tr><td></td><td><a href='two.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<body> <h2 class='top_title'>Home</h2>
+<table class='top-nav'><tr><td></td><td><a href='two.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 
 <!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+
 <?php
 
 include'framework.php';
@@ -57,13 +42,15 @@ include'framework.php';
 <div class='page'>
 <div class='left'>
 <div class='heading'>
-<a href='https://whistleblower.network'><img class='banner' src='images/header.png'/></a>
+<a href='https://whistleblower.network'><img class='banner' src='https://whistleblower.network/snitch/images/header.png'/></a>
+ 
+  <img class='people' src='https://whistleblower.network/snitch/images/magnifying-glass.jpg'></img>
+  <img class='people_small' src='https://whistleblower.network/snitch/images/people.jpg'></img>
 
+ <h3>How anonymous are we? </h3>
+  <p>Get the low down on how easy it is to track us down through our data with this short presentation...</p>
+<p><i>Your logo here</i> Contact Rosie to become an organisational sponsor for this work.</p>
 </div>
-<iframe class='video' src="https://embed.theguardian.com/embed/video/world/video/2017/apr/04/wiretaps-data-dumps-and-zero-days-is-digital-privacy-no-longer-possible-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-
-<p class='small'><i>"Terrorism is tipping the balance from privacy and toward ongoing mass surveillance."</i></p>
-
 </div>
 <div class='right'>
 
@@ -102,8 +89,8 @@ of metadata can be brought together to identify & track the movements of individ
 <p>Rosie Williams has a degree in Sociology (inequality, public policy) and programming skills in PHP, MySQL, CSS & HTML. </p>
 
 </details>
-<details><summary><h5>Donate</h5></summary>
-<p>Rosie relies on public support to create and run these projects. Please help <a href='https://whistleblower.network/donate/'>support Rosie's work</a>.</p>
+<details><summary><h5>Sponsor</h5></summary>
+<p>Sponsor this project or <a href='https://whistleblower.network/donate/'>donate</a>.</p>
 	</details>
 
 <details><summary><h5>Contact</h5></summary>
@@ -116,7 +103,7 @@ of metadata can be brought together to identify & track the movements of individ
 	</details>
 
 </div>
-<table class='top-nav'><tr><td></td><td><a href='two.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td></td><td><a href='two.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

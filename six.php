@@ -26,27 +26,12 @@ include('footer.php');
 
 </head>
 
-<body > 
+<body > <h2 class='top_title'>Data Matching</h2>
 
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+ 
+ 
 
  <?php
 
@@ -54,10 +39,10 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='five.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='top-nav'><tr><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 <div class='page'>
-<h2>Data Matching</h2>
+
 <p>Data matching means taking information that appears in more than one data set and finding matching records for it.</p>
 <p>For example, when we browse the web or send an email using the same internet connection, the IP address of the router our 
   devices use to access the internet is recorded along with other data about each activity.</p>
@@ -201,7 +186,7 @@ echo"<br><table class='basic' border='0' ><tbody>
 
  ?>
 </div>
-<table class='top-nav'><tr><td><a href='five.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

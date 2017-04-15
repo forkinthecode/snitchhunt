@@ -26,27 +26,11 @@ include('footer.php');
 </script> 
 </head>
 
-<body > 
+<body > <h2 class='top_title'>Article</h2>
 
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+ 
 
  <?php
 
@@ -92,7 +76,7 @@ Twitter: &#64;annaminewatch  </p>
 </ul>
 </details>
 </div>
-<table class='top-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

@@ -22,30 +22,14 @@ include('css.php');
 
 </head>
 
-<body > 
+<body >  <h2 class='top_title'>SnitchHunt  </h2>
 <?php
 include('footer.php');
 
 ?>
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+
 
  <?php
 
@@ -53,9 +37,9 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='three.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='five.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='top-nav'><tr><td><a href='three.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
- <h2>SnitchHunt  </h2>
+
 <div class='page'>
 <div class='left'>
   <p>  The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. </p>
@@ -75,14 +59,14 @@ include'framework.php';
     <details><summary><h5>Google search data</h5></summary>
  <img class='data' src='images/google-ex.png'></img>
  </details>
- <details><summary><h5>Email dataset</h5></summary>  <img class='data' src='images/email-ex.png'></img>
+ <details><summary><h5>Email dataset</h5></summary>  <img class='data' src='https://whistleblower.network/snitch/images/email-ex.png'></img>
  </details>
 </div>
 <div class='clear'></div>
 
 
 </div>
-<table class='top-nav'><tr><td><a href='three.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='five.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='three.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 </div>

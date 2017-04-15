@@ -26,27 +26,11 @@ include('footer.php');
 
 </head>
 
-<body > 
+<body > <h2 class='top_title'>Government</h2>
 
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+ 
 
 <?php
 
@@ -54,19 +38,17 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='index.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='three.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='top-nav'><tr><td><a href='index.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='three.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 <div class='page'>
 <div class='left'>
-    <h3>How anonymous are we? </h3>
-  <img class='people' src='images/magnifying-glass.jpg'></img>
-  <img class='people_small' src='images/people.jpg'></img>
+  <iframe class='video' src="https://embed.theguardian.com/embed/video/world/video/2017/apr/04/wiretaps-data-dumps-and-zero-days-is-digital-privacy-no-longer-possible-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
+<p class='small'><i>"Terrorism is tipping the balance from privacy and toward ongoing mass surveillance."</i></p>
 
-  <p>Get the low down on how easy it is to track us down through our data with this short presentation...</p>
 </div>
 <div class='right'>
-  <h3>Governments and your data</h3>
+ 
 
   <p>There are different levels of access government agencies can have of the information generated whenever we contact someone with an electronic device:</p>
 <details><summary><h5>1. 'warrantless metadata'</h5></summary>
@@ -94,7 +76,7 @@ include'framework.php';
 
 
 </div>
-<table class='top-nav'><tr><td><a href='index.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='three.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='index.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='three.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

@@ -2,36 +2,35 @@
 
 
 * { margin: 0; padding: 0; }
-body { height:100%;  overflow-x:hidden; 
+body { height:100%;  
   color: #333;  font-family: helvetica, arial; font-size:20px; width:100%; } a:active { outline: none;}
   .nav { width:100%; height:50px; }
-  .content browser {
- margin-right: -14px !important;
- overflow-y: scroll;
- overflow-x: hidden;
-}
+h2.top_title {color:#333; text-align:center; width:33%; margin-top:10px;  margin-left:30%; font-family:Verdana;}
+h5 {font-size: 20px; }
+.top-nav {position:absolute; top: -20px;}
 ul li {font-size:30px; margin:10px;}
-  .heading {}
-  .banner {width:100%; }
-p.small {font-size:15px;}
+  .heading { margin-top:0px;}
+  .banner { width:100%; }
+p.small { font-size:15px;}
 ::selection { background: #ffb7b7; /* WebKit/Blink Browsers */}
 ::-moz-selection { background: #ffb7b7; /* Gecko Browsers */}
-.backbutton {float:left;  background-size:50px; z-index: 5000;}
+.backbutton { float:left;  background-size:50px; z-index: 5000;}
 .nextbutton { float:right;  margin-right:100px; background-size:50px;z-index: 5000;}
-.right {float:right; width:45%; }
-.left {float:left; width:45%; }
-
+.right { float:right; width:45%; }
+.left { float:left; width:45%; }
 .page {  overflow:scroll;   font-size:30px;  margin-left:20px; right-margin:50px; padding-top:20px;
 padding-bottom:20px; 
 width:100%; }
-.content{width:100%; height:100%; }
-.police {width:450px;}
+.content{ width:100%; height:100%; }
+.police { width:450px;}
 .content_title {  color:#eee;  padding:10px; display:none;}
 .pics { width:100%; margin-bottom:30px; border: solid: 1px;}
 .pics td:nth-of-type(odd) { width:30%; }
 .top-nav { margin:20px; width:90%; margin-right:20px; }
 .top-nav td:nth-of-type(even) {float:right;}
-.people {width:100%; padding:2%;}
+.bottom-nav { margin:20px; width:90%; margin-right:20px; }
+.bottom-nav td:nth-of-type(even) {float:right;}
+.people {width:100%; padding:2%; }
 p {margin-bottom:20px; margin-left:20px; padding-right:90px;  }
 h1 { text-align: center; padding: 0 50px;  font-size: 40px; padding-right:90px; }
 h2 {padding-left:10px; padding-right:90px;}
@@ -48,13 +47,14 @@ blockquote {margin:20px;padding-right:20px;}
 @media (max-width: 719px) { .page {margin-left:5px; margin-right:5px; }
 .video {display:none;}
 .framework {display:none;}
-p {font-size:15px; line-height:20px; width:100%;}
+p {font-size:15px; line-height:20px; width:90%;}
 h5 {font-size:17px;}
-h2 {font-size:20px;}
+h2 {font-size:20px; margin-left:20px;}
+h3 {margin-left:20px; font-size:25px; margin-top:10px;}
 details {line-height:35px;}
 summary {width:100%; margin-left:-20px; }
 .people {display:none;}
-.people_small {margin:10px;}
+.people_small {margin-left:40px;}
 .police {width:300px; margin-left:50px;}
 .left {width:100%;}
 .right {width:100%; }
@@ -136,13 +136,9 @@ transition: all 0.2s;
 }
 
 
+#p1:hover,#p2:hover,#p3:hover,#p4:hover,#p5:hover,#p6:hover,#p7:hover,#p8:hover,#p9:hover,#p10:hover {background:#eee; }
 
-#a10:target #p10/*,
-#a11:target #p11,
-#a12:target #p12,
-#a13:target #p13,
-#a14:target #p14,
-#a15:target #p15*/ { background:#eee;  }
+
 
 .framework a:hover 
 
@@ -163,6 +159,10 @@ input[type=radio]
   -o-transform: scale(2); /* Opera */
   padding: 20px; margin:10px;
   border:none;}
+input[type=submit].nav_button_left { width:100px; height:65px; font-family: "Georgia"; 
+  background:url('images/next-blue-light-left.png'); background-repeat:no-repeat; border: none;text-decoration: none; padding-top:40px;}
+input[type=submit].nav_button_right { width:100px; height:65px; font-family: "Georgia"; 
+  background:url('images/next-blue-light.png'); background-repeat:no-repeat; border: none; text-decoration: none; margin-right:-70px; }
 input[type=submit].answer { width:100px; height:65px; font-family: "Georgia"; 
    background:url('images/next.png'); background-repeat:no-repeat; border: none;}
 input[type="text"] { padding-left:5px; height:30px; width:90%; font-size:15px; text-decoration: none;}
@@ -187,7 +187,7 @@ div.wrong  { width:90%; padding:1%; margin:20px; background:RGBA(37,163,247, 0.5
  background:url('images/error.png');
  background-size:40px; background-repeat:no-repeat; }
 
-.searches { width:100%;  float:right; display:inline;padding:20px; margin-bottom:2%;  
+.searches { width:90%;  float:right; display:inline;padding:20px; margin-bottom:2%;  
   border-radius: 20px ;}
 .right {float:right; display:inline;}
 .expand { height:500px; overflow:scroll;   padding:2%; background: #eee; border-radius: 15px; margin-right:50px; }
@@ -212,13 +212,13 @@ input[type=submit].hint { width:100px; height:75px; margin-left:10px; font-famil
     background:url('images/question.png'); background-repeat:no-repeat; border: none;}
  
 
-.basic { border:1px; width:100%;font-size: 15px; overflow:scroll; border-bottom:dashed 1px #333; 
+.basic { border:1px; width:90%;font-size: 15px; overflow:scroll; border-bottom:dashed 1px #333; 
   padding:15px; margin-bottom:30px; margin-right:auto; background:RGBA(37,163,247, 0.5); border: none;
   border-radius: 40px 10px; text-align:left;}
 .basic td { border-bottom: 1px dashed #333; padding:5px;}
 
 
-.wide { border:1px; width:100%;font-size: 15px; overflow:scroll; border-bottom:dashed 1px #333; 
+.wide { border:1px; width:90%;font-size: 15px; overflow:scroll; border-bottom:dashed 1px #333; 
   padding:15px; margin-bottom:30px; margin:auto; background:RGBA(37,163,247, 0.5); border: none;
   border-radius: 40px 10px; text-align:left;}
 

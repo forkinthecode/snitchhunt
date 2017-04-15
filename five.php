@@ -25,27 +25,11 @@ include('footer.php');
 
 </head>
 
-<body > 
+<body > <h2 class='top_title'>Datasets</h2>
 
 
-<!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
-  <div id="a1">
-  <div id="a2">
-  <div id="a3">
-  <div id="a4">
-  <div id="a5">
-  <div id="a6">
-  <div id="a7">
-  <div id="a8">
-  <div id="a9">
-  <div id="a10">
-  <!--<div id="a11">
-  <div id="a12">
-  <div id="a13">
-  <div id="a14">
-  <div id="a15">-->
-   <!-- Top Navigation. Ya, tables are evil. -->
+ 
 
 <?php
 
@@ -53,12 +37,12 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='four.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='top-nav'><tr><td><a href='four.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 <div class='page'>
   <h2>Email metadata </h2>
 <table class='metadata'><tr><td>
-<img  src='images/email.png'></td><td>
+<img  src='https://whistleblower.network/snitch/images/email.png'></td><td>
 <p>Email metadata that is provided to government without warrant includes data from emails sent to and from Australian email providers, including recipient and sender address, time and date, regardless of whether the email was successfully delivered.</p>
 <p>It is worth remembering that while metadata is provided to law enforcement agencies without a warrant,  access to content is available where a warrant has been granted.</p>
 
@@ -95,7 +79,7 @@ echo"
 
 <h2>Phone subscriber metadata  </h2>
 <table class='metadata'><tr><td>
-  <img src='images/smartphone-blue.png'></td><td>
+  <img src='https://whistleblower.network/snitch/images/smartphone-blue.png'></td><td>
 <p>Every phone has a number called an <a href='https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity' target='_blank'>IMEI</a> that is unique to that device. This number is part of your customer records with your phone company along with your basic personal information like name, address and email. 
 </p><p>People can be identified by taking information from one dataset and using it search a different dataset. Mouse over the fields for more information on where this data comes from and compare with the other datasets here to see which fields occur in more than one dataset.</p>
 
@@ -126,7 +110,7 @@ echo"<table class='basic' ><tbody>
 
 
 <h2>Phone usage metadata </h2>
-<table class='metadata'><tr><td><img src='images/sim-card.png'></td><td>
+<table class='metadata'><tr><td><img src='https://whistleblower.network/snitch/images/sim-card.png'></td><td>
    <p>Your IMEI can be used to track your geographical location and find all the records for that device.
  These records show when calls were made, how long they lasted, when texts were sent, 
  who they were sent to or received from and the locations of each party during the call or text.
@@ -152,7 +136,7 @@ echo"<br><table class='basic' border='0' ><tbody>
  ?>
 
 <h2>Web search metadata </h2>
-<table class='metadata'><tr><td><img  src='images/computer.png'></td><td>
+<table class='metadata'><tr><td><img  src='https://whistleblower.network/snitch/images/computer.png'></td><td>
  <p>While the Australian government doesn't have direct access to your browsing history, foreign governments collect this data
 and access can be provided to local authorities. Search engine data varies depending on the information you have provided in your use of the internet and your privacy settings.</p>
 </td></tr></table>
@@ -183,7 +167,7 @@ echo"<table class='basic' border='0' ><tbody>
 ?>
 
 </div>
-<table class='top-nav'><tr><td><a href='four.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='four.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 
