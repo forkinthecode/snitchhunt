@@ -1,36 +1,16 @@
 
 <?php
-if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ))
-{
-   echo"<div class='homer'><h6>You have to be registered and signed in to see the challenges</h6></div>";
-}
 if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
 {
-$data=$_POST['password'];
-$password=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
-
-
-$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-  $result = mysqli_query($db, $query);
-           @$num_results = mysqli_num_rows($result);
-            if ($num_results<1)
-            {
-              echo"<div class='homer'><h6>You have to be registered and signed in to see the challenges</h6></div>
-
-<h4>As you move through the challenges, make sure to copy/paste important findings to a separate text file for later use!</h4>";
-            }
-           if ($num_results>0)
-  {
-
-
-
+  /////////////////////
+  $team=$_POST['team_name'];
+  $password=$_POST['password'];
+  //echo"<br>$team $password";
  $query="SELECT ch1 from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
             while ($row = $result->fetch_assoc()) 
-
+///Checks to see if Q1 has been answered 
 
     {
       $answer=$row['ch1'];
@@ -51,9 +31,10 @@ echo"
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
- <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
+ <input type='hidden' name='team_name' value='".$team."'> 
+ <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
+<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' REQUIRED/></td><td>
 
 <input class='answer'   type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
@@ -105,7 +86,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
+<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' REQUIRED/></td><td>
 <input class='answer'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
 
@@ -188,7 +169,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> 
  <input class='answer'type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
+<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' REQUIRED/></td><td>
 <input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 
@@ -270,7 +251,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
+<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' REQUIRED/></td><td>
 <input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 25 of the 50 points available for this question.</h6>
 ";
@@ -350,7 +331,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
+<input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' REQUIRED/></td><td>
 <input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 50 of the 100 points available for this question.</h6>
@@ -427,7 +408,7 @@ echo"
  <form action='' method='POST'> 
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' /></td><td>
+<input type='text'  id='challenge6' name='challenge6' placeholder='Challenge 6 Answer' REQUIRED/></td><td>
 <input class='answer' type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 10 of the 25 points available for this question.</h6>
@@ -464,7 +445,7 @@ echo"</div>";
 }
 
 }
-
+////////////////////
 
  $query="SELECT ch6 from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
@@ -506,7 +487,7 @@ echo"
  <form action='' method='POST'> 
  <input type='hidden' name='team_name' value='".$team."'> <input type='hidden' name='password' value='".$password."'>
 
-<input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' /></td><td>
+<input type='text'  id='challenge7' name='challenge7' placeholder='Challenge 7 Answer' REQUIRED/></td><td>
 <input class='answer' type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 
 <h6>Access hints- if you click <img height='20px' src='images/question.png'/> to access hints you will lose 75 of the 150 points available for this question</h6>
@@ -542,7 +523,8 @@ echo"</div>";
 }
 
     }
+    //////////////////
 }
-}
+
 ?>
 

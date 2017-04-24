@@ -38,8 +38,25 @@ include'framework.php';
 ?>
 
 </nav>
-<table border='0px' class='top-nav'><tr><td><a href='eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td>
+<table border='0px' class='top-nav'><tr><td>
+
+   <?php
+    echo" 
+<form action='eight.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
   <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
    <?php
     echo" 
 <form action='hard_quiz.php' method='POST'>
@@ -115,7 +132,7 @@ else
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
-<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' /></td><td>
+<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' REQUIRED/></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
@@ -171,7 +188,7 @@ else
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
-<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' /></td><td>
+<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' REQUIRED/></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
@@ -227,7 +244,7 @@ else
 <table class='forms' border='0px'><tr><td>
  <form action='' method='POST'> 
 
-<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' /></td><td>
+<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' REQUIRED/></td><td>
 
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
@@ -285,7 +302,7 @@ else
 <br>
 <table class='forms' border='0px' ><tr><td>
  <form action='' method='POST'> 
-<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' /></td><td>
+<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' REQUIRED/></td><td>
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
 
@@ -337,7 +354,7 @@ else
 <br>
 <table class='forms' border='0px' ><tr><td>
  <form action='' method='POST'> 
-<input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' /></td><td>
+<input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' REQUIRED/></td><td>
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
 
@@ -377,8 +394,21 @@ include'cross.php';
 ?>
 </div>
 </div>
-<table class='bottom-nav'><tr><td><a href='eight.php'><img src='images/next-blue-light-left.png'></img></a></td>
+<table class='bottom-nav'><tr><td>
+  <?php
+    echo" 
+<form action='eight.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  <!--<a href='https://whistleblower.network/snitch/eight.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td>-->
   <td>
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
      <?php
     echo" 
 <form action='hard_quiz.php' method='POST'>

@@ -23,8 +23,8 @@ if ($num_results >0)
 			              <input type='hidden' name='team_name' value='".$team."'> 
 			              <input type='hidden' name='password' value='".$password."'>
 
-			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' />
-						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' /></td><td>
+			             <input type='text'  id='subscriber_number' name='subscriber_number' placeholder='Subscriber phone number' REQUIRED/>
+						 <input type='text'  id='dialled_number' name='dialled_number' placeholder='Dialled number' REQUIRED/></td><td>
 			           
         <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 			      </div>";
@@ -98,8 +98,8 @@ echo"<br><h6>Search two phone numbers to see who they both called:</h6>
 <input type='hidden' name='team_name' value='".$team."'> 
 <input type='hidden' name='password' value='".$password."'>
 
-             <input type='text'  id='caller_one' name='caller_one' placeholder='Phone number one' />
-			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' /></td><td>
+             <input type='text'  id='caller_one' name='caller_one' placeholder='Phone number one' REQUIRED/> 
+			 <input type='text'  id='caller_two' name='caller_two' placeholder='Phone number two' REQUIRED/></td><td>
            
         <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
       </div>";

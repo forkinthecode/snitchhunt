@@ -1,14 +1,145 @@
  <table  class='framework'> 
     <tr> 
-     <td><a href="index.php" id="p1">Home</a></td> 
-     <td><a href="two.php" id="p2">Government</a></td> 
-     <td><a href="three.php" id="p3">Corporations</a></td> 
-     <td><a href="four.php" id="p4">What is SnitchHunt?</a></td> 
-     <td><a href="five.php" id="p5">Datasets</a></td> </tr>
+     <td>
+<?php
+    echo" 
+<form action='index.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Home' id='submit' />
+
+  
+
+</form> ";
+?>
+</td>
+
+     <td><?php
+    echo" 
+<form action='two.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Government' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+     </td> 
+
+
+     <td><?php
+    echo" 
+<form action='three.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Corporations' id='submit' />
+
+  
+
+</form> ";
+?>
+
+     </td> 
+
+
+     <td><?php
+    echo" 
+<form action='four.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='SnitchHunt' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+     </td> 
+
+
+     <td><?php
+    echo" 
+<form action='five.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Datasets' id='submit' />
+
+  
+
+</form> ";
+?>
+
+     </td> </tr>
 <tr>
-     <td><a href="six.php" id="p6">Data Matching</a></td> 
-     <td><a href="seven.php" id="p7">Task</a></td> 
-     <td><a href="eight.php" id="p8">Article</a></td> 
-     <td><a href="short_quiz.php" id="p9">Short Quiz</a></td> 
-     <td><a href="https://whistleblower.network/snitch/hard_quiz.php" id="p10">Hard Quiz</td> </tr>
+     <td><?php
+    echo" 
+<form action='six.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Data Matching' id='submit' />
+
+  
+
+</form> ";
+?>
+
+     </td> 
+     <td><?php
+    echo" 
+<form action='seven.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Task' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+     </td> 
+     <td><?php
+    echo" 
+<form action='eight.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Article' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+     </td> 
+     <td><?php
+    echo" 
+<form action='short_quiz.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Short Quiz' id='submit' />
+
+  
+
+</form> ";
+?>
+
+
+     <td><?php
+    echo" 
+<form action='hard_quiz.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button'   type='submit'  name='submit' value='Hard Quiz' id='submit' />
+
+  
+
+</form> ";
+?>
+
+     </td> </tr>
   </table>

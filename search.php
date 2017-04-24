@@ -16,7 +16,7 @@
 <td><input type='radio' name='checklist'  value='google'> </td>  <td> Search against all fields in the <b>Google search</b> data  </input>  </td><td><img height='70px' src='images/computer.png'/></td> </tr><tr>
 <td><input type='radio' name='checklist'  value='subscriber'></td><td>Search against all fields in the <b>phone subscriber</b> database</input></td><td><img height='70px' src='images/smartphone.png'/></td> </tr>
 <td>
-   </td></td><td><input  type='text'  id='string' name='string' placeholder='Search string' /></td><td><input class='searching' type='submit' name='Submit' value='' /></form></td>
+   </td></td><td><input  type='text'  id='string' name='string' placeholder='Search string' REQUIRED/></td><td><input class='searching' type='submit' name='Submit' value='' /></form></td>
    </tr></table>";
 
  }

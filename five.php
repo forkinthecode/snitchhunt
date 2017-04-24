@@ -37,8 +37,37 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='four.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='top-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='four.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='six.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 <div class='page'>
   <h2>Email metadata </h2>
 <table class='metadata'><tr><td>
@@ -167,8 +196,37 @@ echo"<table class='basic' border='0' ><tbody>
 ?>
 
 </div>
-<table class='bottom-nav'><tr><td><a href='four.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='bottom-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='four.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='six.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 </div>
 
 

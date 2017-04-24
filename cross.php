@@ -25,8 +25,8 @@
          <table class='forms'><tr><td> 
 		
 
-	<input type='text'  id='subscriber_phone_number' name='subscriber_phone_number' placeholder='Journalists Number' />
-	<input type='text'  id='cell_tower_location' name='cell_tower_location' placeholder='Cell Tower Location' /></td><td>
+	<input type='text'  id='subscriber_phone_number' name='subscriber_phone_number' placeholder='Journalist Number' REQUIRED/>
+	<input type='text'  id='cell_tower_location' name='cell_tower_location' placeholder='Cell Tower Location' REQUIRED/></td><td>
 	<input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 			      </div>";
 			}

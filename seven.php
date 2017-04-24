@@ -37,8 +37,37 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='eight.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='top-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='six.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='eight.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 <div class='page'>
 <p>You are on the train heading home when your phone starts buzzing. You  got a text from your boss, who is asking you to take a look at your work emails. You reluctantly open your mailbox only to find the following email:</p>
 
@@ -65,8 +94,8 @@ against the calls to and from the journalist to see if we can narrow it down to 
 </p>
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
 </p>-->
-<p><strong>#1</strong>. You will need to read the article (next page) to get the name of the journalist. </p>
-<p><strong>#2</strong>. You will need to dig into the phone subscriber data (last page) to get the full information on the journalist.  </p>
+<p><strong>#1</strong>. You will need to read the article to get the name of the journalist. </p>
+<p><strong>#2</strong>. You will need to dig into the phone subscriber data  to get the full information on the journalist.  </p>
 
 <p><strong>#3</strong>. You will need to use the journalists phone number search the phone usage data to find out who has been in contact with her. </p>
 
@@ -83,8 +112,37 @@ COMPUTER CRIME SQUAD<br />
 Tel: 16131<br />
 www.thepolice.com</p>
 </div>
-<table class='bottom-nav'><tr><td><a href='six.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='eight.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='bottom-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='six.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='eight.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 </div>
 </div>
 

@@ -25,8 +25,25 @@ include('footer.php');
 </head>
 
 <body> <h2 class='top_title'>Home</h2>
-<table class='top-nav'><tr><td></td><td><a href='two.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='top-nav'><tr><td>
 
+ 
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='two.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 
 <!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 <div id='nav'>
@@ -95,6 +112,12 @@ of metadata can be brought together to identify & track the movements of individ
 
 <details><summary><h5>Contact</h5></summary>
 
+  <p>
+<a href="https://twitter.com/Info_Aus" class="twitter-follow-button" data-show-count="false">Follow @Info_Aus</a>
+<script>!function(d,s,id){var 
+  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+     </p>
+
 <p><a href='https://whistleblower.network/contact'>Rosie Williams</a></p>
 <p><a href='https://twitter.com/gszathmari'>Gabor Szathmari</a> </p>
 
@@ -103,8 +126,27 @@ of metadata can be brought together to identify & track the movements of individ
 	</details>
 
 </div>
-<table class='bottom-nav'><tr><td></td><td><a href='two.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='bottom-nav'><tr><td>
 
+ 
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='two.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 </div>
 
 

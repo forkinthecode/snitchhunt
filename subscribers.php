@@ -8,7 +8,7 @@ echo"
 
    <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
    <input type='hidden' name='password' value='".$_POST['password']."'> 
-            <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' />
+            <input type='text'  id='search_all_subscribers' name='search_all_subscribers' placeholder='Search string' REQUIRED/>
          </td><td> 
         <input class='searching'   type='submit' name='submit' value='' id='submit' /></form></td></tr></table>
 </div><br>

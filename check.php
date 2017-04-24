@@ -4,7 +4,7 @@
    $team=$_POST['team_name'];
    $password=$_POST['password'];
 
-
+//echo"$team $password";
   
     if ( $team!='' && $password!='' )
 {
@@ -13,7 +13,7 @@
    $result = mysqli_query($db, $query);
    @$num_results = mysqli_num_rows($result);
  
-        /*  if (!isset($_POST['challenge1']) &&
+      if (!isset($_POST['challenge1']) &&
           !isset($_POST['challenge2'] ) &&
           !isset($_POST['challenge3'] ) &&
           !isset($_POST['challenge4'] ) &&
@@ -22,9 +22,8 @@
           !isset($_POST['challenge7'] )) 
           {
 
-            echo"<details class='toper'><h3>Enter an answer to see your progress</h3></div>";
+            //echo"<h3>Enter an answer to see your progress</h3>";
           }
-*/
 
 if ($num_results >0)
        {
@@ -37,10 +36,10 @@ if ($num_results >0)
           isset($_POST['challenge6'] ) ||
           isset($_POST['challenge7'] )) 
        
-//echo"<details class='toper'>";
+
 if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
 {
-$data = $_POST['challenge1']; 
+$data = trim($_POST['challenge1']); 
 $challenge_one=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
@@ -125,7 +124,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge3'] ) )
 {
  
 
-$challenge_three=mysqli_real_escape_string ( $db , $_POST['challenge3'] );
+$challenge_three=mysqli_real_escape_string ( $db , trim($_POST['challenge3']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -165,7 +164,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge4'] ) )
 {
  
 
-$challenge_four=mysqli_real_escape_string ( $db , $_POST['challenge4'] );
+$challenge_four=mysqli_real_escape_string ( $db , trim($_POST['challenge4']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -205,7 +204,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge5'] ) )
 {
  
 
-$challenge_five=mysqli_real_escape_string ( $db , $_POST['challenge5'] );
+$challenge_five=mysqli_real_escape_string ( $db , trim($_POST['challenge5']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -245,7 +244,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge6'] ) )
 {
  
 
-$challenge_six=mysqli_real_escape_string ( $db , $_POST['challenge6'] );
+$challenge_six=mysqli_real_escape_string ( $db , trim($_POST['challenge6']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -285,7 +284,7 @@ if ( isset($_POST['team_name'] ) && isset($_POST['challenge7'] ) )
 {
  
 
-$challenge_seven=mysqli_real_escape_string ( $db , $_POST['challenge7'] );
+$challenge_seven=mysqli_real_escape_string ( $db , trim($_POST['challenge7']) );
 
 $team=mysqli_real_escape_string ( $db , $_POST['team_name'] );
 
@@ -322,7 +321,7 @@ elseif ($num_results ==0)
 }
 
 
-}//echo"</div>";
+}
 }
 
    ?> 

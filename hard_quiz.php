@@ -27,16 +27,6 @@ include('footer.php');
 
 <body > <h2 class='top_title'>Hard Quiz</h2>
 
-
-<div id='nav'>
- 
-
-<?php
-
-include'framework.php';
-?>
-
-</nav>
 <table class='top-nav'><tr><td>
 
     <?php
@@ -53,122 +43,103 @@ include'framework.php';
 
 
 </td><td><a href='index.php'>Home</a></td></tr></table>
+<div id='nav'>
+ 
+
+<?php
+
+include'framework.php';
+?>
+
+</nav>
+
 
 <div class='page'>
 <div class='left'>
 
+    
   <?php
 
-if ( isset($_POST['team_name'] ) &&  isset($_POST['password'] ))
+if ( isset($_POST['team_name'] ) && $_POST['team_name']!='' && !isset($_POST['password'] ))
 {
-$team=  $_POST['team_name'];
-$password=  $_POST['password'];
+//tests set team name against existing users in database
 
- if (!isset($_POST['challenge1']) && 
-             !isset($_POST['challenge2'])  && 
-             !isset($_POST['challenge3'])  && 
-             !isset($_POST['challenge4']) && 
-             !isset($_POST['challenge5']) && 
-             !isset($_POST['challenge6']) && 
-             !isset($_POST['challenge7'])  )
-         {
- 
-     if (strlen($team)>15)
-     {
-  echo"<div class='toper2'><h3>Your team name $team is too long: (".strlen($team)." chars). Please choose a name with less than 15 characters.</h3></div>";
-    
- $query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS password";
-      $result = mysqli_query($db, $query);
-      @$num_results = mysqli_num_rows($result);
-      while ($row = $result->fetch_assoc()) 
-      $password=mysqli_real_escape_string($db, $row['password']); 
+$team= mysqli_real_escape_string($db, $_POST['team_name']);
+$testing_team="SELECT team FROM teams WHERE team ='".$team."'";
+        $result = mysqli_query($db, $testing_team );
+        @$num_results = mysqli_num_rows($result);
 
-  echo"<h3>Enter team name to register:</h3>
+
+        if ($num_results >0)
+                 {
+                  echo"<div class='toper2'>
+                  <h4> Team name <i>".$team."</i> already registered with SnitchHunt. To play on team $team, 
+                  use your correct password and sign in using top left drop down menu.</h4></div>";
+ //if there is an existing user by the same name, registration form is displayed again so a new team name can be registered
+  echo"
   <table class='forms' border='0px'><tr><td>
   <form action='' method='POST'>
-   <input type='hidden' name='password' value='".$password."'> 
 
-<input type='text'  id='team_name' name='team_name' placeholder='Register your team name' /></td><td>
+<input type='text'  id='team_name' name='team_name' placeholder='Register your team/user name' REQUIRED/></td><td>
 <input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
-
-
-
-     }
-     if (strlen($team)<15)
-      {
-
-$testing_team="SELECT team FROM teams WHERE team ='".$team."'";
-$result = mysqli_query($db, $testing_team );
-@$num_results = mysqli_num_rows($result);
-if ($num_results >0)
-         {
-         /* echo"<div class='toper2'>
-          <h4> Team name <i>".$team."</i> already registered with SnitchHunt. To play on team $team, 
-          use your correct password and sign in using top left drop down menu.</h4></div>";
-  */
-         }
-
-
-if ($num_results <1)
-
-  {
-   
-
-    $query="INSERT INTO teams(`date`, `time`, `team`, `password`, `ch1`, `ch1_max`, `ch2`,`ch2_max`,  `ch3`,`ch3_max`,  `ch4`,`ch4_max`,  `ch5`,`ch5_max`,  `ch6`,`ch6_max`,  `ch7`,`ch7_max`) 
-                    VALUES( CURDATE(), CURRENT_TIME(), '".$team."', '".$password."', '0',   '25',     '0',  '50',       '0',    '100',     '0',  '50',      '0',   '100',    '0',  '25',          '0','150'); ";
-      if ($db->query($query) === TRUE) 
-      {
-        echo"<div class='toper'>
-     <h4>Team name <i>$team</i> has been registered with password <i>$password</i>. Copy/paste your password to a safe place.
-    </h4></div>";
-
-      }
-       else 
-      {
-
-          echo "Error: " . $query . "<br>" . $db->error;
-      }
-
-
-     
-     }
-     
-     
 }
-  }
 
-}
-    ?>
-    <?php
-if ( !isset($_POST['team_name']) &&  !isset($_POST['password']) ||
- $_POST['team_name']=='' &&  $_POST['password']=='')
+                if ($num_results <1)
+                {
+ 
+if (strlen($team)>15)
+     {
+//tests to see team name is not tooo long. If it is longer than 15 characters the following error message is displayed
+  echo"<h3>Your team/user name $team is too long: (".strlen($team)." chars). 
+         Please choose a name with less than 15 characters.</h3>";
+      }
+     
+
+elseif (strlen($team) <15 )
 {
+
+ //if team name netered is not already in use and is under 15 characters, the password is automatically generated, 
+  //entered into database along with team name and displayed to the user for them to record
    $query="SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6) AS password";
       $result = mysqli_query($db, $query);
       @$num_results = mysqli_num_rows($result);
       while ($row = $result->fetch_assoc()) 
       $password=mysqli_real_escape_string($db, $row['password']); 
-  echo"
-  <table class='forms' border='0px'><tr><td>
-  <form action='' method='POST'>
-   <input type='hidden' name='password' value='".$password."'> 
 
-<input type='text'  id='team_name' name='team_name' placeholder='Your team name' /></td><td>
-<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
+    $query="INSERT INTO teams(`date`, `time`, `team`, `password`, `ch1`, `ch1_max`, `ch2`,`ch2_max`,  `ch3`,`ch3_max`,  `ch4`,`ch4_max`,  `ch5`,`ch5_max`,  `ch6`,`ch6_max`,  `ch7`,`ch7_max`) 
+                    VALUES( CURDATE(), CURRENT_TIME(), '".$team."', '".$password."', '0',   '25',     '0',  '50',       '0',    '100',     '0',  '50',      '0',   '100',    '0',  '25',          '0','150'); ";
+                if ($db->query($query) === TRUE) 
+                {
+                  echo"
+               <h3>Team/user name <i>$team</i> has been registered with password $password
+              </h3>
+              <h3>Copy/paste this info to text or Google doc that you can use to paste useful information as you proceed.</h3>";
+
+                }
+                   else 
+                  {
+
+                      echo "Error: " . $query . "<br>" . $db->error;
+                  }
 
 
-
+  }
 }
 
-?>
+    }
+
+
+    ?>
+   
+   
 <?php
 
- if ( !isset($_POST['team_name'] ) && isset($_POST['password']))
+ if ( !isset($_POST['team_name'] ) && !isset($_POST['password']))
          {
   
-
+//tests to see if user is signed out and displays appropriate message
  
-   echo"   <div class='toper'><h3>Signed out</h3> </div>";
+   echo"   <h3>Signed out</h3> ";
 
 
    
@@ -179,87 +150,59 @@ if ( !isset($_POST['team_name']) &&  !isset($_POST['password']) ||
          {
    
  
-  echo"   <div class='toper'><p>Register to play above or log in below</p> </div>";
+  echo"  <p>Register to play above or log in below</p> ";
 
   
          }
 
-elseif ( !isset($_POST['team_name'] ) && !isset($_POST['password']  ))
-         {
-   
- 
-  echo"   <div class='toper2'><span class='lefty'>"; $timezone = date('h:i:sa  M d, Y ');
-         echo"<h4>Signed out <i>$team</i> at $timezone </span></h4></div>";
 
-  
-         }
 
          ?>
-  <?php
-      if ( isset($_POST['team_name'] ) && isset($_POST['password']))
-         {
-$data=$_POST['password'];
-$password=mysqli_real_escape_string ( $db , $data );
-$data1=$_POST['team_name'];
-$team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-  $result = mysqli_query($db, $query);
-           @$num_results = mysqli_num_rows($result);
-            if ($num_results<1)
-            {
-  echo"   
-<table border='0px' class='forms' border='0px' id='log-in'>
-<tr>
-<td>
-<form action='' method='POST'> 
-<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
-
-<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
-</td>
-<td>
-<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
-</td>
-
-</tr>
-</table>";
-            }
-
-          }
-   
-     
-
-?>
  
   
 
 
-   <?php
   
-
-   if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) )
+ <?php
+//tests that credentials are not set and displays forms for first run at registration
+if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) && $_POST['password']!='')
 {
-echo"
-<table border='0px' class='forms' border='0px' id='log-in'>
-<tr>
-<td>
-<form action='' method='POST'> 
-<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
 
-<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
-</td>
-<td>
-<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
-</td>
 
-</tr>
-</table>";
+ echo" 
+  <table class='forms' border='0px'><tr><td>
+  <form action='' method='POST'>
+
+<input type='text'  id='team_name' name='team_name' placeholder='Register your team/user name' REQUIRED/></td><td>
+<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr>
+</table>
+
+";
 }
 
 ?>
+ <?php
+if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) )
+{
+echo"
+<table class='forms'> <tr><td>
+<form action='' method='POST'> 
+<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
 
-  
+<input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
+</td>
+<td>
+<input class='close' type='submit'  name='submit' value='' id='submit' /></form>
+</td>
 
+</tr>
+</table>";
+
+
+}
+?>
+ 
   
  
 
@@ -298,7 +241,7 @@ include'search.php'
 
 
 
-</td><td><a href='index.php'>Home</a></td></tr></table>
+</td><td><a href='https://whistleblower.network/snitch/index.php'>Home</a></td></tr></table>
 </div>
 
 </div>

@@ -39,8 +39,37 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='top-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='five.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='seven.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 <div class='page'>
 
 <p>Data matching means taking information that appears in more than one data set and finding matching records for it.</p>
@@ -111,17 +140,17 @@ $result = mysqli_query($db, $google );
     {
 
 echo"<table class='basic' border='0' ><tbody>
-  <tr><td width='150px'>IP Address:</td>        <td><a class='mobile' href='' title='IP Address'>".$row['IP_address']." </a>    </td><td>This is the IP address of the device not the web page. <a href='https://en.wikipedia.org/wiki/IP_address'>More</a></td></tr>
+  <tr><td width='150px'>IP Address:</td>        <td><a class='mobile' href='' title='IP Address: This is the IP address of the device not the web page. '>".$row['IP_address']." </a>    </td><td>This is the IP address of the device not the web page. <a href='https://en.wikipedia.org/wiki/IP_address'>More</a></td></tr>
       <tr><td>Search Terms:</td>                <td><a class='mobile' href='' title='search terms'>".$row['search_terms']." </a>    </td><td></td></tr>
-      <tr><td>User Id:</td>                     <td><a class='mobile' href='' title='Google user ID'>".$row['user_id']."  </a>      </td><td></td></tr>
+      <tr><td>User Id:</td>                     <td><a class='mobile' href='' title='Google user ID: can be tracked to device IP address'>".$row['user_id']."  </a>      </td><td>Google user ID can be used to track device IP address to user in this & other datasets.</td></tr>
       <tr><td>Full Name:</td>                   <td><a class='mobile' href='' title='Full name'>".$row['full_name']."</a>      </td><td></td></tr>
       <tr><td>Username:</td>                    <td><a class='mobile' href='' title='Username'>".$row['user_name']." </a>     </td><td></td></tr>
       <tr><td>Email Address:</td>               <td><a class='mobile' href='' title='Email address'>".$row['email_address']." </a> </td><td></td></tr>
       <tr><td>Address:</td>                     <td><a class='mobile' href='' title='Street Address'>".$row['address']." </a>       </td><td></td></tr>
       <tr><td>Employer:</td>                    <td><a class='mobile' href='' title='Employer'>".$row['employer']."</a>       </td><td></td></tr>
       <tr><td>Job Title:</td>                   <td><a class='mobile' href='' title='Job Title'>".$row['job_title']."</a>      </td><td></td></tr>
-      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
-      <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type'>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
+      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port: Port numbers can be used to identify particular services used such as FTP, HTTP or IRC.'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
+      <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type: The browser/version used & device type is sent with web activity to customise content. '>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
       <tr><td>Date and Time:</td>               <td><a class='mobile' href='' title='Date/Time'>".$row['date_time']."</a>     </td><td></td></tr>
      </tbody></table><br>";
 }
@@ -146,7 +175,7 @@ $result = mysqli_query($db, $subscriber );
     {
 
 echo"<table class='basic' ><tbody>
-  <tr><td>Subscriber IMEI:</td>      <td><a class='mobile' href='' title='Device IMEI'>".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network</td></tr>
+  <tr><td>Subscriber IMEI:</td>      <td><a class='mobile' href='' title='Device IMEI: International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network.'>".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network</td></tr>
   <tr><td>Subscriber Address:</td>    <td><a class='mobile' href='' title='Subscriber address'>".$row['subscriber_address']."</a></td><td></td></tr>
   <tr><td>Subscriber Email:</td>      <td><a class='mobile' href='' title='Subscriber email'>".$row['subscriber_email']."</a></td><td></td></tr>
   <tr><td>Subscriber Name:</td>       <td><a class='mobile' href='' title='Subscriber name'>".$row['subscriber_name']."</a></td><td></td></tr>
@@ -176,18 +205,47 @@ $result = mysqli_query($db, $phone );
  while ($row = $result->fetch_assoc()) 
     {
 echo"<br><table class='basic' border='0' ><tbody>
-  <tr><td>Subscriber IMEI:</td><td><a class='mobile' href='' title='Device IMEI'> ".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network.</td></tr>
+  <tr><td>Subscriber IMEI:</td><td><a class='mobile' href='' title='Device IMEI: International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network.'> ".$row['subscriber_imei']."</a></td><td>International Mobile Equipment Identity is a unique number used to identify individual devices to the GSM network.</td></tr>
   <tr><td>Subscriber Number:</td><td><a class='mobile' href='' title='Suscriber phone number'>".$row['subscriber_phone_number']."</a></td><td></td></tr>
   <tr><td>Dialled Number:</td><td><a class='mobile' href='' title='Dialled number'> ".$row['dialled_number']."</a></td><td></td></tr>
-  <tr><td>Cell Tower Location:</td><td><a class='mobile' href='' title='Cell tower location'>".$row['cell_tower_location']."</a></td><td>The Global System for Mobile Communications uses cell towers to relay information to and from your phone. <a href='https://en.wikipedia.org/wiki/Cell_site'>More</a></td></tr>
+  <tr><td>Cell Tower Location:</td><td><a class='mobile' href='' title='Cell tower location: The Global System for Mobile Communications uses cell towers to relay information to and from your phone.'>".$row['cell_tower_location']."</a></td><td>The Global System for Mobile Communications uses cell towers to relay information to and from your phone. <a href='https://en.wikipedia.org/wiki/Cell_site'>More</a></td></tr>
   <tr><td>Date and Time:</td><td><a class='mobile' href='' title='Date/Time'> ".$row['date_time']."</a></td><td></td></tr>
   </tbody></table><br> ";
 }
 
  ?>
 </div>
-<table class='bottom-nav'><tr><td><a href='five.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
+<table border='0px' class='bottom-nav'><tr><td>
 
+   <?php
+    echo" 
+<form action='five.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_left'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+ <!-- <a href='https://whistleblower.network/snitch/eight.php'><img style='margin-top:-30px;' src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a>
+-->
+ </td>
+  <td>
+
+    <!--<a href='https://whistleblower.network/snitch/hard_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a>-->
+   <?php
+    echo" 
+<form action='seven.php' method='POST'>
+   <input type='hidden' name='team_name' value='".$_POST['team_name']."'> 
+   <input type='hidden' name='password' value='".$_POST['password']."'> 
+<input class='nav_button_right'   type='submit'  name='submit' value='' id='submit' />
+
+  
+
+</form> ";
+?>
+  </td></tr></table>
 </div>
 
 </div>

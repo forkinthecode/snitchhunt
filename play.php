@@ -4,7 +4,7 @@
 <br>
        
 <?php
-if ( isset($_POST['team_name'] )  )
+//if ( isset($_POST['team_name'] )  )
 {/*
  $team= $_POST['team_name'] ;
 $query="SELECT *,DATE_FORMAT(date,'%d %b %Y  at  %l:%i:%S') as dates FROM teams where team='".$team."' ";
@@ -46,7 +46,8 @@ echo"<tr><td>".$row['team']."</td>
 <td>".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
 </tr>";
   }
-echo"</table><br></div></details>";mysqli_free_result($result); 
+echo"</table><br></div></details>";
+mysqli_free_result($result); 
 }
 ?>
 

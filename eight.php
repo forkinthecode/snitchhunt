@@ -38,7 +38,7 @@ include'framework.php';
 ?>
 
 </nav>
-<table class='top-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='top-nav'><tr><td><a href='https://whistleblower.network/snitch/seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='https://whistleblower.network/snitch/short_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 <div class='page'>
 <h3>MineWatch, 9th December, 2016</h3>
@@ -76,7 +76,7 @@ Twitter: &#64;annaminewatch  </p>
 </ul>
 </details>
 </div>
-<table class='bottom-nav'><tr><td><a href='seven.php'><img src='images/next-blue-light-left.png'></img></a></td><td><a href='short_quiz.php'><img src='images/next-blue-light.png'></img></a></td></tr></table>
+<table class='bottom-nav'><tr><td><a href='https://whistleblower.network/snitch/seven.php'><img src='https://whistleblower.network/snitch/images/next-blue-light-left.png'></img></a></td><td><a href='https://whistleblower.network/snitch/short_quiz.php'><img src='https://whistleblower.network/snitch/images/next-blue-light.png'></img></a></td></tr></table>
 
 </div>
 

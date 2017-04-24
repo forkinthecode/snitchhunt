@@ -7,7 +7,7 @@ body { height:100%;
   .nav { width:100%; height:50px; }
 h2.top_title {color:#333; text-align:center; width:33%; margin-top:10px;  margin-left:30%; font-family:Verdana;}
 h5 {font-size: 20px; }
-.top-nav {position:absolute; top: -20px;}
+.top-nav {position:absolute; top: -20px; width:100%; }
 ul li {font-size:30px; margin:10px;}
   .heading { margin-top:0px;}
   .banner { width:100%; }
@@ -26,10 +26,17 @@ width:100%; }
 .content_title {  color:#eee;  padding:10px; display:none;}
 .pics { width:100%; margin-bottom:30px; border: solid: 1px;}
 .pics td:nth-of-type(odd) { width:30%; }
-.top-nav { margin:20px; width:90%; margin-right:20px; }
-.top-nav td:nth-of-type(even) {float:right;}
-.bottom-nav { margin:20px; width:90%; margin-right:20px; }
-.bottom-nav td:nth-of-type(even) {float:right;}
+
+.top-nav    { margin:20px; width:100%; padding-right:50px; }
+.bottom-nav { margin:20px; width:100%; padding-right:50px; }
+
+.top-nav td:nth-of-type(even)    {float:right; width:50%;  text-align:right;}
+.bottom-nav td:nth-of-type(even) {float:right; width:50%; text-align:right;}
+
+.nav_button {width:100%; color:#333;   font: bold 84%'trebuchet ms',helvetica,sans-serif; 
+  background-color: #eee; border: none }
+.nav_button:hover {background-color:#fff;}
+
 .people {width:100%; padding:2%; }
 p {margin-bottom:20px; margin-left:20px; padding-right:90px;  }
 h1 { text-align: center; padding: 0 50px;  font-size: 40px; padding-right:90px; }
@@ -52,7 +59,7 @@ h5 {font-size:17px;}
 h2 {font-size:20px; margin-left:20px;}
 h3 {margin-left:20px; font-size:25px; margin-top:10px;}
 details {line-height:35px;}
-summary {width:100%; margin-left:-20px; }
+summary {width:100%; margin-left:-20px;  }
 .people {display:none;}
 .people_small {margin-left:40px;}
 .police {width:300px; margin-left:50px;}
@@ -203,7 +210,7 @@ div.wrong  { width:90%; padding:1%; margin:20px; background:RGBA(37,163,247, 0.5
  border: dashed: 1px;  font-family:Georgia;  width:100%; background:RGBA(37,163,247, 1); border-radius: 20px ;}
 
  .searches p,h2,h3,h4,h5,h6 {color:#333;}
-a {color:RGBA(37,163,247, 1);}
+a {color:green;  text-decoration:none;}
 a:visited {color:#2a5b72}
  .answers a {color:#2a5b72}
 
@@ -226,21 +233,23 @@ input[type=submit].hint { width:100px; height:75px; margin-left:10px; font-famil
 
 .metadata  {margin:auto;  width:90%; margin-right:50px; }
 
-a {text-decoration:none;}
+
 details { margin-bottom:30px; margin-top:30px; width:100%; margin-left:20px;}
 
-
+summary::-webkit-summary-marker { 
+  display: none
+}
 details:focus
 {outline : none; color:#fff;}
-summary::-webkit-details-marker {
+summary::-webkit-details-marker { 
   display: none
 }/*
 summary:after:-webkit-details-marker {border:none;  display:none; float:right; opacity:0.3; margin-right:50px; }
 summary {    background:url('images/drop-down.png'); opacity:0.7; background-repeat:no-repeat; background-size:30px;
   position: relative; border:none; float:right;width:100%; margin-bottom:30px; margin-right:20px;  }
 */
-
-details[open] summary:after {background:url('show-less-fold-button.png');}
+details p {margin-top:15px;}
+details[open] summary:after {/*background:url('show-less-fold-button.png');*/ }
 summary:active {outline:none; }
 summary:focus {outline:none; }
 /*
@@ -248,7 +257,7 @@ summary:before{  margin:30px; float:right; }
 details[open] summary:before { margin-top: -4px; float:right; }*/
 h2 {margin-bottom:10px;}
 h3 {margin-bottom:10px;}
-li { list-style: square; font-size:15px; margin-left:30px; }
+li { list-style: square; font-size:15px; margin-left:10px; }
 /* The Basic Style for all Pages */
 
 
