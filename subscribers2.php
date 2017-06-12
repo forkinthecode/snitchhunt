@@ -35,7 +35,7 @@ subscriber_number='$string'
 
          elseif ($num_results <1)
         {
-       echo"<h6>There are no Phone subscriber exact matches for the search criteria <b>$string</b>- 
+       echo"<h6>There are no Phone subscriber exact matches for the search criteria <b>".stripslashes($string)."</b>- 
        falling back to partial matches</h6>";
 
    
@@ -50,7 +50,7 @@ subscriber_number='$string'
   @$num_results = mysqli_num_rows($result);
   if ($num_results <1)
         {
-        echo"<h6>There are no results for the search criteria <b>$string</b></h6>";
+        echo"<h6>There are no results for the search criteria <b>".stripslashes($string)."</b></h6>";
         }
        
           elseif ($num_results >1000 )

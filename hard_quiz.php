@@ -17,16 +17,16 @@ include('css.php');
 <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
 <head>
 
-<?php
-include('footer.php');
-
-?>
 
 
 </head>
 
 <body > <h2 class='top_title'>Hard Quiz</h2>
 
+<?php
+include('footer.php');
+
+?>
 <table class='top-nav'><tr><td>
 
     <?php
@@ -42,7 +42,10 @@ include('footer.php');
 ?>
 
 
-</td><td><a href='index.php'>Home</a></td></tr></table>
+</td><td> 
+
+
+</td></tr></table>
 <div id='nav'>
  
 
@@ -51,20 +54,57 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 
 
 <div class='page'>
 <div class='left'>
 
-    
+     <?php
+ 
+if ( isset($_POST['team_name'] ) && isset($_POST['password']) &&
+  $_POST['team_name']!='' ||  $_POST['password']!='')
+   
+{
+    echo"<h4><i>Playing SnitchHunt as ".$_POST['team_name']." </i></h4><hr> ";
+}
+
+?>
+<?php
+//tests that credentials are not set and displays forms for first run at registration
+ 
+if ( !isset($_POST['team_name'] ) && !isset($_POST['password']) && 
+  $_POST['team_name']=='' ||  $_POST['password']=='')
+{
+ echo" 
+  <table class='forms' border='0px'><tr><td>
+  <form action='' method='POST'>
+
+<input type='text'  id='team_name' name='team_name' placeholder='Register a user name for scoring' REQUIRED/></td><td>
+<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr>
+</table>
+<br>
+
+
+";
+}
+ elseif ( isset($_POST['team_name'] ) && !isset($_POST['password']) && $_POST['team_name']=='' &&  $_POST['password']==''  )
+         {
+   
+ 
+  echo"  <p>Register to play above and/or log in below</p> ";
+
+  
+         }
+
+?>
   <?php
 
 if ( isset($_POST['team_name'] ) && $_POST['team_name']!='' && !isset($_POST['password'] ))
 {
 //tests set team name against existing users in database
 
-$team= mysqli_real_escape_string($db, $_POST['team_name']);
+$team= mysqli_real_escape_string($db, trim($_POST['team_name']));
 $testing_team="SELECT team FROM teams WHERE team ='".$team."'";
         $result = mysqli_query($db, $testing_team );
         @$num_results = mysqli_num_rows($result);
@@ -73,24 +113,26 @@ $testing_team="SELECT team FROM teams WHERE team ='".$team."'";
         if ($num_results >0)
                  {
                   echo"<div class='toper2'>
-                  <h4> Team name <i>".$team."</i> already registered with SnitchHunt. To play on team $team, 
-                  use your correct password and sign in using top left drop down menu.</h4></div>";
+                  <h4> User name <i>".$team."</i> already registered with SnitchHunt. To play using the name $team, 
+                  use your correct password and sign in below using top left drop down menu.</h4></div>";
  //if there is an existing user by the same name, registration form is displayed again so a new team name can be registered
-  echo"
-  <table class='forms' border='0px'><tr><td>
-  <form action='' method='POST'>
-
-<input type='text'  id='team_name' name='team_name' placeholder='Register your team/user name' REQUIRED/></td><td>
-<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr></table>";
+ 
 }
 
                 if ($num_results <1)
                 {
+if (strpos($team, "'") !== FALSE)
+              {
+
+                echo"<h3>Your user name can not contain an apostrphe. 
+         Please choose a name without an apostrphe.</h3>";
+
+                }
  
-if (strlen($team)>15)
+elseif (strlen($team)>15)
      {
 //tests to see team name is not tooo long. If it is longer than 15 characters the following error message is displayed
-  echo"<h3>Your team/user name $team is too long: (".strlen($team)." chars). 
+  echo"<h3>Your user name $team is too long: (".strlen($team)." chars). 
          Please choose a name with less than 15 characters.</h3>";
       }
      
@@ -111,9 +153,8 @@ elseif (strlen($team) <15 )
                 if ($db->query($query) === TRUE) 
                 {
                   echo"
-               <h3>Team/user name <i>$team</i> has been registered with password $password
-              </h3>
-              <h3>Copy/paste this info to text or Google doc that you can use to paste useful information as you proceed.</h3>";
+               <h4>User name <i>$team</i> has been registered with password $password. Use these credentials to sign in below but before you do, 
+               copy this info to a text/Google doc that you can use to paste useful information as you proceed.</h4>";
 
                 }
                    else 
@@ -144,20 +185,13 @@ elseif (strlen($team) <15 )
 
    
           }
-      
+      ?>
           
- elseif (  $_POST['team_name']=='' &&  $_POST['password']==''  )
-         {
-   
- 
-  echo"  <p>Register to play above or log in below</p> ";
-
-  
-         }
 
 
 
-         ?>
+
+         
 
  
   
@@ -166,29 +200,18 @@ elseif (strlen($team) <15 )
   
  <?php
 //tests that credentials are not set and displays forms for first run at registration
-if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) && $_POST['password']!='')
+ 
+if ( !isset($_POST['team_name'] ) && !isset($_POST['password']) || 
+  $_POST['team_name']=='' ||  $_POST['password']=='')
 {
 
 
  echo" 
-  <table class='forms' border='0px'><tr><td>
-  <form action='' method='POST'>
-
-<input type='text'  id='team_name' name='team_name' placeholder='Register your team/user name' REQUIRED/></td><td>
-<input type='submit' class='close' name='submit' value='' id='submit' /></form></td></tr>
-</table>
-
-";
-}
-
-?>
- <?php
-if ( !isset($_POST['team_name'] ) || !isset($_POST['password'] ) )
-{
-echo"
+  
+<br>
 <table class='forms'> <tr><td>
 <form action='' method='POST'> 
-<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='Team name' />
+<input class='sign-in' type='text'  id='team_name' name='team_name' placeholder='User name' />
 
 <input class='sign-in' type='password'  id='password' name='password' placeholder='Password' />
 </td>
@@ -197,11 +220,13 @@ echo"
 </td>
 
 </tr>
-</table>";
+</table>
 
-
+";
 }
+
 ?>
+
  
   
  
@@ -241,12 +266,31 @@ include'search.php'
 
 
 
-</td><td><a href='https://whistleblower.network/snitch/index.php'>Home</a></td></tr></table>
+</td><td>
+
+
+
+</td></tr></table>
 </div>
 
 </div>
 
 </div>
+  <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 </body>
 </html>

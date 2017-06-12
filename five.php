@@ -18,15 +18,15 @@ include('css.php');
 <head>
 
 
-<?php
-include('footer.php');
 
-?>
 
 </head>
 
 <body > <h2 class='top_title'>Datasets</h2>
+<?php
+include('footer.php');
 
+?>
 
 <div id='nav'>
  
@@ -36,7 +36,7 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -79,7 +79,7 @@ include'framework.php';
 
 <?php
 
-  $email = "SELECT * from email_metadata where id='1' ";
+  $email = "SELECT * from email where id='1' ";
 $result = mysqli_query($db, $email );
    echo"
  
@@ -148,7 +148,7 @@ echo"<table class='basic' ><tbody>
 </td></tr></table>
 
     <?php
-$phone = "SELECT * from phone_metadata where id='1'";
+$phone = "SELECT * from phone_metadata4 where id='2'";
 $result = mysqli_query($db, $phone );
 
  while ($row = $result->fetch_assoc()) 
@@ -158,7 +158,7 @@ echo"<br><table class='basic' border='0' ><tbody>
   <tr><td>Subscriber Number:</td><td><a class='mobile' href='' title='Suscriber phone number'>".$row['subscriber_phone_number']."</a></td><td></td></tr>
   <tr><td>Dialled Number:</td><td><a class='mobile' href='' title='Dialled number'> ".$row['dialled_number']."</a></td><td></td></tr>
   <tr><td>Cell Tower Location:</td><td><a class='mobile' href='' title='Cell tower location'>".$row['cell_tower_location']."</a></td><td>The Global System for Mobile Communications uses cell towers to relay information to and from your phone. <a href='https://en.wikipedia.org/wiki/Cell_site'>More</a></td></tr>
-  <tr><td>Date and Time:</td><td><a class='mobile' href='' title='Date/Time'> ".$row['date_time']."</a></td><td></td></tr>
+  <tr><td>Date and Time:</td><td><a class='mobile' href='' title='Date/Time'> ".$row['date_column']." ".$row['time']."</a></td><td></td></tr>
   </tbody></table><br> ";
 }
 
@@ -187,7 +187,7 @@ echo"<table class='basic' border='0' ><tbody>
       <tr><td>Address:</td>                     <td><a class='mobile' href='' title='Street Address'>".$row['address']." </a>       </td><td></td></tr>
       <tr><td>Employer:</td>                    <td><a class='mobile' href='' title='Employer'>".$row['employer']."</a>       </td><td></td></tr>
       <tr><td>Job Title:</td>                   <td><a class='mobile' href='' title='Job Title'>".$row['job_title']."</a>      </td><td></td></tr>
-      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://en.wikipedia.org/wiki/Port_(computer_networking)'>More</a></td></tr>
+      <tr><td>Source TCP Port:</td>             <td><a class='mobile' href='' title='Source TCP port'>".$row['source_tcp_port']."</a></td><td>Port numbers can be used to identify particular services used such as FTP, HTTP or IRC. <a href='https://www.lifewire.com/port-numbers-on-computer-networks-817939'>More</a></td></tr>
       <tr><td>User agent:</td>                  <td><a class='mobile' href='' title='Browser/Device type'>".$row['user_agent']." </a>    </td><td>The browser/version used & device type is sent with web activity to customise content. <a href='https://en.wikipedia.org/wiki/User_agent'>More</a> </td></tr>
       <tr><td>Date and Time:</td>               <td><a class='mobile' href='' title='Date/Time'>".$row['date_time']."</a>     </td><td></td></tr>
      </tbody></table><br>";

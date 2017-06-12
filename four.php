@@ -22,12 +22,13 @@ include('css.php');
 
 </head>
 
-<body >  <h2 class='top_title'>SnitchHunt  </h2>
+<body >  
+  <h2 class='top_title'>SnitchHunt  </h2>
+
 <?php
 include('footer.php');
 
 ?>
-
 <div id='nav'>
 
 
@@ -36,7 +37,7 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -73,7 +74,7 @@ include'framework.php';
   <p>  The data that is being collected includes IP addresses, email addresses, phone numbers, and location data. </p>
 
   	<p>
-  Although these individual datasets already reveal a lot of your online presence, the real deal is data matching. Once an experienced analyst brings the different datasets together usign a common field, 
+  Although these individual datasets already reveal a lot of your online presence, the real impact is data matching. Once an experienced analyst brings the different datasets together usign a common field, 
     a picture of your activites can emerge though the fragments in each dataset.</p>
      <p>It's easy to ignore that so much information about us is collected and stored. SnitchHunt was created
   to educate the public about how our everyday activities are being recorded and what this may mean for us.
@@ -83,22 +84,30 @@ include'framework.php';
 <p>But first we'll learn a little more about the different datasets.</p>
 </div>
 <div class='right'>
- <img src='https://whistleblower.network/snitch/images/snitch.png'/><br>
-    <details><summary><h5>Google search data</h5></summary>
+ <img src='https://whistleblower.network/snitch/images/snitch.png'/><br><br>
+ 
+<button class="accordion">Google search data</h5></button>
+<div class="panel">
  <img class='data' src='images/google-ex.png'></img>
- </details>
- <details><summary><h5>Email dataset</h5></summary>  <img class='data' src='https://whistleblower.network/snitch/images/email-ex.png'></img>
- </details>
+ </div>
+
+
+<button class="accordion">Email dataset</button>
+<div class="panel">
+ <img class='data' src='https://whistleblower.network/snitch/images/email-ex.png'></img>
+ </div>
 
   
 
-<details><summary><h5>SnitchHunt Quizzes</h5></summary>
+
+<button class="accordion">SnitchHunt Quizzes</h5></button>
+<div class="panel">
 	<p>There are 2 versions of SnitchHunt. The first is a version designed to be easily done in an evening workshop. The Short Quiz is not scored
 		and requires no registration. </p>
-		<p>The Hard Quiz is designed to be challenging and takes some time to complete. The Hard Quiz is scored so requires registration of a team name to begin.
-			There are hints to step players through the difficulties but clicking on them results in points lost to you or your team. </p>
+		<p>The Hard Quiz is designed to be challenging and takes some time to complete. The Hard Quiz is scored so requires registration of a user name to begin.
+			There are hints to step players through the difficulties but clicking on them results in points lost to you. </p>
 	<!--	<p>You can proceed through the following pages and return to this page to register if you intend to attempt the Hard Quiz.</p>-->
-		</details>
+		</div>
   <?php
 /*
 if ( !isset($_POST['team_name'] ) )
@@ -219,6 +228,21 @@ if ($num_results <1)
 
 
 </div>
+ <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 </body>
 </html>

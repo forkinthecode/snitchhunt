@@ -35,7 +35,9 @@ $query="SELECT * FROM teams WHERE date BETWEEN date_sub( now( ) , INTERVAL 30 DA
  order by (ch1+ch2+ch3+ch4+ch5+ch6+ch7) DESC";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
-echo"<br><div class='homer'><details><summary><h5>Scores</h5></summary><table class='wide'><tr><th>Team</th>
+echo"<br><button class='accordion'>
+Scores</button><div class='panel'><div class='homer'>
+<table class='wide'><tr><th>Team</th>
 
 <th>Score</th>
 </tr>";
@@ -46,7 +48,7 @@ echo"<tr><td>".$row['team']."</td>
 <td>".($row['ch1']+$row['ch2']+$row['ch3']+$row['ch4']+$row['ch5']+$row['ch6']+$row['ch7'])."</td>
 </tr>";
   }
-echo"</table><br></div></details>";
+echo"</table><br></div></div>";
 mysqli_free_result($result); 
 }
 ?>

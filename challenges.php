@@ -1,11 +1,16 @@
 
 <?php
-if ( isset($_POST['team_name'] ) && isset($_POST['password'] ))
+if ( isset($_POST['team_name'] ) && isset($_POST['password']) && $_POST['team_name']!='' &&  $_POST['password']!='')
 {
+
+
+         
+
+
   /////////////////////
   $team=$_POST['team_name'];
   $password=$_POST['password'];
-  //echo"<br>$team $password";
+
  $query="SELECT ch1 from teams where team='".$team."'";
   $result = mysqli_query($db, $query);
            @$num_results = mysqli_num_rows($result);
@@ -86,6 +91,7 @@ echo"
  <input type='hidden' name='team_name' value='".$team."'> 
  <input type='hidden' name='password' value='".$password."'>
 
+
 <input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' REQUIRED/></td><td>
 <input class='answer'  type='submit' class='user' name='submit' value='' id='submit' /></form></td></tr></table>
 
@@ -104,8 +110,8 @@ echo"
             if ( isset($_POST['hint2']) && $_POST['hint2']='hint2')
             {
               echo"<h6>Hint: </h6>
-             <h6>Search Google metadata for the term whistleblower (one word) or anna dupont contact </h6>
-             <h6>Look through the search terms to see if you can find other clues and try that Google ID</h6>
+             <h6>Search Google data for the term whistleblower (one word) or anna dupont contact. </h6>
+             <h6>Look through the search terms to see if you can find other clues and try that Google ID as the answer.</h6>
              <h6>Try each Google User ID in turn until you get the right one- the long string of letters and numbers. </h6>
              <h6>Keep this search result in mind because you will need to use the Google metadata results to answer Challenge 3.</h6>
               ";
@@ -188,10 +194,17 @@ echo"
          if ( isset($_POST['hint3']) && $_POST['hint3']='hint3')
             {
               echo"<h6>Hint: </h6>
-              <h6>Search email metadata for minewatch (minewatch is  one word)</h6>
-              <h6>There are 705 email metadata results for minewatch</h6>
-              <h6>Use in page search on the IP address from the Google metadata</h6>
-              <h6>Copy email address from first result of in-page search and see if that is answer</h6>
+            <!--  <h6>To answer this you need to find someone who used the same device to search Google for Anna Dupont's contact at Minewatch
+              and also emailed her.</h6>
+              <h6>You need to use the IP address (of the router) which is the same in both Google search data and email sent to anna dupont.</h6>
+              
+              <h6>Locate the IP address of the deviced used to search 
+              Google for 'minewatch' or 'Anna Dupont contact' & copy it somewhere for later use.</h6>-->
+
+              <h6>Search email metadata for minewatch (minewatch is  one word).</h6>
+          
+           <!--   <h6>Use in page search on the IP address from the Google metadata.</h6>
+              <h6>Copy email address from first result of in-page search and see if that is answer.</h6>-->
               ";
               $sql = "UPDATE teams SET ch6_max='50' WHERE team='".$team."'";
 
@@ -268,8 +281,7 @@ echo"
     if ( isset($_POST['hint4']) && $_POST['hint4']='hint4')
             {
               echo"<h6>Hint: </h6>
-        <h6>You need to plug the whistleblower's email address into the phone subscribers database to get potential matches,
-         then do an in page search (via the browser) using the email address to get this answer.</h6>
+        <h6>You need to plug the whistleblower's email address into the phone subscribers database.</h6>
 
 
               ";
@@ -426,7 +438,7 @@ echo"
               echo"<h6>Hint: </h6>
 <h6>Get journalist's phone number </h6>
 <h6>Get whistleblower's phone number </h6>
-<h6>Plug these into Cross Search to get first part of answer</h6>
+<h6>Plug these into Cross Search (BELOW) to get first part of answer</h6>
 <h6>Switch them over to see how many calls were made in the other direction and add.</h6>
 
               ";
@@ -505,7 +517,7 @@ echo"
               echo"<h6>Hint: </h6>
 <h6>Use Cross Search page.</h6>
 <h6>Enter the journalist and whistleblower's phone numbers into the 2nd cross search box to find out which number they both called. </h6>
-<h6>Click on the IMEI to search the phone subscriber records to get the details of the 2nd whistleblower. 
+<h6>Use the IMEI to search the phone subscriber records to get the details of the 2nd whistleblower. 
 </h6>";
 
 $sql = "UPDATE teams SET ch7_max='75' WHERE team='".$team."'";

@@ -20,7 +20,7 @@ MATCH(`duration`)                AGAINST('$string' IN BOOLEAN MODE) ORDER BY pho
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 
-      if ($num_results>0 && $num_results<1000) 
+      if ($num_results>0 && $num_results<1500) 
         { //5
         echo"<h6>There are ".number_format($num_results)." matches across all <i>phone metadata</i> fields for <b>$string</b></h6>
         <div class='expand'>";
@@ -38,10 +38,10 @@ $result = mysqli_query($db, $phone );
         echo"</div>";
       }//5
 
-       elseif ($num_results >1000 )
+       elseif ($num_results >1500 )
         {
          echo"<h6>There are too many phone metadata results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
-         Maximum results displayed is 1000.</h6><h6> Try a different search string</h6>";
+         Maximum results displayed is 1500.</h6><h6> Try a different search string</h6>";
         }
 elseif ($num_results <1)
  {//2
@@ -63,12 +63,12 @@ elseif ($num_results <1)
         echo"<h6>There are no phone metadata results for the search criteria <b>$string</b></h6>";
         }
         
-        elseif ($num_results >1000 )
+        elseif ($num_results >1500 )
         {
          echo"<h6>There are too many phone metadata results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
-         Maximum results displayed is 1000.</h6><h6> Try a different search string</h6>";
+         Maximum results displayed is 1500.</h6><h6> Try a different search string</h6>";
         }
-        elseif ($num_results>0 && $num_results <1000) 
+        elseif ($num_results>0 && $num_results <1500) 
         { 
         echo"<h6>There are ".number_format($num_results)." partial matches across all <i>phone metadata</i> fields for <i>$string</i></h6>
   

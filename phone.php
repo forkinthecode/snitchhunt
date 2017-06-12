@@ -4,7 +4,7 @@ if(  isset($_POST['search_all_phone'])  )
  {
 $data=trim($_POST['search_all_phone']);
 $search_all_phone= mysqli_real_escape_string ( $db , $data );
-echo"<h3>Searching <i>All phone</i> for <i>$search_all_phone</i></h3>";
+echo"<h3>Searching <i>All phone</i> for <i>".stripslashes($search_all_phone)."</i></h3>";
   
 
 $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
@@ -21,7 +21,7 @@ $result = mysqli_query($db, $phone );
 
       if ($num_results>0) 
         { 
-        echo"<h3>There are ".number_format($num_results)." matches across all <i>phone metadata</i> phone for <b>$search_all_phone</b></h3>
+        echo"<h3>There are ".number_format($num_results)." matches across all <i>phone metadata</i> phone for <b>".stripslashes($search_all_phone)."</b></h3>
         ";
         while ($row = $result->fetch_assoc()) 
              {
@@ -39,7 +39,7 @@ $result = mysqli_query($db, $phone );
       }
 elseif ($num_results <1)
  {
-       echo"<h3>There are no exact matches for the search criteria <b>$search_all_phone</b>- 
+       echo"<h3>There are no exact matches for the search criteria <b>".stripslashes($search_all_phone)."</b>- 
        falling back to partial matches</h3>";
      
       $phone = "SELECT *,DATE_FORMAT(date_column, '%D %M %Y') AS date_column, TIME_FORMAT(time,'%h:%i %p') AS time 
@@ -57,10 +57,10 @@ elseif ($num_results <1)
         echo"<h3>There are no results for the search criteria <b>$search_all_phone</b></h3>";
         }
         
-        elseif ($num_results >1000 )
+        elseif ($num_results >1500 )
          {
          echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <b>$search_all_email</b>. 
-         Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
+         Maximum results displayed is 1500.</h3><h3> Try a different search string</h3>";
          }
         elseif ($num_results>0) 
         { 
@@ -70,8 +70,7 @@ elseif ($num_results <1)
         while ($row = $result->fetch_assoc()) 
        {
      echo"<table class='basic' border='0' style=''><tbody>
-    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr>
-    
+    <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."<td><td></td></tr> 
     <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
     <tr><td>Dialled number:</td>      <td>".$row['dialled_number']."<td><td></td></tr>
     <tr><td>Cell Tower Location:</td> <td>".$row['cell_tower_location']."</td></tr>

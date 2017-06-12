@@ -35,7 +35,7 @@ MATCH(subscriber_number)          AGAINST('$search_all_subscribers' IN BOOLEAN M
 
       if ($num_results >1000 )
              {
-             echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <i>".$search_all_subscribers."</i>. 
+             echo"<h3>There are too many results (".number_format($num_results).") to display for the search criteria <i>".stripslashes($search_all_subscribers)."</i>. 
              Maximum results displayed is 1000.</h3><h3> Try a different search string</h3>";
              }
         elseif ($num_results >0 && $num_results <1000) 
@@ -73,7 +73,7 @@ MATCH(subscriber_number)          AGAINST('$search_all_subscribers' IN BOOLEAN M
   @$num_results = mysqli_num_rows($result);
   if ($num_results <1)
             {
-            echo"<h3>There are no results for the search criteria <b>$search_all_subscribers</b></h3>";
+            echo"<h3>There are no results for the search criteria <b>".stripslashes($search_all_subscribers)."</b></h3>";
             }
               elseif ($num_results >1000 )
              {

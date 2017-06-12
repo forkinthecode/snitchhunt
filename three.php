@@ -18,15 +18,15 @@ include('css.php');
 <head>
 
 
-<?php
-include('footer.php');
-
-?>
 
 
 </head>
 
 <body > <h2 class='top_title'>Corporations</h2>
+<?php
+include('footer.php');
+
+?>
 
 <div id='nav'>
 
@@ -36,7 +36,7 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -83,22 +83,23 @@ include'framework.php';
 <p>Metadata is generated whenever we take any action with our electronic devices. 
 
 	This data is stored by telcos as operational data and this data was always made available 
-	to government agencies without a warrant and also parties to civil disputes via subpoena (eg employers, private citizens in family law disputes, corporations in litigation).</p>
+	to government agencies without a warrant.</p>
 
 <img class='police' src='https://whistleblower.network/snitch/images/AFP.jpg'>
-	</div>
-	<div class='clear'></div>
-	<br>
-	<p>When telcos began charging people in new and different ways, they didn't always keep the same data that law enforcement agencies wanted for their investigations.</p>
+<br><br>
+<p>When telcos began charging people in new and different ways, they didn't always keep the same data that law enforcement agencies wanted for their investigations.</p>
 
 <p>It was this desire for a standardised set of data for the benefit of law enforcement agencies that prompted the government to establish the <a href='https://www.ag.gov.au/dataretention' target='_blank'>Data Retention Scheme</a>, which the government
   claimed was to be used only to combat the most serious types of crime: Terrorism, child exploitation and organised crime.
 </p>
 
-	<p>In the decades before we started carrying out most of our daily activities online, the collection and use of data was not such a pressing
-		social and legal issue. Now that so much of our daily activities are captured, who has access to it and under what circumstances is a much more controversial issue.</p>
+  <p>In the decades before we started carrying out most of our daily activities online, the collection and use of data was not such a pressing
+    social and legal issue. Now that so much of our daily activities are captured, who has access to it and under what circumstances is a much more controversial issue.</p>
 
 
+	</div>
+
+	
 </div>
 <table border='0px' class='bottom-nav'><tr><td>
 

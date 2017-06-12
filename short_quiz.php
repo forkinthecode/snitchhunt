@@ -18,16 +18,16 @@ include('css.php');
 <head>
 
 
-<?php
-include('footer.php');
 
-?>
 
 
 </head>
 
-<body > <h2 class='top_title'>Short Quiz</h2>
+<body> <h2 class='top_title'>Short Quiz</h2>
+<?php
+include('footer.php');
 
+?>
 
 <div id='nav'>
  
@@ -37,7 +37,7 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -72,6 +72,7 @@ include'framework.php';
 
 <div class='page'>
 <div class='left'>
+  <h4>Copy paste results to a separate Google/text doc so you don't have to keep running the same searches.</h4>
    
 <?php
  
@@ -113,32 +114,6 @@ else
 ?>
 
 
-
-
-
-
-
-
-
-<br><br>
-
-<div class='searches'>
-<h5>Q1. What's the name of the journalist at Minewatch?</a></h5>
-<details><!--[if !IE]><!-->
-
-  <summary><img height='20px' style='float:right' src='images/information.png'></img></summary><!--<![endif]-->
-<h6>Search the article (last page) to find this answer.</h6>
-</details>
-<table class='forms' border='0px'><tr><td>
- <form action='' method='POST'> 
-
-<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' REQUIRED/></td><td>
-
-<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</div>
-
-<br>
-
 <?php
 
 if ( isset($_POST['challenge2'] ) && $_POST['challenge2']=='')
@@ -151,8 +126,8 @@ if ( isset($_POST['challenge2'] ) && $_POST['challenge2']=='')
 if ( isset($_POST['challenge2'] ) && $_POST['challenge2']!='')
   {
 
-
-$query="SELECT * FROM `easy` WHERE easy like'%$challenge_two%' && id='2' ";
+$challenge_two=trim($_POST['challenge2']);
+$query="SELECT * FROM `easy` WHERE easy ='$challenge_two' && id='2' ";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
 
@@ -177,24 +152,6 @@ else
 ?>
 
 
-<div class='searches'>
-
-
-<h5>Q2. What is the phone number of the journalist?</h5>
-
-<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
-<h6>Hint: Search the article (last page) to find this answer.</h6>
-</details>
-<table class='forms' border='0px'><tr><td>
- <form action='' method='POST'> 
-
-<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' REQUIRED/></td><td>
-
-<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</div>
-
-<br>
-
 
 <?php
 
@@ -209,7 +166,7 @@ if ( isset($_POST['challenge3'] ) && $_POST['challenge3']=='')
 if ( isset($_POST['challenge3'] ) && $_POST['challenge3']!='')
   {
 $challenge_three=  trim($_POST['challenge3']);
-$query="SELECT * FROM `easy` WHERE easy like'%$challenge_three%' && id='3' ";
+$query="SELECT * FROM `easy` WHERE easy ='$challenge_three' && id='3' ";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
 
@@ -232,26 +189,6 @@ else
 }
 
 ?>
-
-
-<div class='searches'>
-
-<h5>Q3. What is the full address of the journalist?</h5>
-
-<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
-<h6>Hint: Search the phone subscriber database (opposite).</h6>
-</details>
-<table class='forms' border='0px'><tr><td>
- <form action='' method='POST'> 
-
-<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' REQUIRED/></td><td>
-
-<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</div>
-
-<br>
-
-
 
 <?php
 
@@ -289,25 +226,6 @@ else
 }
 
 ?>
-
-
-<div class='searches'>
-
-<h5>Q4. What number called the journalist from the location closest the mine?</h5>
-
-<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
-<h6>Hint: Search phone usage metadata by entering the journalist's phone number and the cell tower name mentioned in the task to get any numbers that called
-  the journalist from near the mine.</h6>
-</details>
-<br>
-<table class='forms' border='0px' ><tr><td>
- <form action='' method='POST'> 
-<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' REQUIRED/></td><td>
-<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
-</div>
-
-<br>
-
 <?php
 
 
@@ -345,19 +263,98 @@ else
 
 ?>
 
-<div class='searches'>
-<h5>Q5. What is the name of the person who has called the journalist from near the mine?</h5>
+<br><br>
 
-<details><summary><img height='20px' style='float:right' src='images/information.png'></img></summary>
+<div class='searches'>
+<button class="accordion">Q1. What's the name of the journalist at Minewatch?</a></button>
+
+<div class="panel">
+
+
+<table class='forms' border='0px'><tr><td>
+ <form action='' method='POST'> 
+
+<input type='text'  id='challenge1' name='challenge1' placeholder='Challenge 1 Answer' REQUIRED/></td><td>
+
+<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
+</div>
+</div>
+<br>
+
+
+
+<div class='searches'>
+
+
+<button class="accordion">Q2. What is the phone number of the journalist?</button>
+<div class="panel">
+
+<table class='forms' border='0px'><tr><td>
+ <form action='' method='POST'> 
+
+<input type='text'  id='challenge2' name='challenge2' placeholder='Challenge 2 Answer' REQUIRED/></td><td>
+
+<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
+</div>
+</div>
+<br>
+
+
+
+
+<div class='searches'>
+
+<button class="accordion">Q3. What is the full address of the journalist?</button>
+
+<div class="panel"><img height='20px' style='float:right' src='images/information.png'></img>
+<h6>Hint: Search the phone subscriber database (opposite).</h6>
+
+<table class='forms' border='0px'><tr><td>
+ <form action='' method='POST'> 
+
+<input type='text'  id='challenge3' name='challenge3' placeholder='Challenge 3 Answer' REQUIRED/></td><td>
+
+<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
+</div>
+</div>
+<br>
+
+
+
+
+
+
+<div class='searches'>
+
+<button class="accordion">Q4. What number called the journalist from the location closest the mine?</button>
+<div class="panel">
+<img height='20px' style='float:right' src='images/information.png'></img>
+<h6>Hint: Search phone usage metadata by entering the journalist's phone number and the cell tower name mentioned in the task to get any numbers that called
+  the journalist from near the mine.</h6>
+
+<br>
+<table class='forms' border='0px' ><tr><td>
+ <form action='' method='POST'> 
+<input type='text'  id='challenge4' name='challenge4' placeholder='Challenge 4 Answer' REQUIRED/></td><td>
+<input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
+</div>
+</div>
+<br>
+
+
+
+<div class='searches'>
+<button class="accordion">Q5. What is the name of the person who has called the journalist from near the mine?</button>
+<div class="panel"><img height='20px' style='float:right' src='images/information.png'></img>
 <h6>Hint: Use the phone subscriber database </h6>
-</details>
+
 <br>
 <table class='forms' border='0px' ><tr><td>
  <form action='' method='POST'> 
 <input type='text'  id='challenge5' name='challenge5' placeholder='Challenge 5 Answer' REQUIRED/></td><td>
 <input class='answer'   type='submit'  name='submit' value='' id='submit' /></form></td></tr></table>
 </div>
-
+</div>
 <br>
 
 
@@ -376,7 +373,7 @@ else
 <div class='right'>
  
 <p>Searches are not case sensitive</p>
-<h5>Phone subscriber database</h5>
+<h5>Search all fields in phone subscriber database</h5>
 
 <?php
 include'subscribers.php';
@@ -384,7 +381,7 @@ include'subscribers.php';
 ?>
 
 <br><div class='clear'></div>
-<h5>Phone usage metadata</h5>
+<h5>Search phone usage numbers for calls made from specific cell tower locations</h5>
 
 
 
@@ -427,7 +424,22 @@ include'cross.php';
 
 
 </div>
+   <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 </body>
 </html>
 

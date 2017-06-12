@@ -18,15 +18,15 @@ include('css.php');
 <head>
 
 
+
+</head>
+
+<body> <h2 class='top_title'>Task</h2>
+
 <?php
 include('footer.php');
 
 ?>
-
-</head>
-
-<body > <h2 class='top_title'>Task</h2>
-
 
 <div id='nav'>
 
@@ -36,7 +36,7 @@ include('footer.php');
 include'framework.php';
 ?>
 
-</nav>
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -93,14 +93,14 @@ against the calls to and from the journalist to see if we can narrow it down to 
    This brings up Google's records of what people have searched for. The article should come handy to find the right person.
 </p>
 <p><strong>#2</strong>. To get the email address of the whistleblower, switch to the email metadata logs (yay, we plugged <em>smalllake.com.au</em> in recently!). 
-</p>-->
+</p>
 <p><strong>#1</strong>. You will need to read the article to get the name of the journalist. </p>
 <p><strong>#2</strong>. You will need to dig into the phone subscriber data  to get the full information on the journalist.  </p>
 
 <p><strong>#3</strong>. You will need to use the journalists phone number search the phone usage data to find out who has been in contact with her. </p>
 
 <p><strong>#4</strong>. Once you have the results for calls made to cell towers around the mine, plug it into the phone subscriber data base to identify our potential suspect. </p>
-<!--
+
 <p><strong>#4</strong>. What is the last known location of the whistleblower? We may need to ring a judge in a different state for the warrant. Also, we could pull a couple of fresh photos of the target from the CCTV cams nearby. Try to get this from the mobile call logs. </p>
 <p><strong>#5</strong>. How many times did the journalist and this whistleblower talk to each other over the phone? To answer this you will need use the cross search page.</p>
 <p><strong>#6</strong>. Is there any other whistleblower who might be also leaking to MineWatch? Use the cross search to find the number that has called both numbers.</p>

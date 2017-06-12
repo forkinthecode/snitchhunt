@@ -19,26 +19,26 @@ include('css.php');
 <head>
 
 
+
+
+</head>
+
+<body> <h2 class='top_title'>Data Matching</h2>
 <?php
 include('footer.php');
 
 ?>
 
-</head>
-
-<body > <h2 class='top_title'>Data Matching</h2>
-
-
 <div id='nav'>
  
- 
-
- <?php
+  <?php
 
 include'framework.php';
 ?>
 
-</nav>
+
+
+</div>
 <table border='0px' class='top-nav'><tr><td>
 
    <?php
@@ -72,22 +72,30 @@ include'framework.php';
   </td></tr></table>
 <div class='page'>
 
-<p>Data matching means taking information that appears in more than one data set and finding matching records for it.</p>
+<p>Data matching means using information that appears in more than one data set to find similar or related information in another dataset about the same person, place or thing. </p>
 <p>For example, when we browse the web or send an email using the same internet connection, the IP address of the router our 
   devices use to access the internet is recorded along with other data about each activity.</p>
 
-<details><summary><h5>Which datasets contain IP address of the device connected to the internet?</h5></summary>
-  <p>Google search data & Email metadata</p>
-</details>
-<details><summary><h5>Which datasets contain email address?</h5></summary>
-  <p>Phone subscriber database, Email metadata, Google search metadata.</p>
-</details>
-<details><summary><h5>Which datasets contain home address?</h5></summary>
-  <p>Google search metadata, Phone subscriber data</p>
-</details>
-<details><summary><h5>Which datasets real time location information?</h5></summary>
-  <p>Phone usage metadata</p>
-</details>
+<button class="accordion">Q. Which datasets contain IP address of the device connected to the internet?</button>
+ <div class="panel"> 
+  <p>A. Google search data & Email metadata</p>
+</div>
+
+<button class="accordion">Q. Which datasets contain email address?</button>
+<div class="panel">  
+  <p>A. Phone subscriber database, Email metadata, Google search metadata.</p>
+</div>
+
+<button class="accordion">Q. Which datasets contain home address?</button>
+<div class="panel">  
+  <p>A. Google search metadata, Phone subscriber data</p>
+</div>
+
+<button class="accordion">Q. Which datasets real time location information?</button>
+<div class="panel">  
+  <p>A. Phone usage metadata</p>
+</div>
+<br><br>
   <h2>Email metadata </h2>
 <!--<table class='metadata'><tr><td>
 <img  src='images/email.png'></td><td>
@@ -98,7 +106,7 @@ include'framework.php';
 
 <?php
 
-  $email = "SELECT * from email_metadata where id='1' ";
+  $email = "SELECT * from email where id='1' ";
 $result = mysqli_query($db, $email );
    echo"
  
@@ -199,7 +207,7 @@ echo"<table class='basic' ><tbody>
 </td></tr></table>-->
 
     <?php
-$phone = "SELECT * from phone_metadata where id='1'";
+$phone = "SELECT * from phone_metadata4 where id='1'";
 $result = mysqli_query($db, $phone );
 
  while ($row = $result->fetch_assoc()) 
@@ -251,7 +259,22 @@ echo"<br><table class='basic' border='0' ><tbody>
 </div>
 
 </div>
+ <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 </body>
 </html>
 

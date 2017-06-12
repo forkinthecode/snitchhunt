@@ -42,16 +42,16 @@
 			$cell_tower_location= mysqli_real_escape_string ( $db , $data2 );
 			
 			$number_of_calls="SELECT *
-			FROM `phone_metadata3` WHERE
-			 MATCH(`dialled_number`) AGAINST('$subscriber_phone_number' IN BOOLEAN MODE) 
-			 && `cell_tower_location` LIKE('%$cell_tower_location%') 
-			 GROUP BY cell_tower_location
+			FROM `phone_metadata4` WHERE
+			 `dialled_number`='$subscriber_phone_number' 
+			 && `cell_tower_location` ='$cell_tower_location' 
+			
            ";
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
 			if ($num_results <1)
 			    {//2
-			       echo"<h3>There are no calls originating from $subscriber_phone_number at the $cell_tower_location location. </h3><br>";
+			       echo"<h3>There are no calls to the number $subscriber_phone_number from the $cell_tower_location location. </h3><br><img src='images/cellular-tower-28883_640.png'/>";
 	   
 			   }
 			   else
@@ -75,7 +75,7 @@
 			   </tr>
 			    ";
 			        }//6
-			        echo" </tbody></table><br>";
+			        echo" </tbody></table><br><img src='images/cellular-tower-28883_640.png'/>";
 			   }
 			   
 		   }

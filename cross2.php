@@ -38,9 +38,9 @@ if ($num_results >0)
 			$data1=trim($_POST['dialled_number']);
 			$dialled_number= mysqli_real_escape_string ( $db , $data1 );
 			
-			$number_of_calls="SELECT * FROM `phone_metadata3` WHERE
-				MATCH(`subscriber_phone_number`) AGAINST('$subscriber_number' IN BOOLEAN MODE) 
-				&& MATCH(`dialled_number`) AGAINST('$dialled_number' IN BOOLEAN MODE) 
+			$number_of_calls="SELECT * FROM `phone_metadata4` WHERE
+				`subscriber_phone_number`='$subscriber_number' 
+				&& `dialled_number`='$dialled_number'  
 				ORDER BY date_column DESC";
 			$result = mysqli_query($db, $number_of_calls );
 			@$num_results = mysqli_num_rows($result);
@@ -114,32 +114,38 @@ $data=trim($_POST['caller_one']);
 $caller_one= mysqli_real_escape_string ( $db , $data );
 $data1=trim($_POST['caller_two']);
 $caller_two= mysqli_real_escape_string ( $db , $data1 );
+//select imei and number that has been been dialled by two other numbers
 
-$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) FROM phone_metadata2 
-	WHERE subscriber_phone_number IN 
-	(SELECT subscriber_phone_number FROM phone_metadata2 
-	WHERE MATCH(dialled_number) AGAINST('$caller_one' IN BOOLEAN MODE)) && subscriber_phone_number IN 
-	(SELECT subscriber_phone_number FROM phone_metadata2 WHERE MATCH(dialled_number) AGAINST('$caller_two'IN BOOLEAN MODE ) )
-	GROUP BY subscriber_phone_number ORDER BY count(subscriber_phone_number) DESC LIMIT 1 ";
+$phone = "SELECT `subscriber_imei`,subscriber_phone_number,count(subscriber_phone_number) 
+FROM phone_metadata4 WHERE subscriber_phone_number IN 
+
+(SELECT dialled_number FROM phone_metadata4 WHERE subscriber_phone_number='$caller_one') 
+
+&& subscriber_phone_number IN
+	
+ (SELECT dialled_number FROM phone_metadata4 WHERE subscriber_phone_number='$caller_two' ) 
+
+GROUP BY subscriber_phone_number ORDER BY count(subscriber_phone_number) DESC LIMIT 1
+
+";
 $result = mysqli_query($db, $phone );
 @$num_results = mysqli_num_rows($result);
 if ($num_results <1)
  {//2
-       echo"<h6>There are no number that called both $caller_one and $caller_two </h6>";
+       echo"<h6>There is no number that recieved calls from both $caller_one and $caller_two. </h6>";
 	   
    }
 	  else  { //5
-        echo"<h6>The details for the number that dialled both $caller_one and $caller_two are:</h6>
+        echo"<h6>The IMEI for the number that received calls from both $caller_one and $caller_two is:</h6>
         ";
         while ($row = $result->fetch_assoc()) 
        {//6
      echo"<table class='basic' border='0' style=''><tbody>
     <tr><td>Subscriber IMEI:</td>     <td>".$row['subscriber_imei']."</td></tr>
-    <tr><td>Subscriber number:</td>   <td>".$row['subscriber_phone_number']."</td></tr>
     
     </tbody></table> ";
         }//6
-        echo"<h6>Search using the subscriber IMEI to get results from the phone subscriber database for that IMEI</h6><br>";
+        echo"<h6>Search using the subscriber IMEI to find out who owns the phone.</h6><br>";
   
 	
 	}

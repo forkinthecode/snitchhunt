@@ -6,45 +6,18 @@
 
 //echo"$team $password";
   
-    if ( $team!='' && $password!='' )
-{
+
   
-   $query="SELECT id FROM teams where team='".$team."' && password='".$password."'";
-   $result = mysqli_query($db, $query);
-   @$num_results = mysqli_num_rows($result);
- 
-      if (!isset($_POST['challenge1']) &&
-          !isset($_POST['challenge2'] ) &&
-          !isset($_POST['challenge3'] ) &&
-          !isset($_POST['challenge4'] ) &&
-          !isset($_POST['challenge5'] ) &&
-          !isset($_POST['challenge6'] ) &&
-          !isset($_POST['challenge7'] )) 
-          {
+  
 
-            //echo"<h3>Enter an answer to see your progress</h3>";
-          }
-
-if ($num_results >0)
-       {
-
-        if (isset($_POST['challenge1']) ||
-          isset($_POST['challenge2'] ) ||
-          isset($_POST['challenge3'] ) ||
-          isset($_POST['challenge4'] ) ||
-          isset($_POST['challenge5'] ) ||
-          isset($_POST['challenge6'] ) ||
-          isset($_POST['challenge7'] )) 
-       
-
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge1']) )
+if ( isset($_POST['challenge1']) )
 {
 $data = trim($_POST['challenge1']); 
 $challenge_one=mysqli_real_escape_string ( $db , $data );
 $data1=$_POST['team_name'];
 $team=mysqli_real_escape_string ( $db , $data1 );
 
-$query="SELECT * FROM `solutions` WHERE solutions like'%$challenge_one%' && id='1'";
+$query="SELECT * FROM `solutions` WHERE solutions ='$challenge_one' && id='1'";
 $result = mysqli_query($db, $query );
 @$num_results = mysqli_num_rows($result);
 
@@ -78,7 +51,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge2'] )   )
+if (  isset($_POST['challenge2'] )   )
 {
  
 
@@ -120,7 +93,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge3'] ) )
+if (  isset($_POST['challenge3'] ) )
 {
  
 
@@ -160,7 +133,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge4'] ) )
+if (  isset($_POST['challenge4'] ) )
 {
  
 
@@ -200,7 +173,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge5'] ) )
+if ( isset($_POST['challenge5'] ) )
 {
  
 
@@ -240,7 +213,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge6'] ) )
+if (  isset($_POST['challenge6'] ) )
 {
  
 
@@ -280,7 +253,7 @@ if ($num_results ==0)
 }
 
 
-if ( isset($_POST['team_name'] ) && isset($_POST['challenge7'] ) )
+if ( isset($_POST['challenge7'] ) )
 {
  
 
@@ -318,10 +291,10 @@ elseif ($num_results ==0)
 
 
 
-}
 
 
-}
+
+
 }
 
    ?> 
